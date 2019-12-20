@@ -19,12 +19,9 @@ const Admin = require("./models/admin.model");
 
 const app = express();
 
-app.set("view engine", "ejs");
 
-app.use("/events", eventRoutes);
-app.use("/workshops", wsRoutes);
-app.use("/exhibitions", exhibitionRoutes);
-app.use("/SantyDance", adminRoutes);
+// Config all requirements
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -34,6 +31,13 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false
 }));
+
+// config parent routes
+app.use("/events", eventRoutes);
+app.use("/workshops", wsRoutes);
+app.use("/exhibitions", exhibitionRoutes);
+app.use("/SantyDance", adminRoutes);
+
 
 // to work on registration
 passport.use(new localStrategy(Admin.authenticate()));
