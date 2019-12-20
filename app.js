@@ -11,8 +11,10 @@ mongoose.connect("mongodb://127.0.0.1/test");
 const eventRoutes = require("./routes/event.route");
 const wsRoutes = require("./routes/ws.route");
 const exhibitionRoutes = require("./routes/exhibition.route");
-const userRoutes = require("./routes/user.route");
+const adminRoutes = require("./routes/admin.route");
 
+
+// to work on registration
 const Admin = require("./models/admin.model");
 
 const app = express();
@@ -22,7 +24,7 @@ app.set("view engine", "ejs");
 app.use("/events", eventRoutes);
 app.use("/workshops", wsRoutes);
 app.use("/exhibitions", exhibitionRoutes);
-app.use("/user", userRoutes);
+app.use("/SantyDance", adminRoutes);
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -32,11 +34,15 @@ app.use(expressSession({
     resave: false,
     saveUninitialized: false
 }));
+
+// to work on registration
 passport.use(new localStrategy(Admin.authenticate()));
 
 passport.serializeUser(Admin.serializeUser());
 passport.deserializeUser(Admin.deserializeUser());
 
+
+// to load to landing page
 app.get("/", function(req, res) {
     res.render("index");
 })

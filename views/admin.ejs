@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<script src="../assets/js/admin.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log("DOCUMENT READY");
+            $("#branch").on("change", function() {
+                console.log("BRANCH SELECTED " + this.value);
+                $.get("/"+this.value, function(data) {
+                    
+                    for (let i=0; i < length; i++) {
+                        $("#event").contents().remove();
+                        let opt = $("<option/>");
+                        opt.attr("text", data[i].name);
+                        opt.attr("val", data[i].name.trim());
+                        $("#event").append(opt);
+                    }
+                });
+            });
+        });
+    </script>
+    <title>Admin Page</title>
+</head>
+<body>
+    <h3>Select Branch</h3>
+    <form action="/SantyDance" method="POST">
+        <div>
+            <select id="branch" name="branch">
+                <option value="cs">CS</option>
+                <option value="ec">EC</option>
+                <option value="mech">Mech</option>
+                <option value="civil">Civil</option>
+                <option value="eee">EEE</option>
+                <option value="se">SE</option>
+                <option value="it">IT</option>
+            </select> 
+        </div>
+        <div>
+            <select name="event" id="event">
+                <option value="free">free event</option>
+                <option value="paid">paid event</option>
+                <option value="exhi">exhibition</option>
+                <option value="workshop">workshop</option>
+            </select>
+        </div>
+        <div>
+            <legend>Event Name</legend>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <legend>Event Description</legend>
+            <textarea name="desc" id="desc" cols="100" rows="50" name="desc"></textarea>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+</body>
+</html>
