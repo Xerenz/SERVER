@@ -1,5 +1,5 @@
 const Exhibition = require("../models/exhibition.model");
 
-exports.test = function(req, res) {
-    res.send("This is The Exhibition");
+exports.exhibition_show = function(req, res) {
+    res.render("exhibition");
 };
