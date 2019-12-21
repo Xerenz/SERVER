@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 let FreeEventSchema = new Schema(
     {
         name : {type: String, required: true, max: 100},
-        date : {type: Date, required: true},
+        date : {type: Date},
         branch : {type: String, required: true},
         content : {type: String}
     }
