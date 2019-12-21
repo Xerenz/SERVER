@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 let WorkshopSchema = new Schema(
     {
         name : {type: String, required: true, max: 100},
-        date : {type: Date, required: true},
-        price : {type: String, required: true},
+        date : {type: Date},
+        price : {type: String},
         branch : {type: String, required: true},
         content : {type: String}
     }
