@@ -52,6 +52,7 @@ passport.deserializeUser(Admin.deserializeUser());
 
 // to load static pages
 app.get("/", function(req, res) {
+	console.log("home");
     res.render("home");
 });
 
