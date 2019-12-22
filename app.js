@@ -6,7 +6,7 @@ const passport = require("passport");
 const localStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-mongoose.connect("mongodb://127.0.0.1/test");
+mongoose.connect("mongodb://localhost/dhishna");
 
 const eventRoutes = require("./routes/event.route");
 const wsRoutes = require("./routes/ws.route");

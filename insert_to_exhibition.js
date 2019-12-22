@@ -1,3 +1,5 @@
+const Exhibition = require("./models/exhibition.model");
+
 
 // place your data here
 
@@ -33,16 +35,6 @@ db.once('open', function() {
     console.log("Connection Successful!");
     
     // define Schema
-    var ExhibitionSchema = mongoose.Schema({
-      	name : {type: String, required: true},
-        label : {type: String},
-        branch : {type: String, required: true},
-        content: {type: String}
-    });
- 
-    // compile schema to model
-    var Exhibition = mongoose.model('exhibition', ExhibitionSchema);
- 
     // documents array
 
     // save multiple documents to the collection referenced by Book Model

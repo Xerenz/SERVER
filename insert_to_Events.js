@@ -1,3 +1,5 @@
+const Events = require("./models/event.model");
+
 
 // place your data here
 
@@ -33,15 +35,6 @@ db.once('open', function() {
     console.log("Connection Successful!");
     
     // define Schema
-    var EventSchema = mongoose.Schema({
-      	name : {type: String, required: true},
-        label : {type: String},
-        branch : {type: String, required: true},
-        content: {type: String}
-    });
- 
-    // compile schema to model
-    var Events = mongoose.model('event', EventSchema);
  
     // documents array
 
