@@ -174,20 +174,11 @@ Generate "lighting" using box shadows
 Posters and still images
 **************************************/
 
-.scene:nth-child(3n+1) .movie .poster {
+.scene:nth-child(n+1) .movie .poster {
   /* background-image: url(../img/poster01.jpg); */
-  background:linear-gradient(135deg, #F36265 0%,#961276 100%);
-}
-
-.scene:nth-child(3n+2) .poster {
-  /* background-image: url(../img/poster02.jpg); */
   background:linear-gradient(135deg, #C56CD6 0%,#3425AF 100%);
 }
 
-.scene:nth-child(3n+3) .poster {
-  /* background-image: url(../img/poster03.jpg); */
-  background:linear-gradient(135deg, #c3ec52 0%,#0ba29d 100%);
-}
 
 /* .scene:nth-child(3n+1) .info header {
 	

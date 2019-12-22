@@ -113,15 +113,16 @@ body{
 }
 
 /* ======================================= */
-.container_c .card:nth-child(5n + 1) .imgBx{
+/* .container_c .card:nth-child(5n + 1) .imgBx{
     background:linear-gradient(135deg, #fad961 0%,#f76b1c 100%);
-}
+} */
 
-.container_c .card:nth-child(5n + 2) .imgBx{
+.container_c .card:nth-child(n+1) .imgBx{
     background:linear-gradient(135deg, #C56CD6 0%,#3425AF 100%);
+    box-shadow: 0 0 20px rgb(222, 3, 242);
 }
 
-.container_c .card:nth-child(5n + 3) .imgBx{
+/* .container_c .card:nth-child(5n + 3) .imgBx{
     background:linear-gradient(135deg, #17ead9 0%,#6078ea 100%);
 }
 .container_c .card:nth-child(5n + 4) .imgBx{
@@ -129,7 +130,7 @@ body{
 }
 .container_c .card:nth-child(5n + 5) .imgBx{
     background:linear-gradient(135deg, #184e68 0%,#57ca85 100%);
-}
+} */
 
 
 /* ======================================= */

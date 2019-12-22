@@ -54,6 +54,8 @@ body{
 	position: absolute;
 	top: 0;
     left: 0;
+    padding: 15px;
+    font-size: 0.8em;
    
 }
 
@@ -72,6 +74,7 @@ body{
     transition: 1s;
     background:linear-gradient(135deg, #C56CD6 0%,#3425AF 100%);
     border-radius: 20px;
+    box-shadow: 0px 0px 20px #e614c6;
 }
 
 .h_text{
