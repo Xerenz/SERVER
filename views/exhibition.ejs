@@ -101,22 +101,24 @@
                     <div class="row">
 
                     <!-- circle -->
+                    <% for (let i = 0; i < events.length; i++) { %>
                     <div class="col col-12 col-md-6">
                         <div class="square">
                             <span></span>
                             <span></span>
                             <span></span>
                             <div class="content">
-                                <h2>Title</h2>
-                                <p>blah blah</p>
+                                <h2><%= events[i].name %></h2>
+                                <p><%= events[i].content %></p>
                                 <a href="#">Read More</a>
                             </div>
                         </div>
                     </div>
+                    <% } %>
                     <!--  -->
 
 
-                     <!-- circle -->
+                     <!-- circle 
                      <div class="col col-12 col-md-6">
                         <div class="square">
                             <span></span>
@@ -129,10 +131,10 @@
                             </div>
                         </div>
                     </div>
-                    <!--  -->
+                     -->
 
 
-                     <!-- circle -->
+                     <!-- circle 
                      <div class="col col-12 col-md-6">
                         <div class="square">
                             <span></span>
@@ -145,10 +147,10 @@
                             </div>
                         </div>
                     </div>
-                    <!--  -->
+                      -->
 
 
-                     <!-- circle -->
+                     <!-- circle 
                      <div class="col col-12 col-md-6">
                         <div class="square">
                             <span></span>
@@ -161,7 +163,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--  -->
+                     -->
 
 
 

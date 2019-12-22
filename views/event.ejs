@@ -95,19 +95,20 @@
             <div class="col col-12">
                 <div class="space-50"></div>
                 <ul class="stage clearfix">
+                <div class="space-50"></div>
                         <!-- box -->
-                        <div class="space-50"></div>
+                    <% for(let i = 0; i < events.length; i++) { %>
                         <li class="scene">
                             <div class="movie" onclick="return true">
                                 <div class="poster">
-                                    <div class="poster_head"><h3>Cyber Security</h3></div>
+                                    <div class="poster_head"><h3><%= events[i].name %></h3></div>
                                 </div>
                                 <div class="info">
                                     <header>
-                                        <h1>It's a Wonderful Life</h1>
+                                        <h1><%= events[i].name %></h1>
                                     </header>
                                     <p >
-                                        In Bedford Falls, New York on Christmas Eve, George Bailey is deeply troubled. Prayers for his well-being from friends and family reach Heaven. Clarence Odbody, Angel Second Class, is assigned to visit Earth to save George, thereby earning his wings. Franklin and Joseph, the head angels, review George's life with Clarence.
+                                        <%= events[i].content %>
                                     </p>
                                     <div class="box_button text-center">
                                         <span><a href="#">Register</a></span>
@@ -115,9 +116,10 @@
                                 </div>
                             </div>
                         </li>
+                    <% } %>
                         <!-- box ends -->
 
-                        <!-- box -->
+                        <!-- 
                         <li class="scene">
                             <div class="movie" onclick="return true">
                                 <div class="poster">
@@ -137,8 +139,8 @@
                             </div>
                         </li>
 
-                        <!--  -->
-                        <!--  box -->
+                          -->
+                        <!--  box 
                         <li class="scene">
                             <div class="movie" onclick="return true">
                                 <div class="poster">
@@ -157,10 +159,10 @@
                                 </div>
                             </div>
                         </li>
-                        <!--  -->
+                          -->
 
 
-                         <!--  box -->
+                         <!--  
                          <li class="scene">
                             <div class="movie" onclick="return true">
                                 <div class="poster">
@@ -180,7 +182,7 @@
                                 </div>
                             </div>
                         </li>
-                        <!--  -->
+                         -->
                 </ul>
             </div>
         </div>
