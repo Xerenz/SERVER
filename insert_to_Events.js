@@ -41,12 +41,12 @@ db.once('open', function() {
     });
  
     // compile schema to model
-    var event = mongoose.model('event', EventSchema);
+    var Events = mongoose.model('event', EventSchema);
  
     // documents array
 
     // save multiple documents to the collection referenced by Book Model
-    Book.collection.insert(data, function (err, docs) {
+    Events.collection.insert(data, function (err, docs) {
       if (err){ 
           return console.error(err);
       } else {
