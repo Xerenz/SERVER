@@ -89,7 +89,7 @@ app.get("/outreach", function(req, res) {
 
 
 app.get("/profile", function(req, res) {
-    qrcode.toDataURL(req.user.id, function(err, url) {
+    qrcode.toDataURL(req.user._id, function(err, url) {
         let user = {user_ : req.user, qr : url};
         res.render("user/profile", {user : user});
     });
@@ -179,12 +179,14 @@ app.post("/api", function(req, res) {
 
     if (req.body.status === 'Credit') {
     
-        let payment = new Transaction({
+    /*   let payment = new Transaction({
             payment_id : req.body.payment_id,
             status : req.body.status,
             payment_for : req.body.offer_title,
             buyer : req.body.buyer
-        });
+        }); */
+
+        console.log("Transaction was credit");
 
         /* User.update({username : req.session.passport.user},
             {"$push" : {"events" : req.body.offer_title}},
@@ -197,16 +199,16 @@ app.post("/api", function(req, res) {
 
         }); */
 
-        console.log(req.session);
+        console.log(req.user);
 
-        payment.save(function(err) {
+        /*payment.save(function(err) {
             if (err)
                 console.log(err);
             else {
                 console.log("payment saved", req.body.payment_id, 
                 req.body.offer_title);
             }
-        }); 
+        }); */
     }
 
     else {
