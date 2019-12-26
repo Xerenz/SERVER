@@ -89,7 +89,7 @@ app.get("/outreach", function(req, res) {
 
 
 
-app.get("/profile", function(req, res) {
+app.get("/profile", isLoggedIn, function(req, res) {
     qrcode.toDataURL(req.user.id, function(err, url) {
         let user = {user_ : req.user, qr : url};
         res.render("user/profile", {user : user});
