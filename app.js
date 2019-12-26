@@ -179,53 +179,79 @@ app.get("/payment", function(req, res) {
 app.post("/api", function(req, res) {
     console.log(req.body);
     
-    // if (req.user)
-    //    console.log("user persists");
-
-
-    // user does not persist
-    
-    let payment = new PostTransaction({
+    let payment = new Transaction({
         payment_id : req.body.payment_id,
         status : req.body.status,
         payment_for : req.body.offer_title,
         buyer : req.body.buyer
+    });
 
-        // need to add uid
+    User.update({username : req.session.passport.user},
+        {"$push" : {"events" : req.body.offer_title}},
+         function(err, user) {
+        if (err)
+            console.log(err);
+        else {
+            console.log("event added to user..");   
+        }
     });
 
     payment.save(function(err) {
         if (err)
             console.log(err);
-        else
-            console.log("payment saved");
-        res.redirect("/");
+        else {
+            console.log("payment saved", payment_id, payment_for);
+        }
     }); 
 });
 
 // redirect after success
 app.get("/api", function(req, res) {
     console.log(req.query);
+    if (req.query.status === 'success') {
 
-    //if (req.user)
-    //    console.log("user persists");
-
-    // user does not persist
-
-    console.log("Whats in req?", req);
-
-    let payment = new GetTransaction({
-        payment_id : req.query.payment_id,
-        status : req.query.status
-    });
-
-    payment.save(function(err) {
-        if (err)
-            console.log(err);
-        else
-            console.log("payment saved");
-        res.redirect("/");
-    });
+        Transaction.find({payment_id : req.query.payment_id}, function(err, doc) {
+            if (err)
+                console.log(err);
+            if (!doc) {
+                console.log("Not saved via webhook..");
+                request.get("instamojo url", 
+                {form : payload, headers : headers},
+                function(err, res, body) {
+                    let payment = new PostTransaction({
+                        payment_id : req.body.payment_id,
+                        status : req.body.status,
+                        payment_for : req.body.offer_title,
+                        buyer : req.body.buyer
+                    });
+                    User.update({username : req.session.passport.user},
+                        {"$push" : {"events" : req.body.offer_title}},
+                         function(err, user) {
+                        if (err)
+                            console.log(err);
+                        else {
+                            console.log("Event added for user");
+                        }
+                    });
+                
+                    payment.save(function(err) {
+                        if (err)
+                            console.log(err);
+                        else {
+                            console.log("payment saved", payment_id, payment_for);
+                        }
+                        res.redirect("/");
+                    }); 
+                });
+            }
+            else {
+                console.log("payment saved by webhook...");
+            }
+        });
+    }
+    else {
+        console.log("failed transaction...");
+    }
 });
 
 

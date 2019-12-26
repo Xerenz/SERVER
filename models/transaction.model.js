@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const PostTransactionSchema = new Schema(
+const TransactionSchema = new Schema(
     {
         payment_id : {type: String},
         payment_for : {type : String},
@@ -11,13 +11,4 @@ const PostTransactionSchema = new Schema(
     }
 );
 
-const GetTransactionSchema = new Schema(
-    {
-        payment_id : {type: String},
-        status : {type: String}
-    }
-);
-
-exports.PostTransaction = mongoose.model("PostTransaction", PostTransactionSchema);
-
-exports.GetTransaction = mongoose.model("GetTransaction", GetTransactionSchema);
+module.exports = mongoose.model("Transaction", TransactionSchema);
