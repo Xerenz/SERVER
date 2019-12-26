@@ -97,4 +97,7 @@ canvas {
     .filter_link{
         font-size: 0.8em;
     }
+    .theme{
+        font-size: 0.5em;
+    }
 }
