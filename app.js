@@ -18,8 +18,15 @@ const adminRoutes = require("./routes/admin.route");
 
 
 // to work on registration
-const Admin = require("./models/admin.model");
+// const Admin = require("./models/admin.model"); // not required now //
+
+// User db
 const User = require("./models/user.model");
+// Transaction db
+const Transaction = require("./models/transaction.model");
+
+const GetTransaction = Transaction.GetTransaction;
+const PostTransaction = Transaction.PostTransaction;
 
 const app = express();
 
@@ -169,13 +176,51 @@ app.get("/payment", function(req, res) {
 });
 
 // webhook
-app.post("/payment", function(req, res) {
+app.post("/api", function(req, res) {
     console.log(req.body);
+    
+    if (req.user)
+        console.log("user persists");
+
+    let payment = new PostTransaction({
+        payment_id : req.body.payment_id,
+        status : req.body.status,
+        payment_for : req.body.offer_title,
+        buyer : req.body.buyer
+
+        // need to add uid
+    });
+
+    payment.save(function(err) {
+        if (err)
+            console.log(err);
+        else
+            console.log("payment saved");
+        res.redirect("/");
+    }); 
 });
 
 // redirect after success
 app.get("/api", function(req, res) {
     console.log(req.query);
+
+    if (req.user)
+        console.log("user persists");
+
+    console.log("Whats in body?", req.body);
+
+    let payment = new GetTransaction({
+        payment_id : req.query.payment_id,
+        status : req.query.status
+    });
+
+    payment.save(function(err) {
+        if (err)
+            console.log(err);
+        else
+            console.log("payment saved");
+        res.redirect("/");
+    });
 });
 
 
