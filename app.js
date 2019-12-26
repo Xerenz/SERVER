@@ -186,14 +186,16 @@ app.post("/api", function(req, res) {
         buyer : req.body.buyer
     });
 
-    User.update({username : req.session.passport.user},
+   /* User.update({username : req.session.passport.user},
         {"$push" : {"events" : req.body.offer_title}},
          function(err, user) {
         if (err)
             console.log(err);
         else {
             console.log("event added to user..");   
-        }
+        } */
+
+        console.log(req.session);
     });
 
     payment.save(function(err) {
