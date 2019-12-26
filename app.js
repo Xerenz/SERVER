@@ -25,8 +25,6 @@ const User = require("./models/user.model");
 // Transaction db
 const Transaction = require("./models/transaction.model");
 
-const GetTransaction = Transaction.GetTransaction;
-const PostTransaction = Transaction.PostTransaction;
 
 const app = express();
 
@@ -178,34 +176,42 @@ app.get("/payment", function(req, res) {
 // webhook
 app.post("/api", function(req, res) {
     console.log(req.body);
+
+    if (req.body.status === 'Credit') {
     
-    let payment = new Transaction({
-        payment_id : req.body.payment_id,
-        status : req.body.status,
-        payment_for : req.body.offer_title,
-        buyer : req.body.buyer
-    });
+        let payment = new Transaction({
+            payment_id : req.body.payment_id,
+            status : req.body.status,
+            payment_for : req.body.offer_title,
+            buyer : req.body.buyer
+        });
 
-   /* User.update({username : req.session.passport.user},
-        {"$push" : {"events" : req.body.offer_title}},
-         function(err, user) {
-        if (err)
-            console.log(err);
-        else {
-            console.log("event added to user..");   
-        } 
+        /* User.update({username : req.session.passport.user},
+            {"$push" : {"events" : req.body.offer_title}},
+                function(err, user) {
+            if (err)
+                console.log(err);
+            else {
+                console.log("event added to user..");   
+            } 
 
-    }); */
+        }); */
 
-    console.log(req.session);
+        console.log(req.session);
 
-    payment.save(function(err) {
-        if (err)
-            console.log(err);
-        else {
-            console.log("payment saved", payment_id, payment_for);
-        }
-    }); 
+        payment.save(function(err) {
+            if (err)
+                console.log(err);
+            else {
+                console.log("payment saved", req.body.payment_id, 
+                req.body.offer_title);
+            }
+        }); 
+    }
+
+    else {
+        console.log("transaction failed");
+    }
 });
 
 // redirect after success
@@ -218,15 +224,21 @@ app.get("/api", function(req, res) {
                 console.log(err);
             if (!doc) {
                 console.log("Not saved via webhook..");
-                request.get("instamojo url", 
+
+                let url = "https://www.test.instamojo.com/api/1.1/payment-requests/"
+                let payload = {}
+                let headers = {'X-Api-Key': 'test_33e8cff1c7771aa97518b6bbf70', 'X-Auth-Token': 'test_a2981cf2689df276c8dc7d732d7'};
+
+                request.get(url + req.query.payment_id, 
                 {form : payload, headers : headers},
                 function(err, res, body) {
-                    let payment = new PostTransaction({
-                        payment_id : req.body.payment_id,
-                        status : req.body.status,
-                        payment_for : req.body.offer_title,
-                        buyer : req.body.buyer
+                    let payment = new Transaction({
+                        payment_id : body.payment_id,
+                        status : body.status,
+                        payment_for : body.offer_title,
+                        buyer : body.buyer
                     });
+                    /*
                     User.update({username : req.session.passport.user},
                         {"$push" : {"events" : req.body.offer_title}},
                          function(err, user) {
@@ -235,7 +247,7 @@ app.get("/api", function(req, res) {
                         else {
                             console.log("Event added for user");
                         }
-                    });
+                    });*/
                 
                     payment.save(function(err) {
                         if (err)
@@ -247,14 +259,18 @@ app.get("/api", function(req, res) {
                     }); 
                 });
             }
+            // check if payment saved via webhook //
             else {
                 console.log("payment saved by webhook...");
             }
         });
     }
+    // check if transaction was a success //
     else {
         console.log("failed transaction...");
     }
+
+    console.log(req);
 });
 
 
