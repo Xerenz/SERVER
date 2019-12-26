@@ -178,7 +178,7 @@ app.get("/payment", function(req, res) {
 
         qstring = "data_name=" + name + "&data_email=" + email + "&data_phone=" + phone;
         qinstruc = "&data_readonly=data_name&data_readonly=data_email&data_readonly=data_phone";
-        return res.redirect("https://test.instamojo.com/dhishna2020/workshop-3/?" + qstring + qinstruc); // instamojo
+        return res.redirect("https://test.instamojo.com/@dhishna2020/ldb5bbb289d6b494fb048a03e98c18a40/?" + qstring + qinstruc); // instamojo
     }
     res.redirect("/login"); // unauthorized user
 });
