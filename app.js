@@ -270,6 +270,7 @@ app.get("/api", function(req, res) {
                             console.log(err);
                         else {
                             console.log("Event added for user");
+                            console.log(user); // check user state
                         }
                     });
                 
@@ -277,7 +278,8 @@ app.get("/api", function(req, res) {
                         if (err)
                             console.log(err);
                         else {
-                            console.log("payment saved", payment_id, payment_for);
+                            console.log("payment saved", req.body.payment_id, 
+                            req.body.offer_title);
                         }
                     }); 
                 });
