@@ -40,7 +40,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // config parent routes
-// app.use("/", userRoutes); // not working //
 app.use("/event", eventRoutes);
 app.use("/workshop", wsRoutes);
 app.use("/exhibition", exhibitionRoutes);
@@ -48,12 +47,6 @@ app.use("/SantyDance", adminRoutes);
 
 
 // to work on registration
-
-// for admin
-passport.use(new localStrategy(Admin.authenticate()));
-
-passport.serializeUser(Admin.serializeUser());
-passport.deserializeUser(Admin.deserializeUser());
 
 // for user
 passport.use(new localStrategy(User.authenticate()));
@@ -90,7 +83,7 @@ app.get("/outreach", function(req, res) {
 
 
 
-app.get("/profile", isLoggedIn, function(req, res) {
+app.get("/profile", function(req, res) {
     qrcode.toDataURL(req.user.id, function(err, url) {
         let user = {user_ : req.user, qr : url};
         res.render("user/profile", {user : user});
@@ -120,8 +113,10 @@ app.post("/register", function(req, res) {
         }
         console.log("user created " + user.username);
         passport.authenticate("local")(req, res, function() {
-            console.log("user authenticated");
-            res.redirect("/profile");
+            if (req.user) {
+                console.log("user authenticated");
+                res.redirect("/profile");
+            }
         });
     });
 });
@@ -153,8 +148,9 @@ app.get("/logout", function(req, res) {
 });
 
 
-// middleware for cheking user auth
+// middleware for checking user auth
 function isLoggedIn(req, res, next) {
+    console.log("checking login state");
     if (req.isAuthenticated()) {
         return next();
     }
