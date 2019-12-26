@@ -7,6 +7,10 @@ let EventSchema = new Schema(
         label : {type: String},
         branch : {type: String, required: true},
         content: {type: String},
+        label : {type: String},
+        
+        // payment url
+        url : {type: String}
     }
 );
 

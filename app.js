@@ -9,7 +9,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 mongoose.connect("mongodb://localhost/dhishna");
 
-const userRoutes = require("./routes/user.route");
+// const userRoutes = require("./routes/user.route");
 const eventRoutes = require("./routes/event.route");
 const wsRoutes = require("./routes/ws.route");
 const exhibitionRoutes = require("./routes/exhibition.route");
@@ -40,7 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // config parent routes
-//app.use("/", userRoutes); // not working //
+// app.use("/", userRoutes); // not working //
 app.use("/event", eventRoutes);
 app.use("/workshop", wsRoutes);
 app.use("/exhibition", exhibitionRoutes);
@@ -132,7 +132,7 @@ app.post("/register", function(req, res) {
 
 app.get("/login", function(req, res) {
     var message = "LogIn Here!"
-    if (req.isAuthenticated)
+    if (req.user)
         message = "LogIn with another account?";
     res.render("user/login", {message : message});
 });
@@ -162,7 +162,29 @@ function isLoggedIn(req, res, next) {
 }
 
 
-// ===================================================================== //
+// ============================================== payments ===================================== //
+
+
+// pay button was clicked
+app.get("/payment", function(req, res) {
+    if (req.user)
+        return res.redirect("/"); // instamojo
+    res.redirect("/login"); // unauthorized user
+});
+
+// webhook
+app.post("/payment", function(req, res) {
+    console.log(req.body);
+});
+
+// redirect after success
+app.get("/api", function(req, res) {
+    console.log(req.query);
+});
+
+
+
+// ============================================================================================== //
 
 
 app.listen(3000, function() {

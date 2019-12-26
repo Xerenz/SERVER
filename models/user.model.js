@@ -9,8 +9,8 @@ let UserSchema = new Schema(
     	password : {type: String},
 
     	// personal info
-        name : {type:String, require: true, max: 100},
-        phone : {type: String, require: true},
+        name : {type:String, max: 100},
+        phone : {type: String},
         inst : {type: String},
 
         // registration info

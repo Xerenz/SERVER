@@ -6,7 +6,8 @@ let FreeEventSchema = new Schema(
         name : {type: String, required: true, max: 100},
         date : {type: Date},
         branch : {type: String, required: true},
-        content : {type: String}
+        content : {type: String},
+        label : {type: String}
     }
 );
 
