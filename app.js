@@ -193,10 +193,11 @@ app.post("/api", function(req, res) {
             console.log(err);
         else {
             console.log("event added to user..");   
-        } */
+        } 
 
-        console.log(req.session);
-    });
+    }); */
+
+    console.log(req.session);
 
     payment.save(function(err) {
         if (err)
