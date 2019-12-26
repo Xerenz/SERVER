@@ -185,7 +185,7 @@ app.get("/payment", function(req, res) {
 
 // webhook
 app.post("/api", function(req, res) {
-    console.log(req);
+    // console.log(req);
 
     if (req.body.status === 'Credit') {
     
@@ -198,7 +198,7 @@ app.post("/api", function(req, res) {
 
         console.log("Transaction was credit");
 
-        User.updateOne({id : req.user.id},
+        User.updateOne({username : req.body.buyer},
             {"$push" : {"events" : req.body.offer_title}},
                 function(err, user) {
             if (err)
