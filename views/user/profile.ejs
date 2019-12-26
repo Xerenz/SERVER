@@ -1,9 +1,155 @@
-<h1>This is the profile page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA - | <%= user.qr %></title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-<img src="<%= user.qr %>">
-<h2><%= user.user_.name %></h2>
-<h2><%= user.user_.username %></h2>
-<h2><%= user.user_.college %></h2>
-<h2><%= user.user_.phone %></h2>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/event.css">
+    <link rel="stylesheet" href="assets/css/event_box.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/social_icon.css">
+    <script src="assets/js/overlay_close.js"></script>
+</head>
+<body>  
 
-<p>any changes or help? <a href="/contact">Contact Us!</a></p>
+     <!-- canvas section -->
+     <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <div class="back_button animated zoomIn delay-1s">
+        <a href="home"><img src="assets/img/logo.png" alt=""></a>
+    </div>
+
+
+<!-- navbar -->
+<section>
+    <header>
+        <div id="myNav" class="overlay">
+            <!-- Button to close the overlay navigation -->
+            
+            <!-- Overlay content -->
+            <div class="overlay-content">
+                
+               <!--  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  -->     
+                <div onclick="closeNav()" class="burger" id="closebutton">
+                     <i class="fa fa-times" aria-hidden="true"></i>
+                </div>   
+                <div class="links">
+                    <a href="home">HOME</a>
+                    <a href="about">ABOUT</a>
+                    <!-- <a href="event.html">EVENTS</a> -->
+                    <a href="workshop">WORKSHOPS</a>
+                    <!-- <a href="exhibition.html">EXHIBITION</a> -->
+                    <a href="outreach">OUTREACH</a>
+                    <a href="http://summit.dhishna.org">SUMMIT</a>
+                    <a href="profile">PROFILE</a>
+                    <!-- <a href="">MAP</a> -->
+                    <a href="contact">CONTACT</a>
+                </div>
+    
+                <ul class="circles" id="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                 </ul>
+            
+            </div>
+        </div>
+    </header>
+    <div onclick="openNav()" class="burger">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+</section>
+    
+<!-- navbar ends -->
+<section>
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="space"></div>
+            <div class="space-50"></div>
+            <div class="col col-12 text-center text-md-left">
+                <h3 class="home_head animated fadeInUp delay-1s">Hello <%= user.user_.name %></h3>
+            </div>
+        </div><!-- &&row -->
+         <!-- row -->
+        <!-- &&row -->
+        
+    </div><!-- container end -->
+    
+</section>
+
+
+
+    <!-- =========================================== -->
+    <section>
+    <div class="container">
+        <div class="row">
+        	<div class="space-50"></div>
+        	<div class="col col-12">
+        		scan QR code
+        	</div>
+            <div class="col col-12">
+                <img src="<%= user.qr %>">
+            </div>
+        </div>
+    </div>
+
+
+    </section>
+
+
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 ">
+                    <ul class="social_dhishna">
+                        <li>
+                            <a href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="assets/js/modernizr.custom.js"></script> 
+    <!-- script -->
+    <script src="assets/js/navbar.js"></script>
+   
+    <!-- script -->
+
+</body>
+</html>

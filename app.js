@@ -71,6 +71,12 @@ app.get("/", function(req, res) {
     res.render("home");
 });
 
+app.get("/home", function(req, res) {
+  
+    res.render("home2");
+});
+
+
 app.get("/about", function(req, res) {
     res.render("about");
 });

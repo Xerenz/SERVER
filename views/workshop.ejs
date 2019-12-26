@@ -104,55 +104,57 @@
     <div class="container">
         <div class="row">
             <div class="col col-12">
+                 <div class="space-50"></div>
                 <ul class=" clearfix">
 
-                    <!-- box -->
+                    <% for(var i=0;i<events.length;i++){ %>
+
+                        <!-- box -->
                     <!-- ====================================== -->
-                        <div class="space-50"></div>
+                       
                         <li class="scene animated zoomIn delay-1s">
                             <div class="movie" onclick="return true">
                                 <div class="poster">
-                                    <div class="poster_head">ML WORKSHOP</div>
+                                    <div class="poster_head"><%= events[i].name %></div>
                                 </div>
                                 <div class="info">
                                     <header>
-                                        <h6>ML Workshop</h6>
+                                        <h6><%= events[i].name %></h6>
                                     </header>
                                     <p >
-                                        This is a two day workshop where you will learn the basics of ml. The session would be a hands on session perfect for beginners. Industry experts handpicked by iit Bombay would ensure an enlightening experience for the students. Furthermore it also provides an opportunity to enter a national level competition and win exciting prizes.
+                                        <%= events[i].content %>
                                     </p>
                                     <div class="box_button text-center">
-                                        <span><a onclick="overlay_open('eventName')">Know more</a></span>
+                                        <span><a onclick="overlay_open('<%=events[i].name%>')">Know more</a></span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <!-- overlay -->
-                        <div class="pay_over animated fadeIn" id="eventName">
+                        <div class="pay_over animated fadeIn" id="<%=events[i].name%>">
                                 <div class="pay_box">
                                     <div class="row">
-                                        <div  onclick="overlay_close('eventName')" class="col col-12 text-right pay_close">
+                                        <div  onclick="overlay_close('<%=events[i].name%>')" class="col col-12 text-right pay_close">
                                            <a > X</a>
                                         </div>
                                         <div class="space-50"></div>
                                         <div class="col col-12 text-center">
-                                            Machine Learning Workshop
+                                            <%= events[i].name %>
                                         </div>
                                         <div class="space-50"></div>
                                         <div class="col col-12 text-center pay_desc text-md-left">
-                                            This is a two day workshop where you will learn the basics of ml. The session would be a hands on session perfect for beginners. Industry experts handpicked by iit Bombay would ensure an enlightening experience for the students. Furthermore it also provides an opportunity to enter a national level competition and win exciting prizes.
+                                            <%= events[i].content %>
                                         </div>
                                         <div class="space-50"></div>
                                         <div class="col col-12 text-center"><a href="#putExternallink"><button type="button" class="btn btn-dark">Download full details</button></a></div>
                                         <div class="space-50"></div>
-                                        <div class="col col-12 text-center pay_money">Fees : ₹ 700</div>
-                                        <div class="space-50"></div>
-                                        <div class="col col-12 text-center pay_money">Date : 19 - 1 - 2020</div>
-                                        <div class="space-50"></div>
-                                        <div class="col col-12 text-center pay_money">status : open</div>
-                                        <div class="space-50"></div>
-                                        <div class="col col-12 text-center pay_money">Contact : 9898908790</div>
-                                        <div class="space-50"></div>
+                                        <div class="col col-12 col-md-4 text-center pay_money">Fees : ₹ 700</div>
+                                        
+                                        <div class="col col-12 col-md-4 text-center pay_money">Date  19 - 1 - 2020</div>
+                                        <div class="col col-12  col-md-4 text-center pay_money">Harsha : 9898908790</div>
+                                        <!-- <div class="space-50"></div> -->
+                                        <div class="col col-12  text-center pay_money p-4 text-danger">open</div>
+                                      
                                         <div class="col col-12 text-center"><a href=""><button type="button" class="btn btn-danger">Register</button></a></div>
                                         <div class="space-50"></div>
                                     </div>
@@ -162,7 +164,11 @@
                      <!-- box ends -->
                      <!-- ================================================= -->
 
-                       
+
+
+                   <% } %>
+                    
+
                 </ul>
             </div>
         </div>
