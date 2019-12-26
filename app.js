@@ -185,7 +185,7 @@ app.get("/payment", function(req, res) {
 
 // webhook
 app.post("/api", function(req, res) {
-    console.log(req.body);
+    console.log(req);
 
     if (req.body.status === 'Credit') {
     
@@ -279,7 +279,6 @@ app.get("/api", function(req, res) {
                         else {
                             console.log("payment saved", payment_id, payment_for);
                         }
-                        res.redirect("/");
                     }); 
                 });
             }
