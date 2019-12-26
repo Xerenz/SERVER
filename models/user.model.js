@@ -14,7 +14,7 @@ let UserSchema = new Schema(
         inst : {type: String},
 
         // registration info
-        events : [{type: Schema.Types.ObjectId, ref: "Event"}],
+        events : [{type: String, ref: "Event"}],
         ws : [{type: Schema.Types.ObjectId, ref: "Workshop"}]
     }
 );

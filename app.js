@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const request = require("request");
 const qrcode = require("qrcode");
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
@@ -89,7 +90,7 @@ app.get("/outreach", function(req, res) {
 
 
 app.get("/profile", function(req, res) {
-    qrcode.toDataURL(req.user._id, function(err, url) {
+    qrcode.toDataURL(req.user.id, function(err, url) {
         let user = {user_ : req.user, qr : url};
         res.render("user/profile", {user : user});
     });
@@ -168,8 +169,17 @@ function isLoggedIn(req, res, next) {
 
 // pay button was clicked
 app.get("/payment", function(req, res) {
-    if (req.user)
-        return res.redirect("https://test.instamojo.com/dhishna2020/workshop-2/"); // instamojo
+    if (req.user) {
+        name = req.user.name;
+        email = req.user.username;
+        phone = req.user.phone;
+
+        // string manipulation
+
+        qstring = "data_name=" + name + "&data_email=" + email + "&data_phone=" + phone;
+        qinstruc = "&data_readonly=data_name&data_readonly=data_email&data_readonly=data_phone";
+        return res.redirect("https://test.instamojo.com/dhishna2020/workshop-3/?" + qstring + qinstruc); // instamojo
+    }
     res.redirect("/login"); // unauthorized user
 });
 
@@ -179,16 +189,16 @@ app.post("/api", function(req, res) {
 
     if (req.body.status === 'Credit') {
     
-    /*   let payment = new Transaction({
+       let payment = new Transaction({
             payment_id : req.body.payment_id,
             status : req.body.status,
             payment_for : req.body.offer_title,
             buyer : req.body.buyer
-        }); */
+        }); 
 
         console.log("Transaction was credit");
 
-        /* User.update({username : req.session.passport.user},
+        User.updateOne({id : req.user.id},
             {"$push" : {"events" : req.body.offer_title}},
                 function(err, user) {
             if (err)
@@ -197,24 +207,25 @@ app.post("/api", function(req, res) {
                 console.log("event added to user..");   
             } 
 
-        }); */
+        }); 
 
         console.log(req.user);
 
-        /*payment.save(function(err) {
+        payment.save(function(err) {
             if (err)
                 console.log(err);
             else {
                 console.log("payment saved", req.body.payment_id, 
                 req.body.offer_title);
             }
-        }); */
+        }); 
     }
 
     else {
         console.log("transaction failed");
     }
 });
+
 
 // redirect after success
 app.get("/api", function(req, res) {
@@ -224,32 +235,43 @@ app.get("/api", function(req, res) {
         Transaction.find({payment_id : req.query.payment_id}, function(err, doc) {
             if (err)
                 console.log(err);
-            if (!doc) {
+            if (doc.length === 0) {
                 console.log("Not saved via webhook..");
 
-                let url = "https://www.test.instamojo.com/api/1.1/payment-requests/"
+                let url = "https://test.instamojo.com/api/1.1/payment-requests/"
                 let payload = {}
                 let headers = {'X-Api-Key': 'test_33e8cff1c7771aa97518b6bbf70', 'X-Auth-Token': 'test_a2981cf2689df276c8dc7d732d7'};
 
+                // console.log(req.payment_request.id);
+
+
+                // need main payment id of format : d66cb29dd059482e8072999f995c4eef
+                // payment_id is of format : MOJO5a06005J21512197
                 request.get(url + req.query.payment_id, 
                 {form : payload, headers : headers},
                 function(err, res, body) {
+
+                    if (err)
+                        console.log(err);
+
+                    console.log(body);
+
                     let payment = new Transaction({
-                        payment_id : body.payment_id,
-                        status : body.status,
-                        payment_for : body.offer_title,
-                        buyer : body.buyer
+                        payment_id : req.query.payment_id,
+                        status : req.query.status,
                     });
-                    /*
-                    User.update({username : req.session.passport.user},
-                        {"$push" : {"events" : req.body.offer_title}},
+
+                    console.log(req.user);
+
+                    User.updateOne({id : req.user.id},
+                        {"$push" : {"events" : "An Event through get req"}},
                          function(err, user) {
                         if (err)
                             console.log(err);
                         else {
                             console.log("Event added for user");
                         }
-                    });*/
+                    });
                 
                     payment.save(function(err) {
                         if (err)
@@ -265,6 +287,8 @@ app.get("/api", function(req, res) {
             else {
                 console.log("payment saved by webhook...");
             }
+
+            res.redirect("/");
         });
     }
     // check if transaction was a success //
@@ -272,13 +296,15 @@ app.get("/api", function(req, res) {
         console.log("failed transaction...");
     }
 
-    console.log(req);
+    
 });
 
 
 
-// ============================================================================================== //
+// ============================================== innovator summit ================================================ //
 // Innovator's summit
+
+/*
 app.get("/pay",function(req,res){
   var request= require('request');
 
@@ -302,9 +328,34 @@ request.post('https://test.instamojo.com/api/1.1/payment-requests/', {form: payl
 })
 
 })
+*/
 
 
 
+
+Innova = require("./models/innova.model");
+
+// webhook handler for innovator summit
+app.post("/api_innova", function(req, res) {
+    if (req.body.status === 'Credit') {
+
+        // add to innovator 
+        let payment = Innova({
+            name : req.body.buyer,
+            details : req.body
+        });
+
+        payment.save(function(err) {
+            if (err)
+                console.log(err)
+            else 
+                console.log("payment saved");
+        });
+    }
+
+    else 
+        console.log("failed payment");
+});
 
 
 
