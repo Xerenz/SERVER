@@ -93,7 +93,7 @@ app.get("/outreach", function(req, res) {
 app.get("/profile", isLoggedIn, function(req, res) {
     qrcode.toDataURL(req.user.id, function(err, url) {
         let user = {user_ : req.user, qr : url};
-        res.render("user/profile", {user : user});  
+        res.render("user/profile", {user : user});
     });
 });
 
@@ -168,7 +168,7 @@ function isLoggedIn(req, res, next) {
 // pay button was clicked
 app.get("/payment", function(req, res) {
     if (req.user)
-        return res.redirect("/"); // instamojo
+        return res.redirect("https://test.instamojo.com/dhishna2020/workshop-2/"); // instamojo
     res.redirect("/login"); // unauthorized user
 });
 
@@ -185,8 +185,39 @@ app.get("/api", function(req, res) {
 
 
 // ============================================================================================== //
+// Innovator's summit
+app.get("/pay",function(req,res){
+  var request= require('request');
+
+var headers = { 'X-Api-Key': 'test_ee288567eaaead41cf2e2fb56d7', 'X-Auth-Token': 'test_834daeb7d8057ccae1359bb9089'}
+var payload = {
+  purpose: 'FIFA 16',
+  amount: '2500',
+  phone: '9999999999',
+  buyer_name: 'John Doe',
+  redirect_url: 'http://www.example.com/redirect/',
+  send_email: false,
+  webhook: 'http://www.example.com/webhook/',
+  send_sms: false,
+  email: 'foo@example.com',
+  allow_repeated_payments: false}
+
+request.post('https://test.instamojo.com/api/1.1/payment-requests/', {form: payload,  headers: headers}, function(error, response, body){
+  if(!error && response.statusCode == 201){
+    console.log(body);
+  }
+})
+
+})
 
 
-app.listen(3000, function() {
-    console.log("listening to port 3000");
+
+
+
+
+// ===================================================================== //
+
+
+app.listen(8000, function() {
+    console.log("listening to port 8000");
 });
