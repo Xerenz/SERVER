@@ -138,7 +138,7 @@ app.get("/login", function(req, res) {
 });
 
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/secret",
+    successRedirect: "/profile",
     failureRedirect: "/login"
 }), function(req, res) {
     // final handler
