@@ -179,9 +179,12 @@ app.get("/payment", function(req, res) {
 app.post("/api", function(req, res) {
     console.log(req.body);
     
-    if (req.user)
-        console.log("user persists");
+    // if (req.user)
+    //    console.log("user persists");
 
+
+    // user does not persist
+    
     let payment = new PostTransaction({
         payment_id : req.body.payment_id,
         status : req.body.status,
@@ -204,10 +207,12 @@ app.post("/api", function(req, res) {
 app.get("/api", function(req, res) {
     console.log(req.query);
 
-    if (req.user)
-        console.log("user persists");
+    //if (req.user)
+    //    console.log("user persists");
 
-    console.log("Whats in body?", req.body);
+    // user does not persist
+
+    console.log("Whats in req?", req);
 
     let payment = new GetTransaction({
         payment_id : req.query.payment_id,
