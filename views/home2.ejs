@@ -58,7 +58,12 @@
     <!-- theme tag section ends -->
     <section>
         <div class="user_badge">
-            <div><a href="login"><i class="fas fa-user"></i> LOGIN</a></div>
+            <% if(logStatus == true ){ %>
+                <div><a href="logout"><i class="fas fa-user"></i> LOGOUT</a></div>
+            <% } else {%>
+                <div><a href="login"><i class="fas fa-user"></i> LOGIN</a></div>
+            <% }%>
+            
           </div>
     </section>
     <!-- --------------------- -->
