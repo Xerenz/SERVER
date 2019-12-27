@@ -191,7 +191,7 @@ function isLoggedIn(req, res, next) {
 
 // forgot password
 app.get("/forgot", function(req, res) {
-    res.render("user/forgot");
+    res.render("user/forgot",{message:""});
 })
 
 app.post('/forgot', function(req, res, next) {
@@ -236,7 +236,7 @@ app.post('/forgot', function(req, res, next) {
         };
         smtpTransport.sendMail(mailOptions, function(err) {
           console.log('mail sent');
-          req.flash('success', 'An e-mail has been sent to ' + user.username + ' with further instructions.');
+          res.render("user/forgot",{message:"A Password reset link has been sent to your email"});
           done(err, 'done');
         });
       }
