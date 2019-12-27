@@ -76,6 +76,11 @@ Transform and style the two planes
 
 }
 
+.movie .poster img {
+	width: 100%;
+	height: 100%;
+}
+
 .movie .info {
 	-webkit-transform: rotateY(90deg) translateZ(130px);
 	-moz-transform: rotateY(90deg) translateZ(130px);
