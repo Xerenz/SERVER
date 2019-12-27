@@ -72,12 +72,12 @@ exports.webhook = function(req, res) {
 
     if (req.body.status === 'Credit') {
     
-       let payment = new Transaction({
+       /*let payment = new Transaction({
             payment_id : req.body.payment_id,
             status : req.body.status,
             payment_for : req.body.offer_title,
             buyer : req.body.buyer
-        }); 
+        }); */
 
         console.log("Transaction was credit");
 
@@ -90,12 +90,33 @@ exports.webhook = function(req, res) {
                 // add event to user
 
                 User.updateOne({username : req.body.buyer},
-                    {"$push" : {"events" : event.id}},
+                    {"$push" : {"ws" : event.id}},
                         function(err, user) {
                     if (err)
                         console.log(err);
                     else {
-                        console.log("event added to user..");   
+                        console.log("event added to user.."); 
+                        
+                        var payment = new Transaction({
+
+                            // transaction info
+                            payment_id : req.body.payment_id,
+                            status : req.body.status,
+                            payment_for : req.body.offer_title,
+                            buyer : req.body.buyer,
+
+                            // saving unique id
+                            uid : user.id
+                        }); 
+
+                        payment.save(function(err) {
+                            if (err)
+                                console.log(err);
+                            else {
+                                console.log("payment saved", req.body.buyer, req.body.payment_id, 
+                                req.body.offer_title);
+                            }
+                        }); 
                     } 
         
                 }); 
@@ -104,14 +125,14 @@ exports.webhook = function(req, res) {
 
         console.log(req.user);
 
-        payment.save(function(err) {
+        /*payment.save(function(err) {
             if (err)
                 console.log(err);
             else {
                 console.log("payment saved", req.body.buyer, req.body.payment_id, 
                 req.body.offer_title);
             }
-        }); 
+        }); */
     }
 
     else {
@@ -135,61 +156,66 @@ exports.redirect =  function(req, res) {
             if (doc.length === 0) {
                 console.log("Not saved via webhook..");
 
-                let url = "https://test.instamojo.com/api/1.1/payment-requests/"
-                let payload = {}
-                let headers = {'X-Api-Key': 'test_33e8cff1c7771aa97518b6bbf70', 'X-Auth-Token': 'test_a2981cf2689df276c8dc7d732d7'};
+                // let url = "https://test.instamojo.com/api/1.1/payment-requests/"
+                // let payload = {}
+                // let headers = {'X-Api-Key': 'test_33e8cff1c7771aa97518b6bbf70', 'X-Auth-Token': 'test_a2981cf2689df276c8dc7d732d7'};
 
                 // console.log(req.payment_request.id);
 
 
                 // need main payment id of format : d66cb29dd059482e8072999f995c4eef
                 // payment_id is of format : MOJO5a06005J21512197
-                request.get(url + req.query.payment_id, 
+                /* request.get(url + req.query.payment_id, 
                 {form : payload, headers : headers},
-                function(err, res, body) {
+                function(err, res, body) { */
 
+                    // if (err)
+                    //    console.log(err);
+
+                    // console.log(body);
+
+                    // console.log(req.user);
+
+                let payment = new Transaction({
+
+                    // payment info
+                    payment_id : req.query.payment_id,
+                    status : req.query.status,
+
+                    // user id
+                    uid : req.user.id
+                });
+
+                    
+                Workshop.findOne({name : req.body.offer_title}, function(err, event) {
                     if (err)
                         console.log(err);
-
-                    console.log(body);
-
-                    let payment = new Transaction({
-                        payment_id : req.query.payment_id,
-                        status : req.query.status,
-                    });
-
-                    console.log(req.user);
-
-                    Workshop.findOne({name : req.body.offer_title}, function(err, event) {
-                        if (err)
-                            console.log(err);
-                        else {
-                            console.log(event.id);
+                    else {
+                        console.log(event.id);
+        
+                        // add event to user
+        
+                        User.updateOne({username : req.body.buyer},
+                            {"$push" : {"ws" : event.id}},
+                                function(err, user) {
+                            if (err)
+                                console.log(err);
+                            else {
+                                console.log("event added to user..");   
+                            } 
+                        }); 
+                    }
+                });       
             
-                            // add event to user
-            
-                            User.updateOne({username : req.body.buyer},
-                                {"$push" : {"events" : event.id}},
-                                    function(err, user) {
-                                if (err)
-                                    console.log(err);
-                                else {
-                                    console.log("event added to user..");   
-                                } 
-                    
-                            }); 
-                        }
-                    });       
-                
-                    payment.save(function(err) {
-                        if (err)
-                            console.log(err);
-                        else {
-                            console.log("payment saved", req.body.payment_id, 
-                            req.body.offer_title);
-                        }
-                    }); 
-                });
+                payment.save(function(err) {
+                    if (err)
+                        console.log(err);
+                    else {
+                        console.log("payment saved", req.body.payment_id, 
+                        req.body.offer_title);
+                    }
+                }); 
+                // }); 
             }
             // check if payment saved via webhook //
             else {

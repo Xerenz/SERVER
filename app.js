@@ -315,6 +315,7 @@ app.post('/reset/:token', function(req, res) {
 
 
 // pay button was clicked
+/*
 app.get("/payment", function(req, res) {
     if (req.user) {
         name = req.user.name;
@@ -449,7 +450,7 @@ app.get("/api", function(req, res) {
     
 });
 
-
+*/
 
 // ============================================== innovator summit ================================================ //
 // Innovator's summit
