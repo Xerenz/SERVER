@@ -13,7 +13,7 @@
     height: 0;
     width: 100%;
     position: fixed; /* Stay in place */
-    z-index: 50; /* Sit on top */
+    z-index: 1000; /* Sit on top */
     left: 0;
     top: 0;
     background-color: rgb(0,0,0);
@@ -39,35 +39,20 @@
     
     padding: 8px;
     text-decoration: none;
-    font-size: 36px;
-    color: #818181;
+    font-size: 2em;
+    color: #ffffff;
     display: block; /* Display block instead of inline */
     transition: 0.3s; /* Transition effects on hover (color) */
   }
   
   /* When you mouse over the navigation links, change their color */
   .overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
+    color: rgb(252, 50, 235);
+    text-shadow: 0px 0px 30px #E62DE8;
     cursor: pointer;
   }
+
   
-  /* Position the close button (top right corner) */
-  .overlay .closebtn {
-    position: fixed;
-    top: 0px;
-    right: 10px;
-    font-size: 3em;
-  }
-  
-  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
-    }
-  }
   /* =========================== ANIMATED BACKROUND =================*/
 
   .area{
@@ -107,7 +92,7 @@
     height: 80px;
     animation-delay: 0s;
     background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
-    box-shadow: 0px 0px 20px #E62DE8;
+    box-shadow: 0px 0px 20px  #E62DE8;
 }
 
 
@@ -115,8 +100,8 @@
     left: 10%;
     width: 20px;
     height: 20px;
-    background:linear-gradient(135deg, #DFEC51 0%,#73AA0A 100%);
-    box-shadow: 0px 0px 20px #73AA0A;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 2s;
     animation-duration: 12s;
 }
@@ -125,6 +110,8 @@
     left: 70%;
     width: 20px;
     height: 20px;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 4s;
 }
 
@@ -132,8 +119,8 @@
     left: 40%;
     width: 60px;
     height: 60px;
-    background:linear-gradient(135deg, #CE9FFC 0%,#7367F0 100%);
-    box-shadow: 0px 0px 20px #7367F0;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 0s;
     animation-duration: 18s;
 }
@@ -142,8 +129,8 @@
     left: 65%;
     width: 20px;
     height: 20px;
-    background:linear-gradient(135deg, #C56CD6 0%,#3425AF 100%);
-    box-shadow: 0px 0px 20px #3425AF;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 0s;
 }
 
@@ -151,8 +138,8 @@
     left: 75%;
     width: 110px;
     height: 110px;
-    background:linear-gradient(135deg, #F36265 0%,#961276 100%);
-    box-shadow: 0px 0px 20px #3425AF;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 3s;
 }
 
@@ -160,8 +147,8 @@
     left: 35%;
     width: 150px;
     height: 150px;
-    background:linear-gradient(135deg, #65799b 0%,#5e2563 100%);
-    box-shadow: 0px 0px 20px #5e2563;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 7s;
 }
 
@@ -169,8 +156,8 @@
     left: 50%;
     width: 25px;
     height: 25px;
-    background:linear-gradient(135deg, #fad961 0%,#f76b1c 100%);
-    box-shadow: 0px 0px 20px #f76b1c ;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 15s;
     animation-duration: 45s;
 }
@@ -179,8 +166,8 @@
     left: 20%;
     width: 15px;
     height: 15px;
-    background:linear-gradient(135deg, #F5515F 0%,#A1051D 100%);
-    box-shadow: 0px 0px 20px #A1051D  ;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 2s;
     animation-duration: 35s;
 }
@@ -189,8 +176,8 @@
     left: 85%;
     width: 150px;
     height: 150px;
-    background:linear-gradient(135deg, #42e695 0%,#3bb2b8 100%);
-    box-shadow: 0px 0px 20px #3bb2b8  ;
+    background:linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);
+    box-shadow: 0px 0px 20px  #E62DE8;
     animation-delay: 0s;
     animation-duration: 11s;
 }
@@ -216,6 +203,17 @@
 
 /* ========================== */
 
+
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    font-size: 3em;
+  }
+  
+
 .burger{
     position: fixed;
     padding: 10px;
@@ -233,7 +231,7 @@
 
 .burger:hover{
     text-shadow: 0px 0px 20px #E62DE8;
-    color: #E62DE8;;
+    color: #E62DE8;
 }
 
 #closebutton{
@@ -241,3 +239,23 @@
     z-index: 100;
 }
 
+/* ==================== */
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-width: 500px) {
+    .overlay a {
+        font-size: 1.5em;
+    }
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+    .burger{
+        font-size: 1.5em;
+        right: 0;
+        padding-right: 5px;
+        text-align: right;
+       height: 50px;
+       width: 50px;
+    }
+  }

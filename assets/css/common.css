@@ -1,3 +1,10 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: black;
+ }
+
 
 .space{
     width: 100%;
@@ -12,4 +19,85 @@
 .stage{
     background-color: #282828;
     border-radius: 20px;
+}
+
+.home_head{
+    font-size: 3em;
+    color: white;
+    font-family:'Montserrat', sans-serif;
+}
+
+a{
+    color: rgb(206, 0, 206);
+}
+
+/* -------------------------------- */
+
+canvas {
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: -200;
+    
+}
+
+.back_button{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+}
+
+.back_button img{
+    width: 100%;
+    height: 100%;
+}
+
+.theme{
+    position: fixed;
+    z-index: 30;
+    font-size: 1em;
+    color: white;
+   font-family:'Montserrat', sans-serif;
+   bottom: 0;
+   left: 0;
+   padding: 20px;
+   letter-spacing: 2px;
+  }
+
+  .user_badge{
+    position: fixed;
+    z-index: 31;
+    font-size: 1em;
+    color: white;
+   font-family:'Montserrat', sans-serif;
+   top: 0;
+   right: 0;
+   padding: 20px;
+   letter-spacing: 2px;
+  }
+
+  .user_badge a{
+    color: white;
+  }
+
+@media screen and (max-width:500px)
+{
+    .back_button{
+        width: 70px;
+        height: 70px;
+    }
+    .home_head{
+        font-size: 2em;
+        
+    }
+    
+    .filter_link{
+        font-size: 0.8em;
+    }
+    .theme{
+        font-size: 0.6em;
+    }
 }

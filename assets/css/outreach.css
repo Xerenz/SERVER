@@ -222,11 +222,31 @@ body{
 
 
 .casection button{
-	background:  linear-gradient(to right, rgba(255,145,0,1) 0%, rgba(255,0,111,1) 100%);
+	background:linear-gradient(135deg, #622774 0%,#c53364 100%);
 	border-radius: 10px;
 	padding: 10px;
 	border: none;
 	color: white;
 	font-weight: bold;
 	font-size: 1em;
+}
+
+
+
+
+
+@media screen and (max-width:500px)
+{
+    .home_head{
+        font-size: 2em;
+        
+    }
+    
+    .outreach_p{
+        font-size: 0.8em;
+	}
+	
+	.outreach_text{
+		font-size: 1em;
+	}
 }

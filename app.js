@@ -67,9 +67,29 @@ passport.deserializeUser(User.deserializeUser());
 // to load static pages
 
 app.get("/", function(req, res) {
-    console.log("home");
-    res.render("home");
+    if(req.user)
+    {
+        res.render("home",{logStatus:true});
+    }
+    else
+    {
+        res.render("home",{logStatus:false})
+    }
 });
+
+app.get("/home",function(req, res) {
+
+    if(req.user)
+    {
+        res.render("home2",{logStatus:true});
+    }
+    else
+    {
+        res.render("home2",{logStatus:false})
+    }
+    
+});
+
 
 app.get("/about", function(req, res) {
     res.render("about");
