@@ -146,16 +146,44 @@
                                             <%= events[i].content %>
                                         </div>
                                         <div class="space-50"></div>
-                                        <div class="col col-12 text-center"><a href="#putExternallink"><button type="button" class="btn btn-dark">Download full details</button></a></div>
+                                        <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].details %>"><button type="button" class="btn btn-dark">Download full details</button></a></div>
                                         <div class="space-50"></div>
-                                        <div class="col col-12 col-md-4 text-center pay_money">Fees : ₹ 700</div>
+                                        <div class="col col-12 col-md-4 text-center pay_money">Fees : <%= events[i].price %></div>
                                         
-                                        <div class="col col-12 col-md-4 text-center pay_money">Date  19 - 1 - 2020</div>
-                                        <div class="col col-12  col-md-4 text-center pay_money">Harsha : 9898908790</div>
+                                        <div class="col col-12 col-md-4 text-center pay_money">Date : <%= events[i].date %></div>
+                                        <div class="col col-12  col-md-4 text-center pay_money text-danger"><%= events[i].message %></div>
                                         <!-- <div class="space-50"></div> -->
-                                        <div class="col col-12  text-center pay_money p-4 text-danger">open</div>
-                                      
-                                        <div class="col col-12 text-center"><a href="payment"><button type="button" class="btn btn-danger">Register</button></a></div>
+                                        <div class="col col-12  text-center pay_money p-4 "><strong>COORDINATORS</strong>  <br>
+                                            <% events[i].contact.forEach(contact => { %>
+
+                                                    <%= contact.name %> : <a href="tel:<%= contact.phone %>"><%= contact.phone %></a> <br>
+
+                                           <% }) %>
+                                        </div>
+                                        
+                                        <% if(events[i].isOpen == true){ %>
+
+                                                <% if(logStatus == true) {%>
+
+                                                        <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].url %>"><button type="button" class="btn btn-danger">Pay now</button></a></div>
+
+
+                                                <%  } else {%>
+
+                                                    <div class="col col-12 text-center"><a  href="/login"><button type="button" class="btn btn-danger">Pay now</button></a></div>
+ 
+
+                                                <%}%>
+
+                                                
+                                       <% } else {%>
+
+                                                <div class="col col-12 text-center"><a href=""><button type="button" class="btn btn-danger">closed</button></a></div>
+
+
+                                       <%}%>
+                                        
+
                                         <div class="space-50"></div>
                                     </div>
                                 </div>
@@ -184,18 +212,17 @@
         <div class="container">
             <div class="row">
                 <div class="col col-12 ">
-                    <ul class="social_dhishna">
+                     <ul class="social_dhishna ">
                         <li>
-                            <a href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
                         </li>
                        
                         <li>
-                            <a href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
                         </li>
-                        
                         
                     </ul>
                 </div>

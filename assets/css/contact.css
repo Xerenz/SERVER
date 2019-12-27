@@ -141,8 +141,8 @@ input[type=email] {
 }
 
 .card{
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 150px;
   background-color:#181818ec;
   border-radius: 30px;
   box-shadow: 0px 0px 10px 10px rgb(211, 211, 211);

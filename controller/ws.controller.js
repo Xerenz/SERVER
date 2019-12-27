@@ -9,8 +9,16 @@ exports.ws_show = function(req, res) {
             console.log(err);
             return res.render("home");
         }
-        console.log(events);
-        res.render("workshop", {events : events});
+                
+        if(req.user)
+        {
+            res.render("workshop",{events : events,logStatus:true});
+        }
+         else
+        {
+            res.render("workshop",{events : events,logStatus:false});
+        }
+       
     });
 };
 

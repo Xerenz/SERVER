@@ -1,22 +1,40 @@
 const Workshop = require("./models/ws.model");
 
 
+
+
 // place your data here
 
 var data = [
     
     {
-    	name : "Linear induction motor",
-        label : "fun and games",
-        branch : "EEE",
-        content: "Hyperloop is a new transportation mode proposed by a Tesla and SpaceX. It is ais a system/network of sealed tubes through which a pod can travel. The"
-    },
-    {
-    	name : "Decibel",
-        label : "fun and games",
-        branch : "EEE",
-        content: "Hyperloop is a new transportation mode proposed by a Tesla and SpaceX. It is ais a system/network of sealed tubes through which a pod can travel. The"
+        name : "Machine learning",
+        date : "18/1/2020 - 19/1/2020",
+        price : "700",
+        branch : "CS",
+        content : "This is a two day workshop where you will learn the basics of ml. The session would be a hands on session perfect for beginners. Industry experts handpicked by iit Bombay would ensure an enlightening experience for the students. Furthermore it also provides an opportunity to enter a national level competition and win exciting prizes.",
+        label : "coding",
+        contact:[
+                    { 
+                        name:"Harsha Salim",
+                        phone:"7902834880"
+                    },
+
+                    { 
+                        name:"Aswathy R Ullas",
+                        phone:"7902467340"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_ml.pdf",
+        // payment url
+        url : "https://test.instamojo.com/api/1.1/payment-requests/"	
+
+
     }
+    
 ];
 
 
@@ -34,11 +52,10 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log("Connection Successful!");
     
-    // define Schema
+    
+    Workshop.collection.drop();
 
-    // documents array
-
-    // save multiple documents to the collection referenced by Book Model
+    // save multiple documents to the collection referenced by  Model
     Workshop.collection.insert(data, function (err, docs) {
       if (err){ 
           return console.error(err);
@@ -48,6 +65,3 @@ db.once('open', function() {
     });
     
 });
-
-<a href="https://test.instamojo.com/dhishna2020/workshop-2/" rel="im-checkout" data-text="Pay" data-css-style="color:#ffffff; background:#75c26a; width:300px; border-radius:4px"   data-layout="vertical"></a>
-<script src="https://js.instamojo.com/v1/button.js"></script>
