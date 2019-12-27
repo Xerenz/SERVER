@@ -82,6 +82,10 @@ exports.webhook = function(req, res) {
 
         console.log("Transaction was credit");
 
+        console.log(req.body.offer_title);
+
+        console.log(req.body);
+
         Workshop.findOne({name : req.body.offer_title}, function(err, event) {
             if (err)
                 console.log(err);
