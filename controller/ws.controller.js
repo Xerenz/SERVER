@@ -61,6 +61,7 @@ exports.payment = function(req, res) {
         qinstruc = "&data_readonly=data_name&data_readonly=data_email&data_readonly=data_phone";
         return res.redirect("https://test.instamojo.com/dhishna2020/workshop-3/" + qstring + qinstruc); // instamojo
     }
+    req.session.returnTo = req.originalUrl;
     res.redirect("/login"); // unauthorized user
 };
 
