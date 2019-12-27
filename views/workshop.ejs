@@ -115,7 +115,8 @@
                         <li class="scene animated zoomIn delay-1s">
                             <div class="movie" onclick="return true">
                                 <div class="poster">
-                                    <div class="poster_head"><%= events[i].name %></div>
+                                    <!-- <div class="poster_head"></div> -->
+                                    <img src="/assets/img/<%= events[i].details%>.jpeg" alt="" >
                                 </div>
                                 <div class="info">
                                     <header>
@@ -146,7 +147,7 @@
                                             <%= events[i].content %>
                                         </div>
                                         <div class="space-50"></div>
-                                        <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].details %>"><button type="button" class="btn btn-dark">Download full details</button></a></div>
+                                        <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].pdfUrl %>"><button type="button" class="btn btn-dark">Download full details</button></a></div>
                                         <div class="space-50"></div>
                                         <div class="col col-12 col-md-4 text-center pay_money">Fees : <%= events[i].price %></div>
                                         

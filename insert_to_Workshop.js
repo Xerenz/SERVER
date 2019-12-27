@@ -27,10 +27,39 @@ var data = [
                 ],
         message:" open now",
         isOpen:true,
-        //full detail pdf name
-        details:"w_ml.pdf",
+        //full detail image name
+        details:"w_ducati",
+        pdfUrl:"",
         // payment url
         url : "https://test.instamojo.com/api/1.1/payment-requests/"	
+
+
+    },
+    {
+        name : "Artificial Neural Network",
+        date : "1/2/2020 - 2/2/2020",
+        price : "1400",
+        branch : "IT",
+        content : "An insight to the computing systems that are vaguely inspired by the biological neural networks that constitute our brains. Get started with the Neural Network Toolbox, work on some of the brain patterns, explore computing through the various softwares like MATLAB and get acquainted with the world of fuzzy logics, neuron perceptrons, time series' functions etc. A journey through the neurons in our brain to the neurons in a computer. ",
+        label : "coding",
+        contact:[
+                    { 
+                        name:"Parvathi",
+                        phone:"8287601553"
+                    },
+
+                    { 
+                        name:"Rizwan",
+                        phone:"7012806994"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_humanoid",
+        pdfUrl:"",
+        // payment url
+        url : "https://test.instamojo.com/api/1.1/payment-requests/"    
 
 
     }

@@ -19,6 +19,7 @@ let WorkshopSchema = new Schema(
         isOpen:Boolean,
         //full detail pdf name
         details:String,
+        pdfUrl:String,
         // payment url
         url : {type: String}
     }
