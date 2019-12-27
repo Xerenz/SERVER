@@ -163,10 +163,19 @@
                                         
                                         <% if(events[i].isOpen == true){ %>
 
-                                                <% %>
+                                                <% if(logStatus == true) {%>
 
-                                                <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].url %>"><button type="button" class="btn btn-danger">Pay now</button></a></div>
+                                                        <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].url %>"><button type="button" class="btn btn-danger">Pay now</button></a></div>
 
+
+                                                <%  } else {%>
+
+                                                    <div class="col col-12 text-center"><a  href="/login"><button type="button" class="btn btn-danger">Pay now</button></a></div>
+ 
+
+                                                <%}%>
+
+                                                
                                        <% } else {%>
 
                                                 <div class="col col-12 text-center"><a href=""><button type="button" class="btn btn-danger">closed</button></a></div>
