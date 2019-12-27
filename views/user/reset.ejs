@@ -1,24 +1,82 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reset Password</title>
+    <title>DHISHNA - | LOGIN |</title>
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    
 </head>
 <body>
-    <form action="/reset/<%= token %>" method="POST">
-        <legend>Reset Password</legend>
-		  <div class="form-group">
-		    <label for="password">New Password</label>
-		    <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
-		  </div>
-		  <div class="form-group">
-		    <label for="confirm">Confirm Password</label>
-		    <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
-		  </div>
-		  <div class="form-group">
-		    <button type="submit" class="btn btn-primary">Update Password</button>
-		  </div>
-    </form>
+   
+    <!-- canvas section -->
+    <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="/assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+    <section>
+        <div class="space"></div>
+        <div class="row">
+            <div class="col col-12">
+                <div class="form_box animated fadeIn delay-1s ">
+                 
+                        <form  id="login_form" class="login_form" action="/reset/<%= token %>" method="POST">
+                            
+                            <div class="form-group">
+                                
+                                <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                
+                                <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control">
+                            </div>
+                            
+            
+                                <div class="text-center">
+                                    <button  class="btn btn-dark">Reset password :-) </button>
+                                </div>
+                                <div class="space-50"></div>
+                                <div class="col col-12 text-center">
+                                
+                            </div>
+                            <div class="col col-12 text-center">
+                               <br> Still facing problems ? <a href="/contact" class="text-danger">Contact us</a> 
+                            </div>
+                             
+                        
+                        </form>  <!-- form ends --> 
+                   
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- back button -->
+    <div class="back_button animated fadeInUp delay-1s">
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
+   </div>
+
+
+    <!-- theme tag section -->
+    <section>
+        <div class="theme">
+            &copy; DHISHNA 2020 <br>
+           THE INFINITE ODYSSEY
+          </div>
+    </section>
+    <!-- theme tag section ends -->
+    <script src="/assets/js/boom.js"></script>
 </body>
 </html>
