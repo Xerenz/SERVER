@@ -85,7 +85,7 @@ exports.webhook = function(req, res) {
             if (err)
                 console.log(err);
             else {
-                console.log(event.id);
+                // console.log(event.id);
 
                 // add event to user
 
