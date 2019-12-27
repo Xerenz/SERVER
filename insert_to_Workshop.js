@@ -171,7 +171,7 @@ var data = [
         details:"w_mercedes",
         pdfUrl:"",
         // payment url
-        url : "https://test.instamojo.com/dhishna2020/mercedes-benz-engine-diagnosis-and-overhauli-41923/"
+        url : "https://www.instamojo.com/dhishna2020/mercedes-benz-engine-diagnosis-and-overhauli/"
 
 
     }
