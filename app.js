@@ -178,7 +178,7 @@ app.get("/payment", function(req, res) {
 
         qstring = "data_name=" + name + "&data_email=" + email + "&data_phone=" + phone;
         qinstruc = "&data_readonly=data_name&data_readonly=data_email&data_readonly=data_phone";
-        return res.redirect("https://test.instamojo.com/@dhishna2020/ldb5bbb289d6b494fb048a03e98c18a40/?" + qstring + qinstruc); // instamojo
+        return res.redirect("https://test.instamojo.com/@dhishna2020/ldb5bbb289d6b494fb048a03e98c18a40?" + qstring + qinstruc); // instamojo
     }
     res.redirect("/login"); // unauthorized user
 });
@@ -339,6 +339,8 @@ Innova = require("./models/innova.model");
 // webhook handler for innovator summit
 app.post("/api_innova", function(req, res) {
     if (req.body.status === 'Credit') {
+
+        console.log("sucessfull payment by ", req.body.buyer);
 
         // add to innovator 
         let payment = Innova({
