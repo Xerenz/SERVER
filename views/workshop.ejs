@@ -146,17 +146,35 @@
                                             <%= events[i].content %>
                                         </div>
                                         <div class="space-50"></div>
-                                        <div class="col col-12 text-center"><a href="#putExternallink"><button type="button" class="btn btn-dark">Download full details</button></a></div>
+                                        <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].details %>"><button type="button" class="btn btn-dark">Download full details</button></a></div>
                                         <div class="space-50"></div>
-                                        <div class="col col-12 col-md-4 text-center pay_money">Fees : ₹ 700</div>
+                                        <div class="col col-12 col-md-4 text-center pay_money">Fees : <%= events[i].price %></div>
                                         
-                                        <div class="col col-12 col-md-4 text-center pay_money">Date  19 - 1 - 2020</div>
-                                        <div class="col col-12  col-md-4 text-center pay_money text-danger">open</div>
+                                        <div class="col col-12 col-md-4 text-center pay_money">Date : <%= events[i].date %></div>
+                                        <div class="col col-12  col-md-4 text-center pay_money text-danger"><%= events[i].message %></div>
                                         <!-- <div class="space-50"></div> -->
-                                        <div class="col col-12  text-center pay_money p-4 "> Harsha : <a href="tel:">9898908790</a>  ,  Harsha : <a href="tel:">9898908790</a></div>
+                                        <div class="col col-12  text-center pay_money p-4 "><strong>COORDINATORS</strong>  <br>
+                                            <% events[i].contact.forEach(contact => { %>
+
+                                                    <%= contact.name %> : <a href="tel:<%= contact.phone %>"><%= contact.phone %></a> <br>
+
+                                           <% }) %>
+                                        </div>
                                         
-                                      
-                                        <div class="col col-12 text-center"><a href="payment"><button type="button" class="btn btn-danger">Register</button></a></div>
+                                        <% if(events[i].isOpen == true){ %>
+
+                                                <% %>
+
+                                                <div class="col col-12 text-center"><a target="_blank" href="<%= events[i].url %>"><button type="button" class="btn btn-danger">Pay now</button></a></div>
+
+                                       <% } else {%>
+
+                                                <div class="col col-12 text-center"><a href=""><button type="button" class="btn btn-danger">closed</button></a></div>
+
+
+                                       <%}%>
+                                        
+
                                         <div class="space-50"></div>
                                     </div>
                                 </div>
