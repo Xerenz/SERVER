@@ -90,7 +90,7 @@ exports.webhook = function(req, res) {
                 // add event to user
 
                 User.updateOne({username : req.body.buyer},
-                    {"$push" : {"ws" : event.id}},
+                    {"$push" : {"ws" : "hdgdgfghfohrofkf"}}, // test event change on deploy
                         function(err, user) {
                     if (err)
                         console.log(err);
