@@ -131,6 +131,8 @@ exports.webhook = function(req, res) {
                                         req.body.offer_title);
                                     }
                                 }); 
+
+                                console.log(user); // check user state
                             } 
                         });
                 
@@ -159,8 +161,10 @@ exports.webhook = function(req, res) {
                         function(err, user) {
                             if (err)
                                 console.log(err);
-                            else 
+                            else {
                                 console.log("Event pushed to user");
+                                console.log(user);
+                            }
                         });
                     }
                 });
