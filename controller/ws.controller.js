@@ -70,7 +70,6 @@ exports.payment = function(req, res) {
 
 // webhook
 exports.webhook = function(req, res) {
-    console.log(req);
 
     if (req.body.status === 'Credit') {
     
@@ -92,7 +91,7 @@ exports.webhook = function(req, res) {
                 // add event to user
 
                 User.updateOne({username : req.body.buyer},
-                    {"$push" : {"ws" : "hdgdgfghfohrofkf"}}, // test event change on deploy
+                    {"$push" : {"ws" : event.id}}, // test event change on deploy
                         function(err, user) {
                     if (err)
                         console.log(err);
@@ -125,8 +124,6 @@ exports.webhook = function(req, res) {
             }
         });       
 
-        console.log(req.user);
-
         /*payment.save(function(err) {
             if (err)
                 console.log(err);
@@ -145,8 +142,6 @@ exports.webhook = function(req, res) {
 
 // redirect after success
 exports.redirect =  function(req, res) {
-    console.log(req);
-
 
     if (req.query.status === 'success') {
 
@@ -193,11 +188,11 @@ exports.redirect =  function(req, res) {
                     if (err)
                         console.log(err);
                     else {
-                        console.log(event.id);
+                        // console.log(event.id);
         
                         // add event to user
         
-                        User.updateOne({username : req.body.buyer},
+                        User.updateOne({username : req.user.username},
                             {"$push" : {"ws" : event.id}},
                                 function(err, user) {
                             if (err)
@@ -213,8 +208,7 @@ exports.redirect =  function(req, res) {
                     if (err)
                         console.log(err);
                     else {
-                        console.log("payment saved", req.body.payment_id, 
-                        req.body.offer_title);
+                        console.log("payment saved", req.query.payment_id);
                     }
                 }); 
                 // }); 
