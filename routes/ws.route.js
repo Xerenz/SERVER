@@ -4,6 +4,11 @@ const router = express.Router();
 const ws_controller = require("../controller/ws.controller");
 
 router.get("/", ws_controller.ws_show);
-router.get("/:label", ws_controller.label_show);
+router.get("/filter/:label", ws_controller.label_show);
+
+// payments
+router.get("/payment", ws_controller.payment);
+router.post("/api", ws_controller.webhook);
+router.get("/api", ws_controller.redirect);
 
 module.exports = router;
