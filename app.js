@@ -120,7 +120,7 @@ app.post("/contact", function(req, res) {
         }
       });
       var mailOptions = {
-        to: 'martingeo15@gmail.com',
+        to: 'mail@dhishna.org',
         from: 'tech.dhishna@gmail.com',
         subject: req.body.email + ' Has an issue',
         text: 'Sender : ' + req.body.email + '\n' +
@@ -225,13 +225,16 @@ app.get("/forgot", function(req, res) {
 app.post('/forgot', function(req, res, next) {
     async.waterfall([
       function(done) {
+          console.log("first function fired");
         crypto.randomBytes(20, function(err, buf) {
           var token = buf.toString('hex');
           done(err, token);
         });
       },
       function(token, done) {
+        console.log("second function fired");
         User.findOne({ username: req.body.email }, function(err, user) {
+            if (err) console.log("second was the error");
           if (!user) {
             req.flash('error', 'No account with that email address exists.');
             return res.redirect('/forgot');
@@ -246,6 +249,7 @@ app.post('/forgot', function(req, res, next) {
         });
       },
       function(token, user, done) {
+        console.log("third function fired");
         var smtpTransport = nodemailer.createTransport({
           service: 'Gmail', 
           auth: {
