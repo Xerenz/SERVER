@@ -116,7 +116,7 @@ app.post("/contact", function(req, res) {
         service: 'Gmail', 
         auth: {
           user: 'tech.dhishna@gmail.com',
-          pass: process.env.PASSWORD
+          pass: 'SantyDance'
         }
       });
       var mailOptions = {
@@ -254,7 +254,7 @@ app.post('/forgot', function(req, res, next) {
           service: 'Gmail', 
           auth: {
             user: 'tech.dhishna@gmail.com',
-            pass: process.env.PASSWORD
+            pass: 'SantyDance'
           }
         });
         var mailOptions = {
@@ -319,7 +319,7 @@ app.post('/reset/:token', function(req, res) {
           service: 'Gmail', 
           auth: {
             user: 'tech.dhishna@gmail.com',
-            pass: process.env.PASSWORD
+            pass: 'SantyDance'
           }
         });
         var mailOptions = {
@@ -546,6 +546,8 @@ app.post("/api_innova", function(req, res) {
 
 // ===================================================================== //
 
+
+
 PORT = process.env.PORT || 8000;
 
 app.listen(PORT, function() {
@@ -553,3 +555,7 @@ app.listen(PORT, function() {
 
     console.log(process.env.SUPPORT);
 });
+
+
+// ============================== with love from tech team Dhishna 2020 ===================================== //
+
