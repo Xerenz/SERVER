@@ -273,6 +273,8 @@ exports.redirect =  function(req, res) {
     // check if transaction was a success //
     else {
         console.log("failed transaction...");
+
+        res.redirect("/"); // redirect to home after fail
     }
 
     
