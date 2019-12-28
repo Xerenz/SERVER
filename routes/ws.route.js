@@ -11,4 +11,6 @@ router.get("/payment", ws_controller.payment);
 router.post("/api", ws_controller.webhook);
 router.get("/api", ws_controller.redirect);
 
+// thankyou
+router.get("/thankyou", ws_controller.thankyou);
 module.exports = router;

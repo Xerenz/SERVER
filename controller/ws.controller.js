@@ -42,6 +42,10 @@ exports.label_show = function(req, res) {
     });
 };
 
+exports.thankyou = function(req, res) {
+    res.render("thankyou");
+}
+
 
 // =================================== manage workshop payments =========================== //
 
@@ -267,7 +271,7 @@ exports.redirect =  function(req, res) {
                 console.log("payment saved by webhook...");
             }
 
-            res.redirect("/");
+            res.redirect("/thankyou");
         });
     }
     // check if transaction was a success //
