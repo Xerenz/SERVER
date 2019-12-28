@@ -546,6 +546,11 @@ app.post("/api_innova", function(req, res) {
 
 // ===================================================================== //
 
+app.get('*' ,(req,res)=>{
+
+    res.render("404");
+
+});
 
 
 PORT = process.env.PORT || 8000;
