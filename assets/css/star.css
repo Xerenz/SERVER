@@ -30,6 +30,7 @@ body{
   position: absolute;
   /* background-color: black; */
   background-color: rgb(109, 22, 109);
+  background:linear-gradient(135deg, #F36265 0%,#961276 100%);
   box-shadow: 0px 0px 20px purple;
   z-index: 1;
   left: 50%;
@@ -47,13 +48,15 @@ body{
 
 .boom a{
   color: white;
-  padding: 20px;
+  padding: 25px;
   padding-left: 15px;
   font-size: 0.8em;
+
 }
 
 .boom a:hover{
   text-decoration: none;
+  color: black;
 }
 
 .boom i{
