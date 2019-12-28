@@ -12,7 +12,7 @@ exports.ws_show = function(req, res) {
     Workshop.find({}, function(err, events) {
         if (err) {
             console.log(err);
-            return res.render("home");
+            return res.redirect("/");
         }
                 
         if(req.user)
@@ -35,7 +35,7 @@ exports.label_show = function(req, res) {
     Workshop.find({label : req.params.label}, function(err, events) {
         if (err) {
             console.log(err);
-            return res.render("home");
+            return res.redirect("/");
         }
         console.log(events);
         res.render("workshop", {events : events});
@@ -61,8 +61,10 @@ exports.payment = function(req, res) {
 
         qstring = "?data_name=" + name + "&data_email=" + email + "&data_phone=" + phone;
         qinstruc = "&data_readonly=data_name&data_readonly=data_email&data_readonly=data_phone";
-        return res.redirect("https://test.instamojo.com/dhishna2020/workshop-3/" + qstring + qinstruc); // instamojo
+        return res.redirect("https://test.instamojo.com/dhishna2020/mercedes-benz-engine-diagnosis-and-overhauli-41923/" + qstring + qinstruc); // instamojo
     }
+
+    console.log(req.session);
     req.session.returnTo = req.originalUrl;
     res.redirect("/login"); // unauthorized user
 };

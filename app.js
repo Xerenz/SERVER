@@ -10,7 +10,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const nodemailer = require("nodemailer");
 const async = require("async");
 const crypto = require("crypto");
-const flash = require("flash");
+const flash = require("express-flash-messages");
 
 mongoose.connect("mongodb://localhost/dhishna");
 
@@ -101,13 +101,41 @@ app.get("/about", function(req, res) {
 });
 
 app.get("/contact", function(req, res) {
-    res.render("contact");
+    res.render("contact", {message : ""});
 });
 
 app.get("/outreach", function(req, res) {
     res.render("outreach");
 });
 
+
+// handling contact info
+
+app.post("/contact", function(req, res) {
+    var smtpTransport = nodemailer.createTransport({
+        service: 'Gmail', 
+        auth: {
+          user: 'tech.dhishna@gmail.com',
+          pass: process.env.PASSWORD
+        }
+      });
+      var mailOptions = {
+        to: 'martingeo15@gmail.com',
+        from: 'tech.dhishna@gmail.com',
+        subject: req.body.email + ' Has an issue',
+        text: 'Sender : ' + req.body.email + '\n' +
+        'Name : ' + req.body.name + '\n' +
+        'Issue : ' + req.body.content
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+          if (err) {
+              console.log(err);
+              res.render("contact", {message : "Oops! There seems to be some trouble in sending the message!"});
+          }
+        console.log('mail sent');
+        res.render("contact",{message:"Your message has been sent to PR and Support, we'll get to you soon"});
+      });
+});
 
 
 // ===================================== auth ======================================== //
@@ -222,17 +250,17 @@ app.post('/forgot', function(req, res, next) {
           service: 'Gmail', 
           auth: {
             user: 'tech.dhishna@gmail.com',
-            pass: 'SantyDance'
+            pass: process.env.PASSWORD
           }
         });
         var mailOptions = {
           to: user.username,
           from: 'tech.dhishna@gmail.com',
           subject: 'Dhishna2020 Password Reset',
-          text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+          text: 'You are receiving this because you have requested the reset of the password for your account.\n\n' +
             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
             'http://' + req.headers.host + '/reset/' + token + '\n\n' +
-            'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            'If you did not request this, please ignore this email and your password will remain unchanged.\n\n'
         };
         smtpTransport.sendMail(mailOptions, function(err) {
           console.log('mail sent');
@@ -287,7 +315,7 @@ app.post('/reset/:token', function(req, res) {
           service: 'Gmail', 
           auth: {
             user: 'tech.dhishna@gmail.com',
-            pass: 'SantyDance'
+            pass: process.env.PASSWORD
           }
         });
         var mailOptions = {
@@ -514,7 +542,10 @@ app.post("/api_innova", function(req, res) {
 
 // ===================================================================== //
 
+PORT = process.env.PORT || 8000;
 
-app.listen(8000, function() {
-    console.log("listening to port 8000");
+app.listen(PORT, function() {
+    console.log("listening to port", PORT);
+
+    console.log(process.env.SUPPORT);
 });

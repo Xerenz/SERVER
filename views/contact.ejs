@@ -94,14 +94,14 @@
                     <div class="space-50"></div>
                     <div class="col col-12 col-md-6 " >
                         <!-- form starts here -->
-                        <form  id="mail_form" method="POST" action="mailto:mail@dhishna.org" >
+                        <form  id="mail_form" method="POST" action="/contact" >
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name"  required>
+                                <input type="text" name="name" class="form-control" id="name"  required>
                             </div>
                             <div class="form-group">
                               <label for="email">Email address</label>
-                              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
                             </div>
                            
                             
@@ -110,7 +110,13 @@
                                     <label for="exp">Message</label>
                                     <textarea id="textarea" class="form-control" name="content" rows="3"></textarea>
                                   </div>
-                                
+
+                                  <!-- Mail sent message -->
+                                <div>
+                                        <%= message %>
+                                </div> 
+
+
                                 <div class="text-center">
                                     <a onclick="document.getElementById('mail_form').submit()"  class="neon_light">
                                         <span></span>
