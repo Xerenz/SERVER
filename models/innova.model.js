@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const InnovaSchema = new Schema(
     {
-        name : {type : String}
+        name : {type : String},
+        payment_id : {type : String}
     }
 );
 

@@ -527,7 +527,7 @@ app.post("/api_innova", function(req, res) {
         // add to innovator 
         let payment = Innova({
             name : req.body.buyer,
-            details : req.body
+            payment_id : req.body.payment_id
         });
 
         payment.save(function(err) {
