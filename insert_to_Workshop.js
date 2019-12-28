@@ -119,34 +119,34 @@ var data = [
 
 
     // },
-    // {
-    //     name : "Ducati",
-    //     date : "18/1/2020 ",
-    //     price : "800",
-    //     branch : "SAFETY",
-    //     content : "Ducati is best known for high-performance motorcycles characterized by large-capacity four-stroke, 90° V-twin engines with a desmodromic valve design.Ducati has produced several styles of motorcycle engines, including varying the number of cylinders, type of valve actuation and fuel delivery.In this workshop on Ducati ,we offer a excellent opportunity to learn more about Ducati Motorcycles and the latest technologies used by them.When we say Ducati factory trained, it mean just that!!.So we also offer a rare opportunity to attend a service workshop with Ducati's Two brilliant bikes Ducati Panigale and Ducati Scrambler.",
-    //     label : "technical",
-    //     contact:[
-    //                 { 
-    //                     name:"Vishnu",
-    //                     phone:"8075347346"
-    //                 },
+    {
+        name : "Ducati",
+        date : "18/1/2020 ",
+        price : "800",
+        branch : "SAFETY",
+        content : "Ducati is best known for high-performance motorcycles characterized by large-capacity four-stroke, 90° V-twin engines with a desmodromic valve design.Ducati has produced several styles of motorcycle engines, including varying the number of cylinders, type of valve actuation and fuel delivery.In this workshop on Ducati ,we offer a excellent opportunity to learn more about Ducati Motorcycles and the latest technologies used by them.When we say Ducati factory trained, it mean just that!!.So we also offer a rare opportunity to attend a service workshop with Ducati's Two brilliant bikes Ducati Panigale and Ducati Scrambler.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Vishnu",
+                        phone:"8075347346"
+                    },
 
-    //                 { 
-    //                     name:"Binniyamin",
-    //                     phone:"8547209886"
-    //                 }
-    //             ],
-    //     message:" open now",
-    //     isOpen:true,
-    //     //full detail pdf name
-    //     details:"w_humanoid",
-    //     pdfUrl:"",
-    //     // payment url
-    //     url : "https://test.instamojo.com/api/1.1/payment-requests/"    
+                    { 
+                        name:"Binniyamin",
+                        phone:"8547209886"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_ducati",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/workshop-on-ducati/"    
 
 
-    // },
+    },
     {
         name : "Mercedes Benz engine Diagnosis and overhauling",
         date : "25/1/2020  - 26/1/2020",
@@ -172,6 +172,34 @@ var data = [
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/mercedes-benz-engine-diagnosis-and-overhauli/"
+
+
+    },
+    {
+        name : "Cyber Warfare",
+        date : "11/1/2020",
+        price : "700",
+        branch : "CS",
+        content : "Cyberwarfare could turn every gadget you own into a weapon on a virtual battlefield. And the damage will be felt in the real world.To date, there hasn't been an outright 'cyber war' with declared antagonists, however, there are a number of incidents that have caused serious disruption to country's infrastructure that are suspected of being carried out by another state.Future wars will see hackers using computer code to attack an enemy's infrastructure, fighting alongside troops using conventional weapons like guns and missiles.  Dhishna'20 presents you a one day workshop on Cyberwarfare with certificate to each participant.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Ebin Santy ",
+                        phone:"9495476775"
+                    },
+
+                    { 
+                        name:"Vinay",
+                        phone:"9074468705"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_cyber",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/cyber-warfare/"
 
 
     }
