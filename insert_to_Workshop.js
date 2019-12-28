@@ -150,7 +150,7 @@ var data = [
     {
         name : "Mercedes Benz engine Diagnosis and overhauling",
         date : "25/1/2020  - 26/1/2020",
-        price : "1500",
+        price : "1400",
         branch : "SAFETY",
         content : "Mercedes-Benz  engine systems are all about performance without compromise, economic efficiency and sustainability. They set worldwide benchmarks for cars, trucks and buses. In addition drivers appreciate the driving dynamics, the high power at low engine speeds, the smooth running characteristic and its powerful engine brake. They are using innovation power to develop environmentally friendly powertrain components and are continuously improving their engines to further reduce fuel consumption and emissions.Dhishna inassociation with IIT Bombay brings you a great opportunity to learn more about Mercedes Benz Engine Design and Analysis . These professionals from Utkraanti will take you for a virtual ride covering all the aspects of the engine.",
         label : "technical",
