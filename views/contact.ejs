@@ -94,14 +94,14 @@
                     <div class="space-50"></div>
                     <div class="col col-12 col-md-6 " >
                         <!-- form starts here -->
-                        <form  id="mail_form" method="POST" action="/contact" >
+                        <form  id="mail_form" method="POST" action="/contact" name="mail_form" >
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" class="form-control" id="name"  required>
+                                <input type="text" name="name" class="form-control" id="name"  required >
                             </div>
                             <div class="form-group">
                               <label for="email">Email address</label>
-                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required >
                             </div>
                            
                             
@@ -118,7 +118,7 @@
 
 
                                 <div class="text-center">
-                                    <a onclick="document.getElementById('mail_form').submit()"  class="neon_light">
+                                    <a onclick="required()"  class="neon_light">
                                         <span></span>
                                         <span></span>
                                         <span></span>
@@ -211,5 +211,25 @@
     <script src="assets/js/navbar.js"></script>
     <!-- script -->
 
+    <!--  -->
+    <script type="text/javascript">
+        function required()
+        {
+            var empt = document.forms["mail_form"]["email"].value;
+            var empt1 = document.forms["mail_form"]["content"].value;
+
+            if (empt == "" || empt1 == "")
+            {
+               
+                return false;
+            }
+            else 
+            {
+                
+                document.getElementById('mail_form').submit()
+                return true; 
+            }
+        }
+    </script>
 </body>
 </html>
