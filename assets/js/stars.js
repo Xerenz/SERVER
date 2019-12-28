@@ -1,3 +1,15 @@
+
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log("%cHandcrafted with Love ","color:red;font-size:20px");
+console.log("%c #Dhishna_2020_Tech_Team","color:purple;font-size:15px;");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+
 let scene, camera, renderer, stars, starGeo;
 
 function init() {
