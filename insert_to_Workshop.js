@@ -68,7 +68,7 @@ var data = [
         date : "11/1/2020 - 12/1/2020",
         price : "1400",
         branch : "EC",
-        content : "An insight to the computing systems that are vaguely inspired by the biological neural networks that constitute our brains. Get started with the Neural Network Toolbox, work on some of the brain patterns, explore computing through the various softwares like MATLAB and get acquainted with the world of fuzzy logics, neuron perceptrons, time series' functions etc. A journey through the neurons in our brain to the neurons in a computer. ",
+        content : "A 2-day workshop exploring the approaches to design , create and optimize technology's favourite child of the future - Humanoid Robots. After this workshop, participants will have the fundamentals to keep up to date with the latest advancements in the field and have a broad knowledge of the wide range of applications it presents.",
         label : "technical",
         contact:[
                     { 
