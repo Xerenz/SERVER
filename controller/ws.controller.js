@@ -238,8 +238,10 @@ exports.redirect =  function(req, res) {
 
                     
                 Workshop.findOne({name : req.body.offer_title}, function(err, event) {
-                    if (err)
-                        console.log(err);
+                    if (err || !event) {
+                        err_mess = err || "no event found"
+                        console.log(err_mess);
+                    }
                     else {
                         // console.log(event.id);
         

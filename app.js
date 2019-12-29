@@ -41,7 +41,7 @@ app.set("view engine", "ejs");
 
 // Config all requirements
 app.use(expressSession({
-    secret: "Enter a secret key here",
+    secret: "You will see Santy Dance in Dhishna 2020",
     resave: false,
     saveUninitialized: false
 }));
