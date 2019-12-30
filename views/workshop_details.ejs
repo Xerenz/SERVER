@@ -28,7 +28,7 @@
 
     <!-- back button -->
     <div class="back_button animated zoomIn delay-1s">
-        <a href="home"><img src="/assets/img/logo.png" alt=""></a>
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
     </div>
 
 
@@ -87,7 +87,7 @@
             <div class="space"></div>
             <div class="space-50"></div>
             <div class="col col-12 text-center text-md-left">
-                <h3 class="home_head animated fadeInUp delay-1s">WORKSHOPS</h3>
+                <h3 class="home_head animated fadeInUp delay-1s"><%= event.name %></h3>
             </div>
         </div><!-- &&row -->
          <!-- row -->
@@ -102,57 +102,53 @@
     <!-- =========================================== -->
     <section>
     <div class="container">
-        <div class="row">
-            <div class="col col-12">
-                 <div class="space-50"></div>
-                <ul class=" clearfix">
+        <div class="row text-white">
+            <div class="col col-12 text-white animated fadeInUp delay-1s text-md-left text-center">
+               <%= event.content%>
+            </div> 
+            <div class="space-50"></div>
+             <div class="col col-12 text-center animated fadeInUp delay-1s"><a target="_blank" href="/assets/img/<%= event.details %>.pdf"><button type="button" class="btn btn-dark">Download full details</button></a></div>
+             <div class="space-50"></div>
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.price %></div>
+             
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Date : <%= event.date %></div>
+             <div class="col col-12  col-md-4 text-center pay_money text-danger animated fadeInUp delay-1s"><%= event.message %></div>
+             <!-- <div class="space-50"></div> -->
+             <div class="col col-12  text-center pay_money p-4 animated fadeInUp delay-1s"><strong>COORDINATORS</strong>  <br><br>
+                 <% event.contact.forEach(contact => { %>
 
-                    <% for(var i=0;i<events.length;i++){ %>
+                         <%= contact.name %> : <a href="tel:<%= contact.phone %>"><%= contact.phone %></a> <br>
 
-                        <!-- box -->
-                    <!-- ====================================== -->
-                       
-                        <li class="scene animated zoomIn delay-1s">
-                           
-                            <div class="movie" onclick="return true">
-                                <div class="poster">
-                                    <!-- <div class="poster_head"></div> -->
-                                    <img src="/assets/img/<%= events[i].details%>.jpeg" alt="" >
-                                </div>
-                                 
-                                <div class="info">
-                                   
-                                    <header>
-                                        <h6><%= events[i].name %></h6>
-                                    </header>
-                                    <a href="workshop/<%= events[i]._id%>/knowmore" >
-                                    <p >
-                                        <%= events[i].content %>
-                                    </p>
-                                    </a>
-                                    <a href="workshop/<%= events[i]._id%>/knowmore" >
-                                    <div class="box_button text-center text-danger">
-                                        <span>Register</span>
-                                    </div>
-                                    </a>
-                                </div>
-                            
-                            </div>
-                            
-                        </li>
-                        <!-- overlay -->
-                        
-                        <!-- overlay end -->
-                     <!-- box ends -->
-                     <!-- ================================================= -->
+                <% }) %>
+             </div>
+             
+             <% if(event.isOpen == true){ %>
+
+                     <% if(logStatus == true) {%>
+
+                             <div class="col col-12 text-center animated fadeInUp delay-1s"><a target="_blank" href="<%= event.url + q %>"><button type="button" class="btn btn-danger">Pay now</button></a></div>
 
 
+                     <%  } else {%>
 
-                   <% } %>
-                    
+                         <div class="col col-12 text-center animated fadeInUp delay-1s"><a  href="/login"><button type="button" class="btn btn-danger">Login and pay</button></a></div>
 
-                </ul>
-            </div>
+
+                     <%}%>
+
+                     
+            <% } else {%>
+
+                     <div class="col col-12 text-center animated fadeInUp delay-1s"><button type="button" class="btn btn-dark">payment disabled</button></div>
+
+
+            <%}%>
+             
+
+             <div class="space-50"></div>             
+             
+             
+            
         </div>
     </div>
 
@@ -166,7 +162,7 @@
         <div class="container">
             <div class="row">
                 <div class="col col-12 ">
-                     <ul class="social_dhishna ">
+                     <ul class="social_dhishna animated fadeInUp delay-1s">
                         <li>
                             <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
                         </li>

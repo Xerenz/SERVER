@@ -28,6 +28,30 @@ exports.ws_show = function(req, res) {
     });
 };
 
+//show workshop
+
+exports.ws_one_show = function(req, res) {
+    var id = req.params.id; 
+    console.log(id)
+    Workshop.findOne({_id:id}, function(err, event) {
+        console.log(event)
+        if (err) {
+            console.log(err);
+            return res.redirect("/workshop");
+        }
+                
+        if(req.user)
+        {
+            qstring = "?data_name="+req.user.name+"&data_email="+req.user.username+"&data_phone="+req.user.phone+"&data_readonly=data_name&data_readonly=data_email&data_readonly=data_phone";
+            res.render("workshop_details",{event : event,logStatus:true, q: qstring});
+        }
+        else
+        {
+            res.render("workshop_details",{event : event,logStatus:false});
+        }
+    });
+};
+
 
 // search for events by label
 
