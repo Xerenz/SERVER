@@ -117,6 +117,8 @@ exports.webhook = function(req, res) {
                             else {
                                 console.log("event added to user.."); 
                                 
+                                console.log(user.id); // testing
+
                                 var payment = new Transaction({
 
                                     // transaction info
@@ -128,6 +130,8 @@ exports.webhook = function(req, res) {
                                     // saving unique id
                                     uid : user.id
                                 }); 
+
+                                console.log(payment); // testing
 
                                 payment.save(function(err) {
                                     if (err)
@@ -159,6 +163,7 @@ exports.webhook = function(req, res) {
 
                 // adding event to user
 
+                // needs correction //
                 Workshop.findOne({name : req.body.offer_title}, function(err, event) {
                     if (err) console.log(err);
                     else if (!event) console.log("no event found");
