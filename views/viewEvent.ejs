@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA  - Initiatives</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/outreach.css">
+    <!-- <link rel="stylesheet" href="assets/css/header.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/social_icon.css"> -->
+    
+    
+</head>
+<body>
+
+
+
+     <!-- canvas section -->
+     <section>
+       <!--  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="assets/js/stars.js"></script> -->
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <!-- <div class="back_button animated zoomIn delay-1s">
+        <a href="/volunteer"><img src="/assets/img/logo.png" alt=""></a>
+    </div> -->
+
+
+<!-- navbar -->
+
+        <!-- navbar -->
+        <section>
+            
+    
+    <!-- navbar ends -->
+    <section>
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="space"></div>
+                <div class="col col-12 text-center text-md-left">
+                    <h3 class="home_head animated fadeInUp delay-1s">View Events </h3>
+                </div>
+            </div><!-- &&row -->
+             <!-- row -->
+            <div class="row">
+                <div class="col col-12 animated fadeInUp delay-1s">
+                    <a href="add/new" title=""><button type="button" class="btn btn-danger">ADD EVENTS</button></a>
+                    
+                    
+                </div>
+            </div><!-- &&row -->
+            
+        </div><!-- container end -->
+        
+    </section>
+    <!-- =========================================== -->
+    <div class="space-50"></div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12">
+
+                    <!-- ======= -->
+                    <div class="row">
+                            <% for(var i=0;i<events.length;i++){ %>
+                                <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
+                                    <a href="edit/<%= events[i]._id %>/now"><button>Edit</button></a> 
+                                    <div class="outreach_text">
+                                        <%= events[i].name %>
+                                    </div>
+                                        <!-- <div class="space-50"></div> -->
+                                    <div class="outreach_p p-2">
+                                         <%= events[i].content %>
+                                    </div>
+                           
+                                </div>
+
+
+
+                            <%  } %>
+
+                                
+
+                           
+                         <div class="space"></div>
+                        
+                    </div>
+                   
+                     <!-- ======= -->
+                    
+                    
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+    
+    
+
+
+    <!-- script -->
+    <!-- <script src="assets/js/navbar.js"></script> -->
+    <!-- script -->
+</body>
+</html>

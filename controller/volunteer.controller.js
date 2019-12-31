@@ -8,23 +8,24 @@ exports.test = function(req, res) {
 // view all events belonging to that branch
 exports.view_event = function(req, res) {
     Event.find({branch : req.params.branch}, function(err, events) {
-        res.send(events);
-        // res.render("viewEvent", {events : events});
+        // res.send(events);
+        console.log(events)
+        res.render("viewEvent", {events : events});
     });
 };
 
 // prefill the form to edit events
 exports.edit_event = function(req, res) {
     Event.findById(req.params.id, function(err, event) {
-        res.send(event);
-        // res.render("editEvent", {event : event});
+        // res.send(event);
+        res.render("editEvent", {event : event});
     });
 };
 
 // form to add events
 exports.add_event = function(req, res) {
-    res.send("add events here");
-    // res.render("addEvent");
+    // res.send("add events here");
+    res.render("addEvent");
 };
 
 // add new event
