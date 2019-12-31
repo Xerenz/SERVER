@@ -19,6 +19,7 @@ const eventRoutes = require("./routes/event.route");
 const wsRoutes = require("./routes/ws.route");
 const exhibitionRoutes = require("./routes/exhibition.route");
 const adminRoutes = require("./routes/admin.route");
+const volRoutes = require("./routes/volunteer.route");
 
 
 
@@ -63,6 +64,7 @@ app.use("/event", eventRoutes);
 app.use("/workshop", wsRoutes);
 app.use("/exhibition", exhibitionRoutes);
 app.use("/SantyDance", adminRoutes);
+app.use("/volunteer", volRoutes);
 
 
 

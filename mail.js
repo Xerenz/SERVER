@@ -2,54 +2,54 @@ const nodemailer = require("nodemailer");
 const mongoose = require("mongoose");
 const async = require("async");
 
+mongoose.connect("mongodb://localhost/dhishna");
+
 const User = require("./models/user.model");
 
-function sendMailtoUsers() {
+function sendMail() {
     async.waterfall([
         function(done) {
-            console.log("1st function");
             User.find({}, function(err, users) {
-                if (err) console.log(err);
                 console.log("found users");
-                done(err, users);
+                emails = [];
+                users.forEach(function(user) {
+                    emails.push(user.username);
+                });
+                done(err, emails);
             });
-            console.log("some problemooo");
-        },
-        function(users, done) {
-            console.log("2nd function");
-            emails = [];
-            users.forEach(function(user) {
-                console.log("pushing user to email..", user.username);
-                emails.push(user.username);
-            });
-            done(err, emails);
         },
         function(emails, done) {
-            console.log("3rd function");
-            emails.forEach(function(email) {
-                console.log(email);
-            });
-            done(err, 'done');
-        }
-    ], function(err) {
-        if (err) return console.log(err);
-    });
-}
-
-function test() {
-    async.waterfall([
-        function(done) {
-            User.findOne({username : "martingeo15@gmail.com"}, function(err, user) {
-                done(err, user);
-            })
-        },
-        function(user, done) {
-            console.log(user);
-            done(err, 'done');
+            console.log(emails);
         }
     ], function(err) {
         return console.log(err);
     });
 }
 
-test();
+function mailer() {
+    let smtpTransport = nodemailer.createTransport({
+        host : 'smtp.zoho.com',
+        auth : {
+            user : 'hr@dhishna.org',
+            pass : 'jWwxQMR2i2ES'
+        }
+    });
+
+    emails = ['martingeo15@gmail.com', 'tech.dhishna@gmail.com', 'dhishna2020@gmail.com']
+
+    emails.forEach(function(email) {
+        let msg = {
+            to : email,
+            from : 'mail@dhishna.org',
+            subject : 'test',
+            text : 'this is sample test'
+        }
+
+        smtpTransport.sendMail(msg, function(err) {
+            if (err) console.log(err);
+            else console.log("mail sent to", email);
+        });
+    });
+}
+
+mailer();
