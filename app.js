@@ -139,6 +139,11 @@ app.post("/contact", function(req, res) {
       });
 });
 
+// thankyou page
+app.get("/thankyou", function(req, res) {
+    res.render("thankyou");
+});
+
 
 // ===================================== auth ======================================== //
 
