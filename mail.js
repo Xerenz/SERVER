@@ -54,7 +54,7 @@ function mailer() {
         host : 'smtp.zoho.com',
         auth : {
             user : 'hr@dhishna.org',
-            pass : 'jWwxQMR2i2ES'
+            pass : 'enter password here'
         }
     });
 
