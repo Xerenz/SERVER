@@ -20,6 +20,29 @@ function sendMail() {
         },
         function(emails, done) {
             console.log(emails);
+            let smtpTransport = nodemailer.createTransport({
+                host : 'smtp.zoho.com',
+                auth : {
+                    user : 'hr@dhishna.org',
+                    pass : process.env.PASSWORD
+                }
+            });
+
+            emails.forEach(function(email) {
+                let msg = {
+                    to : email,
+                    from : 'hr@dhishna.org',
+                    subject : 'test',
+                    text : 'This is a test'
+                }
+
+                smtpTransport.sendMail(msg, function(err) {
+                    if (err) console.log(err);
+                    else console.log('mail sent to', email); 
+                    
+                    done('done');
+                });
+            });
         }
     ], function(err) {
         return console.log(err);
@@ -40,7 +63,7 @@ function mailer() {
     emails.forEach(function(email) {
         let msg = {
             to : email,
-            from : 'mail@dhishna.org',
+            from : 'hr@dhishna.org',
             subject : 'test',
             text : 'this is sample test'
         }
@@ -52,4 +75,4 @@ function mailer() {
     });
 }
 
-mailer();
+sendMail();
