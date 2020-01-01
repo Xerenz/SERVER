@@ -32,30 +32,79 @@
             <div class="col col-12">
                 <div class="form_box animated fadeIn delay-1s ">
                  
-                        <form  id="login_form" class="login_form" method="POST" action="/addEvent">
+                        <form  id="login_form" class="login_form" method="POST" action="/volunteer/event/<%= event.branch%>/edit/<%= event._id %>">
                             
-                            <div class="form-group">
+                           <div class="form-group">
                                 <label for="ename">Event name</label>
-                                <input  class="form-control" id="ename" name="ename" placeholder="eg She coder" value="<%= event.name %>" required>
+                                <input  class="form-control" id="ename" name="name" placeholder="eg Event name" value="<%= event.name %>" required>
                             </div>
                             <div class="form-group">
                               <label for="desc" style="width: 100%;">Description</label>
-                              <textarea style="width:100%" name="desc" required placeholder="4 sentence minimum" value="">
+                              <textarea style="width: 100%;" name="content" required placeholder="4 sentence minimum">
                                   <%= event.content %>
                               </textarea>
                             </div>
+                             <div class="form-group">
+                                <label for="ename">Branch</label>
+                                <input  class="form-control" id="ename" name="label" placeholder="leave this empty"  value=" <%= event.branch %>" disabled >
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="ename">label</label>
+                                <input  class="form-control" id="ename" name="label" placeholder="leave this empty"  value=" <%= event.label %>" >
+                            </div>
+
                             <div class="form-group">
                                 <label for="edate">Date</label>
-                                <input  class="form-control" id="edate" name="date" placeholder="eg: 19/2/2020 to 20/2/2020" value="<%= event.date %>">
+                                <input  class="form-control" id="edate" name="date" placeholder="eg: 19/2/2020 and 20/2/2020"  value="<%= event.date %>" >
                             </div>
+
+
+                            <div class="form-group">
+                                <label for="edate">Price</label>
+                                <input  class="form-control" id="eprice" name="price" placeholder="eg: 300" value="<%= event.price %>">
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Contact</label>
+                                <input  class="form-control" id="eprice" name="phone1" placeholder="eg: 8075873276" required value="<%= event.contact[0].phone %>"  >
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Contact</label>
+                                <input  class="form-control" id="eprice" name="phone2" placeholder="eg: 8075873276" required value="<%= event.contact[1].phone %>" >
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Message</label>
+                                <input  class="form-control" id="eprice" name="message" placeholder="leave this empty" 
+                                 value="<%= event.message %>">
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Open status</label>
+                                <input  class="form-control" id="eprice" name="isOpen" placeholder="leave this empty"
+                                value="<%= event.isOpen %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edate">Image url</label>
+                                <input  class="form-control" id="eprice" name="details" placeholder="leave this empty"
+                                value="<%= event.details %>" >
+                            </div>
+
+
                             
-                            
+
                             
             
                                 <div class="text-center">
                                     <button  class="btn btn-dark">submit</button>
                                 </div>
                                 <div class="space-50"></div>
+                            
+                        
                             
                         
                         </form>  <!-- form ends --> 
@@ -69,7 +118,7 @@
 
     <!-- back button -->
     <div class="back_button animated fadeInUp delay-1s">
-        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
+        <a href="/volunteer/event/<%= event.branch %>/view"><img src="/assets/img/logo.png" alt=""></a>
    </div>
 
 

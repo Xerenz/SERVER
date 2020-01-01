@@ -15,6 +15,16 @@ exports.view_event = function(req, res) {
 };
 
 // prefill the form to edit events
+exports.delete_event = function(req, res) {
+    Event.findByIdAndDelete(req.params.id, function(err, event) {
+        // res.send(event);
+        res.redirect("/volunteer/event/"+ req.params.branch + "/view")
+    });
+};
+
+
+
+// prefill the form to edit events
 exports.edit_event = function(req, res) {
     Event.findById(req.params.id, function(err, event) {
         // res.send(event);
@@ -25,7 +35,8 @@ exports.edit_event = function(req, res) {
 // form to add events
 exports.add_event = function(req, res) {
     // res.send("add events here");
-    res.render("addEvent");
+    branch = req.params.branch
+    res.render("addEvent", { "branch" : branch });
 };
 
 // add new event
@@ -34,7 +45,7 @@ exports.post_add = function(req, res) {
     let contact1 = {name : req.body.contact1, phone : req.body.phone1}
     let contact2 = {name : req.body.contact2, phone : req.body.phone2}
 
-    let event = new Event(
+   event  = new Event( 
         {
             name : req.body.name,
             branch : req.body.branch,
@@ -42,7 +53,7 @@ exports.post_add = function(req, res) {
             content : req.body.content,
             date : req.body.date,
             price : req.body.price,
-
+            branch: req.body.branch,
             contact : [contact1, contact2],
             
             message : req.body.message,
@@ -50,12 +61,17 @@ exports.post_add = function(req, res) {
 
             details : req.body.details,
             pdfUrl : req.body.pdfUrl,
-        }
-    );
+        });
 
-    event.save(function(err) {
+  
+
+    event.save(function(err,data) {
         if (err) return console.log(err);
-        else res.send("Event Created succesfully!");
+        else 
+            {   
+
+                res.redirect('view');
+            }
     });
 };
 
@@ -80,6 +96,10 @@ exports.post_edit = function(req, res) {
 
     }, function(err, event) {
         if (err) return console.log("err");
-        console.log("Event updated");
+        else 
+            {   
+
+                res.redirect('/volunteer/event/'+event.branch + '/view');
+            }
     });    
 };

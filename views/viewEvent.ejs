@@ -53,7 +53,7 @@
              <!-- row -->
             <div class="row">
                 <div class="col col-12 animated fadeInUp delay-1s">
-                    <a href="add/new" title=""><button type="button" class="btn btn-danger">ADD EVENTS</button></a>
+                    <a href="new" title=""><button type="button" class="btn btn-danger">ADD EVENTS</button></a>
                     
                     
                 </div>
@@ -73,18 +73,51 @@
                     <div class="row">
                             <% for(var i=0;i<events.length;i++){ %>
                                 <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
-                                    <a href="edit/<%= events[i]._id %>/now"><button>Edit</button></a> 
+                                    <a href="edit/<%= events[i]._id %>"><button>Edit</button></a> 
+                                     <a  onclick="check()"><button>delete</button></a> 
                                     <div class="outreach_text">
+                                        Name: 
                                         <%= events[i].name %>
                                     </div>
                                         <!-- <div class="space-50"></div> -->
                                     <div class="outreach_p p-2">
+                                        description : 
                                          <%= events[i].content %>
                                     </div>
+                                    <div class="outreach_p p-2">
+                                        label : 
+                                         <%= events[i].label %>
+                                    </div>
+                                    <div class="outreach_p p-2">
+                                       date : 
+                                         <%= events[i].date %>
+                                    </div>
+                                   
+                                    <div class="outreach_p p-2">
+                                        isOpen status : 
+                                         <%= events[i].isOpen %>
+                                    </div><div class="outreach_p p-2">
+                                        image name saved in DB
+                                         <%= events[i].details %>
+                                    </div>
+
+                                    <div class="outreach_p p-2">
+                                        contact detail  :
+                                         <%= events[i].contact[0].phone %>
+                                    </div>
+                                    <div class="outreach_p p-2">
+                                        contact detail  :
+                                         <%= events[i].contact[1].phone %>
+                                    </div>
+
+                                    <div class="outreach_p p-2">
+                                         <%= events[i].message %>
+                                    </div>
+                           
                            
                                 </div>
 
-
+                                    <div class="space-50"></div>
 
                             <%  } %>
 
@@ -104,8 +137,6 @@
             
         </div>
     </section>
-    
-    
 
 
     <!-- script -->
