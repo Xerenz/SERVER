@@ -45,6 +45,8 @@ exports.post_add = function(req, res) {
     let contact1 = {name : req.body.contact1, phone : req.body.phone1}
     let contact2 = {name : req.body.contact2, phone : req.body.phone2}
 
+    console.log(req.body.branch)
+
    event  = new Event( 
         {
             name : req.body.name,
@@ -63,7 +65,7 @@ exports.post_add = function(req, res) {
             pdfUrl : req.body.pdfUrl,
         });
 
-  
+    console.log(event)
 
     event.save(function(err,data) {
         if (err) return console.log(err);
@@ -95,7 +97,7 @@ exports.post_edit = function(req, res) {
         pdfUrl : req.body.pdfUrl,
 
     }, function(err, event) {
-        if (err) return console.log("err");
+        if (err) return console.log(err);
         else 
             {   
 

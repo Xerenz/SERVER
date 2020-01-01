@@ -74,7 +74,7 @@
                             <% for(var i=0;i<events.length;i++){ %>
                                 <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
                                     <a href="edit/<%= events[i]._id %>"><button>Edit</button></a> 
-                                     <a  onclick="check()"><button>delete</button></a> 
+                                     <a href="delete/<%= events[i]._id %>" ><button>delete</button></a> 
                                     <div class="outreach_text">
                                         Name: 
                                         <%= events[i].name %>
@@ -97,20 +97,23 @@
                                         isOpen status : 
                                          <%= events[i].isOpen %>
                                     </div><div class="outreach_p p-2">
-                                        image name saved in DB
+                                        image name saved in DB:
                                          <%= events[i].details %>
                                     </div>
 
                                     <div class="outreach_p p-2">
                                         contact detail  :
+                                         <%= events[i].contact[0].name %> :
                                          <%= events[i].contact[0].phone %>
                                     </div>
                                     <div class="outreach_p p-2">
                                         contact detail  :
+                                        <%= events[i].contact[1].name %> :
                                          <%= events[i].contact[1].phone %>
                                     </div>
 
                                     <div class="outreach_p p-2">
+                                        message:
                                          <%= events[i].message %>
                                     </div>
                            
