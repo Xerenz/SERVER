@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DHISHNA - | LOGIN |</title>
+    <title>DHISHNA - | ADMIN DASH |</title>
   
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
@@ -46,7 +46,13 @@
                             </div>
                              <div class="form-group">
                                 <label for="ename">Branch</label>
-                                <input  class="form-control" id="ename" name="label" placeholder="leave this empty"  value=" <%= event.branch %>" readonly >
+                                <input  class="form-control" id="ename" name="branch" placeholder="leave this empty"  value=" <%= event.branch %>" readonly >
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="edate">Fees</label>
+                                <input  class="form-control" id="eprice" name="fees" placeholder="eg: 300" value="<%= event.fees %>">
                             </div>
 
 
@@ -60,15 +66,37 @@
                                 <input  class="form-control" id="edate" name="date" placeholder="eg: 19/2/2020 and 20/2/2020"  value="<%= event.date %>" >
                             </div>
 
+                            <div class="form-group">
+                                <label for="edate">First Third</label>
+                                <input  class="form-control" id="eprice" name="price1" placeholder="eg: 1000" value="<%= event.price1 %>">
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Second Price</label>
+                                <input  class="form-control" id="eprice" name="price2" placeholder="eg: 500" value="<%= event.price2 %>">
+                            </div>
+                            
 
                             <div class="form-group">
-                                <label for="edate">Price</label>
-                                <input  class="form-control" id="eprice" name="price" placeholder="eg: 300" value="<%= event.price %>">
+                                <label for="edate">Third Price</label>
+                                <input  class="form-control" id="eprice" name="price3" placeholder="eg: 300" value="<%= event.price3 %>">
                             </div>
+                            
+                            <div class="form-group">
+                                <label for="edate">Contact</label>
+                                <input  class="form-control" id="eprice" name="contact1" placeholder="eg: Name" required value="<%= event.contact[0].name %>"  >
+                            </div>
+
 
                              <div class="form-group">
                                 <label for="edate">Contact</label>
                                 <input  class="form-control" id="eprice" name="phone1" placeholder="eg: 8075873276" required value="<%= event.contact[0].phone %>"  >
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="edate">Contact</label>
+                                <input  class="form-control" id="eprice" name="contact2" placeholder="eg: Name" required value="<%= event.contact[1].name %>"  >
                             </div>
 
                              <div class="form-group">

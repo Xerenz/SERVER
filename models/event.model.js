@@ -5,9 +5,12 @@ let EventSchema = new Schema(
     {
         name : {type: String, required: true, max: 100},
         date : {type: String},
-        price : {type: String},
+        fees : {type: String},
         branch : {type: String, required: true},
         content : {type: String},
+        price1:{type:String},
+        price2:{type:String},
+        price3:{type:String},
         label : {type: String},
         contact:[
                     { 

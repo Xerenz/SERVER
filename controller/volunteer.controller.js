@@ -54,7 +54,10 @@ exports.post_add = function(req, res) {
             label : req.body.label,
             content : req.body.content,
             date : req.body.date,
-            price : req.body.price,
+            fees : req.body.fees,
+            price1 : req.body.price1,
+            price2 : req.body.price2,
+            price3 : req.body.price3,
             branch: req.body.branch,
             contact : [contact1, contact2],
             
@@ -87,7 +90,10 @@ exports.post_edit = function(req, res) {
         label : req.body.label,
         content : req.body.content,
         date : req.body.date,
-        price : req.body.price,
+        fees : req.body.fees,
+        price1 : req.body.price1,
+        price2 : req.body.price2,
+        price3 : req.body.price3,
 
         contact : [contact1, contact2],
         
