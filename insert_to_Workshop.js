@@ -124,7 +124,7 @@ var data = [
         date : "18/1/2020 ",
         price : "800",
         branch : "SAFETY",
-        content : "Ducati is best known for high-performance motorcycles characterized by large-capacity four-stroke, 90° V-twin engines with a desmodromic valve design.Ducati has produced several styles of motorcycle engines, including varying the number of cylinders, type of valve actuation and fuel delivery.In this workshop on Ducati ,we offer a excellent opportunity to learn more about Ducati Motorcycles and the latest technologies used by them.When we say Ducati factory trained, it mean just that!!.So we also offer a rare opportunity to attend a service workshop with Ducati's Two brilliant bikes Ducati Panigale and Ducati Scrambler.",
+        content : "Ducati is best known for high-performance motorcycles characterized by large-capacity four-stroke, 90° V-twin engines with a desmodromic valve design.Ducati has produced several styles of motorcycle engines, including varying the number of cylinders, type of valve actuation and fuel delivery.In this workshop on Ducati ,we offer a excellent opportunity to learn more about Ducati Motorcycles and the latest technologies used by them.When we say Ducati factory trained, it mean just that!!.So we also offer a rare opportunity to attend a service workshop with Ducati's Two brilliant bikes Multistrada 1260 and Ducati Scrambler.",
         label : "technical",
         contact:[
                     { 
@@ -200,6 +200,34 @@ var data = [
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/cyber-warfare/"
+
+
+    },
+    {
+        name : "PCB designing",
+        date : "18/1/2020 - 19/1/2020",
+        price : "850",
+        branch : "ec",
+        content : "Ever tried opening the parts of your favourite remote controlled car while you were a child? Does electronic circuits attract you too?Dhishna in association with Innovians Technologies brings you a two day workshop teaching you to design a PCB board, to discover more about it and make use of it designing smarter systems... Remember the best part is certificate by Technex, IIT Varanasi to each participant.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Sharon",
+                        phone:"7907101793"
+                    },
+
+                    { 
+                        name:"Krishna",
+                        phone:"8281865483"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_pcb",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/pcb-designing-39911/"
 
 
     }
