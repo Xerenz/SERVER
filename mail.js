@@ -49,6 +49,7 @@ function sendMail() {
     });
 }
 
+// testing sending mail with zoho
 function mailer() {
     let smtpTransport = nodemailer.createTransport({
         host : 'smtp.zoho.com',
@@ -75,4 +76,18 @@ function mailer() {
     });
 }
 
-sendMail();
+
+// checking user emails
+
+function getEmails() {
+    emails = [];
+    User.find({}, function(err, users) {
+        if (err) return console.log(err);
+        users.forEach(function(user) {
+            emails.push(user.username);
+        });
+        console.log(emails);
+    });
+}
+
+getEmails();
