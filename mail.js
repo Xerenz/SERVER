@@ -32,8 +32,8 @@ function sendMail() {
                 let msg = {
                     to : email,
                     from : 'hr@dhishna.org',
-                    subject : 'test',
-                    text : 'This is a test'
+                    subject : 'Register for Dhishna Workshops!',
+                    text : `Hey there`
                 }
 
                 smtpTransport.sendMail(msg, function(err) {
@@ -77,16 +77,21 @@ function mailer() {
 }
 
 
-// checking user emails
+// checking user emails and name
 
 function getEmails() {
-    emails = [];
+    // list of users
+    myUsers = [];
+    // find each user
     User.find({}, function(err, users) {
         if (err) return console.log(err);
         users.forEach(function(user) {
-            emails.push(user.username);
+            myUsers.push({
+                name : user.name,
+                email : user.username
+            });
         });
-        console.log(emails);
+        console.log(myUsers);
     });
 }
 
