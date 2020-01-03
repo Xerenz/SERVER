@@ -10,16 +10,15 @@ function sendMail() {
     async.waterfall([
         function(done) {
             User.find({}, function(err, users) {
-                console.log("found users");
-                emails = [];
+                allUsers = [];
                 users.forEach(function(user) {
-                    emails.push(user.username);
+                    allUsers.push({email : user.username, name : user.name});
                 });
-                done(err, emails);
+                done(err, allUsers);
             });
         },
-        function(emails, done) {
-            console.log(emails);
+        function(allUsers, done) {
+            console.log(allUsers);
             let smtpTransport = nodemailer.createTransport({
                 host : 'smtp.zoho.com',
                 auth : {
@@ -28,12 +27,31 @@ function sendMail() {
                 }
             });
 
-            emails.forEach(function(email) {
+            allUsers.forEach(function(user) {
                 let msg = {
-                    to : email,
+                    to : user.email,
                     from : 'hr@dhishna.org',
                     subject : 'Register for Dhishna Workshops!',
-                    text : `Hey there`
+                    html : `Hey ${user.name}
+                    
+                    <p>It's great that you registered to Dhishna 2020, but if you haven't done so already register for our awesome workshops.
+                    Here are the links to them</p>
+
+                    <!--// ** TODO : Add a bit of discription for every workshop ** //-->
+                
+                    <a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5f/knowmore">Cyber Warfare</a>
+                    <a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5d/knowmore">Ducati</a>
+                    <a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5c/knowmore">Humanoid Robot</a>
+                    <a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5e/knowmore">Mecedese Benz overhaul</a>
+                    
+                    <p>Lookout for more exciting workshops to come at https://dhishna.org/workshop</p> 
+
+                    <!--// ** Psst.. All these workshops are IIT certified ;) are they? ** //-->
+
+                    <p>Looking forward to seeing you at one of our events.</p>
+
+                    <p>Regards
+                    Dhishna 2020</p>`
                 }
 
                 smtpTransport.sendMail(msg, function(err) {
@@ -49,32 +67,55 @@ function sendMail() {
     });
 }
 
+
+
+// ================================================================ //
+
+
 // testing sending mail with zoho
 function mailer() {
+    console.log("called mailer");
+
     let smtpTransport = nodemailer.createTransport({
         host : 'smtp.zoho.com',
         auth : {
             user : 'hr@dhishna.org',
-            pass : 'enter password here'
+            pass : 'jWwxQMR2i2ES'
         }
     });
 
-    emails = ['martingeo15@gmail.com', 'tech.dhishna@gmail.com', 'dhishna2020@gmail.com']
+    // emails = ['martingeo15@gmail.com', 'tech.dhishna@gmail.com', 'dhishna2020@gmail.com']
 
-    emails.forEach(function(email) {
-        let msg = {
-            to : email,
-            from : 'hr@dhishna.org',
-            subject : 'test',
-            text : 'this is sample test'
-        }
+    let msg = {
+        to : 'jjdlkjlks@abs.com',
+        from : 'hr@dhishna.org',
+        subject : 'test',
+        html : `<p>Hey there!
+        It's amazing that you registered for Dhishna 2020. We have some amazing workshops for you.
+        <ul>
+            <li><a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5f/knowmore">Cyber Warfare</a></li>
+            <li><a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5d/knowmore">Ducati</a></li>
+            <li><a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5c/knowmore">Humanoid Robot</a></li>
+            <li><a href="https://dhishna.org/workshop/5e08429c8ece7f639db3bd5e/knowmore">Mecedese Benz overhaul</a></li>
+        </ul>           
 
-        smtpTransport.sendMail(msg, function(err) {
-            if (err) console.log(err);
-            else console.log("mail sent to", email);
-        });
+        Join in and register for dhishna now!</p>
+
+        Regards,
+        Dhishna 2020
+        `
+    }
+
+    smtpTransport.sendMail(msg, function(err) {
+        if (err) console.log(err);
+        else console.log("mail sent");
     });
 }
+
+
+
+// ================================================================== //
+
 
 
 // checking user emails and name
@@ -95,4 +136,8 @@ function getEmails() {
     });
 }
 
-getEmails();
+//getEmails();
+
+// mailer();
+
+sendMail();
