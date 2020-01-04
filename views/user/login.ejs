@@ -38,7 +38,7 @@
                             <div class="form-group">
                               <label for="password">Password</label>
                               <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" required>
-                              <!-- <small>Incorrect password</small> -->
+                              <small class="text-danger"><%= message %> </small>
                             </div>
             
                                 <div class="text-center">
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="space-50"></div>
                             <div class="col col-12 text-center">
-                                New user ? <a href="/register" class="text-danger">Sign Up</a> 
+                                Don't have an account ? <a href="/register" class="text-danger"> Sign Up</a> 
                             </div>
                              <div class="col col-12 text-center">
                                <br> Forgot password ? <a href="/forgot">Reset</a> 
