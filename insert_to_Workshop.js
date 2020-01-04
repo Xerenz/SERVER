@@ -233,7 +233,7 @@ var data = [
     },
     {
         name : "Fire Safety Robotics",
-        date : "18/1/2020 - 19/1/2020",
+        date : "25/1/2020 - 26/1/2020",
         price : "1400",
         branch : "safety",
         content : "The technology is all in steps of advancement. Every field experiencing it's touch and thus is the scenario in fire fighting too.In the event of a fire breakout, to rescue people and to put out the fire  are forced to use human resources which are not safe. With the advancement of technology especially in Robotics it is very much possible to replace humans with robots for fighting the fire. Dhishna 2020 in association with IIT Bombay presents you a two day workshop on Fire Safety Robotics ",
