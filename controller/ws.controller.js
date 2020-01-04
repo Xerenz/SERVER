@@ -2,6 +2,8 @@ const Workshop = require("../models/ws.model");
 const Transaction = require("../models/transaction.model");
 const User = require("../models/user.model");
 
+const async = require("async");
+
 
 const request = require("request");
 
@@ -316,3 +318,40 @@ exports.redirect =  function(req, res) {
 };
 
 
+
+// testing prototype
+
+exports.webhook2 = function(req, res) {
+    async.waterfall([
+        function(done) {
+            let payment = new Transaction({
+                // transaction info
+                payment_id : req.body.payment_id,
+                status : req.body.status,
+                payment_for : req.body.offer_title,
+                buyer : req.body.buyer,
+            });
+
+            payment.save(function(err) {
+                done(err);
+            })
+        },
+        function(done) {
+            Workshop.find({name : req.body.offer_title}, function(err, event) {
+                done(event, err);
+            });
+        },
+        function(event, done) {
+            User.update({username : req.body.buyer},
+                {"$push" : {"ws" : event.id}}, 
+                function(err, user) {
+                    done(err, user);
+            });
+        },
+        function(user, done) {
+            console.log("payment recorded for user ", user.username);
+        }
+    ], function(err) {
+        console.log(err);
+    })
+}
