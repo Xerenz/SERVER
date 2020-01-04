@@ -258,6 +258,34 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/fire-safety-robotics/"
 
 
+    },
+    {
+        name : "Artificial Neural Network",
+        date : "1/2/2020 - 2/2/2020",
+        price : "1400",
+        branch : "it",
+        content : "Neural networks are computing systems with interconnected nodes that work much like neurons in the human brain. Using algorithms, they can recognize hidden patterns and correlations in raw data, cluster and classify it, and – over time – continuously learn and improve.Dhishna 2020 in association with IIT Bombay presents you a two day workshop on Artificial Neural Networks. Moreover, certificate from IIT Bombay will be awarded to each participant.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Rizwan",
+                        phone:"7012806994"
+                    },
+
+                    { 
+                        name:"Parvathi",
+                        phone:"8287601553"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_nueron",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/artificial-neural-network/"
+
+
     }
 
     
