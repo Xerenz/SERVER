@@ -10,7 +10,13 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const nodemailer = require("nodemailer");
 const async = require("async");
 const crypto = require("crypto");
-const flash = require("express-flash-messages");
+// const flash = require("express-flash-messages");
+
+// =========jithin doing experiment
+var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+
+// =================================
 
 mongoose.connect("mongodb://localhost/dhishna");
 
@@ -20,6 +26,8 @@ const wsRoutes = require("./routes/ws.route");
 const exhibitionRoutes = require("./routes/exhibition.route");
 const adminRoutes = require("./routes/admin.route");
 const volRoutes = require("./routes/volunteer.route");
+
+
 
 
 
@@ -59,12 +67,25 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+// ==========================
+// jithin doing some experiments
+
+app.use(cookieParser('secret'));
+app.use(expressSession({cookie: { maxAge: 60000 }}));
+app.use(flash());
+
+// ==========================
+
+
+
 // config parent routes
 app.use("/event", eventRoutes);
 app.use("/workshop", wsRoutes);
 app.use("/exhibition", exhibitionRoutes);
 app.use("/SantyDance", adminRoutes);
 app.use("/volunteer", volRoutes);
+
 
 
 
@@ -159,7 +180,7 @@ app.get("/profile", isLoggedIn, function(req, res) {
 // Register
 
 app.get("/register", function(req, res) {
-    res.render("user/register");
+    res.render("user/register",{"error":req.flash('message')});
 });
 
 app.post("/register", function(req, res) {
@@ -175,7 +196,8 @@ app.post("/register", function(req, res) {
     }), req.body.password, function(err, user) {
         if (err) {
             console.log(err);
-            return res.render("user/register");
+            req.flash('message',err.message)
+            return res.redirect('/register');
         }
         console.log("user created " + user.username);
         passport.authenticate("local")(req, res, function() {
@@ -193,14 +215,15 @@ app.post("/register", function(req, res) {
 
 app.get("/login", function(req, res) {
     var message = "LogIn Here!"
-    if (req.user)
-        message = "LogIn with another account?";
-    res.render("user/login", {message : message});
+    // if (req.user)
+        // message = "LogIn with another account?";
+    res.render("user/login", {message : req.flash('error')});
 });
 
 app.post("/login", passport.authenticate("local", {
     successRedirect: "/profile" || req.session.returnTo,
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    failureFlash: true
 }), function(req, res) {
     // final handler
 });
@@ -226,7 +249,7 @@ function isLoggedIn(req, res, next) {
 
 // forgot password
 app.get("/forgot", function(req, res) {
-    res.render("user/forgot",{message:""});
+    res.render("user/forgot",{message:req.flash('error')});
 })
 
 app.post('/forgot', function(req, res, next) {
@@ -552,6 +575,8 @@ app.post("/api_innova", function(req, res) {
 
 
 // ===================================================================== //
+
+
 
 
 app.get('*' ,(req,res)=>{
