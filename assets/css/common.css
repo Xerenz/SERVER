@@ -82,6 +82,37 @@ canvas {
     color: white;
   }
 
+      
+/*============================*/
+/*animation*/
+/*============================*/
+
+
+.floating_astron {  
+    animation-name: floating_astro;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating_astro {
+    from { transform: translate(0,  0px);
+           /* transform: rotate(0deg);*/
+          }
+   
+    65%  { transform: translate(0, 20px);
+            
+         }
+       
+    to   { transform: translate(0, -0px);
+            
+         }    
+}
+
+
+
+
+
 @media screen and (max-width:500px)
 {
     .back_button{
