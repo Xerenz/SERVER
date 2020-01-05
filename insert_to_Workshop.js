@@ -178,7 +178,7 @@ var data = [
     {
         name : "Cyber Warfare",
         date : "11/1/2020",
-        price : "700",
+        price : "500",
         branch : "CS",
         content : "Cyberwarfare could turn every gadget you own into a weapon on a virtual battlefield. And the damage will be felt in the real world.To date, there hasn't been an outright 'cyber war' with declared antagonists, however, there are a number of incidents that have caused serious disruption to country's infrastructure that are suspected of being carried out by another state.Future wars will see hackers using computer code to attack an enemy's infrastructure, fighting alongside troops using conventional weapons like guns and missiles.  Dhishna'20 presents you a one day workshop on Cyberwarfare with certificate to each participant.",
         label : "technical",
