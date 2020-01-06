@@ -11,13 +11,23 @@ exports.admin_panel = function(req, res) {
 };
 
 exports.admin_create_ws = function(req, res) {
-    res.render("admin/ws", {ws : ''});
+    res.render("admin/wsCreate", {ws : ''});
+};
+
+exports.admin_wsbybranch = function(req, res) {
+    Workshop.find({branch : req.params.branch}, function(err, wsArray) {
+        workshops = []
+        wsArray.forEach(function(ws) {
+            workshop.push({name : ws.name, id : ws.id});
+        });
+        res.render("admin/wsUpdate", {workshops : workshops});
+    });
 };
 
 exports.admin_update_ws = function(req, res) {
     Workshop.findById(req.params.id, function(err, ws) {
         if (err) return console.log(err);
-        res.render("admin/ws", {ws : ws});
+        res.render("admin/wsUpdate", {ws : ws});
     });
 };
 
@@ -46,6 +56,8 @@ exports.create_workshop = function(req, res) {
         pdfUrl : req.body.pdf,
         url : req.body.url
     }); 
+
+    console.log(workshop);
 
     workshop.save(function(err) {
         if (err) console.log(err);
@@ -87,6 +99,9 @@ exports.update_workshop = function(req, res) {
         
         ws.isOpen = state;
 
-        // do a redirect
+        ws.save(function(err) {
+            if (err) return console.log(err);
+            // do a redirect
+        });
     });
 }
