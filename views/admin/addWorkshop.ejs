@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA - | ADD WORKSHOPS |</title>
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    
+    
+</head>
+<body>
+   
+    <!-- canvas section -->
+    <section>
+        <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script> -->
+        <!-- <script src="/assets/js/stars.js"></script> -->
+    </section>
+    <!-- canvas ends -->
+
+    <section>
+        <div class="space"></div>
+        <div class="row text-white">
+        	<div class="col col-12 text-center">
+        		 <h4>Add workshops</h4>
+        	</div>
+            <div class="col col-12">
+                <div class="form_box animated fadeIn delay-1s ">
+                 
+                        <form  id="login_form" class="login_form" method="POST" action="new">
+                            
+                            <div class="form-group">
+                                <label for="ename">Event name</label>
+                                <input  class="form-control" id="ename" name="name" placeholder="eg Event name" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="desc" style="width: 100%;">Description</label>
+                              <textarea style="width: 100%;" name="content" required placeholder="4 sentence minimum"></textarea>
+                            </div>
+                            
+
+
+                            <div class="form-group">
+                                <label for="ename">label</label>
+                                <input  class="form-control" id="ename" name="label" placeholder="leave this empty" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edate">Date</label>
+                                <input  class="form-control" id="edate" name="date" placeholder="eg: 19/2/2020 and 20/2/2020">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="edate">fees</label>
+                                <input  class="form-control" id="eprice" name="fees" placeholder="eg: 300">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="edate">Branch</label>
+                                <input  class="form-control" id="eprice" name="branch" value="<%= branch%>" readonly>
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">First prize</label>
+                                <input  class="form-control" id="eprice" name="price1"  >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edate">Second prize</label>
+                                <input  class="form-control" id="eprice" name="price2" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edate">Third prize</label>
+                                <input  class="form-control" id="eprice" name="price3" >
+                            </div>
+
+
+                             <div class="form-group">
+                                <label for="edate">Contact -1</label>
+                                <input  class="form-control" id="eprice" name="contact1" placeholder=" name" required>
+                            </div>
+
+
+                             <div class="form-group">
+                                <label for="edate">Contact -1</label>
+                                <input  class="form-control" id="eprice" name="phone1" placeholder="eg: 8075873276" required>
+                            </div>
+
+
+                             <div class="form-group">
+                                <label for="edate">Contact -2</label>
+                                <input  class="form-control" id="eprice" name="contact2" placeholder=" name" required>
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Contact -2</label>
+                                <input  class="form-control" id="eprice" name="phone2" placeholder="eg: 8075873276" required>
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Message</label>
+                                <input  class="form-control" id="eprice" name="message" placeholder="leave this empty">
+                            </div>
+
+                             <div class="form-group">
+                                <label for="edate">Open status</label>
+                                <input  class="form-control" id="eprice" name="isOpen" placeholder="leave this empty">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="edate">Image url</label>
+                                <input  class="form-control" id="eprice" name="details" placeholder="leave this empty">
+                            </div>
+
+
+                            
+
+                            
+            
+                                <div class="text-center">
+                                    <button  class="btn btn-dark">submit</button>
+                                </div>
+                                <div class="space-50"></div>
+                            
+                        
+                        </form>  <!-- form ends --> 
+                   
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- back button -->
+    <div class="back_button animated fadeInUp delay-1s">
+        <a href="/volunteer/event/<%= branch %>/view"><img src="/assets/img/logo.png" alt=""></a>
+   </div>
+
+
+    <!-- theme tag section -->
+    <section>
+        <div class="theme">
+            &copy; DHISHNA 2020 <br>
+           THE INFINITE ODYSSEY
+          </div>
+    </section>
+    <!-- theme tag section ends -->
+    <script src="/assets/js/boom.js"></script>
+    <script type="text/javascript">
+        var textarea = document.querySelector('textarea');
+
+        textarea.addEventListener('keydown', autosize);
+             
+        function autosize(){
+            var el = this;
+            setTimeout(function(){
+            el.style.cssText = 'height:auto; padding:0;width100%;';
+            // for box-sizing other than "content-box" use:
+            // el.style.cssText = '-moz-box-sizing:content-box';
+             el.style.cssText = 'height:' + el.scrollHeight + 'px';
+            },0);
+        }
+    </script>
+</body>
+</html>
