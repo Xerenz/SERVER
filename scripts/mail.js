@@ -4,7 +4,7 @@ const async = require("async");
 
 mongoose.connect("mongodb://localhost/dhishna");
 
-const User = require("./models/user.model");
+const User = require("../models/user.model");
 
 function sendMail() {
     async.waterfall([

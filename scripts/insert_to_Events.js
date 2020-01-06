@@ -1,4 +1,4 @@
-const Exhibition = require("./models/exhibition.model");
+const Events = require("../models/event.model");
 
 
 // place your data here
@@ -35,10 +35,11 @@ db.once('open', function() {
     console.log("Connection Successful!");
     
     // define Schema
+ 
     // documents array
 
     // save multiple documents to the collection referenced by Book Model
-    Exhibition.collection.insert(data, function (err, docs) {
+    Events.collection.insert(data, function (err, docs) {
       if (err){ 
           return console.error(err);
       } else {

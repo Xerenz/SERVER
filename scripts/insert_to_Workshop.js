@@ -1,4 +1,4 @@
-const Workshop = require("./models/ws.model");
+const Workshop = require("../models/ws.model");
 
 
 
