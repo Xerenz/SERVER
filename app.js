@@ -203,7 +203,7 @@ app.post("/register", function(req, res) {
         passport.authenticate("local")(req, res, function() {
             if (req.user) {
                 console.log("user authenticated");
-                res.redirect("/profile");
+                res.redirect("/workshop");
             }
         });
     });
@@ -221,7 +221,7 @@ app.get("/login", function(req, res) {
 });
 
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/profile" || req.session.returnTo,
+    successRedirect: "/workshop" || req.session.returnTo,
     failureRedirect: "/login",
     failureFlash: true
 }), function(req, res) {
