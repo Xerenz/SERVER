@@ -215,12 +215,12 @@ var data = [
         contact:[
                     { 
                         name:"Kevin",
-                        phone:"8304897110"
+                        phone:"974658149"
                     },
 
                     { 
                         name:"Akshay",
-                        phone:"8921444192"
+                        phone:"7907048728"
                     }
                 ],
         message:" open now",
