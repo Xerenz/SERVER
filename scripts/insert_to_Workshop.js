@@ -7,62 +7,7 @@ const Workshop = require("../models/ws.model");
 
 var data = [
     
-    // {
-    //     name : "Machine learning",
-    //     date : "18/1/2020 - 19/1/2020",
-    //     price : "700",
-    //     branch : "CS",
-    //     content : "This is a two day workshop where you will learn the basics of ml. The session would be a hands on session perfect for beginners. Industry experts handpicked by iit Bombay would ensure an enlightening experience for the students. Furthermore it also provides an opportunity to enter a national level competition and win exciting prizes.",
-    //     label : "coding",
-    //     contact:[
-    //                 { 
-    //                     name:"Harsha Salim",
-    //                     phone:"7902834880"
-    //                 },
-
-    //                 { 
-    //                     name:"Aswathy R Ullas",
-    //                     phone:"7902467340"
-    //                 }
-    //             ],
-    //     message:" open now",
-    //     isOpen:true,
-    //     //full detail image name
-    //     details:"w_machine",
-    //     pdfUrl:"",
-    //     // payment url
-    //     url : "https://test.instamojo.com/api/1.1/payment-requests/"	
-
-
-    // },
-    // {
-    //     name : "Artificial Neural Network",
-    //     date : "1/2/2020 - 2/2/2020",
-    //     price : "1400",
-    //     branch : "IT",
-    //     content : "An insight to the computing systems that are vaguely inspired by the biological neural networks that constitute our brains. Get started with the Neural Network Toolbox, work on some of the brain patterns, explore computing through the various softwares like MATLAB and get acquainted with the world of fuzzy logics, neuron perceptrons, time series' functions etc. A journey through the neurons in our brain to the neurons in a computer. ",
-    //     label : "coding",
-    //     contact:[
-    //                 { 
-    //                     name:"Parvathi",
-    //                     phone:"8287601553"
-    //                 },
-
-    //                 { 
-    //                     name:"Rizwan",
-    //                     phone:"7012806994"
-    //                 }
-    //             ],
-    //     message:" open now",
-    //     isOpen:true,
-    //     //full detail pdf name
-    //     details:"w_artificial",
-    //     pdfUrl:"",
-    //     // payment url
-    //     url : "https://test.instamojo.com/api/1.1/payment-requests/"    
-
-
-    // },
+   
     {
         name : "Humanoid Robot",
         date : "11/1/2020 - 12/1/2020",
@@ -91,34 +36,7 @@ var data = [
 
 
     },
-    // {
-    //     name : "Advanced Fire fighting",
-    //     date : "25/1/2020 - 12/1/2020",
-    //     price : "1400",
-    //     branch : "SAFETY",
-    //     content : "The technology is all in steps of advancement.Every field experiencing it's touch and thus is the scenario in fire fighting too.The modern Fire fighting technology ,it's scope , effectiveness all being described and various existing advanced technologies being demonstrated in this workshop.",
-    //     label : "technical",
-    //     contact:[
-    //                 { 
-    //                     name:"Leo",
-    //                     phone:"8078367942"
-    //                 },
-
-    //                 { 
-    //                     name:"Varun",
-    //                     phone:"9497788454"
-    //                 }
-    //             ],
-    //     message:" open now",
-    //     isOpen:true,
-    //     //full detail pdf name
-    //     details:"w_humanoid",
-    //     pdfUrl:"",
-    //     // payment url
-    //     url : "https://test.instamojo.com/api/1.1/payment-requests/"    
-
-
-    // },
+   
     {
         name : "Ducati",
         date : "18/1/2020 ",
@@ -286,7 +204,36 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/artificial-neural-network/"
 
 
+    },
+    {
+        name : "Automobile  360",
+        date : "1/2/2020 - 2/2/2020",
+        price : "600",
+        branch : "mec",
+        content : "Automobiles have always been part of everyone’s life and they always will be. The roar of a great engine, the unity and uniqueness of an automobile’s engineering and coachwork, the history of the company and the car, and of course the sheer beauty of the thing .Dhishna 2020 presents you a great opportunity to study more about automobiles. Kits are provided that includes basic knowledge, calculations and methodologies for step by step designing.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Kevin",
+                        phone:"8304897110"
+                    },
+
+                    { 
+                        name:"Akshay",
+                        phone:"8921444192"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_automobile",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/automobile-360/"
+
+
     }
+
 
     
 ];
