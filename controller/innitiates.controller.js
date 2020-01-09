@@ -38,7 +38,7 @@ exports.quiz_register = function(req, res) {
     	{
             // res.render("message",{message1:"Thank you for registering",message2:"We will contact you soon"})
             let smtpTransport = nodemailer.createTransport({
-                host : 'Gmail',
+                service : 'Gmail',
                 auth : {
                     user : 'tech.dhishna@gmail.com',
                     pass : 'SantyDance'
@@ -51,16 +51,16 @@ exports.quiz_register = function(req, res) {
                 subject : 'Inquisition - Confirmation',
                 text : `Hey ${req.body.name1},
                 
-                Thank you for registering to Inquisition!
-                You can complete your registration on the event day on 26th of January 2020 by paying Rs. 50. 
+Thank you for registering to Inquisition!
+You can complete your registration on the event day on 26th of January 2020 by paying Rs. 50. 
                 
-                For further details or any clarification, contact: 
+For further details or any clarification, contact: 
                 
-                Hadi - 9747759956
-                Nihal - 8589895354
+Hadi - 9747759956
+Nihal - 8589895354
                 
-                Regards,
-                Dhishna 2020`
+Regards,
+Dhishna 2020`
             };
 
             smtpTransport.sendMail(msg, function(err) {
@@ -112,7 +112,7 @@ exports.exhibition_register = function(req, res) {
                 subject : 'Evento - Confirmation',
                 text : `Hey ${req.body.name1},
                 
-                Thank you for registering to Invento.
+Thank you for registering to Invento.
                 
                 `
             };
