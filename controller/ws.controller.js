@@ -72,6 +72,12 @@ exports.thankyou = function(req, res) {
     res.render("thankyou");
 }
 
+// experimental
+exports.ws_loginandpay = function(req,res){
+    req.session.redirectTo = '/account';
+    res.redirect('/login')
+}
+
 
 // =================================== manage workshop payments =========================== //
 

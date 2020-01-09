@@ -26,6 +26,7 @@ const wsRoutes = require("./routes/ws.route");
 const exhibitionRoutes = require("./routes/exhibition.route");
 const adminRoutes = require("./routes/admin.route");
 const volRoutes = require("./routes/volunteer.route");
+const innitiatesRoutes = require("./routes/innitiates.route");
 
 
 
@@ -85,6 +86,7 @@ app.use("/workshop", wsRoutes);
 app.use("/exhibition", exhibitionRoutes);
 app.use("/SantyDance", adminRoutes);
 app.use("/volunteer", volRoutes);
+app.use("/initiates", innitiatesRoutes);
 
 
 
@@ -203,7 +205,7 @@ app.post("/register", function(req, res) {
         passport.authenticate("local")(req, res, function() {
             if (req.user) {
                 console.log("user authenticated");
-                res.redirect("/profile");
+                res.redirect("/workshop");
             }
         });
     });
@@ -221,7 +223,7 @@ app.get("/login", function(req, res) {
 });
 
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/profile" || req.session.returnTo,
+    successRedirect: "/workshop" ,
     failureRedirect: "/login",
     failureFlash: true
 }), function(req, res) {

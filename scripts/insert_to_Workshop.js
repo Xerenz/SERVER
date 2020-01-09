@@ -286,6 +286,33 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/artificial-neural-network/"
 
 
+    },
+    {
+        name : "Automobile  360",
+        date : "1/2/2020 - 2/2/2020",
+        price : "600",
+        branch : "mec",
+        content : "Automobiles have always been part of everyone’s life and they always will be. The roar of a great engine, the unity and uniqueness of an automobile’s engineering and coachwork, the history of the company and the car, and of course the sheer beauty of the thing .Dhishna 2020 presents you a great opportunity to study more about automobiles. Kits are provided that includes basic knowledge, calculations and methodologies for step by step designing.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Kevin",
+                        phone:"974658149"
+                    },
+
+                    { 
+                        name:"Akshay",
+                        phone:"7907048728"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_automobile",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/automobile-360/"
+
     }
 
     
