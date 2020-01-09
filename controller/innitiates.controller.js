@@ -8,6 +8,11 @@ const nodemailer = require("nodemailer");
 
 // show all
 
+exports.quiz_re = function(req, res) {
+    
+    res.redirect("quiz/view")
+};
+
 exports.quiz_view = function(req, res) {
     
     res.render("quizRegister.ejs",{message1:"", message2:""})
@@ -73,11 +78,17 @@ Dhishna 2020`
 
 };
 
+exports.exhibition_re = function(req, res) {
+    
+    res.redirect('exhibition/view')
+};
 
 exports.exhibition_view = function(req, res) {
     
     res.render("exhibitionRegister.ejs",{message1:"", message2:""})
 };
+
+
 
 exports.exhibition_register = function(req, res) {
     
