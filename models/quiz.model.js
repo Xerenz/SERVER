@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const uniqueValidator = require('mongoose-unique-validator');
+
 const Schema = mongoose.Schema;
 
 let quizRegister = new Schema(
@@ -15,5 +17,9 @@ let quizRegister = new Schema(
         
     }
 );
+
+quizRegister.plugin(uniqueValidator);
+
+
 
 module.exports = mongoose.model("Quiz", quizRegister);

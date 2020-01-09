@@ -286,7 +286,6 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/artificial-neural-network/"
 
 
-<<<<<<< HEAD
     },
     {
         name : "Automobile  360",
@@ -314,9 +313,6 @@ var data = [
         // payment url
         url : "https://www.instamojo.com/dhishna2020/automobile-360/"
 
-
-=======
->>>>>>> parent of 050a710... automobile workshop
     }
 
     
