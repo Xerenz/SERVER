@@ -1,6 +1,8 @@
 const Quiz = require("../models/quiz.model");
 const ExhibitionEvent = require("../models/exhibitionEvent.model");
 
+const nodemailer = require("nodemailer");
+
 
 
 
@@ -34,7 +36,38 @@ exports.quiz_register = function(req, res) {
     	}
     	else
     	{
-    		res.render("message",{message1:"Thank you for registering",message2:"We will contact you soon"})
+            // res.render("message",{message1:"Thank you for registering",message2:"We will contact you soon"})
+            let smtpTransport = nodemailer.createTransport({
+                host : 'Gmail',
+                auth : {
+                    user : 'tech.dhishna@gmail.com',
+                    pass : 'SantyDance'
+                }
+            });
+
+            let msg = {
+                to : [req.body.email1, req.body.email2],
+                from : 'tech.dhishna@gmail.com',
+                subject : 'Inquisition - Confirmation',
+                text : `Hey ${req.body.name1},
+                
+                Thank you for registering to Inquisition!
+                You can complete your registration on the event day on 26th of January 2020 by paying Rs. 50. 
+                
+                For further details or any clarification, contact: 
+                
+                Hadi - 9747759956
+                Nihal - 8589895354
+                
+                Regards,
+                Dhishna 2020`
+            };
+
+            smtpTransport.sendMail(msg, function(err) {
+                if (err) res.render("message",{message1:"Thank you for registering",message2:"We were unable to send you an email, but your registration has been recorded."});  
+                else res.render("message",{message1:"Thank you for registering",message2:"We have sent you a confirmation mail, please check your inbox"});
+            });
+            
     	}
     })
 
@@ -65,7 +98,30 @@ exports.exhibition_register = function(req, res) {
         }
         else
         {
-            res.render("message",{message1:"Thank you for registering",message2:"We will contact you soon"})
+            let smtpTransport = nodemailer.createTransport({
+                host : 'Gmail',
+                auth : {
+                    user : 'tech.dhishna@gmail.com',
+                    pass : 'SantyDance'
+                }
+            });
+
+            let msg = {
+                to : req.body.email1,
+                from : 'tech.dhishna@gmail.com',
+                subject : 'Evento - Confirmation',
+                text : `Hey ${req.body.name1},
+                
+                Thank you for registering to Invento.
+                
+                `
+            };
+
+            smtpTransport.sendMail(msg, function(err) {
+                if (err) res.render("message",{message1:"Thank you for registering",message2:"We were unable to send you an email, but your registration has been recorded."});  
+                else res.render("message",{message1:"Thank you for registering",message2:"We have sent you a confirmation mail, please check your inbox"});
+            });
+            // res.render("message",{message1:"Thank you for registering",message2:"We will contact you soon"});
         }
     })
 
