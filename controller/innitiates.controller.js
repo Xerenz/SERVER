@@ -98,19 +98,34 @@ exports.exhibition_register = function(req, res) {
         email1 : req.body.email1,
         phone1 : req.body.phone1,
         college1 : req.body.college1,
+        name2 : req.body.name2,
+        email2 : req.body.email2,
+        phone2 : req.body.phone2,
+        college2 : req.body.college2,
+        name3 : req.body.name3,
+        email3 : req.body.email3,
+        phone3 : req.body.phone3,
+        college3 : req.body.college3,
+        name4 : req.body.name4,
+        email4 : req.body.email4,
+        phone4 : req.body.phone4,
+        college4 : req.body.college4,
+        work_mdl:req.body.work_mdl,
+        still_mdl:req.body.still_mdl,
+        paper_present:req.body.paper_present
        
     })
 
     exhibition_.save((err,data)=>{
         if(err)
         {
-            res.render("exhibitionRegister",{message1:"Error", message2:"email already registered"})
+            res.render("exhibitionRegister",{message1:"Error", message2:"email already registered or error in validating"})
             console.log(err)
         }
         else
         {
             let smtpTransport = nodemailer.createTransport({
-                host : 'Gmail',
+                service : 'Gmail',
                 auth : {
                     user : 'tech.dhishna@gmail.com',
                     pass : 'SantyDance'
@@ -118,7 +133,7 @@ exports.exhibition_register = function(req, res) {
             });
 
             let msg = {
-                to : req.body.email1,
+                to : [req.body.email1, req.body.email2,req.body.email3,req.body.email4],
                 from : 'tech.dhishna@gmail.com',
                 subject : 'Evento - Confirmation',
                 text : `Hey ${req.body.name1},

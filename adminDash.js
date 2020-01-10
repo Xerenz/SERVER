@@ -55,8 +55,10 @@ app.get('/workshop',(req,res)=>{
 
 })
 
-app.get('/handle/cyber',(req,res)=>{
+app.get('/handle/cyber/scan',(req,res)=>{
     res.render("cyber")
 })
+
+app.get('/handle/cyber/')
 
 app.listen(3000)
