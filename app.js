@@ -614,7 +614,7 @@ app.get('/',(req,res) =>{
 app.get('/handle/cyber/view',(req,res)=>{
 
   Cyber.find({}).then((data)=>{
-        res.render("attendee/attend_view.ejs",{data:data})
+        res.render("Attendee/attend_view.ejs",{data:data})
     })
 
 })
@@ -645,7 +645,7 @@ app.get('/handle/cyber/:id/change',(req,res)=>{
 })
 
 app.get('/handle/cyber/scan',(req,res)=>{
-    res.render("attendee/cyber",{message:""})
+    res.render("Attendee/cyber",{message:""})
 })
 
 
@@ -663,7 +663,7 @@ app.get('/handle/cyber/:phone/mark',(req,res)=>{
             data.save((err,found)=>{
                 if(err)
                 {
-                    res.render('attendee/cyber',{message:"Error in scaning"})
+                    res.render('Attendee/cyber',{message:"Error in scaning"})
                 }
                 else
                 {
@@ -673,7 +673,7 @@ app.get('/handle/cyber/:phone/mark',(req,res)=>{
         }
         else
         {
-            res.render('attendee/cyber',{message:"Person not found"})
+            res.render('Attendee/cyber',{message:"Person not found"})
         }
         
     })
@@ -682,7 +682,7 @@ app.get('/handle/cyber/:phone/mark',(req,res)=>{
 })
 
 app.get('/handle/cyber/new',(req,res)=>{
-    res.render("attendee/newCyber")
+    res.render("Attendee/newCyber")
 })
 
 
