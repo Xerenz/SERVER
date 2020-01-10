@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+var promise = require('promise');
 
 
 // =====================================================
@@ -22,23 +23,20 @@ app.set("view engine", "ejs");
 
 
 // =====================================================
+cyberSchema = mongoose.Schema({
 
-var TransactionSchema = new mongoose.Schema(
-    {
-        payment_id : {type: String},
-        payment_for : {type : String},
-        status : {type: String},
-        buyer : {type: String},
-        uid : {type: mongoose.Schema.Types.ObjectId, ref: "User"}
-    }
-);
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
 
 
-var Transaction = mongoose.model("Transaction",TransactionSchema);
+    })
 
+var Cyber = mongoose.model('cyber_workshop', cyberSchema);
 
 // =====================================================
-
 
 
 // =====================================================
@@ -47,11 +45,11 @@ app.get('/',(req,res) =>{
 	res.send("admin dash is running in another port");
 })
 
-app.get('/workshop',(req,res)=>{
+app.get('/handle/cyber/view',(req,res)=>{
 
-	Transaction.find({}).sort({payment_for : -1},function(err,data){
-		console.log(data)
-	})
+	Cyber.find({}).then((data)=>{
+        res.render("attendee/attend_view.ejs",{data:data})
+    })
 
 })
 

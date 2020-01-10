@@ -286,34 +286,63 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/artificial-neural-network/"
 
 
+    },
+    {
+        name : "Automobile  360",
+        date : "1/2/2020 - 2/2/2020",
+        price : "750",
+        branch : "mec",
+        content : "Automobiles have always been part of everyone’s life and they always will be. The roar of a great engine, the unity and uniqueness of an automobile’s engineering and coachwork, the history of the company and the car, and of course the sheer beauty of the thing .Dhishna 2020 presents you a great opportunity to study more about automobiles. Kits are provided that includes basic knowledge, calculations and methodologies for step by step designing.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Kevin",
+                        phone:"974658149"
+                    },
+
+                    { 
+                        name:"Akshay",
+                        phone:"9048123847"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_automobile",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/automobile-360/"
+
+    },
+    {
+        name : "Astro Photography",
+        date : "1/2/2020 - 2/2/2020",
+        price : "1000",
+        branch : "mec",
+        content : "Fascination with the sun, moon, stars and the galaxies visible in the sky. The boundless curiosity about the universe and its origin. Questions about evolution and the possibility of extraterrestrial life. All this has led to quests for the methods and means to observe, capture and quantify the skies above.For all of you drawn to the magic of the night skies, Dhishna 2020 presents to you a golden opportunity! This session will give you a headstart into Astrophotography — a detailed, stellar way of photographing celestial areas of the night sky. Experience a stargazing session where you can mull over the sheer beauty of everything from the moon to the milky way, and better yet, capture it all on screen.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Basil",
+                        phone:"8304897110"
+                    },
+
+                    { 
+                        name:"Aparna",
+                        phone:"8921444192"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_astro",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/astro-photography/"
+
     }
-    // {
-    //     name : "Automobile  360",
-    //     date : "1/2/2020 - 2/2/2020",
-    //     price : "600",
-    //     branch : "mec",
-    //     content : "Automobiles have always been part of everyone’s life and they always will be. The roar of a great engine, the unity and uniqueness of an automobile’s engineering and coachwork, the history of the company and the car, and of course the sheer beauty of the thing .Dhishna 2020 presents you a great opportunity to study more about automobiles. Kits are provided that includes basic knowledge, calculations and methodologies for step by step designing.",
-    //     label : "technical",
-    //     contact:[
-    //                 { 
-    //                     name:"Kevin",
-    //                     phone:"974658149"
-    //                 },
 
-    //                 { 
-    //                     name:"Akshay",
-    //                     phone:"7907048728"
-    //                 }
-    //             ],
-    //     message:" open now",
-    //     isOpen:true,
-    //     //full detail pdf name
-    //     details:"w_automobile",
-    //     pdfUrl:"",
-    //     // payment url
-    //     url : "https://www.instamojo.com/dhishna2020/automobile-360/"
 
-    // }
 
     
 ];
