@@ -645,7 +645,7 @@ app.get('/handle/cyber/:id/change',(req,res)=>{
 })
 
 app.get('/handle/cyber/scan',(req,res)=>{
-    res.render("Attendee/cyber",{message:""})
+    res.render("Attendee/cyber.ejs",{message:""})
 })
 
 
@@ -663,7 +663,7 @@ app.get('/handle/cyber/:phone/mark',(req,res)=>{
             data.save((err,found)=>{
                 if(err)
                 {
-                    res.render('Attendee/cyber',{message:"Error in scaning"})
+                    res.render('Attendee/cyber.ejs',{message:"Error in scaning"})
                 }
                 else
                 {
