@@ -736,7 +736,7 @@ app.post('/handle/cyber/new',(req,res)=>{
 app.get('/handle/human/view',(req,res)=>{
 
   Human.find({}).then((data)=>{
-        res.render("Attendee/attend_view.ejs",{data:data})
+        res.render("Attendee/attend_view2.ejs",{data:data})
     })
 
 })
