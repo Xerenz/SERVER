@@ -603,6 +603,20 @@ cyberSchema = mongoose.Schema({
 
 var Cyber = mongoose.model('cyber_workshop', cyberSchema);
 
+
+humanSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var Human = mongoose.model('human_workshop', humanSchema);
+
 // =====================================================
 
 
@@ -619,6 +633,7 @@ app.get('/handle/cyber/view',(req,res)=>{
     })
 
 })
+
 
 app.get('/handle/cyber/:id/change',(req,res)=>{
 
@@ -645,8 +660,10 @@ app.get('/handle/cyber/:id/change',(req,res)=>{
 
 })
 
+
+
 app.get('/handle/cyber/scan',(req,res)=>{
-    res.render("Attendee/cyber",{message:""})
+    res.render("Attendee/Cyber.ejs",{message:""})
 })
 
 
@@ -664,7 +681,7 @@ app.get('/handle/cyber/:phone/mark',(req,res)=>{
             data.save((err,found)=>{
                 if(err)
                 {
-                    res.render('Attendee/cyber',{message:"Error in scaning"})
+                    res.render('Attendee/Cyber.ejs',{message:"Error in scaning"})
                 }
                 else
                 {
@@ -674,13 +691,14 @@ app.get('/handle/cyber/:phone/mark',(req,res)=>{
         }
         else
         {
-            res.render('Attendee/cyber',{message:"Person not found"})
+            res.render('Attendee/Cyber',{message:"Person not found"})
         }
         
     })
 
 
 })
+
 
 app.get('/handle/cyber/new',(req,res)=>{
     res.render("Attendee/newCyber")
@@ -711,6 +729,118 @@ app.post('/handle/cyber/new',(req,res)=>{
         }
     })
 })
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+app.get('/handle/human/view',(req,res)=>{
+
+  Human.find({}).then((data)=>{
+        res.render("Attendee/attend_view2.ejs",{data:data})
+    })
+
+})
+
+// ++
+
+app.get('/handle/human/:id/change',(req,res)=>{
+
+    Human.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/human/view')
+            }
+        })
+
+
+    })
+
+})
+
+// ++
+app.get('/handle/human/scan',(req,res)=>{
+    res.render("Attendee/Human.ejs",{message:""})
+})
+
+
+// ++
+
+
+app.get('/handle/human/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    Human.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/Human.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/human/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/Human',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/human/new',(req,res)=>{
+    res.render("Attendee/newHuman")
+})
+
+
+app.post('/handle/human/new',(req,res)=>{
+
+   
+
+    human = new Human({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    human.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/human/new')
+        }
+        else
+        {
+            res.redirect('/handle/human/view')
+        }
+    })
+})
+
 
 
 
