@@ -883,6 +883,15 @@ app.get('/handle/ducati/view',(req,res)=>{
 })
 
 
+app.get('/handle/ducati/present',(req,res)=>{
+
+  Ducati.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_ducati.ejs",{data:data})
+    })
+
+})
+
+
 app.get('/handle/ducati/:id/change',(req,res)=>{
 
     Ducati.findById(req.params.id).then((data)=>{
@@ -1004,6 +1013,15 @@ var Pcb = mongoose.model('pcb_workshop', pcbSchema);
 app.get('/handle/pcb/view',(req,res)=>{
 
   Pcb.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_pcb.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/pcb/present',(req,res)=>{
+
+  Pcb.find({isAttended:"true"}).sort({name:1}).then((data)=>{
         res.render("Attendee/attend_view_pcb.ejs",{data:data})
     })
 
