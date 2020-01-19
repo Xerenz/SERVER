@@ -589,6 +589,19 @@ app.post("/api_innova", function(req, res) {
 // code for handle 
 
 // =====================================================
+
+
+
+
+
+// =====================================================
+
+
+// =====================================================
+//         CYBER WORKSHOP
+// =====================================================
+
+
 cyberSchema = mongoose.Schema({
 
         "name": String,
@@ -602,24 +615,6 @@ cyberSchema = mongoose.Schema({
 
 var Cyber = mongoose.model('cyber_workshop', cyberSchema);
 
-
-humanSchema = mongoose.Schema({
-
-        "name": String,
-        "email": String,
-        "phone": String,
-        "isAttended": String,
-        "isSpot": String
-
-
-    })
-
-var Human = mongoose.model('human_workshop', humanSchema);
-
-// =====================================================
-
-
-// =====================================================
 
 app.get('/',(req,res) =>{
   res.send("admin dash is running in another port");
@@ -731,6 +726,25 @@ app.post('/handle/cyber/new',(req,res)=>{
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++
+//              HUMANOID WORKSHOP
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+humanSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var Human = mongoose.model('human_workshop', humanSchema);
+
 
 
 app.get('/handle/human/view',(req,res)=>{
@@ -840,6 +854,274 @@ app.post('/handle/human/new',(req,res)=>{
     })
 })
 
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                DUCATI WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ducatiSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var Ducati = mongoose.model('ducati_workshop', ducatiSchema);
+
+
+
+app.get('/handle/ducati/view',(req,res)=>{
+
+  Ducati.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_ducati.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/ducati/present',(req,res)=>{
+
+  Ducati.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_ducati.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/ducati/:id/change',(req,res)=>{
+
+    Ducati.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/ducati/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/ducati/scan',(req,res)=>{
+    res.render("Attendee/Ducati.ejs",{message:""})
+})
+
+
+app.get('/handle/ducati/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    Ducati.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/Ducati.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/ducati/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/Ducati',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/ducati/new',(req,res)=>{
+    res.render("Attendee/newDucati")
+})
+
+
+app.post('/handle/ducati/new',(req,res)=>{
+
+   
+
+    ducati = new Ducati({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    ducati.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/ducati/new')
+        }
+        else
+        {
+            res.redirect('/handle/ducati/view')
+        }
+    })
+})
+
+
+
+
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                PCB WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+pcbSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var Pcb = mongoose.model('pcb_workshop', pcbSchema);
+
+
+
+app.get('/handle/pcb/view',(req,res)=>{
+
+  Pcb.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_pcb.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/pcb/present',(req,res)=>{
+
+  Pcb.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_pcb.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/pcb/:id/change',(req,res)=>{
+
+    Pcb.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/pcb/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/pcb/scan',(req,res)=>{
+    res.render("Attendee/Pcb.ejs",{message:""})
+})
+
+
+app.get('/handle/pcb/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    Pcb.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/Pcb.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/pcb/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/Pcb',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/pcb/new',(req,res)=>{
+    res.render("Attendee/newPcb")
+})
+
+
+app.post('/handle/pcb/new',(req,res)=>{
+
+   
+
+    pcb = new Pcb({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    pcb.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/pcb/new')
+        }
+        else
+        {
+            res.redirect('/handle/pcb/view')
+        }
+    })
+})
 
 
 

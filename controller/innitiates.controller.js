@@ -57,7 +57,7 @@ exports.quiz_register = function(req, res) {
                 text : `Hey ${req.body.name1},
                 
 Thank you for registering to Inquisition!
-You can complete your registration on the event day on 26th of January 2020 by paying Rs. 50. 
+You can complete your registration on the event day on 26th of January 2020 by paying Rs. 150. 
                 
 For further details or any clarification, contact: 
                 
