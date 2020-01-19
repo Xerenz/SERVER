@@ -28,7 +28,7 @@ const exhibitionRoutes = require("./routes/exhibition.route");
 const adminRoutes = require("./routes/admin.route");
 const volRoutes = require("./routes/volunteer.route");
 const innitiatesRoutes = require("./routes/innitiates.route");
-const registrationRoutes = require("./routes/registration.routes");
+// const registrationRoutes = require("./routes/registration.routes");
 
 
 
