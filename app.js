@@ -517,34 +517,74 @@ app.get("/api", function(req, res) {
 
 */
 
-// ============================================== innovator summit ================================================ //
-// Innovator's summit
 
-/*
-app.get("/pay",function(req,res){
-  var request= require('request');
+// ======================================================================================== //
 
-var headers = { 'X-Api-Key': 'test_ee288567eaaead41cf2e2fb56d7', 'X-Auth-Token': 'test_834daeb7d8057ccae1359bb9089'}
-var payload = {
-  purpose: 'FIFA 16',
-  amount: '2500',
-  phone: '9999999999',
-  buyer_name: 'John Doe',
-  redirect_url: 'http://www.example.com/redirect/',
-  send_email: false,
-  webhook: 'http://www.example.com/webhook/',
-  send_sms: false,
-  email: 'foo@example.com',
-  allow_repeated_payments: false}
 
-request.post('https://test.instamojo.com/api/1.1/payment-requests/', {form: payload,  headers: headers}, function(error, response, body){
-  if(!error && response.statusCode == 201){
-    console.log(body);
-  }
-})
 
-})
-*/
+const Giveaway = require("./models/giveaways.model");
+const Counter = require("./models/counter.model");
+
+
+
+app.post("/api/giveaway", function(req, res) {
+    async.waterfall([
+        function(done) {
+            let doc = Giveaway({
+                payment_id : req.body.payment_id,
+                name : req.body.buyer_name,
+                email : req.body.buyer,
+                phone : req.body.buyer_phone,
+                institution : req.body.custom_fields.value
+            });
+
+            doc.save(function(err) {
+                if (err) return console.log(err);
+
+                let newdoc = this;
+
+                Counter.findOneAndUpdate({name : "Counter"}, {"$inc" : {seq : 1}}, function(err, count) {
+                    if (err)  done(err);
+
+                    newdoc.token = count.seq;
+                });
+            });
+        },
+        function(done) {
+            Giveaway.findOne({payment_id : req.body.payment_id}, function(err, doc) {
+                smtpTransport = nodemailer.createTransport({
+                    service : "Gmail",
+                    auth : {
+                        user : "tech.dhishna@gmail.com",
+                        pass : "SantyDance"
+                    }
+                });
+
+                let msg = {
+                    to : doc.email,
+                    from : "Dhishna <tech.dhishna@gmail.com>",
+                    text : `${doc.token}`
+                };
+
+                smtpTransport.sendMail(msg, function(err) {
+                    if (err) done(err);
+                    else console.log("Mail Sent to", doc.name);
+                });
+
+            });
+        }
+    ], function(err) {
+        if (err) console.log(err);
+    });
+});
+
+
+
+
+
+// ======================================================================================= //
+
+
 
 
 
