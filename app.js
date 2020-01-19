@@ -530,8 +530,9 @@ const Counter = require("./models/counter.model");
 app.post("/api/giveaway", function(req, res) {
     async.waterfall([
         function(done) {
-            Counter.findOneAndUpdate({name : "Counter"},
+            Counter.findOneAndUpdate({name : "counter"},
             {"$inc" : {"seq" : 1}}, function(err, count) {
+                console.log("increment complete");
                 done(err, count);
             });
         },
@@ -546,6 +547,7 @@ app.post("/api/giveaway", function(req, res) {
             });
 
             doc.save(function(err) {
+                console.log("new doc saved");
                 done(err);
             });
         },
