@@ -530,19 +530,16 @@ const Counter = require("./models/counter.model");
 app.post("/api/giveaway", function(req, res) {
     async.waterfall([
         function(done) {
-            Counter.findOneAndUpdate({name : "counter"},
-            {"$inc" : {"seq" : 1}}, function(err, count) {
-                console.log("increment complete");
-                done(err, count);
-            });
-        },
-        function(count, done) {
+
+            let counter = await Counter.findOneAndUpdate({name : "counter"}, {"$inc" : {"seq" : 1}});
+
+            console.log(counter);
+
             let doc = Giveaway({
                 payment_id : req.body.payment_id,
                 name : req.body.buyer_name,
                 email : req.body.buyer,
                 phone : req.body.buyer_phone,
-                token : count.seq
             });
 
             doc.save(function(err) {
