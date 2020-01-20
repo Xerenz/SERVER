@@ -531,25 +531,31 @@ app.post("/api/giveaway", function(req, res) {
     async.waterfall([
         function(done) {
 
-            Counter.findByIdAndUpdate("5e248df4999999af2c9820a4", 
-            {$inc : {seq : 1}}, function(err, counter) {
-                console.log(counter);
-            });
+            Counter.findByIdAndUpdate("5e25629ee14cc64f8b210aa1", 
+            {"$inc" : {"seq" : 1}}, function(err, counter) {
+                if (err) return console.log(err); // return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                
+                let doc = Giveaway({
+                    payment_id : req.body.payment_id,
+                    name : req.body.buyer_name,
+                    email : req.body.buyer,
+                    phone : req.body.buyer_phone,
+                    token : counter.seq
+                });
+    
+                doc.save(function(err) {
+                    if (err) return console.log(err); //return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                    console.log("new doc saved");
+                    done(err);
+                });
 
-            let doc = Giveaway({
-                payment_id : req.body.payment_id,
-                name : req.body.buyer_name,
-                email : req.body.buyer,
-                phone : req.body.buyer_phone,
-            });
-
-            doc.save(function(err) {
-                console.log("new doc saved");
-                done(err);
             });
         },
         function(done) {
             Giveaway.findOne({payment_id : req.body.payment_id}, function(err, doc) {
+                if (err) console.log(err); // return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                console.log(doc);
+
                 smtpTransport = nodemailer.createTransport({
                     service : "Gmail",
                     auth : {
@@ -561,7 +567,18 @@ app.post("/api/giveaway", function(req, res) {
                 let msg = {
                     to : doc.email,
                     from : "Dhishna <tech.dhishna@gmail.com>",
-                    text : `${doc.token}`
+                    subject : "Dhishna 2020 Giveaway",
+                    html : `<html>
+<body>
+<p>Hey ${doc.name},</p>
+                    
+<p>Thank you for participating in the Dhishna 2020 Giveaway contest!</p>
+
+<p>Your token is <b>D${doc.token}</b></p>
+
+<p>We will be announcing the results shortly, so stay tuned.</p>
+</body>
+</html>`
                 };
 
                 smtpTransport.sendMail(msg, function(err) {
@@ -572,11 +589,14 @@ app.post("/api/giveaway", function(req, res) {
             });
         }
     ], function(err) {
-        if (err) console.log(err);
+        if (err) return console.log(err); // return res.render("message", "Opps! We were not able to send you the mail, but your entry has been recorded.", "Please contact us.");
     });
 });
 
 
+app.get("/api/giveaway", function(req, res) {
+    res.redirect("/thankyou");
+});
 
 
 
