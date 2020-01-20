@@ -531,7 +531,7 @@ app.post("/api/giveaway", function(req, res) {
     async.waterfall([
         function(done) {
 
-            let counter = await Counter.findOneAndUpdate({name : "counter"}, {"$inc" : {"seq" : 1}});
+            let counter = await Counter.findOneAndUpdate({name : "counter"}, {$inc : {seq : 1}});
 
             console.log(counter);
 
