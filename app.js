@@ -531,7 +531,7 @@ app.post("/api/giveaway", function(req, res) {
     async.waterfall([
         function(done) {
 
-            Counter.findOneAndUpdate({name : "counter"}, 
+            Counter.findByIdAndUpdate("5e248df4999999af2c9820a4", 
             {$inc : {seq : 1}}, function(err, counter) {
                 console.log(counter);
             });
