@@ -531,7 +531,7 @@ app.post("/api/giveaway", function(req, res) {
     async.waterfall([
         function(done) {
 
-            Counter.findByIdAndUpdate("5e25629ee14cc64f8b210aa1", 
+            Counter.findByIdAndUpdate("5e256c16420b76188cc42ac9", 
             {"$inc" : {"seq" : 1}}, function(err, counter) {
                 if (err) return console.log(err); // return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
                 
