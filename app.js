@@ -542,7 +542,6 @@ app.post("/api/giveaway", function(req, res) {
                 name : req.body.buyer_name,
                 email : req.body.buyer,
                 phone : req.body.buyer_phone,
-                institution : req.body.custom_fields.Field_97027.value,
                 token : count.seq
             });
 
