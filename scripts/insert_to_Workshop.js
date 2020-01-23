@@ -285,7 +285,7 @@ var data = [
     //     url : "https://www.instamojo.com/dhishna2020/astro-photography/"
 
     // },
-       {
+    /*   {
         name : "Bamboo and Mud Construction",
         date : "3/2/2020 - 4/2/2020",
         price : "1500",
@@ -310,6 +310,34 @@ var data = [
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/bamboo-and-mud-construction/"
+
+    },*/
+
+    {
+        name : "Tezlaa",
+        date : "8/2/2020",
+        price : "400",
+        branch : "mec",
+        content : "Matching the steps of the new trend of electric vehicles, Smado Labs Private Limited, a blooming start-up based in Maker Village, Kochi, has come up with its own foldable Electric Bike. Tezlaa is an e-bike designed by Smado Labs Private Limited. What makes Tezlaa unique is that it is the first foldable e-bike in India, making it convenient to carry wherever one travels. The combination of green energy and fitness makes it a fashion statement to flaunt. The eco-friendly bike is dustproof, rustproof and can be folded to be carried anywhere. Dhishna 2020 in association with team Tezlaa, presents you a technical workshop that could help young aspirants to discover the world’s best and coolest bicycle ever.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Thejus",
+                        phone:"8086023111"
+                    },
+
+                    { 
+                        name:"Namit",
+                        phone:"7558057426"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_tezlaa",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/tezlaa/"
 
     }
 

@@ -28,6 +28,7 @@ const exhibitionRoutes = require("./routes/exhibition.route");
 const adminRoutes = require("./routes/admin.route");
 const volRoutes = require("./routes/volunteer.route");
 const innitiatesRoutes = require("./routes/innitiates.route");
+// const registrationRoutes = require("./routes/registration.routes");
 
 
 
@@ -88,7 +89,6 @@ app.use("/exhibition", exhibitionRoutes);
 app.use("/SantyDance", adminRoutes);
 app.use("/volunteer", volRoutes);
 app.use("/initiates", innitiatesRoutes);
-
 
 
 
@@ -520,34 +520,92 @@ app.get("/api", function(req, res) {
 
 */
 
-// ============================================== innovator summit ================================================ //
-// Innovator's summit
 
-/*
-app.get("/pay",function(req,res){
-  var request= require('request');
+// ======================================================================================== //
 
-var headers = { 'X-Api-Key': 'test_ee288567eaaead41cf2e2fb56d7', 'X-Auth-Token': 'test_834daeb7d8057ccae1359bb9089'}
-var payload = {
-  purpose: 'FIFA 16',
-  amount: '2500',
-  phone: '9999999999',
-  buyer_name: 'John Doe',
-  redirect_url: 'http://www.example.com/redirect/',
-  send_email: false,
-  webhook: 'http://www.example.com/webhook/',
-  send_sms: false,
-  email: 'foo@example.com',
-  allow_repeated_payments: false}
 
-request.post('https://test.instamojo.com/api/1.1/payment-requests/', {form: payload,  headers: headers}, function(error, response, body){
-  if(!error && response.statusCode == 201){
-    console.log(body);
-  }
-})
 
-})
-*/
+const Giveaway = require("./models/giveaways.model");
+const Counter = require("./models/counter.model");
+
+
+
+app.post("/api/giveaway", function(req, res) {
+    async.waterfall([
+        function(done) {
+
+            Counter.findByIdAndUpdate("5e256c16420b76188cc42ac9", 
+            {"$inc" : {"seq" : 1}}, function(err, counter) {
+                if (err) return console.log(err); // return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                
+                let doc = Giveaway({
+                    payment_id : req.body.payment_id,
+                    name : req.body.buyer_name,
+                    email : req.body.buyer,
+                    phone : req.body.buyer_phone,
+                    token : counter.seq
+                });
+    
+                doc.save(function(err) {
+                    if (err) return console.log(err); //return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                    console.log("new doc saved");
+                    done(err);
+                });
+
+            });
+        },
+        function(done) {
+            Giveaway.findOne({payment_id : req.body.payment_id}, function(err, doc) {
+                if (err) console.log(err); // return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                console.log(doc);
+
+                smtpTransport = nodemailer.createTransport({
+                    service : "Gmail",
+                    auth : {
+                        user : "tech.dhishna@gmail.com",
+                        pass : "SantyDance"
+                    }
+                });
+
+                let msg = {
+                    to : doc.email,
+                    from : "Dhishna <tech.dhishna@gmail.com>",
+                    subject : "Dhishna 2020 Giveaway",
+                    html : `<html>
+<body>
+<p>Hey ${doc.name},</p>
+                    
+<p>Thank you for participating in the Dhishna 2020 Giveaway contest!</p>
+
+<p>Your token is <b>D${doc.token}</b></p>
+
+<p>We will be announcing the results shortly, so stay tuned.</p>
+</body>
+</html>`
+                };
+
+                smtpTransport.sendMail(msg, function(err) {
+                    if (err) done(err);
+                    else console.log("Mail Sent to", doc.name);
+                });
+
+            });
+        }
+    ], function(err) {
+        if (err) return console.log(err); // return res.render("message", "Opps! We were not able to send you the mail, but your entry has been recorded.", "Please contact us.");
+    });
+});
+
+
+app.get("/api/giveaway", function(req, res) {
+    res.redirect("/thankyou");
+});
+
+
+
+// ======================================================================================= //
+
+
 
 
 
