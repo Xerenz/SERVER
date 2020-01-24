@@ -134,6 +134,9 @@ app.get("/outreach", function(req, res) {
     res.render("outreach");
 });
 
+app.get("/giveaway",(req,res)=>{
+    res.render("giveaway")
+})
 
 // handling contact info
 
