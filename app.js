@@ -1324,6 +1324,143 @@ app.post('/handle/merci/new',(req,res)=>{
 
 
 
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                Fire and safety WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+fireSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var Fire = mongoose.model('fire_workshop', merciSchema);
+
+
+
+app.get('/handle/fire/view',(req,res)=>{
+
+  Fire.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_fire.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/fire/present',(req,res)=>{
+
+  Fire.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_fire.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/fire/:id/change',(req,res)=>{
+
+    Fire.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/fire/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/fire/scan',(req,res)=>{
+    res.render("Attendee/Fire.ejs",{message:""})
+})
+
+
+app.get('/handle/fire/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    Fire.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/Fire.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/fire/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/Fire',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/fire/new',(req,res)=>{
+    res.render("Attendee/newFire")
+})
+
+
+app.post('/handle/fire/new',(req,res)=>{
+
+   
+
+    fire = new Fire({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    fire.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/fire/new')
+        }
+        else
+        {
+            res.redirect('/handle/fire/view')
+        }
+    })
+})
+
+
+
+
+
+
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //                INNOVATORS SUMMIT
