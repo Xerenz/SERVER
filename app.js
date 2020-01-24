@@ -1188,6 +1188,142 @@ app.post('/handle/pcb/new',(req,res)=>{
 
 
 
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                Mercides WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+merciSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var Merci = mongoose.model('merci_workshop', merciSchema);
+
+
+
+app.get('/handle/merci/view',(req,res)=>{
+
+  Merci.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_merci.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/merci/present',(req,res)=>{
+
+  Merci.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_merci.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/merci/:id/change',(req,res)=>{
+
+    Merci.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/merci/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/merci/scan',(req,res)=>{
+    res.render("Attendee/Merci.ejs",{message:""})
+})
+
+
+app.get('/handle/merci/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    Merci.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/Merci.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/merci/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/Merci',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/merci/new',(req,res)=>{
+    res.render("Attendee/newMerci")
+})
+
+
+app.post('/handle/merci/new',(req,res)=>{
+
+   
+
+    merci = new Merci({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    merci.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/merci/new')
+        }
+        else
+        {
+            res.redirect('/handle/merci/view')
+        }
+    })
+})
+
+
+
+
+
 
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //                INNOVATORS SUMMIT
