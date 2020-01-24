@@ -1188,6 +1188,206 @@ app.post('/handle/pcb/new',(req,res)=>{
 
 
 
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                INNOVATORS SUMMIT
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+innovSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": {type:String, default: "false"},
+        "isSpot": {type:String,default: "false"}
+
+
+    })
+
+var Innov = mongoose.model('innov', innovSchema);
+
+
+
+app.get('/handle/innov/view',(req,res)=>{
+
+  Innov.find({}).sort({name:1}).then((data)=>{
+
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/innov/student_1',(req,res)=>{
+
+  Innov.find({ "topic": "Innovator's Summit Ticket - Track-1 - Student"}).sort({name:1}).then((data)=>{
+
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/innov/student_2',(req,res)=>{
+
+  Innov.find({"topic": "Innovator Summit Ticket - Track-2 - Student"}).sort({name:1}).then((data)=>{
+
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+app.get('/handle/innov/pro_1',(req,res)=>{
+
+  Innov.find({ "topic": "Innovator's Summit Ticket - Track-1 - Professional"}).sort({name:1}).then((data)=>{
+
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/innov/pro_2',(req,res)=>{
+
+  Innov.find({ "topic": "Innovator Summit Ticket - Track-2 - Professional"}).sort({name:1}).then((data)=>{
+
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/innov/season_p',(req,res)=>{
+
+  Innov.find({ "topic": "Professional - Session Ticket"}).sort({name:1}).then((data)=>{
+
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+app.get('/handle/innov/season_s',(req,res)=>{
+
+  Innov.find({  "topic": "Student - Session Ticket" }).sort({name:1}).then((data)=>{
+
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+
+
+app.get('/handle/innov/present',(req,res)=>{
+
+  Innov.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_innov.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/innov/:id/change',(req,res)=>{
+
+    Innov.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/innov/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/innov/scan',(req,res)=>{
+    res.render("Attendee/innov.ejs",{message:""})
+})
+
+
+app.get('/handle/innov/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    Pcb.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/innov.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/innov/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/innov',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/innov/new',(req,res)=>{
+    res.render("Attendee/newInnov")
+})
+
+
+app.post('/handle/innov/new',(req,res)=>{
+
+   
+
+    innov = new Innov({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    innov.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/innov/new')
+        }
+        else
+        {
+            res.redirect('/handle/innov/view')
+        }
+    })
+})
+
+
+
+
+
+// **************************************************************************
+
+
 // **************************************************************************
 // **************************************************************************
 // **************************************************************************
