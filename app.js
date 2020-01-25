@@ -1472,7 +1472,8 @@ innovSchema = mongoose.Schema({
         "email": String,
         "phone": String,
         "isAttended": {type:String, default: "false"},
-        "isSpot": {type:String,default: "false"}
+        "isSpot": {type:String,default: "false"},
+        "topic":String
 
 
     })
