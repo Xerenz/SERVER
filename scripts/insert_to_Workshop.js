@@ -316,7 +316,7 @@ var data = [
     {
         name : "Cyber Forensics",
         date : "8/2/2020",
-        price : "200",
+        price : "300",
         branch : "it",
         content : "Cyber forensics is the new frontier of criminal investigation for agencies and growing ever since it's inception. As technology enhances, so do the crimes associated with using technology in criminal activity. Technology touches just about everything already and computer forensics is rapidly becoming a daily part of the investigative process. From a law enforcement perspective, it is difficult to find a case today that does not have a nexus to computer technology. Dhishna 2020 in association with CDAC, Government of India presents to you a one day workshop on Cyber forensics.",
         label : "technical",
