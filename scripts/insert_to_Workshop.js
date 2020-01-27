@@ -314,30 +314,30 @@ var data = [
     },*/
 
     {
-        name : "Tezlaa",
+        name : "Cyber Forensics",
         date : "8/2/2020",
-        price : "400",
-        branch : "mec",
-        content : "Matching the steps of the new trend of electric vehicles, Smado Labs Private Limited, a blooming start-up based in Maker Village, Kochi, has come up with its own foldable Electric Bike. Tezlaa is an e-bike designed by Smado Labs Private Limited. What makes Tezlaa unique is that it is the first foldable e-bike in India, making it convenient to carry wherever one travels. The combination of green energy and fitness makes it a fashion statement to flaunt. The eco-friendly bike is dustproof, rustproof and can be folded to be carried anywhere. Dhishna 2020 in association with team Tezlaa, presents you a technical workshop that could help young aspirants to discover the world’s best and coolest bicycle ever.",
+        price : "300",
+        branch : "it",
+        content : "Cyber forensics is the new frontier of criminal investigation for agencies and growing ever since it's inception. As technology enhances, so do the crimes associated with using technology in criminal activity. Technology touches just about everything already and computer forensics is rapidly becoming a daily part of the investigative process. From a law enforcement perspective, it is difficult to find a case today that does not have a nexus to computer technology. Dhishna 2020 in association with CDAC, Government of India presents to you a one day workshop on Cyber forensics.",
         label : "technical",
         contact:[
                     { 
-                        name:"Thejus",
-                        phone:"8086023111"
+                        name:"Amal",
+                        phone:"9048968500"
                     },
 
                     { 
-                        name:"Namit",
-                        phone:"7558057426"
+                        name:"Rinku",
+                        phone:"8590666916"
                     }
                 ],
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_tezlaa",
+        details:"w_forensics",
         pdfUrl:"",
         // payment url
-        url : "https://www.instamojo.com/dhishna2020/tezlaa/"
+        url : "https://www.instamojo.com/dhishna2020/cyber-forensics-12a7a/"
 
     }
 
