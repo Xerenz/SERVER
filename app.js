@@ -138,6 +138,17 @@ app.get("/giveaway",(req,res)=>{
     res.render("giveaway")
 })
 
+
+
+app.get("/sponsors",(req,res)=>{
+    res.render("sponsors")
+})
+
+app.get("/techtalk",(req,res)=>{
+    res.render("techtalk")
+})
+
+
 // handling contact info
 
 app.post("/contact", function(req, res) {
