@@ -536,8 +536,11 @@ app.post("/api/giveaway", function(req, res) {
 
             Counter.findByIdAndUpdate("5e256c16420b76188cc42ac9", 
             {"$inc" : {"seq" : 1}}, function(err, counter) {
-                if (err) return console.log(err); // return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
-                
+                if (err)
+                { 
+                    return res.render("message", {message1 : "Opps! There seems to be some technical error", message2 : "Please contact us."});
+                }
+
                 let doc = Giveaway({
                     payment_id : req.body.payment_id,
                     name : req.body.buyer_name,
@@ -547,7 +550,10 @@ app.post("/api/giveaway", function(req, res) {
                 });
     
                 doc.save(function(err) {
-                    if (err) return console.log(err); //return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                    if (err) 
+                    {
+                        return res.render("message", {message1 : "Opps! There seems to be some technical error", message2 : "Please contact us."});
+                    }
                     console.log("new doc saved");
                     done(err);
                 });
@@ -592,7 +598,10 @@ app.post("/api/giveaway", function(req, res) {
             });
         }
     ], function(err) {
-        if (err) return console.log(err); // return res.render("message", "Opps! We were not able to send you the mail, but your entry has been recorded.", "Please contact us.");
+        if (err)
+        { 
+            return res.render("message", {message1 : "Oops! There seems to an error sending you the email with your coupon code.", message2 : "Please contact us."});
+        }
     });
 });
 
