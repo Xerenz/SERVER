@@ -8,7 +8,8 @@ const GiveAwaySchema = new Schema(
         email : String,
         phone : String,
         institution : String,
-        token : Number
+        token : [Number],
+        quantity : Number
     }
 );
 
