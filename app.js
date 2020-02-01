@@ -545,11 +545,22 @@ app.post("/api/giveaway", function(req, res) {
     async.waterfall([
         function(done) {
 
+            let quantity = req.body.quantity;
+            // 5e256c16420b76188cc42ac9 - real id
             Counter.findByIdAndUpdate("5e256c16420b76188cc42ac9", 
-            {"$inc" : {"seq" : 1}}, function(err, counter) {
+            {"$inc" : {"seq" : quantity}}, function(err, counter) {
                 if (err)
                 { 
                     return res.render("message", {message1 : "Opps! There seems to be some technical error", message2 : "Please contact us."});
+                }
+
+                let tokens = [];
+                let tokenNum = counter.seq;
+
+                for (let i = 1; i <= quantity; i++)
+                {
+                    tokenNum += 1;
+                    tokens.push(tokenNum);
                 }
 
                 let doc = Giveaway({
@@ -557,7 +568,8 @@ app.post("/api/giveaway", function(req, res) {
                     name : req.body.buyer_name,
                     email : req.body.buyer,
                     phone : req.body.buyer_phone,
-                    token : counter.seq
+                    token : tokens,
+                    quantity : quantity
                 });
     
                 doc.save(function(err) {
@@ -566,15 +578,21 @@ app.post("/api/giveaway", function(req, res) {
                         return res.render("message", {message1 : "Opps! There seems to be some technical error", message2 : "Please contact us."});
                     }
                     console.log("new doc saved");
-                    done(err);
+                    done(err, quantity);
                 });
 
             });
         },
         function(done) {
             Giveaway.findOne({payment_id : req.body.payment_id}, function(err, doc) {
-                if (err) console.log(err); // return res.render("message", "Opps! There seems to be some technical error", "Please contact us.");
+                if (err)
+                { 
+                    return res.render("message", {message1 : "Oops! There seems to an error sending you the email with your coupon code.", message2 : "Please contact us."});
+                }    
+
                 console.log(doc);
+
+                let userTokens = doc.token.join(", ");
 
                 smtpTransport = nodemailer.createTransport({
                     service : "Gmail",
@@ -586,7 +604,7 @@ app.post("/api/giveaway", function(req, res) {
 
                 let msg = {
                     to : doc.email,
-                    from : "Dhishna <tech.dhishna@gmail.com>",
+                    from : "Dhishna <mail@dhishna.org>",
                     subject : "Dhishna 2020 Giveaway",
                     html : `<html>
 <body>
@@ -594,11 +612,30 @@ app.post("/api/giveaway", function(req, res) {
                     
 <p>Thank you for participating in the Dhishna 2020 Giveaway contest!</p>
 
-<p>Your token is <b>D${doc.token}</b></p>
+<p>Your lucky draw token(s) <b>${userTokens}</b></p>
 
 <p>We will be announcing the results shortly, so stay tuned.</p>
+
+<br>
+<br>
+<br>
+<p>General Guidelines:</p> 
+
+<p>1. With each coupon purchase, you will be getting a 15% discount voucher from Al-Baik, Kalamassery.</p>
+<p>2. The contest is being conducted on both online and offline platforms, with participants on both platforms having a common lucky draw.</p>
+<p>3. If our representative can not get in touch with the winner, then re-drawing will be taken into account.</p>
 </body>
-</html>`
+</html>`,
+                    attachments : [
+                        {
+                            filename : 'coupon_.jpg',
+                            path : './assets/img/give_away_coupon.jpg'
+                        },
+                        {
+                            filename : '_coupon.jpg',
+                            path : './assets/img/give_away_coupon_.jpg'
+                        }
+                    ]
                 };
 
                 smtpTransport.sendMail(msg, function(err) {
