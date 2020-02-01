@@ -547,7 +547,7 @@ app.post("/api/giveaway", function(req, res) {
 
             let quantity = req.body.quantity;
             // 5e256c16420b76188cc42ac9 - real id
-            Counter.findByIdAndUpdate("5e25629ee14cc64f8b210aa1", 
+            Counter.findByIdAndUpdate("5e256c16420b76188cc42ac9", 
             {"$inc" : {"seq" : quantity}}, function(err, counter) {
                 if (err)
                 { 
