@@ -1679,6 +1679,278 @@ app.post('/handle/innov/new',(req,res)=>{
 
 
 
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                Automobile 360 WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+AutoSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var auto = mongoose.model('auto_workshop', AutoSchema);
+
+
+
+app.get('/handle/auto/view',(req,res)=>{
+
+  auto.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_auto.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/auto/present',(req,res)=>{
+
+  auto.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_auto.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/auto/:id/change',(req,res)=>{
+
+    auto.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/auto/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/auto/scan',(req,res)=>{
+    res.render("Attendee/Auto.ejs",{message:""})
+})
+
+
+app.get('/handle/auto/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    auto.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/Auto.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/auto/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/auto',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/auto/new',(req,res)=>{
+    res.render("Attendee/newAuto")
+})
+
+
+app.post('/handle/auto/new',(req,res)=>{
+
+   
+
+    Auto = new auto({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    Auto.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/auto/new')
+        }
+        else
+        {
+            res.redirect('/handle/auto/view')
+        }
+    })
+})
+
+
+
+
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//                Astro WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+AstroSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var astro = mongoose.model('astro_workshop', AstroSchema);
+
+
+
+app.get('/handle/astro/view',(req,res)=>{
+
+  astro.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_astro.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/astro/present',(req,res)=>{
+
+  astro.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_astro.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/astro/:id/change',(req,res)=>{
+
+    astro.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/astro/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/astro/scan',(req,res)=>{
+    res.render("Attendee/Astro.ejs",{message:""})
+})
+
+
+app.get('/handle/astro/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    astro.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/Astro.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/astro/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/astro',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/astro/new',(req,res)=>{
+    res.render("Attendee/newAstro")
+})
+
+
+app.post('/handle/astro/new',(req,res)=>{
+
+   
+
+    Astro = new astro({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    Astro.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/astro/new')
+        }
+        else
+        {
+            res.redirect('/handle/astro/view')
+        }
+    })
+})
+
+
+
+
+
 // **************************************************************************
 
 
