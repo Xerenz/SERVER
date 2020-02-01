@@ -594,7 +594,7 @@ app.post("/api/giveaway", function(req, res) {
                     
 <p>Thank you for participating in the Dhishna 2020 Giveaway contest!</p>
 
-<p>Your token is <b>D${doc.token}</b></p>
+<p>Your token is <b>${doc.token}</b></p>
 
 <p>We will be announcing the results shortly, so stay tuned.</p>
 </body>
