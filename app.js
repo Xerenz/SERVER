@@ -148,6 +148,11 @@ app.get("/techtalk",(req,res)=>{
     res.render("techtalk")
 })
 
+app.get("/spotlights",(req,res)=>{
+  res.render("spotlight/spotlight")
+})
+
+// -----------------------------------------------------
 
 // handling contact info
 
