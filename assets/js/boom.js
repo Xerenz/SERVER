@@ -2,6 +2,8 @@
     var ele = document.getElementsByClassName('boom');
     var logo =  document.getElementById('logo');
 
+    setTimeout(function() { boomOpen(); }, 2500);
+
     function boomOpen(){
         if(d_flag)
         {   
