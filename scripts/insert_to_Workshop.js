@@ -314,30 +314,30 @@ var data = [
     },*/
 
     {
-        name : "Cyber Forensics",
-        date : "8/2/2020",
-        price : "300",
+        name : "Bridge Design",
+        date : "21/2/2020",
+        price : "1200",
         branch : "it",
-        content : "Cyber forensics is the new frontier of criminal investigation for agencies and growing ever since it's inception. As technology enhances, so do the crimes associated with using technology in criminal activity. Technology touches just about everything already and computer forensics is rapidly becoming a daily part of the investigative process. From a law enforcement perspective, it is difficult to find a case today that does not have a nexus to computer technology. Dhishna 2020 in association with CDAC, Government of India presents to you a one day workshop on Cyber forensics.",
+        content : "Bridge Design is a vital topic of study in Civil Engineering. In this workshop, participants will design and fabricate their own bridge. The  bridge model made by participants can take up to 1000 times the  self-weight. The workshop includes  instruction on the key structural components of Structural engineering and bridge construction – beams, arches, trusses, suspensions, and test for  maximum load.",
         label : "technical",
         contact:[
                     { 
-                        name:"Amal",
-                        phone:"9048968500"
+                        name:"Vivek",
+                        phone:"9496984622"
                     },
 
                     { 
-                        name:"Rinku",
-                        phone:"8590666916"
+                        name:"Nimisha",
+                        phone:"8330813626"
                     }
                 ],
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_forensics",
+        details:"w_bridge",
         pdfUrl:"",
         // payment url
-        url : "https://www.instamojo.com/dhishna2020/cyber-forensics-12a7a/"
+        url : "https://www.instamojo.com/dhishna2020/bridge-design-241f1/"
 
     }
 
