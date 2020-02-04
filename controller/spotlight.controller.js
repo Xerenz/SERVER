@@ -29,7 +29,14 @@ exports.promenad_webhook = function(req, res) {
             subject : "Promenad  |  SPOTLIGHT",
             text : `Hey ${req.body.buyer_name},
             
-Thank you for registering for Promenad!`
+Thank you for registering for Promenad!
+
+This mail confirms your registeration for the event. The amount you have paid will be reimbursed on the event day.
+
+Looking forward to see you on the stage.
+
+Cheers!
+Dhishna 2020`
         };
 
         // Field_8541 - for college
@@ -93,7 +100,14 @@ exports.step_up_solo_webhook = function(req, res) {
             subject : "Step Up Solo  |  SPOTLIGHT",
             text : `Hey ${req.body.buyer_name},
             
-Thank you for registering for Promenad!`
+Thank you for registering for Step Up Solo!
+
+This mail confirms your registeration for the event. The amount you have paid will be reimbursed on the event day.
+
+Looking forward to see you on the stage.
+
+Cheers!
+Dhishna 2020`
         };
 
         // Field_8541 - for college
@@ -146,10 +160,17 @@ exports.ragarhapsody_webhook = function(req, res) {
         let msg = {
             to : req.body.buyer,
             from : "Dhishna <tech.dhishna@gmail.com>",
-            subject : "Step Up Solo  |  SPOTLIGHT",
+            subject : "Ragarhapsody  |  SPOTLIGHT",
             text : `Hey ${req.body.buyer_name},
             
-Thank you for registering for Promenad!`
+Thank you for registering for Ragarhapsody!
+
+This mail confirms your registeration for the event. The amount you have paid will be reimbursed on the event day.
+
+Looking forward to see you on the stage.
+
+Cheers!
+Dhishna 2020`
         };
 
         // Field_8541 - for college

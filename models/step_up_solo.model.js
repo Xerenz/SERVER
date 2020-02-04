@@ -7,8 +7,8 @@ const StepUpSolo = new Schema(
         phone : String,
         email : String,
         college : String,
-        isSpot : String,
-        isAttended : String
+        isSpot : {type : String, default : "false"},
+        isAttended : {type : String, default : "false"}
     }
 );
 
