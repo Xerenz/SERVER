@@ -368,114 +368,115 @@ var data = [
     //     url : "https://www.instamojo.com/dhishna2020/fire-training-and-cpr/"
 
     // },
-    {
-        name : "Six Sense Robotics",
-        date : "20/2/2020 - 21/2/2020",
-        price : "1200",
-        branch : "eee",
-        content : "Six Sense Technology is a revolutionary way to aggrandize the physical world around us and lets the user to use natural hand gestures to interact with digital information. It involves almost all sections of modern technology. The workshop is a secure platform for students to enter into the field of robotics and work on image processing. It helps the students to learn all the basics and apply them in reality.",
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Sharath",
-                        phone:"9447964424"
-                    },
+    // {
+    //     name : "Six Sense Robotics",
+    //     date : "20/2/2020 - 21/2/2020",
+    //     price : "1200",
+    //     branch : "eee",
+    //     content : "Six Sense Technology is a revolutionary way to aggrandize the physical world around us and lets the user to use natural hand gestures to interact with digital information. It involves almost all sections of modern technology. The workshop is a secure platform for students to enter into the field of robotics and work on image processing. It helps the students to learn all the basics and apply them in reality.",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Sharath",
+    //                     phone:"9447964424"
+    //                 },
 
-                    { 
-                        name:"Abhishek",
-                        phone:"6282190814"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_six",
-        pdfUrl:"",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/six-sense-robotics/"
+    //                 { 
+    //                     name:"Abhishek",
+    //                     phone:"6282190814"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_six",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/six-sense-robotics/"
 
-    },
-    {
-        name : "Conceptual Modelling using Generative Design",
-        date : "20/2/2020",
-        price : "650",
-        branch : "civil",
-        content : "This course is an introduction to visually scripting in Formit using Dynamo.Dynamo let us use computational design and a data-driven process to generate thousands of potential geometries for a building. The idea is to explore as many options as possible without having to manually model each one.It provides participants with an understanding of the conceptual design using Autodesk Formit environment and implementing those concepts in a Building Information Modelling (BIM) workflow.",
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Naveen",
-                        phone:"9895721858"
-                    },
+    // },
+    // {
+    //     name : "Conceptual Modelling using Generative Design",
+    //     date : "20/2/2020",
+    //     price : "650",
+    //     branch : "civil",
+    //     content : "This course is an introduction to visually scripting in Formit using Dynamo.Dynamo let us use computational design and a data-driven process to generate thousands of potential geometries for a building. The idea is to explore as many options as possible without having to manually model each one.It provides participants with an understanding of the conceptual design using Autodesk Formit environment and implementing those concepts in a Building Information Modelling (BIM) workflow.",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Naveen",
+    //                     phone:"9895721858"
+    //                 },
 
-                    { 
-                        name:"Varsha",
-                        phone:"7356074336"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_conceptual",
-        pdfUrl:"",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/conceptual-modelling-using-generative-design/"
+    //                 { 
+    //                     name:"Varsha",
+    //                     phone:"7356074336"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_conceptual",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/conceptual-modelling-using-generative-design/"
 
-    },
-     {
-        name : "High Powered Rocketry",
-        date : "20/2/2020 - 21/2/2020",
-        price : "1300",
-        branch : "core",
-        content : "It provides participants with an understanding of the conceptual design using Autodesk Formit environment and implementing those concepts in a Building Information Modelling (BIM) workflow.Dhishna 2020 presents to you a two-day workshop on High powered rocketry. Don't miss the opportunity to spectate the Star - XL Live Rocket Launch.",
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Rahul",
-                        phone:"8281752814"
-                    },
+    // },
+    //  {
+    //     name : "High Powered Rocketry",
+    //     date : "20/2/2020 - 21/2/2020",
+    //     price : "1300",
+    //     branch : "core",
+    //     content : "It provides participants with an understanding of the conceptual design using Autodesk Formit environment and implementing those concepts in a Building Information Modelling (BIM) workflow.Dhishna 2020 presents to you a two-day workshop on High powered rocketry. Don't miss the opportunity to spectate the Star - XL Live Rocket Launch.",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Rahul",
+    //                     phone:"8281752814"
+    //                 },
 
-                    { 
-                        name:"Shivam",
-                        phone:"9567217828"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_rocketry",
-        pdfUrl:"",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/high-powered-rocketry/"
+    //                 { 
+    //                     name:"Shivam",
+    //                     phone:"9567217828"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_rocketry",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/high-powered-rocketry/"
 
-    },
-    {
-        name : "Pro-CAD-Er",
-        date : "20/2/2020",
-        price : "400",
-        branch : "mech",
-        content : "In the real world scenario, engineers are required to have the mastery over a different set of CAD software products. You may have to learn software to meet special requirements of your project. Engineers who have CAD skills are employed in manufacturing industries including automobiles, aeronautical, engineering, heavy industries, locomotives, and marine. With CAD skills, engineers can find employment and increase productivity.Dhishna 2020 in association with SAE_CUSAT is bringing an opportunity to learn the basics of SOLIDWORKS and its simulations.",
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Sanjith",
-                        phone:"8111948462"
-                    },
+    // },
+    // {
+    //     name : "Pro-CAD-Er",
+    //     date : "20/2/2020",
+    //     price : "400",
+    //     branch : "mech",
+    //     content : "In the real world scenario, engineers are required to have the mastery over a different set of CAD software products. You may have to learn software to meet special requirements of your project. Engineers who have CAD skills are employed in manufacturing industries including automobiles, aeronautical, engineering, heavy industries, locomotives, and marine. With CAD skills, engineers can find employment and increase productivity.Dhishna 2020 in association with SAE_CUSAT is bringing an opportunity to learn the basics of SOLIDWORKS and its simulations.",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Sanjith",
+    //                     phone:"8111948462"
+    //                 },
 
-                    { 
-                        name:"Jithin",
-                        phone:"8086741153"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_procad",
-        pdfUrl:"",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/pro-cad-er/"
+    //                 { 
+    //                     name:"Jithin",
+    //                     phone:"8086741153"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_procad",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/pro-cad-er/"
 
-    }
+    // }
+    
 
 
 
