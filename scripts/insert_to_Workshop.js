@@ -311,7 +311,7 @@ var data = [
         // payment url
         url : "https://www.instamojo.com/dhishna2020/bamboo-and-mud-construction/"
 
-    },*/
+    },
 
     {
         name : "Bridge Design",
@@ -338,6 +338,61 @@ var data = [
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/bridge-design-241f1/"
+
+    },*/
+
+    {
+        name : "Fire Training and CPR",
+        date : "21/2/2020",
+        price : "250",
+        branch : "safety",
+        content : "Knowing how to act in the event of a fire is an important skill for an citizen to have. The actions of any one person are likely to impact others around them. Fire safety training is about making sure everyone knows what to do in an emergency. Not only is it a smart choice, it is also the law. Also the best way to learn CPR is to attend a CPR class presented by an accredited medical emergency response provider.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Amaldev",
+                        phone:"8921490115"
+                    },
+
+                    { 
+                        name:"Fareed",
+                        phone:"8075727627"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_fire_cpr",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/fire-training-and-cpr/"
+
+    },
+    {
+        name : "",
+        date : "21/2/2020",
+        price : "1200",
+        branch : "it",
+        content : "Bridge Design is a vital topic of study in Civil Engineering. In this workshop, participants will design and fabricate their own bridge. The  bridge model made by participants can take up to 1000 times the  self-weight. The workshop includes  instruction on the key structural components of Structural engineering and bridge construction – beams, arches, trusses, suspensions, and test for  maximum load.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Thejus",
+                        phone:"8086023111"
+                    },
+
+                    { 
+                        name:"Richard",
+                        phone:"7025294170"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_metro",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/metro-rail/"
 
     }
 
