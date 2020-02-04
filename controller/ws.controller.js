@@ -3,9 +3,7 @@ const Transaction = require("../models/transaction.model");
 const User = require("../models/user.model");
 
 const async = require("async");
-
-
-const request = require("request");
+const nodemailer = require("nodemailer");
 
 
 // show all events
@@ -106,258 +104,105 @@ exports.payment = function(req, res) {
 };
 
 
-
-// webhook
 exports.webhook = function(req, res) {
-
-    if (req.body.status === 'Credit') {
-    
-       /*let payment = new Transaction({
-            payment_id : req.body.payment_id,
-            status : req.body.status,
-            payment_for : req.body.offer_title,
-            buyer : req.body.buyer
-        }); */
-
-        Transaction.findOne({payment_id : req.body.payment_id}, function(err, doc) {
-
-            if (err) console.log(err);
-
-            else if (!doc) {
-
-                console.log("Transaction was credit");
-
-                console.log(req.body.offer_title);
-
-                console.log(req.body);
-
-                Workshop.findOne({name : req.body.offer_title}, function(err, event) {
-                    if (err)
-                        console.log(err);
-                    else if (!event) 
-                        console.log("No event found");
-                    else {
-                        // console.log(event.id);
-
-                        // add event to user
-
-                        User.updateOne({username : req.body.buyer},
-                            {"$push" : {"ws" : event.id}}, // test event change on deploy
-                                function(err, user) {
-                            if (err) console.log(err);
-                            else if (!user) console.log("no user found");
-                            else {
-                                console.log("event added to user.."); 
-                                
-                                console.log(user.id); // testing
-
-                                var payment = new Transaction({
-
-                                    // transaction info
-                                    payment_id : req.body.payment_id,
-                                    status : req.body.status,
-                                    payment_for : req.body.offer_title,
-                                    buyer : req.body.buyer,
-
-                                    // saving unique id
-                                    uid : user.id
-                                }); 
-
-                                console.log(payment); // testing
-
-                                payment.save(function(err) {
-                                    if (err)
-                                        console.log(err);
-                                    else {
-                                        console.log("payment saved", req.body.buyer, req.body.payment_id, 
-                                        req.body.offer_title);
-                                    }
-                                }); 
-
-                                console.log(user); // check user state
-                            } 
-                        });
-                
-                    } 
-                });
-
-            }
-
-            else {
-                console.log("doc already added by redirect");
-
-                doc.payment_for = req.body.offer_title;
-                doc.buyer = req.body.buyer;
-
-                doc.save(function(err) {
-                    console.log(err);
-                });
-
-                // adding event to user
-
-                // needs correction //
-                Workshop.findOne({name : req.body.offer_title}, function(err, event) {
-                    if (err) console.log(err);
-                    else if (!event) console.log("no event found");
-                    else {
-                        User.updateOne({username : req.body.buyer}, {"$push" : {"ws" : event.id}}, 
-                        function(err, user) {
-                            if (err)
-                                console.log(err);
-                            else {
-                                console.log("Event pushed to user");
-                                console.log(user);
-                            }
-                        });
-                    }
-                });
-            }
-        });       
-
-        /*payment.save(function(err) {
-            if (err)
-                console.log(err);
-            else {
-                console.log("payment saved", req.body.buyer, req.body.payment_id, 
-                req.body.offer_title);
-            }
-        }); */
-    }
-
-    else {
-        console.log("transaction failed");
-    }
-};
-
-
-// redirect after success
-exports.redirect =  function(req, res) {
-
-    if (req.query.status === 'success') {
-
-        console.log("payment was a success");
-
-        Transaction.findOne({payment_id : req.query.payment_id}, function(err, doc) {
-            if (err)
-                console.log(err);
-            if (!doc) {
-                console.log("Not saved via webhook..");
-
-                // let url = "https://test.instamojo.com/api/1.1/payment-requests/"
-                // let payload = {}
-                // let headers = {'X-Api-Key': 'test_33e8cff1c7771aa97518b6bbf70', 'X-Auth-Token': 'test_a2981cf2689df276c8dc7d732d7'};
-
-                // console.log(req.payment_request.id);
-
-
-                // need main payment id of format : d66cb29dd059482e8072999f995c4eef
-                // payment_id is of format : MOJO5a06005J21512197
-                /* request.get(url + req.query.payment_id, 
-                {form : payload, headers : headers},
-                function(err, res, body) { */
-
-                    // if (err)
-                    //    console.log(err);
-
-                    // console.log(body);
-
-                    // console.log(req.user);
-
-                let payment = new Transaction({
-
-                    // payment info
-                    payment_id : req.query.payment_id,
-                    status : req.query.status,
-
-                    // user id
-                    uid : req.user.id
-                });
-
-                    
-                Workshop.findOne({name : req.body.offer_title}, function(err, event) {
-                    if (err || !event) {
-                        err_mess = err || "no event found"
-                        console.log(err_mess);
-                    }
-                    else {
-                        // console.log(event.id);
-        
-                        // add event to user
-        
-                        User.updateOne({username : req.user.username},
-                            {"$push" : {"ws" : event.id}},
-                                function(err, user) {
-                            if (err)
-                                console.log(err);
-                            else {
-                                console.log("event added to user..");   
-                            } 
-                        }); 
-                    }
-                });       
-            
-                payment.save(function(err) {
-                    if (err)
-                        console.log(err);
-                    else {
-                        console.log("payment saved", req.query.payment_id);
-                    }
-                }); 
-                // }); 
-            }
-            // check if payment saved via webhook //
-            else {
-                console.log("payment saved by webhook...");
-            }
-
-            res.redirect("/thankyou");
-        });
-    }
-    // check if transaction was a success //
-    else {
-        console.log("failed transaction...");
-
-        res.redirect("/"); // redirect to home after fail
-    }
-
-    
-};
-
-
-
-// testing prototype
-
-exports.webhook2 = function(req, res) {
     async.waterfall([
         function(done) {
-            let payment = new Transaction({
-                // transaction info
-                payment_id : req.body.payment_id,
-                status : req.body.status,
-                payment_for : req.body.offer_title,
-                buyer : req.body.buyer,
-            });
+            if (req.body.status === "Credit") {
+                let doc = new Transaction({
+                    payment_id : req.body.payment_id,
+                    payment_for : req.body.offer_title,
+                    status : req.body.status,
+                    buyer : req.body.buyer
+                });
 
-            payment.save(function(err) {
-                done(err);
-            })
+                doc.save(function(err) {
+                    if (err) 
+                    {
+                        return console.log(err);
+                    }
+
+                    done(err);
+                });
+            }
         },
         function(done) {
-            Workshop.find({name : req.body.offer_title}, function(err, event) {
-                done(event, err);
-            });
+            if (req.body.status === "Credit") {
+                User.updateOne({username : req.body.buyer}, 
+                    {"$push" : {"ws" : req.body.offer_title}}, 
+                    function(err, user) {
+                        console.log(user);
+                        done(err);
+                });
+
+            }
         },
-        function(event, done) {
-            User.update({username : req.body.buyer},
-                {"$push" : {"ws" : event.id}}, 
-                function(err, user) {
-                    done(err, user);
-            });
+        function(done) {
+            if (req.body.status === "Credit") {
+                smtpTransport = nodemailer.createTransport({
+                    service : "Gmail",
+                    auth : {
+                        user : "tech.dhishna@gmail.com",
+                        pass : "SantyDance"
+                    }
+                });
+
+                Workshop.findOne({name : req.body.offer_title}, function(err, workshop) {
+                    if (err)
+                    {
+                        return console.log(err);
+                    }
+
+                    let msg = {
+                        to : req.body.buyer,
+                        from : "Dhishna <tech.dhishna@gmail.com>",
+                        subject : `DHISHNA  |  ${req.body.offer_title.toUpperCase()}`,
+                        text : `Hey ${req.body.buyer_name},
+                        
+Thank you for registering for ${req.body.offer_title} workshop. This mail confirms your registeration. The workshop is scheduled to be held on ${workshop.date}.
+
+For any queries or details about the workshop contact :
+${workshop.contact[0].name} : ${workshop.contact[0].phone}
+${workshop.contact[1].name} : ${workshop.contact[1].phone}
+
+For Accomodation details please call : 8606797536
+
+Hope to see you on our event day.
+    
+Cheers!
+Dhishna 2020`
+                    };
+    
+                    smtpTransport.sendMail(msg, function(err) {
+                        if (err) 
+                        {
+                            return console.log(err);
+                        }
+    
+                        console.log("mail sent");
+                        done(err);
+                    });
+
+                });
+            }
         },
-        function(user, done) {
-            console.log("payment recorded for user ", user.username);
+        function(done) {
+            res.sendStatus(200);
+            done(err);
         }
     ], function(err) {
-        console.log(err);
-    })
-}
+        if (err)
+        {
+            return console.log(err);
+        }
+    });
+};
+
+exports.redirect = function(req, res) {
+
+    if (req.params.status === "success") {
+        res.redirect("/thankyou");
+    }
+    else {
+        res.redirect("/events");
+    }
+};
