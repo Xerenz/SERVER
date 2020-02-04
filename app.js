@@ -148,9 +148,7 @@ app.get("/techtalk",(req,res)=>{
     res.render("techtalk")
 })
 
-app.get("/spotlights",(req,res)=>{
-  res.render("spotlight/spotlight")
-})
+
 
 app.get("/message/error", function(req, res) {
     res.render("message", {message1 : "Oops there seems to be a problem!", message2: "This seems to be some technical error. Please contact us"});

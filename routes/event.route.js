@@ -9,7 +9,7 @@ router.get("/filter/:label", event_controller.label_show);
 
 // router.get("/:id/knowmore", event_controller.event_one_show);
 // experiment
-router.get("/:id/knowmore/loginandpay", event_controller.event_loginandpay);
+// router.get("/:id/knowmore/loginandpay", event_controller.event_loginandpay);
 
 // payments
 // router.get("/payment", event_controller.payment);

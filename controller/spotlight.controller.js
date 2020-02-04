@@ -5,7 +5,7 @@ const StepUpSolo = require("../models/step_up_solo.model");
 const nodemailer = require("nodemailer");
 
 exports.show = function(req, res) {
-    res.render("spotlight");    
+    res.render("spotlight/spotlight");    
 };
 
 exports.redirect = function(req, res) {
