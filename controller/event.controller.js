@@ -24,7 +24,7 @@ exports.label_show = function(req, res) {
             return res.render("home");
         }
         console.log(events);
-        res.render("workshop", {events : events});
+        res.render("event", {events : events});
     });
 };
 
