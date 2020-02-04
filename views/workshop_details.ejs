@@ -107,7 +107,10 @@
                <%= event.content%>
             </div> 
             <div class="space-50"></div>
-             <div class="col col-12 text-center animated fadeInUp delay-1s"><a target="_blank" href="/assets/img/<%= event.details %>.pdf"><button type="button" class="btn btn-dark">Download full details</button></a></div>
+             <div class="col col-12 text-center animated fadeInUp delay-1s">
+                <a target="_blank" href="/assets/img/<%= event.details %>.pdf"></a>
+             <!-- <button type="button" class="btn btn-dark">Download full details</button> -->
+            </div>
              <div class="space-50"></div>
              <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.price %></div>
              
