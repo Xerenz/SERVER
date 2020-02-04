@@ -252,14 +252,17 @@ app.get("/login", function(req, res) {
     res.render("user/login", {message : req.flash('error')});
 });
 
+
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/workshop" ,
+
     failureRedirect: "/login",
     failureFlash: true
 }), function(req, res) {
     // final handler
+      User.findById(req.user._id);
+      var redirectionUrl = req.session.redirectUrl || '/home';
+      res.redirect(redirectionUrl);
 });
-
 
 // logout
 
@@ -269,16 +272,54 @@ app.get("/logout", function(req, res) {
 });
 
 
+// app.post("/login", passport.authenticate("local", {
+//     successRedirect: "/workshop" ,
+//     failureRedirect: "/login",
+//     failureFlash: true
+// }), function(req, res) {
+//     // final handler
+// });
+
+
+
+
 // middleware for checking user auth
 function isLoggedIn(req, res, next) {
     console.log("checking login state");
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect("/login");
+    if (!req.isAuthenticated() || !req.isAuthenticated) {  
+        if (req.session) {  
+            req.session.redirectUrl = req.headers.referer || req.originalUrl || req.url;  
+        }  
+        console.log("ivde ethii") 
+        // next(); 
+        res.redirect('/login');
+    } else {
+        next();  
+    }  
 }
 
 
+// function isLoggedIn(req, res, next) {
+//     console.log("checking login state");
+//     if (req.isAuthenticated()) {
+//         return next();
+//     }
+//     res.redirect("/login");
+// }
+
+// =============================
+
+app.get('/workshop/:id/login',isLoggedIn,(req,res)=>{
+  var id = req.params.id;
+  res.redirect('/workshop/'+id+'/knowmore')
+})
+
+app.get('/event/:id/login',isLoggedIn,(req,res)=>{
+  var id = req.params.id;
+  res.redirect('/event/'+id+'/knowmore')
+})
+
+// =============================
 // forgot password
 app.get("/forgot", function(req, res) {
     res.render("user/forgot",{message:req.flash('error')});
