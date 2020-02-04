@@ -112,10 +112,10 @@
              <!-- <button type="button" class="btn btn-dark">Download full details</button> -->
             </div>
              <div class="space-50"></div>
-             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.price %></div>
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.fees %></div>
              
              <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Date : <%= event.date %></div>
-             <div class="col col-12  col-md-4 text-center pay_money text-danger animated fadeInUp delay-1s"><%= event.message %></div>
+             <div class="col col-12  col-md-4 text-center pay_money text-white animated fadeInUp delay-1s">Price Worth :<%= event.price1 %></div>
              <!-- <div class="space-50"></div> -->
              <div class="col col-12  text-center pay_money p-4 animated fadeInUp delay-1s"><strong>COORDINATORS</strong>  <br><br>
                  <% event.contact.forEach(contact => { %>
