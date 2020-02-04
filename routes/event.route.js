@@ -7,7 +7,7 @@ const event_controller = require("../controller/event.controller");
 router.get("/", event_controller.event_show);
 router.get("/filter/:label", event_controller.label_show);
 
-// router.get("/:id/knowmore", event_controller.event_one_show);
+router.get("/:id/knowmore", event_controller.event_one_show);
 // experiment
 // router.get("/:id/knowmore/loginandpay", event_controller.event_loginandpay);
 

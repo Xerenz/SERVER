@@ -28,7 +28,7 @@
 
     <!-- back button -->
     <div class="back_button animated zoomIn delay-1s">
-        <a href="home"><img src="/assets/img/logo.png" alt=""></a>
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
     </div>
 
 
@@ -46,16 +46,16 @@
                      <i class="fa fa-times" aria-hidden="true"></i>
                 </div>   
                 <div class="links">
-                    <a href="home">HOME</a>
-                    <a href="about">ABOUT</a>
+                    <a href="/home">HOME</a>
+                    <a href="/about">ABOUT</a>
                     <!-- <a href="event.html">EVENTS</a> -->
-                    <a href="workshop">WORKSHOPS</a>
+                    <a href="/workshop">WORKSHOPS</a>
                     <!-- <a href="exhibition.html">EXHIBITION</a> -->
-                    <a href="outreach">INITIATIVES</a>
+                    <a href="/outreach">INITIATIVES</a>
                     <a href="http://summit.dhishna.org">SUMMIT</a>
-                    <a href="profile">PROFILE</a>
+                    <a href="/profile">PROFILE</a>
                     <!-- <a href="">MAP</a> -->
-                    <a href="contact">CONTACT</a>
+                    <a href="/contact">CONTACT</a>
                 </div>
     
                 <ul class="circles" id="circles">
@@ -87,7 +87,7 @@
             <div class="space"></div>
             <div class="space-50"></div>
             <div class="col col-12 text-center text-md-left">
-                <h3 class="home_head animated fadeInUp delay-1s">EVENTS</h3>
+                <h3 class="home_head animated fadeInUp delay-1s"><%= event.name %></h3>
             </div>
         </div><!-- &&row -->
          <!-- row -->
@@ -102,57 +102,56 @@
     <!-- =========================================== -->
     <section>
     <div class="container">
-        <div class="row">
-            <div class="col col-12">
-                 <div class="space-50"></div>
-                <ul class=" clearfix">
-
-                    <% for(var i=0;i<events.length;i++){ %>
-
-                        <!-- box -->
-                    <!-- ====================================== -->
-                       
-                        <li class="scene animated zoomIn delay-1s">
-                           
-                            <div class="movie" onclick="return true">
-                                <div class="poster">
-                                    <!-- <div class="poster_head"></div> -->
-                                    <img src="/assets/img/events<%= events[i].details%>.jpeg" alt="" >
-                                </div>
-                                 
-                                <div class="info">
-                                   
-                                    <header>
-                                        <h6><%= events[i].name %></h6>
-                                    </header>
-                                    <a href="event/<%= events[i]._id%>/knowmore" >
-                                    <p >
-                                        <%= events[i].content %>
-                                    </p>
-                                    </a>
-                                    <a href="event/<%= events[i]._id%>/knowmore" >
-                                    <div class="box_button text-center text-danger">
-                                        <span>Register</span>
-                                    </div>
-                                    </a>
-                                </div>
-                            
-                            </div>
-                            
-                        </li>
-                        <!-- overlay -->
-                        
-                        <!-- overlay end -->
-                     <!-- box ends -->
-                     <!-- ================================================= -->
-
-
-
-                   <% } %>
-                    
-
-                </ul>
+        <div class="row text-white">
+            <div class="col col-12 text-white animated fadeInUp delay-1s text-md-left text-center">
+               <%= event.content%>
+            </div> 
+            <div class="space-50"></div>
+             <div class="col col-12 text-center animated fadeInUp delay-1s">
+                <a target="_blank" href="/assets/img/<%= event.details %>.pdf"></a>
+             <!-- <button type="button" class="btn btn-dark">Download full details</button> -->
             </div>
+             <div class="space-50"></div>
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.price %></div>
+             
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Date : <%= event.date %></div>
+             <div class="col col-12  col-md-4 text-center pay_money text-danger animated fadeInUp delay-1s"><%= event.message %></div>
+             <!-- <div class="space-50"></div> -->
+             <div class="col col-12  text-center pay_money p-4 animated fadeInUp delay-1s"><strong>COORDINATORS</strong>  <br><br>
+                 <% event.contact.forEach(contact => { %>
+
+                         <%= contact.name %> : <a href="tel:<%= contact.phone %>"><%= contact.phone %></a> <br>
+
+                <% }) %>
+             </div>
+             
+             <% if(event.isOpen == true){ %>
+
+                     <% if(logStatus == true) {%>
+
+                             <div class="col col-12 text-center animated fadeInUp delay-1s"><a target="_blank" href="<%= event.url + q %>"><button type="button" class="btn btn-danger">Pay now</button></a></div>
+
+
+                     <%  } else {%>
+
+                         <div class="col col-12 text-center animated fadeInUp delay-1s"><a  href="/login"><button type="button" class="btn btn-danger">Login and pay</button></a></div>
+
+
+                     <%}%>
+
+                     
+            <% } else {%>
+
+                     <div class="col col-12 text-center animated fadeInUp delay-1s"><button type="button" class="btn btn-dark">payment disabled</button></div>
+
+
+            <%}%>
+             
+
+             <div class="space-50"></div>             
+             
+             
+            
         </div>
     </div>
 
@@ -166,7 +165,7 @@
         <div class="container">
             <div class="row">
                 <div class="col col-12 ">
-                     <ul class="social_dhishna ">
+                     <ul class="social_dhishna animated fadeInUp delay-1s">
                         <li>
                             <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
                         </li>

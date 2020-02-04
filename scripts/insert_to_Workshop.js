@@ -475,7 +475,34 @@ var data = [
     //     // payment url
     //     url : "https://www.instamojo.com/dhishna2020/pro-cad-er/"
 
-    // }
+    // },
+     {
+        name : "Metro Rail",
+        date : "20/2/2020",
+        price : "400",
+        branch : "mech",
+        content : "Have you ever travelled in our Kochi Metro and fascinated about how our metro system works. Perhaps it might be the best opportunity for you. Dhishna 2020 presents to be you a one day interactive session of working of Kochi metro system.The workshop covers about the mechanical system, the electrical and signal processing system of Kochi metro.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Thejus",
+                        phone:"8086023111"
+                    },
+
+                    { 
+                        name:"Richard",
+                        phone:"7025294170"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_metro",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/metro-rail/"
+
+    }
     
 
 
