@@ -4,8 +4,8 @@ mongoose.connect("mongodb://localhost/dhishna");
 const Counter = require("../models/counter.model");
 
 let counter = new Counter({
-    name : "counter",
-    seq : 1000
+    name : "valentine",
+    seq : 20000
 });
 
 counter.save(function(err) {

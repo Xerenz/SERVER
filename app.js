@@ -537,6 +537,11 @@ app.post("/api/giveaway", function(req, res) {
 <p>1. With each coupon purchase, you will be getting a 15% discount voucher from Al-Baik, Kalamassery.</p>
 <p>2. The contest is being conducted on both online and offline platforms, with participants on both platforms having a common lucky draw.</p>
 <p>3. If our representative can not get in touch with the winner, then re-drawing will be taken into account.</p>
+
+<br>
+
+<p>Cheers!</p>
+<p>Dhishna 2020</p>
 </body>
 </html>`,
                     attachments : [
@@ -583,11 +588,11 @@ app.post("/api/valentine", function(req, res) {
 
             let quantity = req.body.quantity;
             // 5e256c16420b76188cc42ac9 - real id
-            Counter.findByIdAndUpdate("5e256c16420b76188cc42ac9", 
+            Counter.findByIdAndUpdate("5e3a4e2e1444eb73349e6542", 
             {"$inc" : {"seq" : quantity}}, function(err, counter) {
                 if (err)
                 { 
-                    return res.render("message", {message1 : "Opps! There seems to be some technical error", message2 : "Please contact us."});
+                    return console.log(err);
                 }
 
                 let tokens = [];
@@ -611,7 +616,7 @@ app.post("/api/valentine", function(req, res) {
                 doc.save(function(err) {
                     if (err) 
                     {
-                        return res.render("message", {message1 : "Opps! There seems to be some technical error", message2 : "Please contact us."});
+                        return console.log(err);
                     }
                     console.log("new doc saved");
                     done(err, quantity);
@@ -623,7 +628,7 @@ app.post("/api/valentine", function(req, res) {
             Giveaway.findOne({payment_id : req.body.payment_id}, function(err, doc) {
                 if (err)
                 { 
-                    return res.render("message", {message1 : "Oops! There seems to an error sending you the email with your coupon code.", message2 : "Please contact us."});
+                    return console.log(err);
                 }    
 
                 console.log(doc);
@@ -646,21 +651,15 @@ app.post("/api/valentine", function(req, res) {
 <body>
 <p>Hey ${doc.name},</p>
                     
-<p>Thank you for participating in the Dhishna 2020 Giveaway contest!</p>
+<p>Thank you for participating in the Dhishna 2020 Giveaway Valentine contest!</p>
 
 <p>Your lucky draw token(s) <b>${userTokens}</b></p>
 
-<p>We will be announcing the results shortly, so stay tuned.</p>
+<p>We will be announcing the results shortly, so stay tuned. You might win a chance for winning a ticket to munnar this valentine</p>
 
 <br>
-<br>
-<br>
-<p>General Guidelines:</p> 
-
-<p>1. With each coupon purchase, you will be getting a 15% discount voucher from Al-Baik, Kalamassery.</p>
-<p>2. The contest is being conducted on both online and offline platforms, with participants on both platforms having a common lucky draw.</p>
-<p>3. If our representative can not get in touch with the winner, then re-drawing will be taken into account.</p>
-</body>
+<p>Cheers!</p>
+<p>Dhishna 2020</p>
 </html>`,
                     attachments : [
                         {
@@ -688,7 +687,7 @@ app.post("/api/valentine", function(req, res) {
     ], function(err) {
         if (err)
         { 
-            return res.render("message", {message1 : "Oops! There seems to an error sending you the email with your coupon code.", message2 : "Please contact us."});
+            return console.log(err);
         }
     });
 });
