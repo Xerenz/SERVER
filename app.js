@@ -588,7 +588,7 @@ app.post("/api/valentine", function(req, res) {
 
             let quantity = req.body.quantity;
             // 5e256c16420b76188cc42ac9 - real id
-            Counter.findByIdAndUpdate("5e3a4e2e1444eb73349e6542", 
+            Counter.findByIdAndUpdate("5e3a5493f4415c6782812803", 
             {"$inc" : {"seq" : quantity}}, function(err, counter) {
                 if (err)
                 { 
