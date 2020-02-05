@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DHISHNA  - Workshop</title>
+    <title>DHISHNA  - Events</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -112,10 +112,10 @@
              <!-- <button type="button" class="btn btn-dark">Download full details</button> -->
             </div>
              <div class="space-50"></div>
-             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.price %></div>
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.fees %></div>
              
              <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Date : <%= event.date %></div>
-             <div class="col col-12  col-md-4 text-center pay_money text-danger animated fadeInUp delay-1s"><%= event.message %></div>
+             <div class="col col-12  col-md-4 text-center pay_money text-white animated fadeInUp delay-1s">Price Worth :<%= event.price1 %></div>
              <!-- <div class="space-50"></div> -->
              <div class="col col-12  text-center pay_money p-4 animated fadeInUp delay-1s"><strong>COORDINATORS</strong>  <br><br>
                  <% event.contact.forEach(contact => { %>
@@ -142,7 +142,7 @@
                      
             <% } else {%>
 
-                     <div class="col col-12 text-center animated fadeInUp delay-1s"><button type="button" class="btn btn-dark">payment disabled</button></div>
+                     <div class="col col-12 text-center animated fadeInUp delay-1s"><button type="button" class="btn btn-dark">Registration starting soon</button></div>
 
 
             <%}%>

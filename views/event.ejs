@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DHISHNA  - Workshop</title>
+    <title>DHISHNA  - Events</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -117,7 +117,7 @@
                             <div class="movie" onclick="return true">
                                 <div class="poster">
                                     <!-- <div class="poster_head"></div> -->
-                                    <img src="/assets/img/<%= events[i].details%>.jpeg" alt="" >
+                                    <img src="/assets/img/events/<%= events[i].details%>.jpeg" alt="" >
                                 </div>
                                  
                                 <div class="info">
@@ -125,12 +125,12 @@
                                     <header>
                                         <h6><%= events[i].name %></h6>
                                     </header>
-                                    <a href="workshop/<%= events[i]._id%>/knowmore" >
+                                    <a href="event/<%= events[i]._id%>/knowmore" >
                                     <p >
                                         <%= events[i].content %>
                                     </p>
                                     </a>
-                                    <a href="workshop/<%= events[i]._id%>/knowmore" >
+                                    <a href="event/<%= events[i]._id%>/knowmore" >
                                     <div class="box_button text-center text-danger">
                                         <span>Register</span>
                                     </div>

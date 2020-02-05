@@ -98,9 +98,10 @@ exports.post_edit = function(req, res) {
         contact : [contact1, contact2],
         
         message : req.body.message,
-
+        isOpen  : req.body.isOpen,
         details : req.body.details,
-        pdfUrl : req.body.pdfUrl,
+        pdfUrl  :req.body.pdfUrl,
+        url     :req.body.url
 
     }, function(err, event) {
         if (err) return console.log(err);

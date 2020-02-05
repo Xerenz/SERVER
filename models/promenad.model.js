@@ -5,7 +5,7 @@ const Promenad = new Schema(
     {
         name : String,
         phone : String,
-        email : String,
+      	email : String,
         college : String,
         isSpot : {type : String, default : "false"},
         isAttended : {type : String, default : "false"}

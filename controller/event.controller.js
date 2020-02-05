@@ -9,7 +9,7 @@ const nodemailer = require("nodemailer");
 // show all
 
 exports.event_show = function(req, res) {
-    Events.find({}, function(err, events) {
+    Events.find({isOpen:"true"}, function(err, events) {
         if (err) {
             console.log(err);
             return res.redirect("/");
