@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -116,8 +116,13 @@
                            
                             <div class="movie" onclick="return true">
                                 <div class="poster">
-                                    <!-- <div class="poster_head"></div> -->
-                                    <img src="/assets/img/events/<%= events[i].details%>.jpeg" alt="" >
+                                   
+                                    <% if(events[i].details != ""){ %>
+                                    	 <img src="/assets/img/events/<%= events[i].details%>.jpeg" alt="" >
+                                    	<% } else {%>
+                                    	      <div class="poster_head"><%= events[i].name%></div>
+                                    	<% } %>
+
                                 </div>
                                  
                                 <div class="info">
