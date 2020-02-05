@@ -66,6 +66,22 @@ canvas {
    letter-spacing: 2px;
   }
 
+
+  .theme-not{
+    position: fixed;
+    z-index: 30;
+    font-size: 0.6em;
+    color: white;
+   font-family:'Montserrat', sans-serif;
+   left: 0;
+   padding: 20px;
+   letter-spacing: 2px;
+   background-color: grey;
+   margin: 10px;
+   border-radius: 6px;
+   opacity: 0.6;
+  }
+
   .user_badge{
     position: fixed;
     z-index: 31;
