@@ -26,10 +26,10 @@ exports.promenad_webhook = function(req, res) {
         let msg = {
             to : req.body.buyer,
             from : "Dhishna <tech.dhishna@gmail.com>",
-            subject : "Promenad  |  SPOTLIGHT",
+            subject : "Promenade  |  SPOTLIGHT",
             text : `Hey ${req.body.buyer_name},
             
-Thank you for registering for Promenad!
+Thank you for registering for Promenade!
 
 This mail confirms your registeration for the event. The amount you have paid will be reimbursed on the event day.
 

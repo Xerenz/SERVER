@@ -160,11 +160,11 @@ exports.webhook = function(req, res) {
                         
 Thank you for registering for ${req.body.offer_title} workshop. This mail confirms your registeration. The workshop is scheduled to be held on ${workshop.date}.
 
-For any queries or details about the workshop contact :
+For any queries or details about the workshop contact:
 ${workshop.contact[0].name} : ${workshop.contact[0].phone}
 ${workshop.contact[1].name} : ${workshop.contact[1].phone}
 
-For Accomodation details please call : 8606797536
+For Accomodation details please call Mufnas: 8606797536
 
 Hope to see you on our event day.
     
