@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA  - Accommodation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/social_icon.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <style>
+    .nav-link{
+        margin: 10px;
+    }
+    </style>
+    
+</head>
+<body>
+
+    <!-- canvas section -->
+     <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <div class="back_button animated fadeInUp delay-1s">
+         <a href="home"><img src="assets/img/logo.png" alt=""></a>
+    </div>
+
+        <!-- navbar -->
+        <section>
+            <header>
+                <div id="myNav" class="overlay">
+                    <!-- Button to close the overlay navigation -->
+                    
+                    <!-- Overlay content -->
+                    <div class="overlay-content">
+                        
+                       <!--  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>  -->     
+                        <div onclick="closeNav()" class="burger" id="closebutton">
+                             <i class="fa fa-times" aria-hidden="true"></i>
+                        </div>   
+                        <div class="links">
+                            <a href="home">HOME</a>
+                            <a href="about">ABOUT</a>
+                            <!-- <a href="event.html">EVENTS</a> -->
+                            <a href="workshop">WORKSHOPS</a>
+                            <!-- <a href="exhibition.html">EXHIBITION</a> -->
+                            <a href="outreach">INITIATIVES</a>
+                            <a href="http://summit.dhishna.org">SUMMIT</a>
+                            <a href="profile">PROFILE</a>
+                            <!-- <a href="">MAP</a> -->
+                            <a href="contact">CONTACT</a>
+                        </div>
+            
+                        <ul class="circles" id="circles">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                         </ul>
+                    
+                    </div>
+                </div>
+            </header>
+            <div onclick="openNav()" class="burger">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </section>
+    
+    <!-- navbar ends -->
+    <section>
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="space"></div>
+                <div class="col col-12 text-center text-md-left">
+                    <h2 class="home_head animated fadeInUp delay-1s text-center ">Accommodation </h2>
+                </div>
+            </div><!-- &&row -->
+
+        </div><!-- container end -->
+        
+    </section>
+    <!-- =========================================== -->
+    <div class="space-50"></div>
+    <section>
+        <div class="container ">
+
+            <div class="col col-12"> 
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#instructions" role="tab" aria-controls="home" aria-selected="true">Instructions</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#policy" role="tab" aria-controls="profile" aria-selected="false">Policies</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#payment" role="tab" aria-controls="contact" aria-selected="false">Payment</a>
+                      </li>
+                    
+                  </ul>
+                  <div class="tab-content text-white" id="myTabContent">
+                      <div class="space-50"></div>
+                      <!-- instructions -->
+                    <div class="tab-pane fade show active" id="instructions" role="tabpanel" aria-labelledby="home-tab">
+                        <strong>Instructions</strong> <br><br>
+                        1. All guests are required to maintain the decorum and cleanliness of the campus, and follow the rules of the campus at all times. <br>
+                        <br>
+                        2. Alcohol, drugs, sharp objects and explosives of any kind are strictly prohibited inside the campus. Any other item if deemed unsafe will be prohibited. The decision of Security  will be final in case of any disputes.
+                        <br> <br>
+                        3. Any commodities issued to the guests would have to be returned in sound condition to the organisers during check-out.
+                        <br><br>
+                        4. Random checks would be made to avoid any illegal stay . Any person failing to produce their electronic/physical receipts of accommodation would be fined.
+                        <br><br>
+                        5.Dhishna 2020 and CUSAT will not be responsible for any mishaps that occur through the duration of stay for Dhishna 2020
+                    </div>
+                    
+                    <div class="tab-pane fade" id="policy" role="tabpanel" aria-labelledby="profile-tab">
+                        <strong>Cancellation Policy</strong>  <br><br>
+
+                        Confirmed Accommodation can be cancelled through email only. Send an e-mail having  name, phone, number and email for whom accommodation has to be cancelled. 
+                         <br> The subject of the email should be ""Cancellation of Accommodation"" For any cancellations before deadline, 75% of the total amount shall be refunded within 10 working days after the festival. 
+                         <br> There shall be no refunds for cancellation after the deadline. Deadline of cancellation: 15 December.
+                            <br><br>
+                        For any queries feel free to   <a href="contact" class="text-info" > contact</a> us.
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <strong>Mail</strong> <br>
+                        mail@dhishna.org <br> 
+                        
+                        <br><br>
+
+                        <strong>Public Relation</strong> <br>
+                        8606797536
+                    </div>
+                    <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="contact-tab">
+                        <strong>Packages</strong> <br><br>
+
+                        <strong>20 FEB 2020 - One day (₹300 )</strong><br>
+                        <button class="btn btn-danger">BUY</button>
+
+                        <br><br><br>
+
+                        <strong>21 FEB 2020 - One day (₹300 )</strong><br>
+                        <button class="btn btn-danger">BUY</button>
+
+                        <br><br><br>
+
+                        <strong>21 & 22 FEB 2020  - two day (₹600 )</strong><br>
+                        <button class="btn btn-danger">BUY</button>
+                    </div>
+                  </div>
+
+            </div>
+
+           
+        </div>
+    </section>
+
+   
+
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 animated fadeIn delay-1s">
+                    <ul class="social_dhishna ">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- script -->
+    <script src="assets/js/navbar.js"></script>
+    <!-- script -->
+
+</body>
+</html>

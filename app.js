@@ -29,6 +29,7 @@ const adminRoutes = require("./routes/admin.route");
 const volRoutes = require("./routes/volunteer.route");
 const innitiatesRoutes = require("./routes/innitiates.route");
 const spotlightRoutes = require("./routes/spotlight.route");
+const accommodationRoutes = require("./routes/accommodation.route");
 
 
 
@@ -89,6 +90,7 @@ app.use("/SantyDance", adminRoutes);
 app.use("/volunteer", volRoutes);
 app.use("/initiates", innitiatesRoutes);
 app.use("/spotlight", spotlightRoutes);
+app.use("/accommodation",accommodationRoutes);
 
 
 
@@ -147,7 +149,6 @@ app.get("/sponsors",(req,res)=>{
 app.get("/techtalk",(req,res)=>{
     res.render("techtalk")
 })
-
 
 
 app.get("/message/error", function(req, res) {
@@ -2028,6 +2029,288 @@ app.post('/handle/astro/new',(req,res)=>{
 
 
 // **************************************************************************
+
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//               Forensics WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ForensicsSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var forensics = mongoose.model('Cyber_Forensics_workshop', ForensicsSchema);
+
+
+
+app.get('/handle/forensics/view',(req,res)=>{
+
+  forensics.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_forensics.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/forensics/present',(req,res)=>{
+
+  forensics.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_forensics.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/forensics/:id/change',(req,res)=>{
+
+    forensics.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/forensics/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/forensics/scan',(req,res)=>{
+    res.render("Attendee/forensics.ejs",{message:""})
+})
+
+
+app.get('/handle/forensics/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    forensics.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/forensics.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/forensics/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/forensics',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/forensics/new',(req,res)=>{
+    res.render("Attendee/newforensics")
+})
+
+
+app.post('/handle/forensics/new',(req,res)=>{
+
+   
+
+    Forensics = new forensics({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    Forensics.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/forensics/new')
+        }
+        else
+        {
+            res.redirect('/handle/forensics/view')
+        }
+    })
+})
+
+
+
+
+
+// **************************************************************************
+
+
+// **************************************************************************
+
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//               Tezlaa WORKSHOP
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TezlaaSchema = mongoose.Schema({
+
+        "name": String,
+        "email": String,
+        "phone": String,
+        "isAttended": String,
+        "isSpot": String
+
+
+    })
+
+var tezlaa = mongoose.model('Tezlaa_workshop', TezlaaSchema);
+
+
+
+app.get('/handle/tezlaa/view',(req,res)=>{
+
+  tezlaa.find({}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_tezlaa.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/tezlaa/present',(req,res)=>{
+
+  tezlaa.find({isAttended:"true"}).sort({name:1}).then((data)=>{
+        res.render("Attendee/attend_view_tezlaa.ejs",{data:data})
+    })
+
+})
+
+
+app.get('/handle/tezlaa/:id/change',(req,res)=>{
+
+    tezlaa.findById(req.params.id).then((data)=>{
+
+        if(data.isAttended == "false")
+        {
+             data.isAttended = "true"
+        }
+        
+        data.save((err,data)=>{
+            if(err)
+            {
+                console.log("error in saving")
+            }
+            else
+            {
+                res.redirect('/handle/tezlaa/view')
+            }
+        })
+
+
+    })
+
+})
+
+
+
+app.get('/handle/tezlaa/scan',(req,res)=>{
+    res.render("Attendee/tezlaa.ejs",{message:""})
+})
+
+
+app.get('/handle/tezlaa/:phone/mark',(req,res)=>{
+    
+    var phone_ = req.params.phone
+    console.log(phone_)
+   
+    tezlaa.findOne({"phone":phone_}).then((data)=>{
+        if(data)
+        {
+
+            console.log(data)
+            data.isAttended = "true"
+            data.save((err,found)=>{
+                if(err)
+                {
+                    res.render('Attendee/tezlaa.ejs',{message:"Error in scaning"})
+                }
+                else
+                {
+                    res.redirect('/handle/tezlaa/view')
+                }
+            }) 
+        }
+        else
+        {
+            res.render('Attendee/tezlaa',{message:"Person not found"})
+        }
+        
+    })
+
+
+})
+
+
+app.get('/handle/tezlaa/new',(req,res)=>{
+    res.render("Attendee/newtezlaa")
+})
+
+
+app.post('/handle/tezlaa/new',(req,res)=>{
+
+   
+
+    Tezlaa = new tezlaa({
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        isAttended:"true",
+        isSpot: req.body.isSpot
+    })
+
+
+    Tezlaa.save((err,data)=>{
+        if(err)
+        {
+            res.redirect('/handle/tezlaa/new')
+        }
+        else
+        {
+            res.redirect('/handle/tezlaa/view')
+        }
+    })
+})
+
+
+
+
+
+// **************************************************************************
+
 
 
 // **************************************************************************
