@@ -84,7 +84,9 @@ app.use(flash());
 
 // config parent routes
 app.use("/event", eventRoutes);
+app.use("/events", eventRoutes);
 app.use("/workshop", wsRoutes);
+app.use("/workshops", wsRoutes);
 app.use("/exhibition", exhibitionRoutes);
 app.use("/SantyDance", adminRoutes);
 app.use("/volunteer", volRoutes);
