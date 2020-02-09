@@ -503,61 +503,88 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/metro-rail/"
 
     },*/
-    {
-        name : "Internet of Things",
-        date : "21/2/2020",
-        price : "700",
+    // {
+    //     name : "Internet of Things",
+    //     date : "21/2/2020",
+    //     price : "700",
+    //     branch : "ec",
+    //     content : `Everything that can be automated will be automated"
+    //     One of the most talked about technologies today is the Internet of Things(IoT). It is the beginning of machines taking over the world. Imagine a world in which every device in your home, workplace, car, and city are connected. That is the type of world that the Internet of Things can create, and it is only getting bigger and better.`,
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Athul",
+    //                     phone:"7907142802"
+    //                 },
+
+    //                 { 
+    //                     name:"Fahad",
+    //                     phone:"9645508854"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_iot",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/internet-of-things-410d7/"
+
+    // },
+    // {
+    //     name : "Football Injuries and instant Medical Support",
+    //     date : "20/2/2020",
+    //     price : "400",
+    //     branch : "core",
+    //     content : `Students must have an idea about their physical issues caused due to their daily postures while they sleep, use their gadgets and all other postures. It's also necessary to have the idea about a perfect diet that football players and students should follow for fitness maintenance.
+
+    //     The workshop includes a live and practise session exclusively for injuries and instant treatment from Kerala Blasters Medical Support Team (Equipment shall be provided to you). It will also comprise of the idea about a perfect diet exclusively for players.`,
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Midhun",
+    //                     phone:"7592959768"
+    //                 },
+
+    //                 { 
+    //                     name:"Akshay",
+    //                     phone:"6282625326"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_kinder",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/football-injuries-and-instant-medical-suppor/"
+
+    // },
+     {
+        name : "Brainwave Robotics",
+        date : "20/2/2020 - 21/2/2020",
+        price : "900",
         branch : "ec",
-        content : `Everything that can be automated will be automated"
-        One of the most talked about technologies today is the Internet of Things(IoT). It is the beginning of machines taking over the world. Imagine a world in which every device in your home, workplace, car, and city are connected. That is the type of world that the Internet of Things can create, and it is only getting bigger and better.`,
+        content : "Here you will get the opportunity to learn the art of making robots which are controlled by the signals coming from your mind. This workshop teaches you the fundamentals of brainwaves and their applications in today’s world. It will provide guidance in the field of integrating Brainwave technology and Robotics. It also focuses on conceptualization and designing of complex systems in order to harness the power of mind in the form of brainwaves as well as clear the concepts related to embedded systems, artificial intelligence and automation.",
         label : "technical",
         contact:[
                     { 
-                        name:"Athul",
-                        phone:"7907142802"
+                        name:"Nikhil",
+                        phone:"9877341492"
                     },
 
                     { 
-                        name:"Fahad",
-                        phone:"9645508854"
+                        name:"Pratyush",
+                        phone:"9608282403"
                     }
                 ],
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_iot",
+        details:"w_brainwave",
         pdfUrl:"",
         // payment url
-        url : "https://www.instamojo.com/dhishna2020/internet-of-things-410d7/"
-
-    },
-    {
-        name : "Football Injuries and instant Medical Support",
-        date : "20/2/2020",
-        price : "400",
-        branch : "core",
-        content : `Students must have an idea about their physical issues caused due to their daily postures while they sleep, use their gadgets and all other postures. It's also necessary to have the idea about a perfect diet that football players and students should follow for fitness maintenance.
-
-        The workshop includes a live and practise session exclusively for injuries and instant treatment from Kerala Blasters Medical Support Team (Equipment shall be provided to you). It will also comprise of the idea about a perfect diet exclusively for players.`,
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Midhun",
-                        phone:"7592959768"
-                    },
-
-                    { 
-                        name:"Akshay",
-                        phone:"6282625326"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_kinder",
-        pdfUrl:"",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/football-injuries-and-instant-medical-suppor/"
+        url : "https://www.instamojo.com/dhishna2020/brainwave-robotics-18ef6/"
 
     }
 
