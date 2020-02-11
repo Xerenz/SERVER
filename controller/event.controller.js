@@ -15,7 +15,7 @@ exports.event_show = function(req, res) {
             return res.redirect("/");
         }
         console.log(events);
-        res.render("event", {events : events});
+        res.render("event", {events : events,label:"all"});
     });
 };
 
@@ -29,7 +29,7 @@ exports.label_show = function(req, res) {
             return res.render("home");
         }
         console.log(events);
-        res.render("event", {events : events});
+        res.render("event", {events : events,label:req.params.label});
     });
 };
 
@@ -37,7 +37,7 @@ exports.label_show = function(req, res) {
 exports.event_one_show = function(req, res) {
     var id = req.params.id; 
     console.log(id)
-    Events.findOne({_id:id}, function(err, event) {
+    Events.findOne({name:id}, function(err, event) {
         console.log(event)
         if (err) {
             console.log(err);

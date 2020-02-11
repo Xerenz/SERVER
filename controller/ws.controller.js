@@ -33,7 +33,7 @@ exports.ws_show = function(req, res) {
 exports.ws_one_show = function(req, res) {
     var id = req.params.id; 
     console.log(id)
-    Workshop.findOne({_id:id}, function(err, event) {
+    Workshop.findOne({name:id}, function(err, event) {
         console.log(event)
         if (err) {
             console.log(err);

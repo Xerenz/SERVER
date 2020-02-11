@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="/assets/css/social_icon.css">
     <script src="/assets/js/overlay_close.js"></script>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </head>
 <body>  
 
@@ -29,7 +33,7 @@
 
     <!-- back button -->
     <div class="back_button animated zoomIn delay-1s">
-        <a href="home"><img src="/assets/img/logo.png" alt=""></a>
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
     </div>
 
 
@@ -104,6 +108,37 @@
     <section>
     <div class="container">
         <div class="row">
+
+            <!-- 00000000000000000 -->
+            <div class="info col col-12 animated fadeInUp delay-1s">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link <% if(label == "all"){%> active <% }%> "   href="/event">All </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link <% if(label == "coding"){%> active <% }%>"   href="/event/filter/coding">Coding</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link <% if(label == "technical"){%> active <% }%>"   href="/event/filter/technical">Technical</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <% if(label == "games"){%> active <% }%>"   href="/event/filter/games">Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <% if(label == "exhibition"){%> active <% }%>"   href="/event/filter/exhibition">Exhibitions</a>
+                    </li>
+                    
+                  </ul>
+
+
+                 
+            
+            </div>
+             
+            <!-- 00000000000000000 -->
+
+
+
             <div class="col col-12">
                  <div class="space-50"></div>
                 <ul class=" clearfix">
@@ -131,12 +166,12 @@
                                     <header>
                                         <h6><%= events[i].name %></h6>
                                     </header>
-                                    <a href="event/<%= events[i]._id%>/knowmore" >
+                                    <a href="/event/<%= events[i].name%>/knowmore" >
                                     <p >
                                         <%= events[i].content %>
                                     </p>
                                     </a>
-                                    <a href="event/<%= events[i]._id%>/knowmore" >
+                                    <a href="/event/<%= events[i].name%>/knowmore" >
                                     <div class="box_button text-center text-danger">
                                         <span>Register</span>
                                     </div>
