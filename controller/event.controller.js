@@ -109,7 +109,7 @@ For any queries or details about the workshop contact :
 ${workshop.contact[0].name} : ${workshop.contact[0].phone}
 ${workshop.contact[1].name} : ${workshop.contact[1].phone}
 
-For Accomodation details please call : 8606797536
+For Accomodation details please call Mufnas: 8606797536
 
 Hope to see you on our event day.
     
