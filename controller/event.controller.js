@@ -23,7 +23,7 @@ exports.event_show = function(req, res) {
 // search for events by label
 
 exports.label_show = function(req, res) {
-    Events.find({label : req.params.label}, function(err, events) {
+    Events.find({label : req.params.label, isOpen : "true"}, function(err, events) {
         if (err) {
             console.log(err);
             return res.render("home");
