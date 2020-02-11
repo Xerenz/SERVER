@@ -21,7 +21,9 @@ let WorkshopSchema = new Schema(
         details:String,
         pdfUrl:String,
         // payment url
-        url : {type: String}
+        url : {type: String},
+        // link 
+        web_name : String
     }
 );
 
