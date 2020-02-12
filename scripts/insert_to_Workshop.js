@@ -601,10 +601,6 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/brainwave-robotics-18ef6/"
 
      }*/
-    /*{
-        name : "Road Safety",
-        date : "20/2/2020",
-        price : "200",
     // {
     //     name : "Road Safety",
     //     date : "20/2/2020",
@@ -633,7 +629,7 @@ var data = [
 
     // }
     {
-        name : "Data Science with cloud computing",
+        name : "Data Science with Cloud Computing",
         date : "21/2/2020",
         price : "500",
         branch : "safety",
@@ -656,7 +652,7 @@ var data = [
         details:"w_datascience",
         pdfUrl:"",
         // payment url
-        url : ""
+        url : "https://www.instamojo.com/dhishna2020/data-science-with-cloud-computing/"
 
     },
     {
@@ -683,34 +679,7 @@ var data = [
         details:"w_blockchain",
         pdfUrl:"",
         // payment url
-        url : ""
-
-    }*/
-    {
-        name : "Data Science and Cloud Computing",
-        date : "20/2/2020",
-        price : "200",
-        branch : "safety",
-        content : "Road safety education plays an important role in shaping the attitudes and behaviors of children and young people – ensuring they become responsible drivers, passengers, pedestrians and cyclists. Dhishna 2020 presents to you a workshop on road safety and methods to reduce road accidents taken by eminent officers from the Motor Vehicle Department.",
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Vaishnav",
-                        phone:"9446924556"
-                    },
-
-                    { 
-                        name:"Akash",
-                        phone:"9400356144"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_roadsafety",
-        pdfUrl:"",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/road-safety/"
+        url : "https://www.instamojo.com/dhishna2020/blockchain-fafdc/"
 
     }
 
