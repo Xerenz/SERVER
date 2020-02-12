@@ -601,12 +601,10 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/brainwave-robotics-18ef6/"
 
      }*/
-<<<<<<< HEAD
     /*{
         name : "Road Safety",
         date : "20/2/2020",
         price : "200",
-=======
     // {
     //     name : "Road Safety",
     //     date : "20/2/2020",
@@ -638,7 +636,6 @@ var data = [
         name : "Data Science with cloud computing",
         date : "21/2/2020",
         price : "500",
->>>>>>> d9d6ce059a22fb48746f40a8cc16823a52a8277a
         branch : "safety",
         content : "Cloud computing is the future and one of the most flamboyant technological evolution witnessed in the field of technology. Cloud computing has seen the fastest adoption than any other technology in the domain. ",
         label : "technical",
