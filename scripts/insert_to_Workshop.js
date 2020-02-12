@@ -629,7 +629,7 @@ var data = [
 
     // }
     {
-        name : "Data Science with cloud computing",
+        name : "Data Science with Cloud Computing",
         date : "21/2/2020",
         price : "500",
         branch : "safety",
@@ -652,7 +652,7 @@ var data = [
         details:"w_datascience",
         pdfUrl:"",
         // payment url
-        url : ""
+        url : "https://www.instamojo.com/dhishna2020/data-science-with-cloud-computing/"
 
     },
     {
@@ -679,7 +679,7 @@ var data = [
         details:"w_blockchain",
         pdfUrl:"",
         // payment url
-        url : ""
+        url : "https://www.instamojo.com/dhishna2020/blockchain-fafdc/"
 
     }
 
