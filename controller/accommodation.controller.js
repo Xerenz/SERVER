@@ -1,53 +1,60 @@
-// const Promenad = require("../models/promenad.model");
+const Accommodation = require("../models/accommodation.model");
 
-
-// const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer");
 
 exports.show = function(req, res) {
     res.render("accommodation/accommodation");    
 };
 
 
-// exports.redirect = function(req, res) {
-//     res.redirect("/thankyou");
-// };
+exports.webhook = function(req, res) {
+    const dict = {
+        "Accommodation1" : "M",
+        "Accommodation2" : "M",
+        "Accommodation_1" : "F",
+        "Accommodation_2" : "F"
+    };
 
+    let gender = dict[req.body.offer_title];
 
+    let doc = new Accommodation({
+        name : req.body.buyer_name,
+        email : req.body.buyer,
+        phone : req.body.buyer_phone,
+        payment_id : req.body.payment_id,
+        gender : gender
+    });
 
-// exports.ragarhapsody_webhook = function(req, res) {
+    doc.save(function(err) {
+        if (err) return console.log(err);
 
-//     if (req.body.status === "Credit") {
-        
+        smtpTransport = nodemailer.createTransport({
+            service : "Gmail",
+            auth : {
+                user : "tech.dhishna@gmail.com",
+                pass : "SantyDance"
+            }
+        });
 
-//         // Field_8541 - for college
+        let msg = {
+            to : req.body.buyer,
+            from : "Dhishna <tech.dhishna@gmail.com>",
+            subject : "Dhishna 2020  |  Accomodation",
+            text : `Hi,
+            
+This mail confirms your accomodation for Dhishna 2020. For any further details please contact Mufnas Muneer : 8606797536
 
-//         let doc = new Ragarhapsody(
-//             {
-//                 name : req.body.buyer_name,
-//                 email : req.body.buyer,
-//                 phone : req.body.buyer_phone,
-//             }
-//         );
+Regards,
+Dhishna 2020`
+        };
 
-//         doc.save(function(err) {
-//             if (err) 
-//             {
-//                 res.render("message", {message1 : "Oops there was some technical issue", message2 : "Your registration is complete so there is no need for you to worry. For any queries contact us."})
-//             }
+        smtpTransport.sendMail(msg, function(err) {
+            if (err) return console.log(err);
 
-//             smtpTransport.sendMail(msg, function(err) {
-//                 if (err) 
-//                 {
-//                     return res.render("message", {message1 : "Oops there was some trouble sending you the confirmation mail.", message2 : "Your registration is complete so there is no need for you to worry. For any queries contact us."})
-//                 }
+            console.log("Mail send to", req.body.buyer_name);
 
-//                 res.sendStatus(200);
-//             });
+            res.sendStatus(200);
+        });
 
-//         });
-//     }
-
-//     else {
-//         res.render("message", {message1 : "Oops there was some trouble regarding your payment. Please try again later.", message2 : "If any amount was refunded please contact us."})
-//     }
-// };
+    });
+};
