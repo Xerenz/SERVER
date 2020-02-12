@@ -601,6 +601,12 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/brainwave-robotics-18ef6/"
 
      }*/
+<<<<<<< HEAD
+    /*{
+        name : "Road Safety",
+        date : "20/2/2020",
+        price : "200",
+=======
     // {
     //     name : "Road Safety",
     //     date : "20/2/2020",
@@ -632,6 +638,7 @@ var data = [
         name : "Data Science with Cloud Computing",
         date : "21/2/2020",
         price : "500",
+>>>>>>> d9d6ce059a22fb48746f40a8cc16823a52a8277a
         branch : "safety",
         content : "Cloud computing is the future and one of the most flamboyant technological evolution witnessed in the field of technology. Cloud computing has seen the fastest adoption than any other technology in the domain. ",
         label : "technical",
@@ -680,6 +687,33 @@ var data = [
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/blockchain-fafdc/"
+
+    }*/
+    {
+        name : "Data Science and Cloud Computing",
+        date : "20/2/2020",
+        price : "200",
+        branch : "safety",
+        content : "Road safety education plays an important role in shaping the attitudes and behaviors of children and young people – ensuring they become responsible drivers, passengers, pedestrians and cyclists. Dhishna 2020 presents to you a workshop on road safety and methods to reduce road accidents taken by eminent officers from the Motor Vehicle Department.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Vaishnav",
+                        phone:"9446924556"
+                    },
+
+                    { 
+                        name:"Akash",
+                        phone:"9400356144"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_roadsafety",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/road-safety/"
 
     }
 
