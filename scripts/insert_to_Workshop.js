@@ -601,12 +601,39 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/brainwave-robotics-18ef6/"
 
      }*/
+    // {
+    //     name : "Road Safety",
+    //     date : "20/2/2020",
+    //     price : "200",
+    //     branch : "safety",
+    //     content : "Road safety education plays an important role in shaping the attitudes and behaviors of children and young people – ensuring they become responsible drivers, passengers, pedestrians and cyclists. Dhishna 2020 presents to you a workshop on road safety and methods to reduce road accidents taken by eminent officers from the Motor Vehicle Department.",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Vaishnav",
+    //                     phone:"9446924556"
+    //                 },
+
+    //                 { 
+    //                     name:"Akash",
+    //                     phone:"9400356144"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_roadsafety",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/road-safety/"
+
+    // }
     {
-        name : "Road Safety",
-        date : "20/2/2020",
-        price : "200",
+        name : "Data Science with cloud computing",
+        date : "21/2/2020",
+        price : "500",
         branch : "safety",
-        content : "Road safety education plays an important role in shaping the attitudes and behaviors of children and young people – ensuring they become responsible drivers, passengers, pedestrians and cyclists. Dhishna 2020 presents to you a workshop on road safety and methods to reduce road accidents taken by eminent officers from the Motor Vehicle Department.",
+        content : "Cloud computing is the future and one of the most flamboyant technological evolution witnessed in the field of technology. Cloud computing has seen the fastest adoption than any other technology in the domain. ",
         label : "technical",
         contact:[
                     { 
@@ -622,10 +649,37 @@ var data = [
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_roadsafety",
+        details:"w_datascience",
         pdfUrl:"",
         // payment url
-        url : "https://www.instamojo.com/dhishna2020/road-safety/"
+        url : ""
+
+    },
+    {
+        name : "Blockchain",
+        date : "20/2/2020",
+        price : "500",
+        branch : "safety",
+        content : "Have you ever wondered why blockchain is important? Or maybe you have asked how it is going to impact our daily life or the lives of different professionals working in different sectors.At the core, you can find the blockchain importance by going through its key features. These features make blockchain irresistible in diverse scenarios and mark itself as the best possible solution. Get your answers and learn more about block chain.",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Afsan",
+                        phone:"9889836480"
+                    },
+
+                    { 
+                        name:"Niha",
+                        phone:"7902541544"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_blockchain",
+        pdfUrl:"",
+        // payment url
+        url : ""
 
     }
 
