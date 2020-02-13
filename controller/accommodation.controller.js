@@ -76,8 +76,6 @@ Dhishna 2020`
             function(err, user) {
                 if (err) return console.log(err);
 
-                console.log(user);
-
                 smtpTransport.sendMail(msg, function(err) {
                     if (err) return console.log(err);
 
