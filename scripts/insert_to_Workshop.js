@@ -649,7 +649,7 @@ var data = [
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_cloud",
+        details:"w_cloudc",
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/data-science-with-cloud-computing/"
