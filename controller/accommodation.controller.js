@@ -1,4 +1,4 @@
-const Accommodation = require("../models/accommodation.model");
+const Accommodation = require("../models/hospitality.model");
 const User = require("../models/user.model");
 
 const nodemailer = require("nodemailer");
@@ -41,10 +41,11 @@ exports.webhook = function(req, res) {
         name : req.body.buyer_name,
         email : req.body.buyer,
         phone : req.body.buyer_phone,
-        payment_id : req.body.payment_id,
         gender : gender,
         date : date,
-        quantity : req.body.quantity
+        quantity : req.body.quantity,
+        ticket : req.body.offer_title,
+        payment_id : req.body.payment_id
     });
 
     doc.save(function(err) {
