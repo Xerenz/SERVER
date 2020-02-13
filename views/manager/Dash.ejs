@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA - | Know|</title>
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <style type="text/css" media="screen">
+        .space{
+            width: 100%;
+            height: 100px;
+        }
+        .space-50{
+            width: 100%;
+            height: 50px;
+        }
+        .space-20{
+            width: 100%;
+            height: 20px;
+        }
+        .container{
+          overflow-x: scroll;
+        }
+        
+    </style>
+    
+</head>
+<body>
+   
+    <div class="row">
+        <div class="col col-12 text-center">
+           View Data
+        </div>
+        <div class="space-20">
+            
+        </div>
+
+       
+    </div>
+    <div class="alert alert-primary text-center" role="alert">
+       No of Registrations:  <%= list.length %>
+  </div>
+    <div class="space-50">
+        
+    </div>
+<div class="container">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">=</th>
+      <th scope="col">=</th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+    <% for(var i= 0;i < list.length;i++){ %>
+
+       <tr>   
+
+        <td><%= list[i] %></td>
+        <td>
+          <a href="/manager/<%= list[i] %>/view" title=""><button type="button" class="btn btn-danger">view</button></a>  
+        </td>
+        
+        
+      </tr>
+    
+    <% } %>
+  </tbody>
+  </table>
+</div>
+
+
+        
+</body>
+</html>

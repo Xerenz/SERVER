@@ -51,7 +51,8 @@ exports.branch_show = function(req, res) {
     ], function(err, list) {
         if (err) return console.log(err);
 
-        res.send(list);
+        // res.send(list);
+        res.render("manager/Dash",{list:list})
     });
     
 };
