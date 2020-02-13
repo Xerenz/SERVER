@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Accomodation = new Schema(
+const Accommodation = new Schema(
     {
         name : String,
         email : String,
@@ -12,4 +12,4 @@ const Accomodation = new Schema(
     }
 );
 
-module.exports = mongoose.model("Accommodation", Accomodation);
+module.exports = mongoose.model("Accommodation", Accommodation);
