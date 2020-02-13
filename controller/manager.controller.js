@@ -38,7 +38,7 @@ exports.branch_show = function(req, res) {
         },
         function(eventNames, done) {
             workshopNames = [];
-            Workshop.find({branch : req.params.branch, isOpen : true}, function(err, workshops) {
+            Workshop.find({branch : req.params.branch, isOpen : "true"}, function(err, workshops) {
                 workshops.forEach(function(ws) {
                     workshopNames.push(ws.name);
                 });
