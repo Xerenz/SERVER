@@ -12,4 +12,4 @@ const Accomodation = new Schema(
     }
 );
 
-module.exports = mongoose.model("Accomodation", Accomodation);
+module.exports = mongoose.model("Accommodation", Accomodation);

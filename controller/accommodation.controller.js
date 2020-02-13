@@ -10,7 +10,7 @@ exports.show = function(req, res) {
 
 exports.webhook = function(req, res) {
     const dict = {
-        "Accommodation12" : ["M", "20/02/2020"],
+        "Accommodation1 (Male)" : ["M", "20/02/2020"],
         "Accommodation2 (Male)" : ["M", "21/02/2020"],
         "Accommodation1 (Female)" : ["F", "20/02/2020"],
         "Accommodation2 (Female)" : ["F", "21/02/2020"]
@@ -64,7 +64,7 @@ exports.webhook = function(req, res) {
             subject : "Dhishna 2020  |  Accommodation",
             text : `Hi,
             
-This mail confirms your accomodation for Dhishna 2020 on the date ${genInfo[1]}. For any further details please contact Mufnas Muneer : 8606797536
+This mail confirms your accomodation for Dhishna 2020 on the date ${date}. For any further details please contact Mufnas Muneer : 8606797536
 
 
 Regards,
@@ -72,7 +72,7 @@ Dhishna 2020`
         };
 
         User.updateOne({username : req.body.buyer},
-            {$set : {AccApplied : "true"}, $push : {AccDate : genInfo[1]}}, 
+            {$set : {AccApplied : "true"}, $push : {AccDate : date}}, 
             function(err, user) {
                 if (err) return console.log(err);
 
