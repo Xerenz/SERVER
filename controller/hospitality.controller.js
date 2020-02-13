@@ -1,4 +1,4 @@
-const Accommodation = require("../models/hospitality.model");
+const Hospitality = require("../models/hospitality.model");
 const User = require("../models/user.model");
 
 const nodemailer = require("nodemailer");
@@ -37,7 +37,7 @@ exports.webhook = function(req, res) {
         date = "21/02/2020";
     }
 
-    let doc = new Accommodation({
+    let doc = new Hospitality({
         name : req.body.buyer_name,
         email : req.body.buyer,
         phone : req.body.buyer_phone,
