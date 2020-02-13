@@ -21,7 +21,7 @@ let UserSchema = new Schema(
 
         // accommodation
         AccApplied : String,
-        AccDate : String
+        AccDate : [String]
     }
 );
 

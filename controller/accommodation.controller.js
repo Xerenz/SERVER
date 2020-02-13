@@ -1,4 +1,5 @@
 const Accommodation = require("../models/accommodation.model");
+const User = require("../models/user.model");
 
 const nodemailer = require("nodemailer");
 
@@ -9,13 +10,13 @@ exports.show = function(req, res) {
 
 exports.webhook = function(req, res) {
     const dict = {
-        "Accommodation1" : "M",
-        "Accommodation2" : "M",
-        "Accommodation_1" : "F",
-        "Accommodation_2" : "F"
+        "Accommodation1" : ["M", "20/02/2020"],
+        "Accommodation2" : ["M", "21/02/2020"],
+        "Accommodation_1" : ["F", "20/02/2020"],
+        "Accommodation_2" : ["F", "21/02/2020"]
     };
 
-    let gender = dict[req.body.offer_title];
+    let genInfo = dict[req.body.offer_title];
 
     let doc = new Accommodation({
         name : req.body.buyer_name,
@@ -23,7 +24,8 @@ exports.webhook = function(req, res) {
         phone : req.body.buyer_phone,
         payment_id : req.body.payment_id,
         quantity : req.body.quantity,
-        gender : gender
+        gender : genInfo[0],
+        date : genInfo[1]
     });
 
     doc.save(function(err) {
@@ -40,22 +42,32 @@ exports.webhook = function(req, res) {
         let msg = {
             to : req.body.buyer,
             from : "Dhishna <tech.dhishna@gmail.com>",
-            subject : "Dhishna 2020  |  Accomodation",
+            subject : "Dhishna 2020  |  Accommodation",
             text : `Hi,
             
-This mail confirms your accomodation for Dhishna 2020. For any further details please contact Mufnas Muneer : 8606797536
+This mail confirms your accomodation for Dhishna 2020 on the date ${genInfo[1]}. For any further details please contact Mufnas Muneer : 8606797536
+
 
 Regards,
 Dhishna 2020`
         };
 
-        smtpTransport.sendMail(msg, function(err) {
-            if (err) return console.log(err);
+        User.updateOne({username : req.body.buyer},
+            {$set : {AccApplied : "true"}, $push : {AccDate : genInfo[1]}}, 
+            function(err, user) {
+                if (err) return console.log(err);
 
-            console.log("Mail send to", req.body.buyer_name);
+                console.log(user);
 
-            res.sendStatus(200);
-        });
+                smtpTransport.sendMail(msg, function(err) {
+                    if (err) return console.log(err);
+
+                    console.log("Mail sent to", req.body.buyer_name);
+
+                    res.sendStatus(200);
+                });
+            
+            });
 
     });
 };

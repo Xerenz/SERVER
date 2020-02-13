@@ -7,6 +7,7 @@ const Accomodation = new Schema(
         email : String,
         phone : String,
         gender : String,
+        date : String,
         payment_id : {type : String, unique : true}
     }
 );
