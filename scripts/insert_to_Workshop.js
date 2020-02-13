@@ -629,7 +629,7 @@ var data = [
 
     // }
     {
-        name : "Data Science with Cloud Computing",
+        name : "Cloud Computing",
         date : "21/2/2020",
         price : "500",
         branch : "safety",
@@ -637,25 +637,25 @@ var data = [
         label : "technical",
         contact:[
                     { 
-                        name:"Vaishnav",
-                        phone:"9446924556"
+                        name:"Medha",
+                        phone:"7979943365"
                     },
 
                     { 
-                        name:"Akash",
-                        phone:"9400356144"
+                        name:"Akhilesh",
+                        phone:"9496541998"
                     }
                 ],
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_datascience",
+        details:"w_cloud",
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/data-science-with-cloud-computing/"
 
     },
-    {
+    /*{
         name : "Blockchain",
         date : "20/2/2020",
         price : "500",
@@ -681,7 +681,7 @@ var data = [
         // payment url
         url : "https://www.instamojo.com/dhishna2020/blockchain-fafdc/"
 
-    }
+    }*/
 
 
 
