@@ -13,8 +13,8 @@ exports.data_show =  (req,res) => {
         User.find({ username: {$in : mails}}, (err,data) => {
             if(err) return console.log("Error");
             
-            // res.render("manager/manager", {data : data});
-            res.send(data);
+            res.render("manager/manager", {data : data});
+            // res.send(data);
         });
 
     });
