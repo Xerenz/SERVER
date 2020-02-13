@@ -1,0 +1,185 @@
+[
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e01f68a0bf1490884afde2b",
+        "username": "martin@1",
+        "name": "martin",
+        "phone": "3769469",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e01f70d91f26f08cfae37cf",
+        "username": "martin@2",
+        "name": "martin",
+        "phone": "73678674",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e01fcfb63f4260aca2db6e9",
+        "username": "martin@3",
+        "name": "martin",
+        "phone": "3769869469",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e01fd907c75a50b135c10b5",
+        "username": "martin@4",
+        "name": "martin",
+        "phone": "73678487",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e0201fdd50d430c81aa3e34",
+        "username": "martin@5",
+        "name": "martin",
+        "phone": "46949579",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e020503a6b0510eaa1c9d9d",
+        "username": "martin@6",
+        "name": "martin",
+        "phone": "47985698",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e0205b55199480f07260c01",
+        "username": "martin@7",
+        "name": "martin",
+        "phone": "63964969",
+        "inst": "app",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e020647dcc89a0f64371e87",
+        "username": "martin@8",
+        "name": "martin",
+        "phone": "9847679856",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e042c6c277a4e69d9b54073",
+        "username": "martin@11",
+        "name": "martin",
+        "phone": "736768468",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [
+            "20/02/2020",
+            "20/02/2020"
+        ],
+        "_id": "5e042e566a213f6b2a44b3a3",
+        "username": "martin@12",
+        "name": "martin",
+        "phone": "87496496",
+        "inst": "cusat",
+        "__v": 0,
+        "AccApplied": "true"
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e0433412fe6906c9f24b7b0",
+        "username": "martin@13",
+        "name": "martin",
+        "phone": "376946946",
+        "inst": "soe",
+        "__v": 0
+    },
+    {
+        "events": [],
+        "ws": [],
+        "AccDate": [],
+        "_id": "5e0433d587f8d06cdbe49ebc",
+        "username": "martin@14",
+        "name": "marin",
+        "phone": "37947947",
+        "inst": "cusat",
+        "__v": 0
+    },
+    {
+        "events": [
+            "Best Engineer",
+            "Best Engineer",
+            "Best Manager"
+        ],
+        "ws": [
+            "Metro Rail",
+            "Tezlaa",
+            "Tezlaa"
+        ],
+        "AccDate": [
+            "20/02/2020"
+        ],
+        "_id": "5e04be725aec141c638944c9",
+        "username": "martingeo15@gmail.com",
+        "name": "martin",
+        "phone": "8527625569",
+        "inst": "cusat",
+        "__v": 0,
+        "resetPasswordExpires": "2019-12-28T08:13:27.961Z",
+        "resetPasswordToken": "1432c547ce450aa7872239f262e5f878ddfb9a4c",
+        "AccApplied": "true"
+    },
+    {
+        "events": [
+            "Best Engineer",
+            "Best Engineer",
+            "Best Manager"
+        ],
+        "ws": [
+            "Metro Rail",
+            "Tezlaa",
+            "Tezlaa"
+        ],
+        "AccDate": [
+            "20/02/2020"
+        ],
+        "_id": "5e04be725aec141c638944c99",
+        "username": "jks@gmail.com",
+        "name": "Jithin",
+        "phone": "8527625569",
+        "inst": "cusat",
+        "__v": 0,
+        "resetPasswordExpires": "2019-12-28T08:13:27.961Z",
+        "resetPasswordToken": "1432c547ce450aa7872239f262e5f878ddfb9a4c",
+        "AccApplied": "true"
+    }
+]
