@@ -28,7 +28,7 @@ exports.branch_show = function(req, res) {
     async.waterfall([
         function(done) {
             eventNames = [];
-            Event.find({branch : req.params.branch}, function(err, events) {
+            Event.find({branch : req.params.branch, isOpen : "true"}, function(err, events) {
                 events.forEach(function(event) {
                     eventNames.push(event.name);
                 });
@@ -38,7 +38,7 @@ exports.branch_show = function(req, res) {
         },
         function(eventNames, done) {
             workshopNames = [];
-            Workshop.find({branch : req.params.branch}, function(err, workshops) {
+            Workshop.find({branch : req.params.branch, isOpen : true}, function(err, workshops) {
                 workshops.forEach(function(ws) {
                     workshopNames.push(ws.name);
                 });
