@@ -16,9 +16,26 @@ exports.webhook = function(req, res) {
         "Accommodation2 (Female)" : ["F", "21/02/2020"]
     };
 
-    let genInfo = dict[req.body.offer_title];
-
-    console.log(genInfo);
+    if (req.body.offer_title === "Accommodation1 (Male)")
+    {
+        var gender = "M";
+        var date = "20/02/2020";
+    }
+    else if (req.body.offer_title === "Accommodation2 (Male)")
+    {
+        gender = "M";
+        date = "21/02/2020";
+    }
+    else if (req.body.offer_title === "Accommodation1 (Female)")
+    {
+        gender = "F";
+        date = "20/02/2020";
+    }
+    else 
+    {
+        gender = "F";
+        date = "21/02/2020";
+    }
 
     let doc = new Accommodation({
         name : req.body.buyer_name,
@@ -26,8 +43,8 @@ exports.webhook = function(req, res) {
         phone : req.body.buyer_phone,
         payment_id : req.body.payment_id,
         quantity : req.body.quantity,
-        gender : genInfo[0],
-        date : genInfo[1]
+        gender : gender,
+        date : date
     });
 
     doc.save(function(err) {
