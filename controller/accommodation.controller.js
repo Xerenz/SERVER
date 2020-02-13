@@ -10,10 +10,10 @@ exports.show = function(req, res) {
 
 exports.webhook = function(req, res) {
     const dict = {
-        "Accommodation1" : ["M", "20/02/2020"],
-        "Accommodation2" : ["M", "21/02/2020"],
-        "Accommodation_1" : ["F", "20/02/2020"],
-        "Accommodation_2" : ["F", "21/02/2020"]
+        "Accommodation1 (Male)" : ["M", "20/02/2020"],
+        "Accommodation2 (Male)" : ["M", "21/02/2020"],
+        "Accommodation1 (Female)" : ["F", "20/02/2020"],
+        "Accommodation2 (Female)" : ["F", "21/02/2020"]
     };
 
     let genInfo = dict[req.body.offer_title];
