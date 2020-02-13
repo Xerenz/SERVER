@@ -8,6 +8,7 @@ const Accommodation = new Schema(
         phone : String,
         gender : String,
         date : String,
+        quantity : String,
         payment_id : {type : String, unique : true}
     }
 );

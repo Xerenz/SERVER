@@ -42,9 +42,9 @@ exports.webhook = function(req, res) {
         email : req.body.buyer,
         phone : req.body.buyer_phone,
         payment_id : req.body.payment_id,
-        quantity : req.body.quantity,
         gender : gender,
-        date : date
+        date : date,
+        quantity : req.body.quantity
     });
 
     doc.save(function(err) {
