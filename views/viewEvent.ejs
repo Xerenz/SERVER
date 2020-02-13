@@ -78,7 +78,7 @@
                     <!-- ======= -->
                     <div class="row">
                             <% for(var i=0;i<events.length;i++){ %>
-                                <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
+                                <div class="col col-12 stage p-3 casection animated zoomIn delay-1s <% if(events[i].isOpen == "true"){ %> bg-success <% }%>">
                                     <a href="edit/<%= events[i]._id %>"><button>Edit</button></a> 
                                      <a href="delete/<%= events[i]._id %>" onclick="return confirm('Do you really want to delete the event?');" ><button>delete</button></a> 
                                     <div class="outreach_text">
@@ -145,6 +145,10 @@
                                     <div class="outreach_p p-2">
                                         message:
                                          <%= events[i].message %>
+                                    </div>
+                                    <div class="outreach_p p-2">
+                                        Payment:
+                                         <%= events[i].url %>
                                     </div>
                            
                            
