@@ -150,10 +150,80 @@ app.get("/sponsors",(req,res)=>{
     res.render("sponsors")
 })
 
+
+// ============================================================================= //
+
+
+const Techtalk = require("./models/techtalk.model");
+
+
 app.get("/techtalk",(req,res)=>{
     res.render("techtalk")
 })
 
+
+app.post("/techtalk/api", function(req, res) {
+    let doc = new Techtalk({
+        name : req.body.buyer_name,
+        phone : req.body.buyer_phone,
+        email : req.body.buyer,
+        payment_id : req.body.payment_id
+    });
+
+    doc.save(function(err) {
+        if (err) return console.log(err);
+
+        smtpTransport = nodemailer.createTransport({
+            service : "Gmail",
+            auth : {
+                user : "tech.dhishna@gmail.com",
+                pass : "SantyDance"
+            }
+        });
+
+        let msg = {
+            to : req.body.buyer,
+            from : "Dhishna <tech.dhishna@gmail.com>",
+            subject : "Tech Talks  |  Dhishna",
+            text : `Hi,
+            
+This mail confirms your registration for Tech Talks Dhishna 2020 to be held on 19 February 2020. For any further information about the event please contact:
+
+Basil : 8304897110
+Aparna : 8921444192
+
+Hoping to see you in more of our events on 20 and 21 February. Have a look at those events at https://dhishna.org
+
+Cheers!
+Dhishna 2020`
+        };
+
+        smtpTransport.sendMail(msg, function(err) {
+            if (err) return console.log(err);
+
+            console.log("Mail sent");
+
+            res.sendStatus(200);
+        });
+
+    });
+});
+
+
+
+app.get("/techtalk/api", function(req, res) {
+    if (req.params.status === "success")
+    {
+        res.redirect("/thankyou");
+    }
+    else {
+        res.redirect("/techtalk");
+    }
+});
+
+
+
+// ============================================================================ //
 
 app.get("/message/error", function(req, res) {
     res.render("message", {message1 : "Oops there seems to be a problem!", message2: "This seems to be some technical error. Please contact us"});
