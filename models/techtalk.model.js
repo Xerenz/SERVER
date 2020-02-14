@@ -12,4 +12,4 @@ const TechTalkSchema = new Schema(
     }
 );
 
-module.exports = mongoose.Model("Techtalks", TechTalkSchema);
+module.exports = mongoose.model("Techtalks", TechTalkSchema);
