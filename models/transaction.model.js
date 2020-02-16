@@ -7,6 +7,8 @@ const TransactionSchema = new Schema(
         payment_for : {type : String},
         status : {type: String},
         buyer : {type: String},
+        name : String,
+        phone : String,
         uid : {type: Schema.Types.ObjectId, ref: "User"}
     }
 );
