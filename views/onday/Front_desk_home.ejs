@@ -32,7 +32,7 @@
 </head>
 <body>
    
-   <div class="container">
+<div class="container">
     <div class="row">
         <div class="col col-12">
             <div class="jumbotron jumbotron-fluid bg-white">
@@ -47,36 +47,57 @@
         <div class="col col-12">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="home-tab"  href="sadads" role="tab"  aria-selected="true">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="profile-tab"  href="dasads" role="tab" aria-selected="false">Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" id="contact-tab"  href="adadssad" role="tab"  aria-selected="false">Contact</a>
-                </li>
+                    <a class="nav-link " id="home-tab"  href="/frontdesk/cs/dash" role="tab"  aria-selected="false">CS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="profile-tab"  href="/frontdesk/it/dash" role="tab" aria-selected="false">IT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/ec/dash" role="tab"  aria-selected="false">EC</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/eee/dash" role="tab"  aria-selected="false">EEE</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/civil/dash" role="tab"  aria-selected="false">CIVIL</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/safety/dash" role="tab"  aria-selected="false">SAFETY </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/mec/dash" role="tab"  aria-selected="false">MEC </a>
+                  </li>
               </ul>
         
 
         </div>
 
-        <div class="space-50"></div>
+        
 
-        <div class="col col-12">
-            <div class="card">
-                <div class="card-header bg-success">
-                  registration open
+        <% data.forEach((event)=>{ %>
+          
+            <div class="space-50"></div>
+            <div class="col col-12">
+                <div class="card">
+                <div class="card-header <% if(event.isOpen == "true" || event.isOpen == true) { %> bg-success <% } else { %> bg-danger <% } %> ">
+                    <% if(event.isOpen == "true") { %> Registration open <% } else { %> Registration closed <% } %> 
+                   </div>
+                   <div class="card-body">
+                     <h5 class="card-title"> <%= event.name %></h5>
+                     <p class="card-text">location</p>
+                     <a href="/frontdesk/<%= event.branch %>/<%= event.name %>/view" class="btn btn-danger" >view list</a>
+                   </div>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title">Event name</h5>
-                  <p class="card-text">location</p>
-                  <a href="#" class="btn btn-danger">view list</a>
-                </div>
-              </div>
-        </div>
+            </div>
+           
+        
+         <%  }) %>
 
-     </div>
-   </div>
+
+        
+       
+    </div>
+</div>
        
         
 </body>
