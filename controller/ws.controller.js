@@ -112,7 +112,9 @@ exports.webhook = function(req, res) {
                     payment_id : req.body.payment_id,
                     payment_for : req.body.offer_title,
                     status : req.body.status,
-                    buyer : req.body.buyer
+                    buyer : req.body.buyer,
+                    name : req.body.buyer_name,
+                    phone : req.body.buyer_phone
                 });
 
                 doc.save(function(err) {
