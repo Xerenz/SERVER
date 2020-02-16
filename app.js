@@ -32,6 +32,7 @@ const spotlightRoutes = require("./routes/spotlight.route");
 const accommodationRoutes = require("./routes/accommodation.route");
 const managerRoutes = require("./routes/manager.route");
 const frontdeskRoutes = require("./routes/frontdesk.route");
+const ondayRoutes = require("./routes/onday.route");
 
 
 
@@ -97,6 +98,7 @@ app.use("/spotlight", spotlightRoutes);
 app.use("/accommodation",accommodationRoutes);
 app.use("/manager", managerRoutes);
 app.use("/frontdesk", frontdeskRoutes);
+app.use("/onday", ondayRoutes);
 
 
 
