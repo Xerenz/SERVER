@@ -100,6 +100,10 @@ app.use("/manager", managerRoutes);
 
 // ===================================== static ======================================= //
 
+app.get('/test',(req,res)=>{
+  res.render("onday/Front_desk_home")
+})
+
 
 // to load static pages
 
