@@ -7,6 +7,7 @@ const MainSchema = new Schema(
         phone : String,
         email : String,
         event : String,
+        inst : String,
         payment_id : String,
         isAttended : {type : String, default : "false"},
         isSpot : {type : String, default : "false"},
