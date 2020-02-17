@@ -12,8 +12,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 
     <style type="text/css" media="screen">
         .space{
@@ -40,15 +40,34 @@
 <div class="container">
     <div class="row">
         <div class="col col-12">
-            <div class="jumbotron jumbotron-fluid bg-white">
+            <div class="jumbotron jumbotron-fluid bg-white <% if(event.isOpen == "false"){ %> bg-danger <% }%> ">
                 <div class="container">
-                  <h1 class="display-4"> <a href="/frontdesk/<%= branch %>/dash"><i class="fas fa-arrow-left"></i> </a> <%= event %> </h1>
+                  <h1 class="display-4">  <%= event %> 
+
+                    <% if(event.isOpen == "true"){ %>
+
+                    <a href="" title=""><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i>now Open</button></a> 
+                    <%} else {%>
+
+                    <a href="" title=""><button type="button" class="btn btn-danger"><i class="fas fa-times"></i>closed</button></a> 
+                    <%}%>
+
+                  </h1>
+
                   
                 </div>
               </div>
 
-
         </div>
+
+
+        <div class="col col-12">
+          <a href="new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
+        </div>
+
+        <div class="space-50"></div>
+
+
         <div class="col col-12">
           <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -62,7 +81,7 @@
             <!-- ----------------------- -->
             <% var i =1 ; var j = 1 ; var k = 1 %>
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <table class="table">
+              <table class="table table-responsive">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -73,14 +92,41 @@
                 </thead>
                 <tbody>
                 <%  data.forEach((event)=>{%>
-                  <tr>
-                    <th scope="row"><%= i++ %></th>
-                    <td><%= event.name%></td>
+                  <tr class=" <% if(event.isAttended == "ture"){ %> bg-success <% } %> 
+
+                    <% if(event.isWinner == "ture"){ %> bg-warning <% } %> " >
+
+                    <th class="<% if(event.isSpot == "ture"){ %> bg-info <% } %>"><%= i++ %></th>
+                    <td ><%= event.name%></td>
                     <td><%= event.email%></td>
                     <td><%= event.phone%></td>
-                    <td><a href="" title=""> <button class="btn btn-success" type=""> <i class="fas fa-check-circle"></i> </button> </a></td>
-                    <td><a href="" title=""> <button class="btn btn-warning" type=""> <i class="fas fa-trophy"></i> </button> </a></td>
-                    <td><a href="" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
+
+
+                    <td>
+                      <a href="" title="" onclick="return confirm('Do you really want to mark  this person as attended.This action cannot be reversed!');"> 
+
+                           <button class="btn btn-success" type=""> <i class="fas fa-check-circle"></i> </button>
+
+                      </a>
+                    </td>
+
+                    <td>
+
+                      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-trophy"></i>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a href="" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
+                        <a href="" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
+                        <a href="" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
+
+                      </div>
+                    </td>
+
+  
+
+
+                    <td><a href="view/update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
                   </tr>
                   
 
@@ -107,7 +153,7 @@
                   <%  data.forEach((event)=>{
                     if(event.isAttended == "true"){
                     %>
-                    <tr>
+                    <tr class="bg-success">
                       <th scope="row"><%= j++ %></th>
                       <td><%= event.name%></td>
                       <td><%= event.email%></td>
@@ -137,7 +183,7 @@
                     if(event.isSpot == "true"){
                     %>
                     <tr>
-                      <th scope="row"><%= k++ %></th>
+                      <th class="bg-info"><%= k++ %></th>
                       <td><%= event.name%></td>
                       <td><%= event.email%></td>
                       <td><%= event.phone%></td>
@@ -165,11 +211,12 @@
                   <%  data.forEach((event)=>{
                     if(event.isWinner == "true"){
                     %>
-                    <tr>
-                      <th scope="row"></th>
+                    <tr class="bg-warning">
+                      <th></th>
                       <td><%= event.name%></td>
                       <td><%= event.email%></td>
                       <td><%= event.phone%></td>
+                     
                     </tr>
                     
   
