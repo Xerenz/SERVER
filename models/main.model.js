@@ -8,7 +8,7 @@ const MainSchema = new Schema(
         email : String,
         event : String,
         inst : String,
-        payment_id : String,
+        payment_id : {type : String, unique : true},
         isAttended : {type : String, default : "false"},
         isSpot : {type : String, default : "false"},
         isWinner : {type : String, default : "false"},

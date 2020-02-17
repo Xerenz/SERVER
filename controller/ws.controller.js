@@ -109,6 +109,25 @@ exports.webhook = function(req, res) {
     async.waterfall([
         function(done) {
             if (req.body.status === "Credit") {
+                let main = new Main({
+                    name : req.body.buyer_name,
+                    phone : req.body.buyer_phone,
+                    email : req.body.buyer,
+                    event : req.body.offer_title,
+                    payment_id : req.body.payment_id
+                });
+
+                main.save(function(err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+
+                    done(err);
+                });
+            }
+        },
+        function(done) {
+            if (req.body.status === "Credit") {
                 let doc = new Transaction({
                     payment_id : req.body.payment_id,
                     payment_for : req.body.offer_title,
@@ -193,28 +212,12 @@ Dhishna 2020`
             }
         },
         function(done) {
-            let main = new Main({
-                name : req.body.buyer_name,
-                phone : req.body.buyer_phone,
-                email : req.body.buyer,
-                event : req.body.offer_title,
-                payment_id : req.body.payment_id
-            });
-
-            main.save(function(err) {
-                if (err) {
-                    return console.log(err);
-                }
-
-                done(err);
-            });
-        },
-        function(done) {
             res.sendStatus(200);
         }
     ], function(err) {
         if (err)
         {
+            res.sendStatus(200);
             return console.log(err);
         }
     });
