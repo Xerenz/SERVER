@@ -108,7 +108,7 @@ exports.registration_show = function(req, res) {
 
 
 exports.registration_spot_detail = function(req,res){
-    res.render("onday/");
+    res.render("onday/onday_new",{branch:req.params.branch, event:req.params.event});
 };
 
 exports.registration_spot_insert = function(req,res){
@@ -137,7 +137,7 @@ exports.registration_update_detail = function(req,res){
             return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/new/");        
         }
 
-        res.render("onday/", {data : doc});        
+        res.render("onday/onday_edit", {data : doc, branch: req.params.branch});        
     });
 };
 
