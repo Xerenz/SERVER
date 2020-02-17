@@ -1,4 +1,9 @@
 const Main = require("../models/main.model");
+const Event = require("../models/event.model");
+const Workshop = require("../models/ws.model");
+
+const async = require("async");
+
 
 exports.show = function(req, res) {
     Main.find({event : req.params.event}, function(err, docs) {
@@ -89,34 +94,52 @@ exports.new_register = function(req, res) {
     });
 
 };
-const Event = require("../models/event.model");
-const Workshop = require("../models/ws.model");
-
-const async = require("async");
-
 
 
 exports.registration_show = function(req, res) {
     Main.find({event : req.params.event}, function(err, docs) {
-        res.render("onday/onday_list", {data : docs , event : req.params.event ,branch : req.params.branch});
+        Event.find({name : req.params.event}, function(err, event) {
+            let status = event.isOpen;
+            res.render("onday/onday_list", {data : docs , event : req.params.event ,branch : req.params.branch, status : status});
+        });
+    
     });
 };
 
 
 exports.registration_spot_detail = function(req,res){
-
-    
-}
+    res.render("onday/");
+};
 
 exports.registration_spot_insert = function(req,res){
+    let doc = new Main({
+        name : req.body.name,
+        email : req.body.email,
+        phone : req.body.phone,
+        event : req.params.event,
+        inst : req.body.inst,
+        isSpot : "true",
+        isAttended : "true"
+    });
 
-    
+    doc.save(function(err) {
+        if (err) {
+            return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/new/");
+        }
+
+        res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/view/");        
+    });
 }
 
 exports.registration_update_detail = function(req,res){
+    Main.findById(req.params.id, function(err, doc) {
+        if (err) {
+            return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/new/");        
+        }
 
-
-}
+        res.render("onday/", {data : doc});        
+    });
+};
 
 exports.registration_update_insert = function(req,res){
 
