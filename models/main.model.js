@@ -12,7 +12,8 @@ const MainSchema = new Schema(
         isAttended : {type : String, default : "false"},
         isSpot : {type : String, default : "false"},
         isWinner : {type : String, default : "false"},
-        isSettled : {type : String, default : "false"}
+        isSettled : {type : String, default : "false"},
+        rank : String
     }
 );
 
