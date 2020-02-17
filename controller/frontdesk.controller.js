@@ -28,13 +28,13 @@ exports.branch_show = function(req, res) {
 
             let branchAll = events.concat(workshops);
 
-            res.render("onday/", {data : branchAll});
+            res.render("onday/Front_desk_home", {data : branchAll});
         });
     });
 };
 
 exports.registration_show = function(req, res) {
-    Main.find({event : req.params.branch}, function(err, docs) {
-        res.render("onday/", {data : docs});
+    Main.find({event : req.params.event}, function(err, docs) {
+        res.render("onday/Front_desk_list", {data : docs , event : req.params.event ,branch : req.params.branch});
     });
 };
