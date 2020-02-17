@@ -1,6 +1,7 @@
 const Workshop = require("../models/ws.model");
 const Transaction = require("../models/transaction.model");
 const User = require("../models/user.model");
+const Main = require("../models/main.model");
 
 const async = require("async");
 const nodemailer = require("nodemailer");
@@ -144,7 +145,7 @@ exports.webhook = function(req, res) {
                     service : "Gmail",
                     auth : {
                         user : "tech.dhishna@gmail.com",
-                        pass : "SantyDance"
+                        pass : "JyothisDance@1337"
                     }
                 });
 
@@ -152,6 +153,10 @@ exports.webhook = function(req, res) {
                     if (err)
                     {
                         return console.log(err);
+                    }
+
+                    if (!workshop) {
+                        return console.log("No workshop");
                     }
 
                     let msg = {
@@ -188,8 +193,24 @@ Dhishna 2020`
             }
         },
         function(done) {
+            let main = new Main({
+                name : req.body.buyer_name,
+                phone : req.body.buyer_phone,
+                email : req.body.buyer,
+                event : req.body.offer_title,
+                payment_id : req.body.payment_id
+            });
+
+            main.save(function(err) {
+                if (err) {
+                    return console.log(err);
+                }
+
+                done(err);
+            });
+        },
+        function(done) {
             res.sendStatus(200);
-            done(err);
         }
     ], function(err) {
         if (err)

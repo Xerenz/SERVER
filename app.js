@@ -186,7 +186,7 @@ app.post("/techtalk/api", function(req, res) {
             service : "Gmail",
             auth : {
                 user : "tech.dhishna@gmail.com",
-                pass : "SantyDance"
+                pass : "JyothisDance@1337"
             }
         });
 
@@ -251,7 +251,7 @@ app.post("/contact", function(req, res) {
         service: 'Gmail', 
         auth: {
           user: 'tech.dhishna@gmail.com',
-          pass: 'SantyDance'
+          pass: 'JyothisDance@1337'
         }
       });
       var mailOptions = {
@@ -441,7 +441,7 @@ app.post('/forgot', function(req, res, next) {
           service: 'Gmail', 
           auth: {
             user: 'tech.dhishna@gmail.com',
-            pass: 'SantyDance'
+            pass: 'JyothisDance@1337'
           }
         });
         var mailOptions = {
@@ -723,7 +723,7 @@ app.post("/api/valentine", function(req, res) {
                     service : "Gmail",
                     auth : {
                         user : "tech.dhishna@gmail.com",
-                        pass : "SantyDance"
+                        pass : "JyothisDance@1337"
                     }
                 });
 

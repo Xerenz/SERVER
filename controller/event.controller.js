@@ -1,6 +1,7 @@
 const Events = require("../models/event.model");
 const Transaction = require("../models/transaction.model");
 const User = require("../models/user.model");
+const Main = require("../models/main.model");
 
 const async = require("async");
 const nodemailer = require("nodemailer");
@@ -64,7 +65,9 @@ exports.webhook = function(req, res) {
                     payment_id : req.body.payment_id,
                     payment_for : req.body.offer_title,
                     status : req.body.status,
-                    buyer : req.body.buyer
+                    buyer : req.body.buyer,
+                    name : req.body.buyer_name,
+                    phone : req.body.buyer_phone
                 });
 
                 doc.save(function(err) {
@@ -91,7 +94,15 @@ exports.webhook = function(req, res) {
         function(done) {
             if (req.body.status === "Credit") {
 
-                Events.findOne({name : req.body.offer_title}, function(err, workshop) {
+                smtpTransport = nodemailer.createTransport({
+                    service : "Gmail",
+                    auth : {
+                        user : "tech.dhishna@gmail.com",
+                        pass : "JyothisDance@1337"
+                    }
+                });
+
+                Events.findOne({name : req.body.offer_title}, function(err, event) {
                     if (err)
                     {
                         return console.log(err);
@@ -103,11 +114,11 @@ exports.webhook = function(req, res) {
                         subject : `DHISHNA  |  ${req.body.offer_title.toUpperCase()}`,
                         text : `Hey ${req.body.buyer_name},
                         
-Thank you for registering for ${req.body.offer_title} workshop. This mail confirms your registeration. The workshop is scheduled to be held on ${workshop.date}.
+Thank you for registering for the event ${req.body.offer_title}. This mail confirms your registeration. The event is scheduled to be held on ${event.date}.
 
 For any queries or details about the workshop contact :
-${workshop.contact[0].name} : ${workshop.contact[0].phone}
-${workshop.contact[1].name} : ${workshop.contact[1].phone}
+${event.contact[0].name} : ${event.contact[0].phone}
+${event.contact[1].name} : ${event.contact[1].phone}
 
 For Accomodation details please call Mufnas: 8606797536
 
@@ -116,23 +127,37 @@ Hope to see you on our event day.
 Cheers!
 Dhishna 2020`
                     };
-    
+
                     smtpTransport.sendMail(msg, function(err) {
-                        if (err) 
-                        {
+                        if (err) {
                             return console.log(err);
                         }
-    
-                        console.log("mail sent");
+
                         done(err);
                     });
-
+                    
                 });
             }
         },
         function(done) {
+            let main = new Main({
+                name : req.body.buyer_name,
+                phone : req.body.buyer_phone,
+                email : req.body.buyer,
+                event : req.body.offer_title,
+                payment_id : req.body.payment_id
+            });
+
+            main.save(function(err) {
+                if (err) {
+                    return console.log(err);
+                }
+
+                done(err);
+            });
+        },
+        function(done) {
             res.sendStatus(200);
-            done(err);
         }
     ], function(err) {
         if (err)
