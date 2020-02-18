@@ -43,6 +43,7 @@ exports.registration_spot_insert = function(req,res){
 
     doc.save(function(err) {
         if (err) {
+            console.log(err)
             return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/new/");
         }
 
@@ -124,6 +125,7 @@ exports.registration_status = function(req,res) {
                     }
                 });
             }
+            res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/view/")
         });
     });
 };
