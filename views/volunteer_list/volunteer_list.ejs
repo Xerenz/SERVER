@@ -57,69 +57,98 @@
           </nav>
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
+              
              <% for(i=0;i<data.length ; i++){%>
             
               <% if(data[i].posn == "Registration"){%>
-               
+                <div class="space-50"></div>
                 <div class="card">
                   <div class="card-header">
-                    Featured
+                    <%= data[i].posn%>
                   </div>
                   <div class="card-body">
-                    <h5 class="card-title">Event</h5>
-                    <p class="card-text">name</p>
-                    <a href="#" class="btn btn-primary">phone no</a>
+                    <h5 class="card-title"><%= data[i].event %></h5>
+                    <p class="card-text"><%= data[i].name %></p>
+                    <a href="tel:<%= data[i].phone %>" class="btn btn-primary"><%= data[i].phone %></a>
                   </div>
                 </div>
+                <div class="space-20"></div>
+
 
               <% } %>
-
+              
             <% } %>
               
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-              <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">call</a>
-                </div>
-              </div>
-
+              <% for(i=0;i<data.length ; i++){%>
+            
+                <% if(data[i].posn == "C Block" || data[i].posn == "Food" || data[i].posn == "Games" || data[i].posn == "NLB" || data[i].posn == "Software" || data[i].posn == "Traffic" || data[i].posn == "Transportation" ){%>
+                 
+                  <div class="card">
+                    <div class="card-header">
+                      <%= data[i].posn%>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= data[i].event %></h5>
+                      <p class="card-text"><%= data[i].name %></p>
+                      <a href="tel:<%= data[i].phone %>" class="btn btn-primary"><%= data[i].phone %></a>
+                    </div>
+                  </div>
+  
+                <% } %>
+  
+              <% } %>
+                
               
             </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-              <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatmentd</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">call</a>
-                </div>
-              </div>
-              
+              <% for(i=0;i<data.length ; i++){%>
+            
+                <% if(data[i].posn == "Hospitality"){%>
+                  <div class="space-50"></div>
+                  <div class="card">
+                    <div class="card-header">
+                      <%= data[i].posn%>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= data[i].event %></h5>
+                      <p class="card-text"><%= data[i].name %></p>
+                      <a href="tel:<%= data[i].phone %>" class="btn btn-primary"><%= data[i].phone %></a>
+                    </div>
+                  </div>
+                  <div class="space-20"></div>
+  
+  
+                <% } %>
+                
+              <% } %>
+                
 
             </div>
 
 
             <div class="tab-pane fade" id="nav-contact1" role="tabpanel" aria-labelledby="nav-contact-tab1">
-              <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">call</a>
-                </div>
-              </div>
-
+              <% for(i=0;i<data.length ; i++){%>
+            
+                <% if(data[i].posn == "PCO"){%>
+                  <div class="space-50"></div>
+                  <div class="card">
+                    <div class="card-header">
+                      <%= data[i].posn%>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= data[i].event %></h5>
+                      <p class="card-text"><%= data[i].name %></p>
+                      <a href="tel:<%= data[i].phone %>" class="btn btn-primary"><%= data[i].phone %></a>
+                    </div>
+                  </div>
+                  <div class="space-20"></div>
+  
+  
+                <% } %>
+                
+              <% } %>
               
             </div>
 
