@@ -37,20 +37,14 @@
 </head>
 <body>
    
-<div class="container">
+
     <div class="row">
         <div class="col col-12">
-            <div class="jumbotron jumbotron-fluid bg-white <% if(event.isOpen == "false"){ %> bg-danger <% }%> ">
+            <div class="jumbotron jumbotron-fluid <% if(status == "false" || status == false){ %> bg-danger <% }%>  bg-success">
                 <div class="container">
                   <h1 class="display-4">  <%= event %> 
 
-                    <% if(event.isOpen == "true"){ %>
-
-                    <a href="" title=""><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i>now Open</button></a> 
-                    <%} else {%>
-
-                    <a href="" title=""><button type="button" class="btn btn-danger"><i class="fas fa-times"></i>closed</button></a> 
-                    <%}%>
+                   
 
                   </h1>
 
@@ -59,10 +53,19 @@
               </div>
 
         </div>
-
+<div class="container">
 
         <div class="col col-12">
-          <a href="new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
+          <a href="/onday/<%= branch %>/<%= event %>/new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
+
+          <% if(status == "true" || status == true){ %>
+
+            <a href="/onday/<%= branch %>/<%= event %>/status" title=""><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open</button></a> 
+            <%} else {%>
+
+            <a href="/onday/<%= branch %>/<%= event %>/status" title=""><button type="button" class="btn btn-danger"> closed! </button></a> 
+            <%}%>
+
         </div>
 
         <div class="space-50"></div>
@@ -92,18 +95,18 @@
                 </thead>
                 <tbody>
                 <%  data.forEach((event)=>{%>
-                  <tr class=" <% if(event.isAttended == "ture"){ %> bg-success <% } %> 
+                  <tr class=" <% if(event.isAttended == "true"){ %> bg-success <% } %> 
 
-                    <% if(event.isWinner == "ture"){ %> bg-warning <% } %> " >
+                    <% if(event.isWinner == "true"){ %> bg-warning <% } %> " >
 
-                    <th class="<% if(event.isSpot == "ture"){ %> bg-info <% } %>"><%= i++ %></th>
+                    <th class="<% if(event.isSpot == "true" ){ %> bg-info <% } %>"><%= i++ %></th>
                     <td ><%= event.name%></td>
                     <td><%= event.email%></td>
                     <td><%= event.phone%></td>
 
 
                     <td>
-                      <a href="" title="" onclick="return confirm('Do you really want to mark  this person as attended.This action cannot be reversed!');"> 
+                      <a href="/onday/<%= branch %>/<%= event.event %>/view/attended/<%= event._id %>" title="" onclick="return confirm('Do you really want to mark  this person as attended.This action cannot be reversed!');"> 
 
                            <button class="btn btn-success" type=""> <i class="fas fa-check-circle"></i> </button>
 
@@ -116,9 +119,9 @@
                         <i class="fas fa-trophy"></i>
                       </button>
                       <div class="dropdown-menu">
-                        <a href="" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
-                        <a href="" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
-                        <a href="" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
+                        <a href="winner/1st/<%= event._id %>" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
+                        <a href="winner/2st/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
+                        <a href="winner/3rd/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
 
                       </div>
                     </td>
@@ -126,7 +129,7 @@
   
 
 
-                    <td><a href="view/update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
+                    <td><a href="update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
                   </tr>
                   
 
@@ -216,6 +219,7 @@
                       <td><%= event.name%></td>
                       <td><%= event.email%></td>
                       <td><%= event.phone%></td>
+                      <td><%= event.rank%></td>
                      
                     </tr>
                     
