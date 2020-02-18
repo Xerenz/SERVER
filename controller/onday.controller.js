@@ -6,30 +6,25 @@ exports.registration_show = function(req, res) {
     Main.find({event : req.params.event}, function(err, docs) {
         if (err) return console.log(err);
 
-        Event.findOne({name : req.params.event}, function(err, event) {
-
-            if (err) 
-                {
+        Event.find({name : req.params.event}, function(err, event) {
+            if (err) {
+                return console.log(err);
+            }
+            Workshop.find({name : req.params.event}, function(err, workshop) {
+                if (err) {
                     return console.log(err);
                 }
-                
+                let status = event.concat(workshop)[0].isOpen;
 
-            if (!event) {
-                console.log("ivideeeeann")
-                Workshop.findOne({name : req.params.event}, function(err, found) {
-                    status = found.isOpen;
-                });
-            }
-            else {
-                status = event.isOpen;
-            }
-           
-            res.render("onday/onday_list", {data : docs , event : req.params.event ,branch : req.params.branch, status : status});
+                res.render("onday/onday_list", {data : docs, 
+                    branch : req.params.branch, 
+                    event : req.params.event, 
+                    status : status});
+            });
+
         });
-    
     });
 };
-
 
 exports.registration_spot_detail = function(req,res){
     res.render("onday/onday_new",{branch:req.params.branch, event:req.params.event});
