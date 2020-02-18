@@ -535,7 +535,7 @@ var data = [
 
 
 var mongoose = require('mongoose');
- 
+
 // make a connection
 mongoose.connect('mongodb://localhost/dhishna');
  

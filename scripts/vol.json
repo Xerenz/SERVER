@@ -1,0 +1,674 @@
+[
+    {
+        "name": "JADEER U N",
+        "phone": "7593968110",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "Kshidij kannan",
+        "phone": "7306438810",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "MARZOOK MADAPPALLI ",
+        "phone": "7025959662",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "Muhammad kuniyil",
+        "phone": "9562582747",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "Davis Richard Peter ",
+        "phone": "8547726546",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "Muhammad kuniyil",
+        "phone": "9562582747",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "JADEER U N",
+        "phone": "7593968110",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "MARZOOK MADAPPALLI",
+        "phone": "7025959662",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "AMAL DEV K R",
+        "phone": "9074240539",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "C Block"
+    },
+    {
+        "name": "AMAL DEV K R ",
+        "phone": "9074240539",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "C Block"
+    },
+    {
+        "name": "Aman kumar Ashish ",
+        "phone": "7306260285",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "Parthiv V Jayakrishnan",
+        "phone": "9495487308",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Food"
+    },
+    {
+        "name": "L Aditya",
+        "phone": "6232781596",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Games"
+    },
+    {
+        "name": "Mohammed Saqib Nawaz",
+        "phone": "9079597417",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Games"
+    },
+    {
+        "name": "Aadith Narayan P ",
+        "phone": "7593906662",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Amal Sk",
+        "phone": "8078109428",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Adithya krishna",
+        "phone": "8304879064",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Nidhi sreenivas",
+        "phone": "7356097710",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Govind Arun",
+        "phone": "9660525040",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Nirmal Johnson",
+        "phone": "8156952894",
+        "sem": "S2",
+        "branch": "CIVIL",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "MUHAMMED MUFEED P M",
+        "phone": "8138981343",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Alwin Sabu",
+        "phone": "9846190808",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Abdul Basith",
+        "phone": "7907717175",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Muhammed Aqhil",
+        "phone": "9995832312",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Abdul Basith",
+        "phone": "7907717175",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Navneeth.p.sathian",
+        "phone": "8891871321",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Parthiv V Jayakrishnan",
+        "phone": "9495487308",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Persis Mathew",
+        "phone": "9544212832",
+        "sem": "S2",
+        "branch": "CIVIL",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Faris Mohammed",
+        "phone": "9544835187",
+        "sem": "S2",
+        "branch": "IT",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Aman roshan p k",
+        "phone": "9526992699",
+        "sem": "S2",
+        "branch": "IT",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Athul T",
+        "phone": "9496328099",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Athul T",
+        "phone": "9496328099",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "ANUPAM ARAVIND",
+        "phone": "9446721494",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "ASWIN V DILEEP",
+        "phone": "9961618097",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Suraj U",
+        "phone": "8075908571",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "GOKUL KRISHNAN G",
+        "phone": "9497657773",
+        "sem": "S4",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "ASWIN V DILEEP",
+        "phone": "9961618097",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Abdul Aseeb cp",
+        "phone": "7034517012",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "Adhnan MP",
+        "phone": "9961903400",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "Vishnukripal t",
+        "phone": "6282541634",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Harsha Hemachandran",
+        "phone": "9447476081",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Afra Shabeer",
+        "phone": "8281807858",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Richika Rout ",
+        "phone": "6370292987",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Deyan Grace",
+        "phone": "6238200494",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Neha baiju. M",
+        "phone": "9188785987",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Minna sen",
+        "phone": "8089320861",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "VYSHNAV P P",
+        "phone": "7306265398",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "Anusree A C",
+        "phone": "6282730875",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "Muhammed Fahiz kp",
+        "phone": "7034125687",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "VYSAKH  RAJEEV ",
+        "phone": "7356750641",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "NLB"
+    },
+    {
+        "name": "A.P.Sreehari",
+        "phone": "6282792779",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "AMAL DEV K R",
+        "phone": "9074240539",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "Althaf ahammed",
+        "phone": "8078189438",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "aldrin george",
+        "phone": "9061954206",
+        "sem": "S2",
+        "branch": "EEE",
+        "posn": "Registration"
+    },
+    {
+        "name": "Joushin s m",
+        "phone": "7510569363",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Registration"
+    },
+    {
+        "name": "SANIT B R",
+        "phone": "8156873649",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Registration"
+    },
+    {
+        "name": "Yeswanth T S",
+        "phone": "9074782650",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Registration"
+    },
+    {
+        "name": "Abdul Basith",
+        "phone": "7907717175",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Registration"
+    },
+    {
+        "name": "Arjun C A",
+        "phone": "9061384886",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "ABIJITH VIJAYAN ",
+        "phone": "9567343467",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "ABHINAND K M",
+        "phone": "8891130306",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "Aswin Benoy ",
+        "phone": "9745586187",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "vishnu n",
+        "phone": "9495141731",
+        "sem": "S4",
+        "branch": "EC",
+        "posn": "Software"
+    },
+    {
+        "name": "Jithendradas",
+        "phone": "9544261829",
+        "sem": "S4",
+        "branch": "EEE",
+        "posn": "Software"
+    },
+    {
+        "name": "Aswin K B",
+        "phone": "9746853806",
+        "sem": "S4",
+        "branch": "IT",
+        "posn": "Software"
+    },
+    {
+        "name": "Nithin S",
+        "phone": "7025539175",
+        "sem": "S4",
+        "branch": "IT",
+        "posn": "Software"
+    },
+    {
+        "name": "SHREYAS.R",
+        "phone": "9946249402",
+        "sem": "S4",
+        "branch": "IT",
+        "posn": "Software"
+    },
+    {
+        "name": "Aebal Christy C.J",
+        "phone": "8078046976",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "ABIJITH VIJAYAN ",
+        "phone": "9567343467",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "Krishnaveni A R",
+        "phone": "7994726617",
+        "sem": "S4",
+        "branch": "EC",
+        "posn": "Software"
+    },
+    {
+        "name": "ABHINAND K M",
+        "phone": "8891130306",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "GOKUL DHARA",
+        "phone": "9380247405",
+        "sem": "S4",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "Adithya K",
+        "phone": "8078442237",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Software"
+    },
+    {
+        "name": "Abhirami siju",
+        "phone": "8921161084",
+        "sem": "S4",
+        "branch": "EC",
+        "posn": "Software"
+    },
+    {
+        "name": "Aswanth asok",
+        "phone": "8281954128",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Traffic"
+    },
+    {
+        "name": "Abin Aboobacker",
+        "phone": "9446313537",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Traffic"
+    },
+    {
+        "name": "Abin Aboobacker",
+        "phone": "9446313537",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Traffic"
+    },
+    {
+        "name": "Abhinath PK",
+        "phone": "9497057994",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Transportation"
+    },
+    {
+        "name": "Adithyan C R",
+        "phone": "8547113934",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Transportation"
+    },
+    {
+        "name": "S Ganesh",
+        "phone": "9496996642",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "Transportation"
+    },
+    {
+        "name": "Vivek V Sarma",
+        "phone": "9605450859",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "Transportation"
+    },
+    {
+        "name": "Vyshakh N",
+        "phone": "7306954442",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Food"
+    },
+    {
+        "name": "CHRISTIMA MARY S",
+        "phone": "7306295342",
+        "sem": "S2",
+        "branch": "CS",
+        "posn": "NLB"
+    },
+    {
+        "name": "Jasir muhammedk",
+        "phone": "9539609709",
+        "sem": "S2",
+        "branch": "CIVIL",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Nandu A B",
+        "phone": "8113846153",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Athul Rejith",
+        "phone": "9446379165",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "DAVID DEEPAN ",
+        "phone": "8943630149",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "John Elbe",
+        "phone": "7306024038",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "AVIN BABU PANDOTH ",
+        "phone": "7306297979",
+        "sem": "S2",
+        "branch": "MEC",
+        "posn": "Hospitality"
+    },
+    {
+        "name": "Anagh Sujith M",
+        "phone": "8547104508",
+        "sem": "S4",
+        "branch": "CIVIL",
+        "posn": "NLB"
+    },
+    {
+        "name": "Neethu Manoj",
+        "phone": "9495984275",
+        "sem": "S2",
+        "branch": "CIVIL",
+        "posn": "Registration"
+    },
+    {
+        "name": "Bhavani krishna J S",
+        "phone": "6238277895",
+        "sem": "S2",
+        "branch": "EC",
+        "posn": "Registration"
+    },
+    {
+        "name": "Shifana ",
+        "phone": "7994963530",
+        "sem": "S2",
+        "branch": "EC",
+        "posn": "Registration"
+    },
+    {
+        "name": "Megha Pradeep",
+        "phone": "7994969112",
+        "sem": "S2",
+        "branch": "CIVIL",
+        "posn": "Registration"
+    },
+    {
+        "name": "Ayush Kumar Singh",
+        "phone": "9608906469",
+        "sem": "S2",
+        "branch": "SAFETY",
+        "posn": "C Block"
+    },
+    {
+        "name": "AKSHAY SREEKUMAR",
+        "phone": "9633160121",
+        "sem": "S2",
+        "branch": "IT",
+        "posn": "Hospitality"
+    }
+]

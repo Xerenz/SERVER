@@ -6,6 +6,8 @@ let volunteerSchema = new Schema ({
     phone : {type : String},
     event : {type : String},
     branch : {type :String},
+    posn : String,
+    sem : String
 });
 
 module.exports = mongoose.model('volunteer',volunteerSchema);
