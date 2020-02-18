@@ -33,6 +33,7 @@ const accommodationRoutes = require("./routes/accommodation.route");
 const managerRoutes = require("./routes/manager.route");
 const frontdeskRoutes = require("./routes/frontdesk.route");
 const ondayRoutes = require("./routes/onday.route");
+const onday_details = require("./routes/onday_details.route");
 
 
 
