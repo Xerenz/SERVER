@@ -164,10 +164,12 @@ app.get("/sponsors",(req,res)=>{
 
 
 const Techtalk = require("./models/techtalk.model");
-
-
 app.get("/techtalk",(req,res)=>{
     res.render("techtalk")
+})
+
+app.get("/map",(req,res)=>{
+    res.render("map")
 })
 
 
