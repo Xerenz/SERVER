@@ -93,66 +93,40 @@ exports.registration_attended_mark = function(req,res){
         });
 }
 
-exports.registration_status = function(req,res){
+exports.registration_status = function(req,res) {
+    Event.find({name : req.params.event}, function(err, event) {
+        if (err) {
+            return console.log(err);
+        }
+        Workshop.find({name : req.params.event}, function(err, workshop) {
+            if (err) {
+                return console.log(err)
+            }
 
-    
-    Event.findOne({name:req.params.event},(err,data)=>{
+            let found = event.concat(workshop)[0];
 
-        if(!data){
-            Workshop.findOne({name:req.params.event},(err,data)=>{
-                console.log(data)
-                if(err)
-                {
-                    return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/view/");
-                }
-                if(data.isOpen == "true")
-                {
-                    data.isOpen = "false"
-                }
-                else
-                {
-                    data.isOpen = "true"
-                }
-                data.save((err,docs)=>{
-        
+            if (found.isOpen === "true" || found.isOpen === true) {
+                found.isOpen = "false";
+
+                found.save(function(err) {
                     if (err) {
-                        return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/view/");        
+                        return console.log(err);
                     }
-        
-                    return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/view/"); 
-        
-                })
+                });
 
-            })
-
-        }
-        else{
-
-            if(data.isOpen == "true")
-            {
-                data.isOpen = "false"
             }
-            else
-            {
-                data.isOpen = "true"
+            else {
+                found.isOpen = "true";
+
+                found.save(function(err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                });
             }
-            data.save((err,docs)=>{
-    
-                if (err) {
-                    return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/view/");        
-                }
-    
-                return res.redirect("/onday/"+req.params.branch+"/"+req.params.event+"/view/"); 
-    
-            })
-
-
-        }
-
-       
-        
-    })
-}
+        });
+    });
+};
 
 exports.registration_winner_mark = function(req,res){
     Main.findByIdAndUpdate(req.params.id, {
