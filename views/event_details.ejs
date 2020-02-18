@@ -52,6 +52,7 @@
         <!-- row -->
         <div class="row">
             <div class="space"></div>
+            <div class="col col-12 text-white animated fadeInUp delay-1s"> <a href="/event" style="font-size: 2em" title=""><i class="fas fa-long-arrow-alt-left"></i></a></div>
             <div class="space-50"></div>
             <div class="col col-12 text-center text-md-left">
                 <h3 class="home_head animated fadeInUp delay-1s"><%= event.name %></h3>
@@ -72,7 +73,7 @@
         <div class="row text-white">
             
 
-             <div class="space-50"></div>     
+             <!-- <div class="space-50"></div>   -->   
              
              
             
@@ -118,7 +119,7 @@
                   <!-- cccccccccccccccccccccccc -->
                   <div class="tab-content" id="myTabContent">
                       <div class="space-50"> </div>
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><%= event.content %></div>
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><span class="text-danger"><%= event.message %></span> <br><br> <%= event.content %></div>
                     <!-- ccccccccccccccccccccc -->
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         Registration Fees : <%= event.fees %> <br><br>

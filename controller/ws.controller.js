@@ -1,6 +1,7 @@
 const Workshop = require("../models/ws.model");
 const Transaction = require("../models/transaction.model");
 const User = require("../models/user.model");
+const Main = require("../models/main.model");
 
 const async = require("async");
 const nodemailer = require("nodemailer");
@@ -108,11 +109,32 @@ exports.webhook = function(req, res) {
     async.waterfall([
         function(done) {
             if (req.body.status === "Credit") {
+                let main = new Main({
+                    name : req.body.buyer_name,
+                    phone : req.body.buyer_phone,
+                    email : req.body.buyer,
+                    event : req.body.offer_title,
+                    payment_id : req.body.payment_id
+                });
+
+                main.save(function(err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+
+                    done(err);
+                });
+            }
+        },
+        function(done) {
+            if (req.body.status === "Credit") {
                 let doc = new Transaction({
                     payment_id : req.body.payment_id,
                     payment_for : req.body.offer_title,
                     status : req.body.status,
-                    buyer : req.body.buyer
+                    buyer : req.body.buyer,
+                    name : req.body.buyer_name,
+                    phone : req.body.buyer_phone
                 });
 
                 doc.save(function(err) {
@@ -142,7 +164,7 @@ exports.webhook = function(req, res) {
                     service : "Gmail",
                     auth : {
                         user : "tech.dhishna@gmail.com",
-                        pass : "SantyDance"
+                        pass : "JyothisDance@1337"
                     }
                 });
 
@@ -150,6 +172,10 @@ exports.webhook = function(req, res) {
                     if (err)
                     {
                         return console.log(err);
+                    }
+
+                    if (!workshop) {
+                        return console.log("No workshop");
                     }
 
                     let msg = {
@@ -187,11 +213,11 @@ Dhishna 2020`
         },
         function(done) {
             res.sendStatus(200);
-            done(err);
         }
     ], function(err) {
         if (err)
         {
+            res.sendStatus(200);
             return console.log(err);
         }
     });

@@ -38,7 +38,7 @@
 
 
     <!-- navbar -->
-    
+
         <%- include("partials/nav") %>
     
     <!-- navbar ends -->
@@ -47,6 +47,7 @@
         <!-- row -->
         <div class="row">
             <div class="space"></div>
+            
             <div class="space-50"></div>
             <div class="col col-12 text-center text-md-left">
                 <h3 class="home_head animated fadeInUp delay-1s">EVENTS</h3>
@@ -73,16 +74,20 @@
                       <a class="nav-link <% if(label == "all"){%> active <% }%> "   href="/event">All </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link <% if(label == "coding"){%> active <% }%>"   href="/event/filter/coding">Coding</a>
+                      <a class="nav-link <% if(label == "flagship"){%> active <% }%>"   href="/event/filter/flagship">Flagship</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link <% if(label == "technical"){%> active <% }%>"   href="/event/filter/technical">Technical</a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link <% if(label == "games"){%> active <% }%>"   href="/event/filter/games">Games</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <% if(label == "exhibition"){%> active <% }%>"   href="/event/filter/exhibition">Exhibitions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <% if(label == "competition"){%> active <% }%>"   href="/event/filter/competition">Competition</a>
                     </li>
                     
                   </ul>

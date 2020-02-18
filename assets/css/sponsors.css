@@ -8,6 +8,7 @@
 */
 .logo{
 	width: 100%;
+	height: 40vh;
 	object-fit: contain;
 	padding: 20px;
 }
@@ -3341,3 +3342,10 @@ input, select, textarea {
 			}
 
 		}
+
+
+#snapchat
+{
+	height: 35vh;
+	
+}

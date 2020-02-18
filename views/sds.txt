@@ -1,0 +1,49 @@
+    <!--Maps Dependencies start-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <!--Maps Dependencies end-->
+    
+    <style>
+
+        #map{
+            /* border-radius: 10px; */
+            height: 300px;
+            transition: all 0.5s ease-in-out;
+            /* -webkit-filter: hue-rotate(180deg) invert(100%); */
+
+        }
+        #map:hover{
+            box-shadow: 0 0 30px rgb(255, 0, 255);
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+
+
+<section >
+    <div class="col col-sx-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+        <div id="map">
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+    var atribution = "© OpenStreetMap contributors";
+    var mymap = L.map('map').setView([10.0442,76.3282], 14.5);
+    var tileURL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    const tiles = L.tileLayer(tileURL,{atribution});
+    tiles.addTo(mymap);
+    var marker = L.marker([10.04208, 76.32815]).addTo(mymap);
+    marker.bindPopup("<b>CUSAT</b>").openPopup();
+    var SOEmarker = L.marker([10.04997, 76.33064]).addTo(mymap);
+    SOEmarker.bindPopup("<b>SOE,CUSAT</b><br>School of Engineering, CUSAT");
+    var Seminarmarker = L.marker([10.04392, 76.32410]).addTo(mymap);
+    Seminarmarker.bindPopup("<b>Seminar Complex</b><br>CUSAT");
+</script>
+<script src="assets/js/navbar.js"></script>
+<!-- script -->
