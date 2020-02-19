@@ -106,7 +106,7 @@
 
 
                     <td>
-                      <a href="/onday/<%= branch %>/<%= event.event %>/view/attended/<%= event._id %>" title="" onclick="return confirm('Do you really want to mark  this person as attended.This action cannot be reversed!');"> 
+                      <a href="/onday/<%= branch %>/<%= event %>/view/attended/<%= event._id %>" title="" onclick="return confirm('Do you really want to mark  this person as attended.This action cannot be reversed!');"> 
 
                            <button class="btn btn-success" type=""> <i class="fas fa-check-circle"></i> </button>
 
@@ -119,9 +119,9 @@
                         <i class="fas fa-trophy"></i>
                       </button>
                       <div class="dropdown-menu">
-                        <a href="winner/1st/<%= event._id %>" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
-                        <a href="winner/2st/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
-                        <a href="winner/3rd/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
+                        <a href="/onday/<%= branch %>/<%= event %>/view/winner/1st/<%= event._id %>" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
+                        <a href="/onday/<%= branch %>/<%= event %>/view/winner/2st/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
+                        <a href="/onday/<%= branch %>/<%= event %>/view/winner/3rd/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
 
                       </div>
                     </td>
@@ -129,7 +129,7 @@
   
 
 
-                    <td><a href="update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
+                    <td><a href="/onday/<%= branch %>/<%= event %>/view/update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
                   </tr>
                   
 
