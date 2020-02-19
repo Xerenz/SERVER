@@ -100,6 +100,7 @@ app.use("/accommodation",accommodationRoutes);
 app.use("/manager", managerRoutes);
 app.use("/frontdesk", frontdeskRoutes);
 app.use("/onday", ondayRoutes);
+app.use("/onday_details",onday_details)
 
 
 

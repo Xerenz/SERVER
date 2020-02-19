@@ -5,7 +5,7 @@ exports.data_show =  (req,res) => {
                     if(err) console.log("Error");
                     else {
                     console.log(data);
-                    res.render('volunteer_list',{data:data});
+                    res.render('volunteer_list/volunteer_list',{data:data});
                     }
                 
                 });
