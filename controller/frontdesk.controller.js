@@ -41,7 +41,7 @@ exports.registration_show = function(req, res) {
 
 
 exports.registration_workshop_show = function(req, res) {
-    Main.find({event : req.params.event}, function(err, docs) {
+    Main.find({event : req.params.event},null,{sort: {name: 1}}, function(err, docs) {
 
         if (err) {
                 return console.log(err);
