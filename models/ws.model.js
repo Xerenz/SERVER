@@ -23,7 +23,8 @@ let WorkshopSchema = new Schema(
         // payment url
         url : {type: String},
         // link 
-        web_name : String
+        web_name : String,
+        isWorkshop:Boolean
     }
 );
 

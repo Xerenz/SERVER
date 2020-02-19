@@ -82,10 +82,21 @@
                 <div class="card-header <% if(event.isOpen == "true" || event.isOpen == true) { %> bg-success <% } else { %> bg-danger <% } %> ">
                     <% if(event.isOpen == "true" || event.isOpen == true ) { %> Registration open <% } else { %> Registration closed <% } %> 
                    </div>
-                   <div class="card-body">
+
+                   <div class="card-body <% if( event.isWorkshop == true) { %> bg-secondary text-white <% } %>">
                      <h5 class="card-title"> <%= event.name %></h5>
                      <p class="card-text">location</p>
-                     <a href="/frontdesk/<%= event.branch %>/<%= event.name %>/view" class="btn btn-danger" >view list</a>
+                      <% if( event.isWorkshop == true) { %> 
+
+                         <a href="/frontdesk/<%= event.branch %>/<%= event.name %>/workshop" class="btn btn-danger" >view list</a>
+
+                      <% } else { %>
+
+                        <a href="/frontdesk/<%= event.branch %>/<%= event.name %>/view" class="btn btn-danger" >view list</a>
+
+                      <%}%>
+
+                    
                    </div>
                 </div>
             </div>

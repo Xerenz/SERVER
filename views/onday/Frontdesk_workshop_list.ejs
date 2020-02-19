@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA - <%= event %> </title>
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+
+    <style type="text/css" media="screen">
+        .space{
+            width: 100%;
+            height: 100px;
+        }
+        .space-50{
+            width: 100%;
+            height: 50px;
+        }
+        .space-20{
+            width: 100%;
+            height: 20px;
+        }
+        .container{
+          overflow-x: scroll;
+        }
+        
+    </style>
+    
+</head>
+<body>
+   
+
+    <div class="row">
+        <div class="col col-12">
+            <div class="jumbotron jumbotron-fluid <% if(status == "false" || status == false){ %> bg-danger <% }%>  bg-success">
+                <div class="container">
+                  <h1 class="display-4"> 
+
+                    <a href="/frontdesk/<%= branch %>/dash"><i class="fas fa-arrow-left"></i> </a>
+                   <%= event %> 
+
+                   
+
+                  </h1>
+
+                  
+                </div>
+              </div>
+
+        </div>
+<div class="container">
+
+        <div class="col col-12">
+          <a href="/frontdesk/<%= branch %>/<%= event %>/new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
+
+         
+        </div>
+
+        <div class="space-50"></div>
+
+
+        <div class="col col-12">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-attended" role="tab" aria-controls="nav-profile" aria-selected="false">Present</a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-spot" role="tab" aria-controls="nav-contact" aria-selected="false">Spot</a>
+             
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <!-- ----------------------- -->
+            <% var i =1 ; var j = 1 ; var k = 1 %>
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+              <table class="table table-responsive">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">phone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <%  data.forEach((event)=>{%>
+                  <tr class=" <% if(event.isAttended == "true"){ %> bg-success <% } %>  " >
+
+                    <th class="<% if(event.isSpot == "true" ){ %> bg-info <% } %>"><%= i++ %></th>
+                    <td ><%= event.name%></td>
+                    <td><%= event.email%></td>
+                    <td><%= event.phone%></td>
+
+
+                    
+
+                    <td><a href="update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
+                  </tr>
+                  
+
+                <%  }) %>
+                  
+                </tbody>
+              </table>
+
+            </div>
+
+          
+            <!-- -------------------------------- -->
+            <div class="tab-pane fade" id="nav-attended" role="tabpanel" aria-labelledby="nav-attended-tab">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">phone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%  data.forEach((event)=>{
+                    if(event.isAttended == "true"){
+                    %>
+                    <tr class="bg-success">
+                      <th scope="row"><%= j++ %></th>
+                      <td><%= event.name%></td>
+                      <td><%= event.email%></td>
+                      <td><%= event.phone%></td>
+                    </tr>
+                    
+  
+                  <% }
+                      }) %>
+                </tbody>
+              </table>
+
+            </div>
+            <!-- ------------------------------------------ -->
+            <div class="tab-pane fade" id="nav-spot" role="tabpanel" aria-labelledby="nav-spot-tab">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">email</th>
+                    <th scope="col">phone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%  data.forEach((event)=>{
+                    if(event.isSpot == "true"){
+                    %>
+                    <tr>
+                      <th class="bg-info"><%= k++ %></th>
+                      <td><%= event.name%></td>
+                      <td><%= event.email%></td>
+                      <td><%= event.phone%></td>
+                    </tr>
+                    
+  
+                  <% }
+                      }) %>
+                  
+                </tbody>
+              </table>
+            </div>
+            <!-- ------------------------------ -->
+           
+            <!-- ------------------------------ -->
+          </div>
+
+          
+        
+
+        </div>
+
+    </div>
+</div>
+       
+        
+</body>
+</html>
