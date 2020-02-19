@@ -14,12 +14,16 @@ exports.registration_show = function(req, res) {
                 if (err) {
                     return console.log(err);
                 }
-                let status = event.concat(workshop)[0].isOpen;
+                let found = event.concat(workshop)[0];
+                let status = found.isOpen;
+                let type = found.isWorkshop;
 
                 res.render("onday/onday_list", {data : docs, 
                     branch : req.params.branch, 
                     event : req.params.event, 
-                    status : status});
+                    status : status,
+                    type : type}
+                );
             });
 
         });

@@ -56,8 +56,10 @@
 <div class="container">
 
         <div class="col col-12">
-          <a href="/onday/<%= branch %>/<%= event %>/new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
-
+          <% if (!type) { %>
+            <a href="/onday/<%= branch %>/<%= event %>/new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
+          <% } %>
+        
           <% if(status == "true" || status == true){ %>
 
             <a href="/onday/<%= branch %>/<%= event %>/status" title=""><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open</button></a> 
@@ -77,7 +79,9 @@
               <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
               <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-attended" role="tab" aria-controls="nav-profile" aria-selected="false">Present</a>
               <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-spot" role="tab" aria-controls="nav-contact" aria-selected="false">Spot</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-winner" role="tab" aria-controls="nav-contact" aria-selected="false">Winner</a>
+              <% if (!type) { %>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-winner" role="tab" aria-controls="nav-contact" aria-selected="false">Winner</a>
+              <% } %>
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
@@ -115,15 +119,17 @@
 
                     <td>
 
-                      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-trophy"></i>
-                      </button>
-                      <div class="dropdown-menu">
-                        <a href="/onday/<%= branch %>/<%= event %>/view/winner/1st/<%= event._id %>" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
-                        <a href="/onday/<%= branch %>/<%= event %>/view/winner/2st/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
-                        <a href="/onday/<%= branch %>/<%= event %>/view/winner/3rd/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
+                      <% if (!type) { %>
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-trophy"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a href="/onday/<%= branch %>/<%= event %>/view/winner/1st/<%= event._id %>" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
+                          <a href="/onday/<%= branch %>/<%= event %>/view/winner/2st/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
+                          <a href="/onday/<%= branch %>/<%= event %>/view/winner/3rd/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
 
-                      </div>
+                        </div> 
+                      <% } %>
                     </td>
 
   
