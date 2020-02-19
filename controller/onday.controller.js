@@ -38,7 +38,8 @@ exports.registration_spot_insert = function(req,res){
         event : req.params.event,
         inst : req.body.inst,
         isSpot : "true",
-        isAttended : "true"
+        isAttended : "true",
+        payment_id : Date().toString() + req.body.name
     });
 
     doc.save(function(err) {
