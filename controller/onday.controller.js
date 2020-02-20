@@ -20,7 +20,7 @@ exports.registration_show = function(req, res) {
 
                 res.render("onday/onday_list", {data : docs, 
                     branch : req.params.branch, 
-                    event : req.params.event, 
+                    event_ : req.params.event, 
                     status : status,
                     type : type}
                 );

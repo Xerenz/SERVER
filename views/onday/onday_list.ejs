@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DHISHNA - <%= event %> </title>
+    <title>DHISHNA - <%= event_ %> </title>
   
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
@@ -42,7 +42,7 @@
         <div class="col col-12">
             <div class="jumbotron jumbotron-fluid <% if(status == "false" || status == false){ %> bg-danger <% }%>  bg-success">
                 <div class="container">
-                  <h1 class="display-4">  <%= event %> 
+                  <h1 class="display-4">  <%= event_ %> 
 
                    
 
@@ -57,15 +57,15 @@
 
         <div class="col col-12">
           <% if (!type) { %>
-            <a href="/onday/<%= branch %>/<%= event %>/new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
+            <a href="/onday/<%= branch %>/<%= event_ %>/new" title=""><button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> new registration</button></a>  
           <% } %>
         
           <% if(status == "true" || status == true){ %>
 
-            <a href="/onday/<%= branch %>/<%= event %>/status" title=""><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open</button></a> 
+            <a href="/onday/<%= branch %>/<%= event_ %>/status" title=""><button type="button" class="btn btn-success"><i class="far fa-check-circle"></i> Open</button></a> 
             <%} else {%>
 
-            <a href="/onday/<%= branch %>/<%= event %>/status" title=""><button type="button" class="btn btn-danger"> closed! </button></a> 
+            <a href="/onday/<%= branch %>/<%= event_ %>/status" title=""><button type="button" class="btn btn-danger"> closed! </button></a> 
             <%}%>
 
         </div>
@@ -110,7 +110,7 @@
 
 
                     <td>
-                      <a href="/onday/<%= branch %>/<%= event %>/view/attended/<%= event._id %>" title="" onclick="return confirm('Do you really want to mark  this person as attended.This action cannot be reversed!');"> 
+                      <a href="/onday/<%= branch %>/<%= event_ %>/view/attended/<%= event._id %>" title="" onclick="return confirm('Do you really want to mark  this person as attended.This action cannot be reversed!');"> 
 
                            <button class="btn btn-success" type=""> <i class="fas fa-check-circle"></i> </button>
 
@@ -124,9 +124,9 @@
                           <i class="fas fa-trophy"></i>
                         </button>
                         <div class="dropdown-menu">
-                          <a href="/onday/<%= branch %>/<%= event %>/view/winner/1st/<%= event._id %>" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
-                          <a href="/onday/<%= branch %>/<%= event %>/view/winner/2st/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
-                          <a href="/onday/<%= branch %>/<%= event %>/view/winner/3rd/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
+                          <a href="/onday/<%= branch %>/<%= event_ %>/view/winner/1st/<%= event._id %>" title=""  class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (1st).This action cannot be reversed!');">1st</a>
+                          <a href="/onday/<%= branch %>/<%= event_ %>/view/winner/2st/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (2nd) .This action cannot be reversed!');">2nd</a>
+                          <a href="/onday/<%= branch %>/<%= event_ %>/view/winner/3rd/<%= event._id %>" title="" class="dropdown-item" onclick="return confirm('Do you really want to mark  this person as Winner (3rd).This action cannot be reversed!');">3rd</a>
 
                         </div> 
                       <% } %>
@@ -135,7 +135,7 @@
   
 
 
-                    <td><a href="/onday/<%= branch %>/<%= event %>/view/update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
+                    <td><a href="/onday/<%= branch %>/<%= event_ %>/view/update/<%= event._id %>" title=""> <button class="btn btn-danger" type=""> edit </button> </a></td>
                   </tr>
                   
 
