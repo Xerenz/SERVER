@@ -3,7 +3,7 @@ const Event = require("../models/event.model");
 const Workshop = require("../models/ws.model");
 
 exports.registration_show = function(req, res) {
-    Main.find({event : req.params.event}, function(err, docs) {
+    Main.find({event : req.params.event},null,{sort: {name: 1}}, function(err, docs) {
         if (err) return console.log(err);
 
         Event.find({name : req.params.event}, function(err, event) {
