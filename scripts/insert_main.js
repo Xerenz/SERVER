@@ -17,12 +17,3 @@ Main.collection.insert(data, function (err, docs) {
 	console.log("multiple files inserted");
 });
 
-let voldata = JSON.parse(fs.readFileSync('eve_vol.json'));
-
-Volunteer.collection.insert(voldata, function (err, docs) {
-	if (err) {
-		return console.log(err);
-	}
-
-	console.log("vol files inserted");
-});
