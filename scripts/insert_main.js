@@ -6,7 +6,7 @@ const Volunteer = require("../models/volunteer.model");
 
 mongoose.connect('mongodb://localhost/dhishna');
 
-let data = JSON.parse(fs.readFileSync('transactions.json'));
+let data = JSON.parse(fs.readFileSync('transaction_final_data.json'));
 
 
 Main.collection.insert(data, function (err, docs) {
