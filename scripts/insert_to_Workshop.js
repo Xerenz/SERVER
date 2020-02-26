@@ -628,33 +628,33 @@ var data = [
     //     url : "https://www.instamojo.com/dhishna2020/road-safety/"
 
     // }
-    {
-        name : "Cloud Computing",
-        date : "21/2/2020",
-        price : "500",
-        branch : "safety",
-        content : "Cloud computing is the future and one of the most flamboyant technological evolution witnessed in the field of technology. Cloud computing has seen the fastest adoption than any other technology in the domain. ",
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Medha",
-                        phone:"7979943365"
-                    },
+    // {
+    //     name : "Cloud Computing",
+    //     date : "21/2/2020",
+    //     price : "500",
+    //     branch : "safety",
+    //     content : "Cloud computing is the future and one of the most flamboyant technological evolution witnessed in the field of technology. Cloud computing has seen the fastest adoption than any other technology in the domain. ",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Medha",
+    //                     phone:"7979943365"
+    //                 },
 
-                    { 
-                        name:"Akhilesh",
-                        phone:"9496541998"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_cloudc",
-        pdfUrl:"",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/data-science-with-cloud-computing/"
+    //                 { 
+    //                     name:"Akhilesh",
+    //                     phone:"9496541998"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_cloudc",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/data-science-with-cloud-computing/"
 
-    },
+    // },
     /*{
         name : "Blockchain",
         date : "20/2/2020",
@@ -682,6 +682,34 @@ var data = [
         url : "https://www.instamojo.com/dhishna2020/blockchain-fafdc/"
 
     }*/
+
+    {
+        name : "Harley Davidson",
+        date : "15/3/2020",
+        price : "900",
+        branch : "safety",
+        content : "One day workshop on Harley Davidson",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Abhinath",
+                        phone:" 9497057994"
+                    },
+
+                    { 
+                        name:"Aflah",
+                        phone:"9048410453"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_harley",
+        pdfUrl:"",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/harley-davidson/"
+
+    }
 
 
 
