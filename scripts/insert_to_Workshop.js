@@ -709,6 +709,34 @@ var data = [
         // payment url
         url : "https://www.instamojo.com/dhishna2020/harley-davidson/"
 
+    },
+
+    {
+        name : "Industrial Automation Using PLC",
+        date : "15/3/2020",
+        price : "700",
+        branch : "EEE",
+        content : "One day workshop on industrial automation using PLC",
+        label : "technical",
+        contact:[
+                    { 
+                        name:"Ajay",
+                        phone:" 9645661104"
+                    },
+
+                    { 
+                        name:"Albin",
+                        phone:"9497103986"
+                    }
+                ],
+        message:" open now",
+        isOpen:true,
+        //full detail pdf name
+        details:"w_automate",
+        pdfUrl:"w_industry",
+        // payment url
+        url : "https://www.instamojo.com/dhishna2020/industrial-automation-using-plc/"
+
     }
 
 
