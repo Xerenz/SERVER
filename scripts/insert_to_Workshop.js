@@ -761,7 +761,7 @@ var data = [
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_marketing",
+        details:"w_d_marketing.jpeg",
         pdfUrl:"",
         // payment url
         url : "https://www.instamojo.com/dhishna2020/digital-marketing-e2ae0/"
