@@ -683,63 +683,90 @@ var data = [
 
     }*/
 
+    // {
+    //     name : "Harley Davidson",
+    //     date : "15/3/2020",
+    //     price : "900",
+    //     branch : "safety",
+    //     content : "One day workshop on Harley Davidson",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Abhinath",
+    //                     phone:" 9497057994"
+    //                 },
+
+    //                 { 
+    //                     name:"Aflah",
+    //                     phone:"9048410453"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_harley",
+    //     pdfUrl:"",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/harley-davidson/"
+
+    // },
+
+    // {
+    //     name : "Industrial Automation Using PLC",
+    //     date : "15/3/2020",
+    //     price : "700",
+    //     branch : "EEE",
+    //     content : "One day workshop on industrial automation using PLC",
+    //     label : "technical",
+    //     contact:[
+    //                 { 
+    //                     name:"Ajay",
+    //                     phone:" 9645661104"
+    //                 },
+
+    //                 { 
+    //                     name:"Albin",
+    //                     phone:"9497103986"
+    //                 }
+    //             ],
+    //     message:" open now",
+    //     isOpen:true,
+    //     //full detail pdf name
+    //     details:"w_automate",
+    //     pdfUrl:"w_industry",
+    //     // payment url
+    //     url : "https://www.instamojo.com/dhishna2020/industrial-automation-using-plc/"
+
+    // }
+
+
     {
-        name : "Harley Davidson",
-        date : "15/3/2020",
-        price : "900",
+        name : "Digital Marketing",
+        date : "14/3/2020 and 15/3/2020",
+        price : "1400",
         branch : "safety",
-        content : "One day workshop on Harley Davidson",
+        content : "two day workshop on Digital Marketing",
         label : "technical",
         contact:[
                     { 
-                        name:"Abhinath",
-                        phone:" 9497057994"
+                        name:"Aswathy",
+                        phone:" 7902467340"
                     },
 
                     { 
-                        name:"Aflah",
-                        phone:"9048410453"
+                        name:"Harsha",
+                        phone:"7902834880"
                     }
                 ],
         message:" open now",
         isOpen:true,
         //full detail pdf name
-        details:"w_harley",
+        details:"w_marketing",
         pdfUrl:"",
         // payment url
-        url : "https://www.instamojo.com/dhishna2020/harley-davidson/"
-
-    },
-
-    {
-        name : "Industrial Automation Using PLC",
-        date : "15/3/2020",
-        price : "700",
-        branch : "EEE",
-        content : "One day workshop on industrial automation using PLC",
-        label : "technical",
-        contact:[
-                    { 
-                        name:"Ajay",
-                        phone:" 9645661104"
-                    },
-
-                    { 
-                        name:"Albin",
-                        phone:"9497103986"
-                    }
-                ],
-        message:" open now",
-        isOpen:true,
-        //full detail pdf name
-        details:"w_automate",
-        pdfUrl:"w_industry",
-        // payment url
-        url : "https://www.instamojo.com/dhishna2020/industrial-automation-using-plc/"
+        url : "https://www.instamojo.com/dhishna2020/digital-marketing-e2ae0/"
 
     }
-
-
 
 
     
