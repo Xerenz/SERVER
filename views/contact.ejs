@@ -4,59 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DHISHNA - | Contact us</title>
+    <title>DHISHNA  - Contact us</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-    <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/social_icon.css">
     
     
 </head>
 <body>
+  <!-- canvas section -->
+<section>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+    <script src="assets/js/stars.js"></script>
+</section>
+<!-- canvas ends -->
 
-    <%- include("partials/nav.ejs"); %>
 
+<!-- back button -->
+<div class="back_button animated zoomIn delay-1s">
+    <a href="home"><img src="assets/img/logo.png" alt=""></a>
+</div>
+
+
+        <!-- navbar -->
+        <%- include("partials/nav") %>
+    
+    <!-- navbar ends -->
     <section>
         <div class="container">
             <!-- row -->
             <div class="row">
                 <div class="space"></div>
                 <div class="col col-12 text-center text-md-left">
-                    <h3 class="home_head">CONTACT US</h3>
+                    <h3 class="home_head animated fadeIn delay-1s">CONTACT US</h3>
                 </div>
             </div><!-- &&row -->
              <!-- row -->
-            <div class="row">
+            <div class="row animated fadeIn delay-1s">
                 <div class="col col-12">
                     <div class="space-50"></div>
                     <div class="col col-12 col-md-6 " >
                         <!-- form starts here -->
-                        <form  id="mail_form" method="POST">
+                        <form  id="mail_form" method="POST" action="/contact" name="mail_form" >
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name"  required>
+                                <input type="text" name="name" class="form-control" id="name"  required >
                             </div>
                             <div class="form-group">
                               <label for="email">Email address</label>
-                              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                              <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required >
                             </div>
                            
                             
                               
                                 <div class="form-group">
                                     <label for="exp">Message</label>
-                                    <textarea id="textarea" class="form-control" id="exp" rows="3"></textarea>
+                                    <textarea id="textarea" class="form-control" name="content" rows="3"></textarea>
                                   </div>
-                                
+
+                                  <!-- Mail sent message -->
+                                <div class="text-danger">
+                                        <%= message %>
+                                </div> 
+
+
                                 <div class="text-center">
-                                    <a href="# " class="neon_light">
+                                    <a onclick="required()"  class="neon_light">
                                         <span></span>
                                         <span></span>
                                         <span></span>
-                                        <span></span><i  class="fa fa-telegram" ></i>
+                                        <span></span><i  class="fab fa-telegram" ></i>
                                     </a>
                                 </div>
                             
@@ -70,6 +92,7 @@
         
     </section>
     <!-- =========================================== -->
+    <div class="space"></div>
     <section>
         <div class="container">
             <div class="row">
@@ -79,54 +102,28 @@
                         <div class="col col-12">
                             <div class="row">
                                 <!-- contact box -->
-                                <div  class="col col-12 col-md-4 contact-box">
-                                    <div class="flip text-center">
-                                        <div class="front" style="  background:linear-gradient(135deg, #184e68 0%,#57ca85 100%);">
-                                            <i  class="fa fa-phone" ></i>
-                                            <h3 class="text-h">Conviener</h3>
-                                        </div>
-                                        <div class="back">
-                                           <h2>JYOTHIS P</h2>
-                                           <p>ph : 90324234234</p>
-                                        </div>
+                                <div  class="col col-12  contact-box animated zoomIn delay-1s">
+                                    <!-- card -->
+                                    <div class="card text-center">
+                                        <div class="card_head"></div>
+                                        <div class="card_body">email</div>
+                                        <div class="card_body"><a href="mailto:mail@dhishna.org?subject=feedback">mail@dhishna.org</a></div>
                                     </div>
+                                     <!-- card end -->
 
+                                     <!-- card -->
+                                     
+                                    <div class="card text-center">
+                                        <div class="card_head">Public Relations</div>
+                                        <div class="card_body">Mufnas Muneer</div>
+                                        <div class="card_body"><a href="tel:8606797536‬">8606797536</a></div>
+                                    </div>
+                                     <!-- card end -->
+
+                                     
+                                    
                                 </div>
                            <!-- ------------- -->
-
-
-                           <!-- contact box -->
-                           <div  class="col col-12 col-md-4 contact-box">
-                               <div class="flip text-center">
-                                   <div class="front" style="  background:linear-gradient(135deg, #184e68 0%,#57ca85 100%);">
-                                    <i  class="fa fa-phone" ></i>  
-                                    <h3 class="text-h">Conviener</h3>
-                                   </div>
-                                   <div class="back">
-                                      <h2>JYOTHIS P</h2>
-                                      <p>ph : 90324234234</p>
-                                   </div>
-                               </div>
-                           </div>
-                      <!-- ------------- -->
-
-
-                      <!-- contact box -->
-                                <div  class="col col-12 col-md-4 contact-box">
-                                    <div class="flip text-center">
-                                        <div class="front" style="  background:linear-gradient(135deg, #184e68 0%,#57ca85 100%);">
-                                            <i  class="fa fa-phone" ></i>
-                                            <h3 class="text-h">Conviener</h3>
-                                        </div>
-                                        <div class="back">
-                                           <h2>JYOTHIS P</h2>
-                                           <p>ph : 90324234234</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                        <!-- ------------- -->
-
 
                             </div>
                         </div>
@@ -138,12 +135,57 @@
 
     <!-- ========================= -->
 
-    <%- include("partials/footer.ejs"); %>
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 ">
+                     <ul class="social_dhishna ">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+    </section>
+
 
     <!-- ========================= -->
     <!-- script -->
     <script src="assets/js/navbar.js"></script>
     <!-- script -->
 
+    <!--  -->
+    <script type="text/javascript">
+        function required()
+        {
+            var empt = document.forms["mail_form"]["email"].value;
+            var empt1 = document.forms["mail_form"]["content"].value;
+
+            if (empt == "" || empt1 == "")
+            {
+                alert(':-) Fill all details before sending...');
+                return false;
+            }
+            else 
+            {
+                
+                document.getElementById('mail_form').submit()
+                return true; 
+            }
+        }
+    </script>
 </body>
 </html>

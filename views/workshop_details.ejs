@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA  - Workshop</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/event.css">
+    <link rel="stylesheet" href="/assets/css/event_box.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/social_icon.css">
+    <script src="/assets/js/overlay_close.js"></script>
+</head>
+<body>  
+
+     <!-- canvas section -->
+     <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="/assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <div class="back_button animated zoomIn delay-1s">
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
+    </div>
+
+
+<!-- navbar -->
+<%- include("partials/nav") %>
+<!-- navbar ends -->
+<section>
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="space"></div>
+            <div class="space-50"></div>
+            <div class="col col-12 text-center text-md-left">
+                <h3 class="home_head animated fadeInUp delay-1s"><%= event.name %></h3>
+            </div>
+        </div><!-- &&row -->
+         <!-- row -->
+        <!-- &&row -->
+        
+    </div><!-- container end -->
+    
+</section>
+
+
+
+    <!-- =========================================== -->
+    <section>
+    <div class="container">
+        <div class="row text-white">
+            <div class="col col-12 text-white animated fadeInUp delay-1s text-md-left text-center">
+               <%= event.content%>
+            </div> 
+            <div class="space-50"></div>
+             <div class="col col-12 text-center animated fadeInUp delay-1s">
+                <a target="_blank" href="/assets/img/<%= event.details %>.pdf"></a>
+             <!-- <button type="button" class="btn btn-dark">Download full details</button> -->
+            </div>
+             <div class="space-50"></div>
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Fees : <%= event.price %></div>
+             
+             <div class="col col-12 col-md-4 text-center pay_money animated fadeInUp delay-1s">Date : <%= event.date %></div>
+             <div class="col col-12  col-md-4 text-center pay_money text-danger animated fadeInUp delay-1s"><%= event.message %></div>
+             <!-- <div class="space-50"></div> -->
+             <div class="col col-12  text-center pay_money p-4 animated fadeInUp delay-1s"><strong>COORDINATORS</strong>  <br><br>
+                 <% event.contact.forEach(contact => { %>
+
+                         <%= contact.name %> : <a href="tel:<%= contact.phone %>"><%= contact.phone %></a> <br>
+
+                <% }) %>
+             </div>
+             
+             <% if(event.isOpen == true){ %>
+
+                     <% if(logStatus == true) {%>
+
+                             <div class="col col-12 text-center animated fadeInUp delay-1s"><a target="_blank" href="<%= event.url + q %>"><button type="button" class="btn btn-danger">Pay now</button></a></div>
+
+
+                     <%  } else {%>
+
+                         <div class="col col-12 text-center animated fadeInUp delay-1s"><a  href="login"><button type="button" class="btn btn-danger">Login and pay</button></a></div>
+
+
+                     <%}%>
+
+                     
+            <% } else {%>
+
+                     <div class="col col-12 text-center animated fadeInUp delay-1s"><button type="button" class="btn btn-dark">payment disabled</button></div>
+
+
+            <%}%>
+             
+
+             <div class="space-50"></div>             
+             
+             
+            
+        </div>
+    </div>
+
+
+    </section>
+
+
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 ">
+                     <ul class="social_dhishna animated fadeInUp delay-1s">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="/assets/js/modernizr.custom.js"></script> 
+    <!-- script -->
+    <script src="/assets/js/navbar.js"></script>
+   
+    <!-- script -->
+
+</body>
+</html>

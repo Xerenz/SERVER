@@ -4,12 +4,24 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 let UserSchema = new Schema(
     {
-        name : {type:String, require: true, max: 100},
-        password : {type: String, require: true},
-        phone : {type: String, require: true},
-        email : {type: String, require: true},
-        events : [{type: Schema.Types.ObjectId, ref: "PaidEvent"}],
-        ws : [{type: Schema.Types.ObjectId, ref: "Workshop"}]
+    	// auth info
+    	username : {type: String, required: true, unique: true},
+        password : {type: String},
+        resetPasswordToken : {type: String},
+        resetPasswordExpires : {type: Date},
+
+    	// personal info
+        name : {type:String, max: 100},
+        phone : {type: String},
+        inst : {type: String},
+
+        // registration info
+        events : [{type: String, unique: true}],
+        ws : [{type: String, unique: true}],
+
+        // accommodation
+        AccApplied : String,
+        AccDate : [String]
     }
 );
 

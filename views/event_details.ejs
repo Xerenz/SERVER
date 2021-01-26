@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA  - Events</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/event.css">
+    <link rel="stylesheet" href="/assets/css/event_box.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/social_icon.css">
+    <script src="/assets/js/overlay_close.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+    <style>
+    .nav-link{
+        margin: 10px;
+    }
+    </style>
+    
+
+</head>
+<body>  
+
+     <!-- canvas section -->
+     <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="/assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <div class="back_button animated zoomIn delay-1s">
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
+    </div>
+
+
+<!-- navbar -->
+<%- include("partials/nav") %>
+<!-- navbar ends -->
+<section>
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="space"></div>
+            <div class="col col-12 text-white animated fadeInUp delay-1s"> <a href="/event" style="font-size: 2em" title=""><i class="fas fa-long-arrow-alt-left"></i></a></div>
+            <div class="space-50"></div>
+            <div class="col col-12 text-center text-md-left">
+                <h3 class="home_head animated fadeInUp delay-1s"><%= event.name %></h3>
+            </div>
+        </div><!-- &&row -->
+         <!-- row -->
+        <!-- &&row -->
+        
+    </div><!-- container end -->
+    
+</section>
+
+
+
+    <!-- =========================================== -->
+    <section>
+    <div class="container">
+        <div class="row text-white">
+            
+
+             <!-- <div class="space-50"></div>   -->   
+             
+             
+            
+             <div class="info col col-12 animated fadeInUp delay-1s">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <% if(event.url != "" ){ %>
+
+                            <% if(logStatus == true) {%>
+       
+                                    <a class="nav-link bg-danger" target="_blank" href="<%= event.url + q %>">pay now</a>
+       
+       
+                            <%  } else {%>
+       
+                                <a  class="nav-link bg-danger" href="login">Login and pay</a>
+       
+       
+                            <%}%>
+       
+                            
+                   <% } else {%>
+       
+                            <a  class="nav-link  " id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+       
+       
+                   <%}%>
+                    
+                       
+                    </li>
+                  </ul>
+
+
+                  <!-- cccccccccccccccccccccccc -->
+                  <div class="tab-content" id="myTabContent">
+                      <div class="space-50"> </div>
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><span class="text-danger"><%= event.message %></span> <br><br> <%= event.content %></div>
+                    <!-- ccccccccccccccccccccc -->
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        Registration Fees : <%= event.fees %> <br><br>
+                        Date : <%= event.date %> <br><br>
+                        Prize Worth : <%= event.price1%>
+                    </div>
+                    <!-- cccccccccccccccccccc -->
+
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <% event.contact.forEach(contact => { %>
+
+                            <%= contact.name %> : &nbsp; <a href="tel:<%= contact.phone %>"><%= contact.phone %></a> <br>
+   
+                        <% }) %>
+                        
+                    </div>
+
+                    <!-- cccccccccccccccccccc -->
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                       Spot Registration Only <br><br>
+
+                       <%= event.message%>
+
+                    </div>
+
+                    <!-- cccccccccccccccccccc -->
+                  </div>
+            
+            </div>
+             
+             
+            
+        </div>
+    </div>
+
+
+    </section>
+
+
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 ">
+                     <ul class="social_dhishna animated fadeInUp delay-1s">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="/assets/js/modernizr.custom.js"></script> 
+    <!-- script -->
+    <script src="/assets/js/navbar.js"></script>
+   
+    <!-- script -->
+
+</body>
+</html>

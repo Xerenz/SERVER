@@ -4,176 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DHISHNA - | WORKSHOP</title>
+    <title>DHISHNA  - Workshop</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-    <link rel="stylesheet" href="assets/css/workshop.css">
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/social_icon.css">
-    
-    
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/event.css">
+    <link rel="stylesheet" href="/assets/css/event_box.css">
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <link rel="stylesheet" href="/assets/css/social_icon.css">
+    <script src="/assets/js/overlay_close.js"></script>
 </head>
-<body>
+<body>  
 
-        <!-- navbar -->
-        <%- include("partials/nav.ejs"); %>
-    <!-- navbar ends -->
-    <section>
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="space"></div>
-                <div class="col col-12 text-center text-md-left">
-                    <h3 class="home_head">WORKSHOP</h3>
-                </div>
-            </div><!-- &&row -->
-             <!-- row -->
-            <div class="row">
-                <div class="col col-12 col-xl-6">
-                    <div class="space-50"></div>
-                    <div class="col col-12 " >
-                        <ul class="filter_link">
-                            <li><a href="">All</a></li>
-                            <li><a href="">Codeing</a></li>
-                            <li><a href="">Games & fun</a></li>
-                            <li><a href="">Management</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- &&row -->
-            
-        </div><!-- container end -->
-        
+     <!-- canvas section -->
+     <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="/assets/js/stars.js"></script>
     </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <div class="back_button animated zoomIn delay-1s">
+        <a href="home"><img src="/assets/img/logo.png" alt=""></a>
+    </div>
+
+
+<!-- navbar -->
+ <%- include("partials/nav") %>
+    
+<!-- navbar ends -->
+<section>
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="space"></div>
+            <div class="space-50"></div>
+            <div class="col col-12 text-center text-md-left">
+                <h3 class="home_head animated fadeInUp delay-1s">WORKSHOPS</h3>
+            </div>
+        </div><!-- &&row -->
+         <!-- row -->
+        <!-- &&row -->
+        
+    </div><!-- container end -->
+    
+</section>
+
+
+
     <!-- =========================================== -->
     <section>
     <div class="container">
         <div class="row">
-            <div class="col col-12 stage">
-                <div class="space-50"></div>
-                <div class="container_c">
+            <div class="col col-12">
+                 <div class="space-50"></div>
+                <ul class=" clearfix">
 
-                    <!-- card -->
-                    <div class="card">
-                        <div class="imgBx" data-text="Design">
-                            <div class="workshop_head">
-                                ML Workshop
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div>
-                                <h3>Design</h3>
-                                <p>aofaifsinfsnfin </p>
-                                <a href="#">know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
+                    <% for(var i=0;i<events.length;i++){ %>
 
-
-                     <!-- card -->
-                     <div class="card">
-                        <div class="imgBx" data-text="Design">
-                            <div class="workshop_head">
-                                ML Workshop
+                        <!-- box -->
+                    <!-- ====================================== -->
+                       
+                        <li class="scene animated zoomIn delay-1s">
+                           
+                            <div class="movie" onclick="return true">
+                                <div class="poster">
+                                    <!-- <div class="poster_head"></div> -->
+                                    <img src="/assets/img/workshops/<%= events[i].details%>.jpeg" alt="" >
+                                </div>
+                                 
+                                <div class="info">
+                                   
+                                    <header>
+                                        <h6><%= events[i].name %></h6>
+                                    </header>
+                                    <a href="/workshop/<%= events[i].name%>/knowmore" >
+                                    <p >
+                                        <%= events[i].content %>
+                                    </p>
+                                    </a>
+                                    <a href="/workshop/<%= events[i].name%>/knowmore" >
+                                    <div class="box_button text-center text-danger">
+                                        <span>Register</span>
+                                    </div>
+                                    </a>
+                                </div>
+                            
                             </div>
-                        </div>
-                        <div class="content">
-                            <div>
-                                <h3>Design</h3>
-                                <p>aofaifsinfsnfin </p>
-                                <a href="#">know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-
-
-                     <!-- card -->
-                     <div class="card">
-                        <div class="imgBx" data-text="Design">
-                            <div class="workshop_head">
-                                ML Workshop
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div>
-                                <h3>Design</h3>
-                                <p>aofaifsinfsnfin </p>
-                                <a href="#">know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-
-
-                     <!-- card -->
-                     <div class="card">
-                        <div class="imgBx" data-text="Design">
-                            <div class="workshop_head">
-                                ML Workshop
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div>
-                                <h3>Design</h3>
-                                <p>aofaifsinfsnfin </p>
-                                <a href="#">know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-
-                     <!-- card -->
-                     <div class="card">
-                        <div class="imgBx" data-text="Design">
-                            <div class="workshop_head">
-                                ML Workshop
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div>
-                                <h3>Design</h3>
-                                <p>aofaifsinfsnfin </p>
-                                <a href="#">know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-
-                     <!-- card -->
-                     <div class="card">
-                        <div class="imgBx" data-text="Design">
-                            <div class="workshop_head">
-                                ML Workshop
-                            </div>
-                        </div>
-                        <div class="content">
-                            <div>
-                                <h3>Design</h3>
-                                <p>aofaifsinfsnfin </p>
-                                <a href="#">know more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
+                            
+                        </li>
+                        <!-- overlay -->
+                        
+                        <!-- overlay end -->
+                     <!-- box ends -->
+                     <!-- ================================================= -->
 
 
 
-                </div>
+                   <% } %>
+                    
+
+                </ul>
             </div>
         </div>
     </div>
 
+
     </section>
 
 
-    <%- include("partials/footer.ejs"); %>
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 ">
+                     <ul class="social_dhishna ">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
 
+        </div>
+    </section>
+
+
+    <script src="/assets/js/modernizr.custom.js"></script> 
     <!-- script -->
-    <script src="assets/js/navbar.js"></script>
+    <script src="/assets/js/navbar.js"></script>
+   
     <!-- script -->
+
 </body>
 </html>

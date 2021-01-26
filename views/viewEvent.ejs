@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA  - ADMIN DASH</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/outreach.css">
+    <!-- <link rel="stylesheet" href="assets/css/header.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/social_icon.css"> -->
+    
+    
+</head>
+<body>
+
+
+
+     <!-- canvas section -->
+     <section>
+       <!--  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="assets/js/stars.js"></script> -->
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <!-- <div class="back_button animated zoomIn delay-1s">
+        <a href="/volunteer"><img src="/assets/img/logo.png" alt=""></a>
+    </div> -->
+
+
+<!-- navbar -->
+
+        <!-- navbar -->
+        <section>
+            
+    
+    <!-- navbar ends -->
+    <section>
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="space"></div>
+                <div class="col col-12 text-center text-md-left">
+                    <h3 class="home_head animated fadeInUp delay-1s">View Events </h3> <br>
+                </div>
+                <div class="col col-12 text-white animated fadeInUp delay-1s">
+                    In case of any difficulties contact Dhishna Tech Team 
+                </div>
+                <div class="space"></div>
+
+            </div><!-- &&row -->
+             <!-- row -->
+            <div class="row">
+                <div class="col col-12 animated fadeInUp delay-1s">
+                    <a href="new" title=""><button type="button" class="btn btn-danger">ADD EVENTS</button></a>
+                    
+                    
+                </div>
+
+            </div><!-- &&row -->
+            
+        </div><!-- container end -->
+        
+    </section>
+    <!-- =========================================== -->
+    <div class="space-50"></div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12">
+
+                    <!-- ======= -->
+                    <div class="row">
+                            <% for(var i=0;i<events.length;i++){ %>
+                                <div class="col col-12 stage p-3 casection animated zoomIn delay-1s <% if(events[i].isOpen == "true"){ %> bg-success <% }%>">
+                                    <a href="edit/<%= events[i]._id %>"><button>Edit</button></a> 
+                                     <a href="delete/<%= events[i]._id %>" onclick="return confirm('Do you really want to delete the event?');" ><button>delete</button></a> 
+                                    <div class="outreach_text">
+                                        Name: 
+                                        <%= events[i].name %>
+                                    </div>
+                                        <!-- <div class="space-50"></div> -->
+                                    <div class="outreach_p p-2">
+                                        description : 
+                                         <%= events[i].content %>
+                                    </div>
+                                    <div class="outreach_p p-2">
+                                        label : 
+                                         <%= events[i].label %>
+                                    </div>
+                                    <div class="outreach_p p-2">
+                                       date : 
+                                         <%= events[i].date %>
+                                    </div>
+
+                                    <div class="outreach_p p-2">
+                                       fees : 
+                                         <%= events[i].fees %>
+                                    </div>
+                                   
+                                    <div class="outreach_p p-2">
+                                        IsOpen status : 
+                                         <%= events[i].isOpen %>
+                                    </div>
+
+                                    <div class="outreach_p p-2">
+                                        Image name saved in DB:
+                                         <%= events[i].details %>
+                                    </div>
+
+                                     <div class="outreach_p p-2">
+                                         Prize worth:
+                                         <%= events[i].price1 %>
+                                    </div>
+
+                                      <div class="outreach_p p-2">
+                                        Second Prize:
+                                         <%= events[i].price2 %>
+                                    </div>
+
+                                    <div class="outreach_p p-2">
+                                        Third Prize:
+                                         <%= events[i].price3 %>
+                                    </div>
+
+
+
+                                    <div class="outreach_p p-2">
+                                        contact detail  :
+                                         <%= events[i].contact[0].name %> :
+                                         <%= events[i].contact[0].phone %>
+                                    </div>
+                                    <div class="outreach_p p-2">
+                                        contact detail  :
+                                        <%= events[i].contact[1].name %> :
+                                         <%= events[i].contact[1].phone %>
+                                    </div>
+
+                                    <div class="outreach_p p-2">
+                                        message:
+                                         <%= events[i].message %>
+                                    </div>
+                                    <div class="outreach_p p-2">
+                                        Payment:
+                                         <%= events[i].url %>
+                                    </div>
+                           
+                           
+                                </div>
+
+                                    <div class="space-50"></div>
+
+                            <%  } %>
+
+                                
+
+                           
+                         <div class="space"></div>
+                        
+                    </div>
+                   
+                     <!-- ======= -->
+                    
+                    
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+
+    <!-- script -->
+    <!-- <script src="assets/js/navbar.js"></script> -->
+    <!-- script -->
+</body>
+</html>

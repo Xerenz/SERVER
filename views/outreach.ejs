@@ -4,40 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DHISHNA - | EXHIBITION</title>
+    <title>DHISHNA  - Initiatives</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-    <link rel="stylesheet" href="assets/css/outreach.css">
     <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/outreach.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/social_icon.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     
     
 </head>
 <body>
 
 
-        <!-- navbar -->
-        <%- include("partials/nav.ejs"); %>    
+
+     <!-- canvas section -->
+     <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <div class="back_button animated zoomIn delay-1s">
+        <a href="home"><img src="assets/img/logo.png" alt=""></a>
+    </div>
+
+
+<!-- navbar -->
+
+    <%- include("partials/nav") %>
+    
     <!-- navbar ends -->
     <section>
         <div class="container">
+                  
+
+
             <!-- row -->
             <div class="row">
                 <div class="space"></div>
                 <div class="col col-12 text-center text-md-left">
-                    <h3 class="home_head">OUTREACH</h3>
+                    <h3 class="home_head animated fadeInUp delay-1s text-center">INITIATIVES </h3> <br><br>
                 </div>
             </div><!-- &&row -->
+
+            <div class="row align-items-center">
+                <div class="col col-6  ml-auto mr-auto animated fadeInUp delay-1s"> 
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block w-100" src="/assets/img/outreach/3.jpeg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/outreach/2.jpeg" alt="Second slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/outreach/1.jpeg" alt="Third slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/outreach/4.jpeg" alt="Third slide">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                  
+
+                <div class="col col-6  ml-auto mr-auto animated fadeInUp delay-1s"> 
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                          <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+                          <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+                          <li data-target="#carouselExampleIndicators2" data-slide-to="3"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img class="d-block w-100" src="/assets/img/outreach/2.jpeg" alt="First slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/outreach/1.jpeg" alt="Second slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/outreach/4.jpeg" alt="Third slide">
+                          </div>
+                          <div class="carousel-item">
+                            <img class="d-block w-100" src="/assets/img/outreach/3.jpeg" alt="Third slide">
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                  
+            </div>
              <!-- row -->
             <div class="row">
                 <div class="col col-12">
                     <div class="space-50"></div>
-                    <div class="row">
+                    <div class="row animated fadeInUp delay-1s">
                         <div class="col col-12 col-md-6" >
                             <div class="outreach_p">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus quam ac tincidunt posuere. Etiam commodo neque ligula, eget auctor urna iaculis vel. Phasellus at orci ultrices, suscipit purus id, porttitor sem. In accumsan feugiat vulputate. Fusce scelerisque felis quis lectus venenatis, ac semper lorem fringilla. Donec ut odio bibendum,
+                                We Cusatians believe that being a good engineer is not just about excelling in academics and building technologies. It also involves a humanitarian aspect of giving back to the society and making them a part of our professional journey. Hence we want our folks in and around to know our vision and what the future holds. Our team undertakes initiatives such as the introduction of technology to the high school students, social events like clean up campaigns and many more. Connecting with the best organizations, companies, entrepreneurs and individuals will help us and the people around us, entering us in perpetual learning and development process, which is essential for the country and our people.
                             </div>
                             
                         </div>
@@ -81,40 +175,95 @@
                 <div class="col col-12">
                     <!-- ======= -->
                     <div class="row">
-                        <div class="col col-12 stage p-3 casection">
+                        <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
                             <div class="outreach_text">
                                 DHISHNA 2020 Ambassador Programme
                             </div>
                             <div class="outreach_p p-2">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus quam ac tincidunt posuere. Etiam commodo neque ligula, eget auctor urna iaculis vel. Phasellus at orci ultrices, suscipit purus id, porttitor sem. In accumsan feugiat vulputate. Fusce scelerisque felis quis lectus venenatis, ac semper lorem fringilla. Donec ut odio bibendum,
+                                Improve your management skills and enhance your image. Since you would be representing CUSAT, you would be responsible for certain duties. This will improve your managerial and marketing skills, that would boost your personal growth. Furthermore we would provide you with the necessary experience that would make you more likely to be accepted for similar events.
                             </div>
-                            <button>ca.dhihsna.org</button>
+                           <a target="_blank" href="https://ca.dhishna.org"><button>ca.dhishna.org</button></a> 
                         </div>
                     </div>
                     <div class="space"></div>
-                     <!-- ======= -->
-                    
-                     <!-- ======= -->
                     <div class="row">
-                        <div class="col col-12 stage p-3 casection">
+                        <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
                             <div class="outreach_text">
-                                DHISHNA 2020 Quiz Competition
+                                DHISHNA 2020 CLEAN KOCHI CAMPAIGN
                             </div>
                             <div class="outreach_p p-2">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus quam ac tincidunt posuere. Etiam commodo neque ligula, eget auctor urna iaculis vel. Phasellus at orci ultrices, suscipit purus id, porttitor sem. In accumsan feugiat vulputate. Fusce scelerisque felis quis lectus venenatis, ac semper lorem fringilla. Donec ut odio bibendum,
+                                We are well aware of our social responsibilities as aspiring engineers. Not only in technical field, we know our responsibilities span in all spheres of life. It's hard for us to not notice what our earth is suffering from. So we have decided to show our concern and action on 18th January 2020. About a hundred volunteers from School Of Engineering, Cusat, will clean Fort Kochi beach. We'll also see how this collected waste can be effectively utilised.Along with that there will be a flash mob and also other events for entertainment. We are giving the amount collected from the activities to Solace, a charity programme. This undoubtedly is a very social concerned event, with a lot of goodness in its very vision. It resonates with our motto, that we will build a better world.
                             </div>
-                            <button>Register</button>
+                          
                         </div>
                     </div>
-                    <div class="space-50"></div>
+                    <div class="space"></div>
+                    <!--<div class="row">
+                        <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
+                            <div class="outreach_text">
+                               Inquizition
+                            </div>
+                            <div class="outreach_p p-2">
+                                Quiz, the mind sport, is one of the most popular events conducted across the globe. It not only urges young minds to crave for exciting prizes offered, but also helps in improving their critical thinking and gives them an opportunity to hone their teamwork skills. 
+In this context, Dhishna 2020 offers such an interactive platform, Inquizition, for all those ignited minds in our very own CUSAT campus.
+Inquizition is open to students of all classes, where they can participate as a team of two members. The competition will be conducted in two rounds and six teams will qualify for the finale. Exciting prizes await the winners of Inquizition Dhishna 2020.
+We aim at encouraging students to look beyond their textual knowledge and establish a relationship between theory and application of learned concepts. We invite all those enthusiastic learners to join this quest of knowledge.
+                            </div>
+                             <a target="_blank" href="/initiates/quiz/view"><button>Register</button></a> 
+                        </div>
+                    </div>-->
+
+                     <div class="space"></div>
+                   <!--- <div class="row">
+                        <div class="col col-12 stage p-3 casection animated zoomIn delay-1s">
+                            <div class="outreach_text">
+                               Invento
+                            </div>
+                            <div class="outreach_p p-2">
+                               Young minds are conquering the world by showcasing innovations and ideas that even blow accomplished minds. With the aim of helping bright minds broaden their vision and develop scientific temperament, Dhishna 2020 brings you, The Invento - a sparkling platform to showcase talented brains in various categories. Our event targets school students from classes 8th to 12th, who can exhibit their skills in the categories that include:
+Working model, where the participants are asked to present their ideas practically.
+Still model, where a rough model of the innovation could be showcased with relevent details.
+Paper presentation, where the participants have to present a topic of interest to a judging panel with the affairs and data included.
+Dhishna 2020 welcomes all the freshly ignited young minds, come forth and show us what you've got!
+                            </div>
+                             <a target="_blank" href="/initiates/exhibition/view"><button>Register</button></a> 
+                        </div>
+                    </div> -->
                      <!-- ======= -->
+                    
+                    
                 </div>
             </div>
         </div>
     </section>
     
-    <%- include("partials/footer.ejs"); %>
-    
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 animated zoomIn delay-1s">
+                     <ul class="social_dhishna ">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+    </section>
+
+
     <!-- script -->
     <script src="assets/js/navbar.js"></script>
     <!-- script -->

@@ -7,7 +7,11 @@ let PaidEventSchema = new Schema(
         date : {type: Date},
         price : {type: String},
         branch : {type: String, required: true},
-        content : {type: String}
+        content : {type: String},
+        label : {type: String},
+        
+        // payment url
+        url : {type: String}
     }
 );
 

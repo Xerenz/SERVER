@@ -18,7 +18,7 @@ Build the scene and rotate on hover
 
 .scene {
 	width: 260px;
-	height: 400px;
+	height: 300px;
 	margin: 30px;
 	float: left;
 	-webkit-perspective: 1000px;
@@ -29,7 +29,7 @@ Build the scene and rotate on hover
 
 .movie {
 	width: 260px;
-	height: 400px;
+	height: 300px;
 	-webkit-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
@@ -55,14 +55,13 @@ Transform and style the two planes
 .movie .info {
 	position: absolute;
 	width: 260px;
-	height: 400px;
+	height: 300px;
 	background-color: #1d1e20;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
 	font-family:'Montserrat', sans-serif;
-
-	
+	font-size: 1em;	
 }
 
 .movie .poster  {
@@ -75,6 +74,11 @@ Transform and style the two planes
 	border-radius: 20px;
 	
 
+}
+
+.movie .poster img {
+	width: 100%;
+	height: 100%;
 }
 
 .movie .info {
@@ -120,10 +124,8 @@ Movie information
 .info header {
 	color: #FFF;
 	padding: 7px 10px;
-	/* font-weight: bold; */
 	background-size: contain;
 	background-repeat: no-repeat;
-	/* text-shadow: 0px 1px 1px rgba(0,0,0,1); */
 }
 
 .info header h1 {
@@ -138,6 +140,7 @@ Movie information
 	color: white;
 	line-height: 1.4em;
 	border-top: 10px solid #555;
+	font-family:'Montserrat', sans-serif;
 }
 
 /*************************************
@@ -174,20 +177,12 @@ Generate "lighting" using box shadows
 Posters and still images
 **************************************/
 
-.scene:nth-child(3n+1) .movie .poster {
+.scene:nth-child(n+1) .movie .poster {
   /* background-image: url(../img/poster01.jpg); */
-  background:linear-gradient(135deg, #F36265 0%,#961276 100%);
+  /* background:linear-gradient(135deg, #F36265 0%,#961276 100%); */
+  background:linear-gradient(135deg, #622774 0%,#c53364 100%);
 }
 
-.scene:nth-child(3n+2) .poster {
-  /* background-image: url(../img/poster02.jpg); */
-  background:linear-gradient(135deg, #C56CD6 0%,#3425AF 100%);
-}
-
-.scene:nth-child(3n+3) .poster {
-  /* background-image: url(../img/poster03.jpg); */
-  background:linear-gradient(135deg, #c3ec52 0%,#0ba29d 100%);
-}
 
 /* .scene:nth-child(3n+1) .info header {
 	
@@ -203,6 +198,11 @@ Fallback
 	position: relative;
 }
 
+
+.movie .info p{
+	max-height: 200px;
+	overflow: hidden;
+}
 /*************************************
 Media Queries
 **************************************/
@@ -210,5 +210,16 @@ Media Queries
 	.scene {
 		float: none;
 		margin: 30px auto 60px;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.movie .info{
+		font-size: 0.6em;
+	}
+
+	.movie .info p{
+		max-height: 200px;
+		overflow: hidden;
 	}
 }

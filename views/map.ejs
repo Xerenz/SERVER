@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map | DHISHNA 2020</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/social_icon.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+    <style>
+
+        #map{
+            /* border-radius: 10px; */
+            height: 350px;
+            transition: all 0.5s ease-in-out;
+            /* -webkit-filter: hue-rotate(180deg) invert(100%); */
+
+        }
+        #map:hover{
+            box-shadow: 0 0 30px rgb(255, 0, 255);
+            transition: all 0.5s ease-in-out;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <!-- canvas section -->
+     <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+
+    <!-- back button -->
+    <div class="back_button animated fadeInUp delay-1s">
+         <a href="home"><img src="assets/img/logo.png" alt=""></a>
+    </div>
+
+        <!-- navbar -->
+        <%- include("partials/nav") %>
+    
+    <!-- navbar ends -->
+    <section>
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="space"></div>
+                <div class="col col-12 text-center text-md-left">
+                    <h3 class="home_head animated fadeInUp delay-1s text-center">DHISHNA </h3>
+                </div>
+            </div><!-- &&row -->
+            <!-- row -->
+            <div class="row animated fadeInUp delay-1s">
+                <div class="col col-12">
+                    <div class="space-50"></div>
+                    <div class="row ">
+                        <div class="col col-12" >
+                            <div class="about_p text-center">
+                                Navigate Through CUSAT for Exciting Dhishna 2020 events.
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- <div class="space-50"></div> -->
+                </div>
+            </div><!-- &&row -->
+            
+        </div><!-- container end -->
+        
+    </section>
+    <!-- =========================================== -->
+    <div class="space-50"></div>
+    
+
+    <section>
+        <div class="col col-sx-12 col-sm-12 col-md-8 col-lg-8 mx-auto">
+            <div id="map">
+    
+            </div>
+    
+        </div>
+    
+    </section>
+
+    <section>
+        <!-- footer social media icons -->
+        <div class="space"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 animated fadeIn delay-1s">
+                    <ul class="social_dhishna ">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/dhishna.cusat/" title=""><i class="fab fa-facebook-f" ></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com/dhishna.cusat/" title=""><i class="fab fa-instagram" ></i></a>
+                        </li>
+                       
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/channel/UCxa_SzyC6Ylv2M19RGVCArg" title=""><i class="fab fa-youtube" ></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="space"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- script -->
+    <script src="assets/js/navbar.js"></script>
+    <!-- script -->
+    
+    <script>
+        var atribution = "© OpenStreetMap contributors";
+        var mymap = L.map('map').setView([10.0442,76.3282], 14.5);
+        var tileURL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+        var dhishnaIcon = L.icon({
+            iconUrl: '/assets/img/map/dhishna-icon.png',
+            iconSize:     [40, 40], // size of the icon
+            shadowSize:   [50, 64], // size of the shadow
+            iconAnchor:   [20, 40], // point of the icon which will correspond to marker's location
+            shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [0,-40] // point from which the popup should open relative to the iconAnchor
+        });
+        
+        const tiles = L.tileLayer(tileURL,{atribution});
+        tiles.addTo(mymap);
+        var marker = L.marker([10.04208, 76.32815]).addTo(mymap);
+        marker.bindPopup("<b>CUSAT</b><br> <a href=\"https://goo.gl/maps/cHxYFkPUGmSTpaCz6\">Show in Maps</a>").openPopup();
+        var SOEmarker = L.marker([10.04997, 76.33064]).addTo(mymap);
+        SOEmarker.bindPopup("<b>SOE,CUSAT</b><br>School of Engineering, CUSAT<br> <a href=\"https://goo.gl/maps/YgViUUFkceFEA69E9\">Show in Maps</a>");
+        
+        
+        var FrontDeskmarker = L.marker([10.04980, 76.3309],{icon : dhishnaIcon }).addTo(mymap);
+        FrontDeskmarker.bindPopup("<b>DHISHNA 2020 Front Desk</b><br>School of Engineering, CUSAT<br> <a href=\"https://goo.gl/maps/YgViUUFkceFEA69E9\">Show in Maps</a>");
+        var Seminarmarker = L.marker([10.04392, 76.32410]).addTo(mymap);
+        Seminarmarker.bindPopup("<b>Seminar Complex</b><br>CUSAT <br> <a href=\"https://goo.gl/maps/HFTUt1reMar1TFBa7\">Show in Maps</a>");
+    </script>
+
+</body>
+</html>

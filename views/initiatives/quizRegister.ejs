@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA - | Register |</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+   <!--  <script src="/assets/js/loader.js"></script> -->
+</head>
+<body>
+   
+    <!-- canvas section -->
+    <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="/assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+    <section>
+        <div class="space"></div>
+        <div class="row">
+            <div class=" col col-12 text-center text-white display-4">
+                Register for quiz
+
+            </div>
+            <div class="col col-12 text-center">
+                <small class="text-center text-danger"><%= message2 %></small>
+            </div>
+            <div class="col col-12 text-center">
+                <a href="/assets/img/Quiz_and_exhibition.pdf" title=""><button type="button" class="btn btn-danger">Download full details</button></a>
+            </div>
+
+           
+            <div class="space-50"> </div>
+            <div class="col col-12">
+                
+            </div>
+            <div class="col col-12">
+                <div class="form_box animated fadeIn delay-1s ">
+                    
+                        <form  id="login_form" class="login_form" method="POST" action="register">
+                            <div class="form-group">
+                                <label for="name">Enter your team name</label>
+                                <input type="name" class="form-control" id="name" name="teamname"  required>
+                            </div>
+
+                            <div class="space-50"></div>    
+                            <div class="text-warning">#Enter details of member 1</div>
+                              <div class="space-50"></div> 
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="name" class="form-control" id="name" name="name1"  required
+                                placeholder="eg: John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="Email" name="email1" required
+                                placeholder="eg: someone@mail.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone no:</label>
+                                <input type="tel" class="form-control" id="phone" name="phone1"  pattern="[0-9]{10}" required placeholder="eg: 9089767545">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">College/school</label>
+                                <input type="name" class="form-control" id="name" name="college1"  required
+                                placeholder="">
+                            </div>
+
+                            <div class="space-50"></div>    
+                            <div class="text-warning">#Enter details of member 2</div>
+                            <div class="space-50"></div> 
+
+
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="name" class="form-control" id="name" name="name2"  required
+                                 placeholder="eg: John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="Email" name="email2" required
+                                 placeholder="eg: someone@mail.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone no:</label>
+                                <input type="tel" class="form-control" id="phone" name="phone2"  pattern="[0-9]{10}" required placeholder="eg: 9089767545">
+                            </div>
+                             <div class="form-group">
+                                <label for="name">College/school</label>
+                                <input type="name" class="form-control" id="name" name="college2"  required
+                                placeholder="">
+                            </div>
+                          
+                                <div class="text-center">
+                                    <button  class="btn btn-dark">Register</button>
+                                </div>
+                                <div class="space-50"></div>
+            
+                        </form>  <!-- form ends --> 
+                   
+                </div>
+            </div>
+
+             <div class="col col-12 text-center text-white">
+            	<small>
+            			<br>
+            	*The participant must reach for registration one hour before the competition starts. <br>
+            	*If the total registrations are not sufficient, the prize money amount is subject to change. <br><br>
+            	</small>
+            	
+            </div>
+        </div>
+    </section>
+
+    <!-- back button -->
+    <div class="back_button animated fadeInUp delay-1s">
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
+   </div>
+
+
+    <!-- theme tag section -->
+    <section>
+        <div class="theme">
+            &copy; DHISHNA 2020 <br>
+           THE INFINITE ODYSSEY
+          </div>
+    </section>
+    <!-- theme tag section ends -->
+    <script src="/assets/js/boom.js"></script>
+</body>
+</html>

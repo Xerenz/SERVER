@@ -1,7 +1,80 @@
-<h1>This is the Login Page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA - | LOGIN |</title>
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-<form action="/login" method="POST">
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <button>LogIn</button>
-</form>
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
+    
+</head>
+<body>
+   
+    <!-- canvas section -->
+    <section>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js'></script>
+        <script src="/assets/js/stars.js"></script>
+    </section>
+    <!-- canvas ends -->
+
+    <section>
+        <div class="space"></div>
+        <div class="row">
+            <div class="col col-12">
+                <div class="form_box animated fadeIn delay-1s ">
+                 
+                        <form  id="login_form" class="login_form" method="POST" action="/login">
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="Email" name="username"required>
+                            </div>
+                            <div class="form-group">
+                              <label for="password">Password</label>
+                              <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" required>
+                              <small class="text-danger"><%= message %> </small>
+                            </div>
+            
+                                <div class="text-center">
+                                    <button  class="btn btn-dark">Login</button>
+                                </div>
+                                <div class="space-50"></div>
+                            <div class="col col-12 text-center">
+                                Don't have an account ? <a href="/register" class="text-danger"> Sign Up</a> 
+                            </div>
+                             <div class="col col-12 text-center">
+                               <br> Forgot password ? <a href="/forgot">Reset</a> 
+                            </div>
+                        
+                        </form>  <!-- form ends --> 
+                   
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- back button -->
+    <div class="back_button animated fadeInUp delay-1s">
+        <a href="/home"><img src="/assets/img/logo.png" alt=""></a>
+   </div>
+
+
+    <!-- theme tag section -->
+    <section>
+        <div class="theme">
+            &copy; DHISHNA 2020 <br>
+           THE INFINITE ODYSSEY
+          </div>
+    </section>
+    <!-- theme tag section ends -->
+    <script src="/assets/js/boom.js"></script>
+</body>
+</html>

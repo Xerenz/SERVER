@@ -1,14 +1,6 @@
 const Exhibition = require("../models/exhibition.model");
-const FreeEvent = require("../models/freeEve.model");
-const PaidEvent = require("../models/paidEve.model");
 const Workshop = require("../models/ws.model");
-
-const event_array = [
-    Exhibition,
-    FreeEvent,
-    PaidEvent,
-    Workshop,
-]
+const Event = require("../models/event.model");
 
 // Controller for all view requests
 
@@ -16,112 +8,263 @@ exports.admin_panel = function(req, res) {
     res.render("admin/admin");
 };
 
-exports.admin_free = function(req, res) {
-    res.render("admin/free");
-};
-
-exports.admin_paid = function(req, res) {
-    res.render("admin/paid");
-};
-
-exports.admin_exhibition = function(req, res) {
-    res.render("admin/exhibition");
-};
-
-exports.admin_ws = function(req, res) {
-    res.render("admin/ws");
-};
-
-// =============================================== //
-
-// Controller for post routes
-
-exports.admin_post_free = function(req, res) {
-    let event_name = req.body.name;
-    let event = new FreeEvent({
-        name: req.body.name,
-        branch: req.body.branch,
-        date: req.body.date,
-        content: req.body.content
-    });
-
-    event.save(function(err) {
-        if (err) 
-            return console.log(err);
-        console.log("Event added " + event_name);
-        res.redirect("free");
+exports.view_workshop = function(req, res) {
+    Workshop.find({branch : req.params.branch}, function(err, workshops) {
+        res.render("admin/viewWorkshop", {events : workshops});
     });
 };
 
-exports.admin_post_paid = function(req, res) {
-    let event_name = req.body.name;
-    let event = new PaidEvent({
-        name: req.body.name,
-        branch: req.body.branch,
-        price: req.body.price,
-        date: req.body.date,
-        content: req.body.content
-    });
-
-    event.save(function(err) {
-        if (err) 
-            return console.log(err);
-        console.log("Event added " + event_name);
-        res.redirect("paid");
+exports.view_events = function(req, res) {
+    Event.find({branch : req.params.branch}, function(err, events) {
+        res.render("admin/viewEvent", {events : events});
     });
 };
 
-exports.admin_post_exhibition = function(req, res) {
-    let event_name = req.body.name;
-    let event = new Exhibition({
-        name: req.body.name,
-        branch: req.body.branch,
-        price: req.body.price,
-        date: req.body.date,
-        content: req.body.content
-    });
-
-    event.save(function(err) {
-        if (err) 
-            return console.log(err);
-        console.log("Exhibition added " + event_name);
-        res.redirect("exhibition");
+exports.view_exhibition = function(req, res) {
+    Exhibition.find({branch : req.body.branch}, function(err, exhibits) {
+        res.render("admin/viewExhibition", {events : exhibits});
     });
 };
 
-exports.admin_post_ws = function(req, res) {
-    let event_name = req.body.name;
-    let event = new Workshop({
-        name: req.body.name,
-        branch: req.body.branch,
-        price: req.body.price,
-        date: req.body.date,
-        content: req.body.content
-    });
+// addition of workshops, exhibitions, events
+exports.add_workshop = function(req, res) {
+    res.render("admin/addWorkshop", {branch : req.params.branch});
+};
 
-    event.save(function(err) {
-        if (err) 
-            return console.log(err);
-        console.log("Workshop added " + event_name);
-        res.redirect("ws");
+exports.add_events = function(req, res) {
+    res.render("admin/addEvents", {branch : req.params.branch});
+};
+
+exports.add_exhibitions = function(req, res) {
+    res.render("admin/addExhibition", {branch : req.params.branch});
+};
+
+// deleting
+exports.delete_workshop = function(req, res) {
+    Event.findByIdAndDelete(req.params.id, function(err, event) {
+        res.rendirect("/SantyDance/event/"+req.params.id+"/view");
     });
 };
 
-
-// ================================================== //
-
-// to further up the admin interface
-
-exports.get_branch_events = function(req, res) {
-    var branch_events = [];
-    event_array.forEach(function(event) {
-        event.find({branch : req.body.param}, function(err, docs) {
-            if (err) 
-                return console.log(err);
-            branch_events.push(docs);
-        }); 
-        console.log("finished searching Event");
+exports.delete_exhibition = function(req, res) {
+    Exhibition.findByIdAndDelete(req.params.id, function(err, event) {
+        res.rendirect("/SantyDance/exhibition/"+req.params.id+"/view");
     });
+};
+
+exports.delete_event = function(req, res) {
+    Workshop.findByIdAndDelete(req.params.id, function(err, event) {
+        res.rendirect("/SantyDance/workshop/"+req.params.id+"/view");
+    });
+};
+
+// Controller for creating workshops
+
+exports.create_workshop = function(req, res) {
+
+    let contact1 = {
+        name : req.body.contact1,
+        phone : req.body.phone1
+    }
     
-    res.json(branch_events);
+    let contact2 = {
+        name : req.body.contact2,
+        phone : req.body.phone2
+    }
+
+    let workshop = new Workshop({
+        name : req.body.name,
+        branch : req.body.branch,
+        price : req.body.price,
+        date : req.body.date,
+        content : req.body.content,
+
+        contact : [contact1, contact2],
+
+        message : req.body.message,
+        isOpen : true,
+        details : req.body.details,
+        pdfUrl : req.body.pdf,
+        url : req.body.url
+    }); 
+
+    console.log(workshop);
+
+    workshop.save(function(err,data) {
+        if (err) return console.log(err);
+        else 
+            {   
+                res.redirect('view');
+            }
+    });
 };
+
+exports.create_event = function(req, res) {
+
+    let contact1 = {name : req.body.contact1, phone : req.body.phone1}
+    let contact2 = {name : req.body.contact2, phone : req.body.phone2}
+
+    console.log(req.body.branch)
+
+   event  = new Event( 
+        {
+            name : req.body.name,
+            branch : req.body.branch,
+            label : req.body.label,
+            content : req.body.content,
+            date : req.body.date,
+            fees : req.body.fees,
+            price1 : req.body.price1,
+            price2 : req.body.price2,
+            price3 : req.body.price3,
+            branch: req.body.branch,
+            contact : [contact1, contact2],
+            
+            message : req.body.message,
+            isOpen : true,
+
+            details : req.body.details,
+            pdfUrl : req.body.pdfUrl,
+        });
+
+    console.log(event)
+
+    event.save(function(err,data) {
+        if (err) return console.log(err);
+        else 
+            {   
+
+                res.redirect('view');
+            }
+    });
+};
+
+exports.create_exhibition = function(req, res) {
+
+    let contact1 = {
+        name : req.body.contact1,
+        phone : req.body.phone1
+    }
+    
+    let contact2 = {
+        name : req.body.contact2,
+        phone : req.body.phone2
+    }
+
+    let exhibition = new Exhibition({
+        name : req.body.name,
+        branch : req.body.branch,
+        price : req.body.price,
+        date : req.body.date,
+        content : req.body.content,
+
+        contact : [contact1, contact2],
+
+        message : req.body.message,
+        isOpen : true,
+        details : req.body.details,
+        pdfUrl : req.body.pdf,
+        url : req.body.url
+    }); 
+
+    console.log(workshop);
+
+    exhibition.save(function(err,data) {
+        if (err) return console.log(err);
+        else 
+            {   
+                res.redirect('view');
+            }
+    });
+};
+
+
+// updating 
+
+exports.update_workshop = function(req, res) {
+    let contact1 = {name : req.body.contact1, phone : req.body.phone1}
+    let contact2 = {name : req.body.contact2, phone : req.body.phone2}
+
+    // perform updating
+    Workshop.findByIdAndUpdate(req.params.id, {
+        name : req.body.name,
+        label : req.body.label,
+        content : req.body.content,
+        date : req.body.date,
+        price : req.body.fees,
+
+        contact : [contact1, contact2],
+        
+        message : req.body.message,
+
+        details : req.body.details,
+        pdfUrl : req.body.pdfUrl,
+
+    }, function(err, event) {
+        if (err) return console.log(err);
+        else 
+            {   
+                res.redirect('/SantyDance/workshop/'+event.branch + '/view');
+            }
+    });    
+};
+
+exports.update_event = function(req, res) {
+    let contact1 = {name : req.body.contact1, phone : req.body.phone1}
+    let contact2 = {name : req.body.contact2, phone : req.body.phone2}
+
+    // perform updating
+    Event.findByIdAndUpdate(req.params.id, {
+        name : req.body.name,
+        label : req.body.label,
+        content : req.body.content,
+        date : req.body.date,
+        fees : req.body.fees,
+        price1 : req.body.price1,
+        price2 : req.body.price2,
+        price3 : req.body.price3,
+
+        contact : [contact1, contact2],
+        
+        message : req.body.message,
+
+        details : req.body.details,
+        pdfUrl : req.body.pdfUrl,
+
+    }, function(err, event) {
+        if (err) return console.log(err);
+        else 
+            {   
+                res.redirect('/SantyDance/event/'+event.branch + '/view');
+            }
+    });    
+};
+
+exports.update_exhibition = function(req, res) {
+    let contact1 = {name : req.body.contact1, phone : req.body.phone1}
+    let contact2 = {name : req.body.contact2, phone : req.body.phone2}
+
+    // perform updating
+    Event.findByIdAndUpdate(req.params.id, {
+        name : req.body.name,
+        label : req.body.label,
+        content : req.body.content,
+        date : req.body.date,
+        price : req.body.fees,
+
+        contact : [contact1, contact2],
+        
+        message : req.body.message,
+
+        details : req.body.details,
+        pdfUrl : req.body.pdfUrl,
+
+    }, function(err, event) {
+        if (err) return console.log(err);
+        else 
+            {   
+                res.redirect('/SantyDance/exhibition/'+event.branch + '/view');
+            }
+    });    
+};
+

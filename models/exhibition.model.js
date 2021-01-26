@@ -7,7 +7,11 @@ let ExhibitionSchema = new Schema(
         date : {type: Date},
         price : {type: String, required: false},
         branch : {type: String, required: false},
-        content : {type: String}
+        content : {type: String},
+        label : {type: String},
+        
+        // payment url
+        url : {type: String}
     }
 );
 

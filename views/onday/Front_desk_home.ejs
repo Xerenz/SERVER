@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DHISHNA - FRONT DESK</title>
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <style type="text/css" media="screen">
+        .space{
+            width: 100%;
+            height: 100px;
+        }
+        .space-50{
+            width: 100%;
+            height: 50px;
+        }
+        .space-20{
+            width: 100%;
+            height: 20px;
+        }
+        .container{
+          overflow-x: scroll;
+        }
+        
+    </style>
+    
+</head>
+<body>
+   
+<div class="container">
+    <div class="row">
+        <div class="col col-12">
+            <div class="jumbotron jumbotron-fluid bg-white">
+                <div class="container">
+                  <h1 class="display-4"> <i class="fas fa-home"></i> FRONTDESK</h1>
+                  
+                </div>
+              </div>
+
+
+        </div>
+        <div class="col col-12">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link " id="home-tab"  href="/frontdesk/cs/dash" role="tab"  aria-selected="false">CS</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="profile-tab"  href="/frontdesk/it/dash" role="tab" aria-selected="false">IT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/ec/dash" role="tab"  aria-selected="false">EC</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/eee/dash" role="tab"  aria-selected="false">EEE</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/civil/dash" role="tab"  aria-selected="false">CIVIL</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/safety/dash" role="tab"  aria-selected="false">SAFETY </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="contact-tab"  href="/frontdesk/mec/dash" role="tab"  aria-selected="false">MEC </a>
+                  </li>
+              </ul>
+        
+
+        </div>
+
+        
+
+        <% data.forEach((event)=>{ %>
+          
+            <div class="space-50"></div>
+            <div class="col col-12">
+                <div class="card">
+                <div class="card-header <% if(event.isOpen == "true" || event.isOpen == true) { %> bg-success <% } else { %> bg-danger <% } %> ">
+                    <% if(event.isOpen == "true" || event.isOpen == true ) { %> Registration open <% } else { %> Registration closed <% } %> 
+                   </div>
+
+                   <div class="card-body <% if( event.isWorkshop == true) { %> bg-secondary text-white <% } %>">
+                     <h5 class="card-title"> <%= event.name %></h5>
+                     <p class="card-text">location</p>
+                      <% if( event.isWorkshop == true) { %> 
+
+                         <a href="/frontdesk/<%= event.branch %>/<%= event.name %>/workshop" class="btn btn-danger" >view list</a>
+
+                      <% } else { %>
+
+                        <a href="/frontdesk/<%= event.branch %>/<%= event.name %>/view" class="btn btn-danger" >view list</a>
+
+                      <%}%>
+
+                    
+                   </div>
+                </div>
+            </div>
+           
+        
+         <%  }) %>
+
+
+        
+       
+    </div>
+</div>
+       
+        
+</body>
+</html>
